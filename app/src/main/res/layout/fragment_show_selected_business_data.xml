@@ -1,0 +1,1214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.localbizzUI.UserFlow.ShowSelectedBusinessDataFragment">
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#DDE3F3"
+            android:paddingTop="@dimen/dp10">
+
+            <ImageView
+                android:id="@+id/backbutton"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp10"
+                android:src="@drawable/new_back_btn"
+                app:tint="@color/Minicash" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dp45"
+                android:gravity="center"
+                android:text="Pinbiz"
+                android:textColor="@color/Minicash"
+                android:textSize="30sp"
+                app:fontFamily="@font/baloo" />
+
+        </LinearLayout>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!--android:background="#33FF7C2B"-->
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#DDE3F3"
+                android:fitsSystemWindows="true"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                android:visibility="gone">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    android:paddingBottom="@dimen/dp10"
+                    app:contentScrim="@color/bg_grey"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+
+                    android:orientation="vertical">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="-10dp"
+                        android:backgroundTint="#DDE3F3">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp70"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:paddingLeft="@dimen/dp10"
+                            android:paddingRight="@dimen/dp10">
+
+                            <LinearLayout
+                                android:id="@+id/searchTool"
+                                android:layout_width="match_parent"
+                                android:layout_height="50dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="@dimen/dp15"
+                                android:layout_marginRight="@dimen/dp15"
+                                android:layout_marginBottom="@dimen/dp5"
+                                android:background="@drawable/button_boarder_2"
+                                android:backgroundTint="@color/white"
+                                android:elevation="@dimen/dp5"
+                                android:paddingStart="@dimen/dp20"
+                                android:paddingEnd="@dimen/dp20">
+
+
+                                <EditText
+                                    android:id="@+id/searchEt"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="@dimen/dp15"
+                                    android:layout_weight="1"
+                                    android:background="@color/transparent"
+                                    android:drawableTint="@color/grey_dark"
+                                    android:gravity="center_vertical"
+                                    android:hint="Search local business around you"
+                                    android:maxLines="1"
+                                    android:textSize="@dimen/sp12"
+                                    app:fontFamily="@font/inter_regular" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/dp25"
+                                    android:layout_height="@dimen/dp25"
+                                    android:layout_gravity="center_vertical"
+                                    android:src="@drawable/search_icon"
+                                    app:tint="@color/grey_dark" />
+
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <!-- ShopProduct Product Section-->
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp10"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginRight="@dimen/dp10"
+                                android:orientation="vertical"
+                                android:paddingLeft="@dimen/dp10"
+                                android:paddingRight="@dimen/dp10"
+                                android:paddingBottom="@dimen/dp10"
+                                app:cardCornerRadius="@dimen/dp10">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <!--                                Profile Details-->
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:id="@+id/bannerCard"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentStart="true"
+                                            android:layout_marginStart="3dp"
+                                            android:layout_marginTop="@dimen/dp3"
+                                            android:layout_marginEnd="@dimen/dp3"
+                                            android:layout_marginBottom="@dimen/dp3"
+                                            app:cardCornerRadius="@dimen/dp10"
+                                            app:cardElevation="-2dp">
+
+                                            <ImageView
+                                                android:id="@+id/banner"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="180dp" />
+                                        </androidx.cardview.widget.CardView>
+
+                                        <LinearLayout
+                                            android:id="@+id/layout"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_below="@id/bannerCard"
+                                            android:layout_marginTop="10dp"
+                                            android:orientation="horizontal"
+                                            android:paddingLeft="3dp"
+                                            android:paddingRight="3dp">
+
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:layout_width="80dp"
+                                                    android:layout_height="20dp"
+                                                    android:src="@drawable/verify_biz_icon" />
+
+                                                <TextView
+                                                    android:id="@+id/name"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:text="Saptami - Holiday Inn"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="23sp"
+                                                    app:fontFamily="@font/inter_bold" />
+
+                                                <TextView
+                                                    android:id="@+id/shortAddress"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/dp5"
+                                                    android:ellipsize="end"
+                                                    android:maxLines="1"
+                                                    android:text="Marol Maroshi Road , Marol"
+                                                    android:textColor="@color/black"
+                                                    android:textSize="13sp"
+                                                    app:fontFamily="@font/roboto_light" />
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="7dp"
+                                                    android:orientation="horizontal">
+
+                                                    <ImageView
+                                                        android:layout_width="17dp"
+                                                        android:layout_height="17dp"
+                                                        android:layout_marginRight="5dp"
+                                                        android:src="@drawable/star" />
+
+                                                    <TextView
+                                                        android:id="@+id/ratingdata"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:ellipsize="end"
+                                                        android:text="4.3"
+                                                        android:textColor="@color/black"
+                                                        android:textSize="18sp"
+                                                        app:fontFamily="@font/kollektif_bold" />
+
+                                                    <TextView
+                                                        android:id="@+id/ratingCount"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="7dp"
+                                                        android:drawableEnd="@drawable/arrow_right"
+                                                        android:drawableTint="@color/grey_dark"
+                                                        android:text="299 ratings"
+                                                        android:textColor="@color/black"
+                                                        android:textSize="16sp"
+                                                        app:fontFamily="@font/roboto_light" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/dp5"
+                                                    android:layout_marginBottom="@dimen/dp10"
+                                                    android:orientation="horizontal">
+
+                                                    <TextView
+                                                        android:id="@+id/statusofshop"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:text="Open Now : "
+                                                        android:textColor="@color/new_green2"
+                                                        android:textSize="14sp"
+                                                        app:fontFamily="@font/inter_bold" />
+
+                                                    <TextView
+                                                        android:id="@+id/Shoptime"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:drawableEnd="@drawable/arrow_down"
+                                                        android:drawableTint="@color/Minicash"
+                                                        android:text="9:00 am - 9:30 pm"
+                                                        android:textColor="@color/Minicash"
+                                                        android:textSize="14sp" />
+
+                                                </LinearLayout>
+                                            </LinearLayout>
+
+                                            <androidx.cardview.widget.CardView
+                                                android:layout_width="70dp"
+                                                android:layout_height="70dp"
+                                                android:layout_margin="@dimen/dp3"
+                                                app:cardCornerRadius="@dimen/dp10"
+                                                app:cardElevation="@dimen/dp2">
+
+                                                <ImageView
+                                                    android:id="@+id/icon"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent" />
+                                            </androidx.cardview.widget.CardView>
+                                        </LinearLayout>
+
+
+                                    </RelativeLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="7dp"
+                                        android:orientation="horizontal">
+
+                                        <!--                                    chat-->
+                                        <LinearLayout
+                                            android:id="@+id/chat"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/button_boarder_minicash"
+                                            android:orientation="horizontal"
+                                            android:padding="@dimen/dp15">
+
+                                            <androidx.cardview.widget.CardView
+                                                android:layout_width="@dimen/dp40"
+                                                android:layout_height="@dimen/dp30"
+                                                android:layout_gravity="center"
+                                                app:cardBackgroundColor="@color/transparent"
+                                                app:cardCornerRadius="@dimen/dp20"
+                                                app:cardElevation="-2dp">
+
+                                                <ImageView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_margin="@dimen/dp5"
+                                                    android:src="@drawable/whatsapp_icon"
+                                                    app:tint="@color/green_dark" />
+                                            </androidx.cardview.widget.CardView>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:text="Chat for Business Enquirey"
+                                                android:textColor="@color/Minicash"
+                                                android:textSize="12sp" />
+
+                                        </LinearLayout>
+                                        <!--                                    getDirection-->
+                                        <LinearLayout
+                                            android:id="@+id/getDirection"
+                                            android:layout_width="60dp"
+                                            android:layout_height="62dp"
+                                            android:layout_gravity="center"
+                                            android:layout_marginStart="@dimen/dp10"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/button_boarder_minicash">
+
+                                            <ImageView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_margin="@dimen/dp10"
+                                                android:src="@drawable/getdirectionicon" />
+                                        </LinearLayout>
+                                        <!--                                   call-->
+                                        <LinearLayout
+                                            android:id="@+id/call"
+                                            android:layout_width="60dp"
+                                            android:layout_height="60dp"
+                                            android:layout_gravity="center"
+                                            android:layout_marginStart="@dimen/dp10"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/button_boarder_2"
+                                            android:backgroundTint="@color/Minicash">
+
+                                            <ImageView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_margin="@dimen/dp10"
+                                                android:src="@drawable/ic_call"
+                                                app:tint="@color/white" />
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                    <!--                                service list-->
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dp3"
+                                        android:layout_marginTop="12dp"
+                                        android:layout_marginRight="@dimen/dp3"
+                                        app:cardCornerRadius="@dimen/dp10"
+                                        app:cardElevation="@dimen/dp2">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:padding="10dp">
+
+
+                                            <androidx.recyclerview.widget.RecyclerView
+                                                android:id="@+id/SuperLinksSUBRV"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_below="@+id/imageView2"
+                                                android:layout_marginLeft="@dimen/dp5"
+                                                android:layout_marginTop="@dimen/dp10"
+                                                android:layout_marginRight="@dimen/dp5"
+                                                android:layout_marginBottom="10dp"
+                                                android:clipToPadding="false"
+                                                android:scrollbars="vertical" />
+
+                                        </LinearLayout>
+                                    </androidx.cardview.widget.CardView>
+
+                                    <!--                                Address-->
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dp3"
+                                        android:layout_marginTop="@dimen/dp15"
+                                        android:layout_marginRight="@dimen/dp3"
+                                        android:layout_marginBottom="@dimen/dp5"
+                                        app:cardCornerRadius="@dimen/dp10"
+                                        app:cardElevation="@dimen/dp2">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/dp10">
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/dp15"
+                                                android:text="Location"
+                                                android:textSize="16sp"
+                                                app:fontFamily="@font/inter_bold" />
+
+                                            <RelativeLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content">
+
+
+                                                <androidx.cardview.widget.CardView
+                                                    android:id="@+id/card"
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="155dp"
+                                                    android:layout_alignParentStart="true"
+                                                    android:layout_alignParentTop="true"
+                                                    android:layout_alignParentEnd="true"
+                                                    android:layout_marginLeft="@dimen/dp3"
+                                                    android:layout_marginTop="@dimen/dp20"
+                                                    android:layout_marginRight="@dimen/dp3"
+                                                    app:cardCornerRadius="@dimen/dp10"
+                                                    app:cardElevation="-2dp">
+
+                                                    <ImageView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:scaleType="centerCrop"
+                                                        android:src="@drawable/new_map_image" />
+
+                                                </androidx.cardview.widget.CardView>
+
+                                                <androidx.cardview.widget.CardView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_below="@+id/card"
+                                                    android:layout_marginStart="20dp"
+                                                    android:layout_marginTop="-20dp"
+                                                    android:layout_marginEnd="@dimen/dp20"
+                                                    app:cardBackgroundColor="@color/transparent"
+                                                    app:cardCornerRadius="@dimen/dp10">
+
+                                                    <LinearLayout
+                                                        android:id="@+id/direction"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="@dimen/dp50"
+                                                        android:layout_centerVertical="true"
+                                                        android:background="@drawable/button_boarder_2"
+                                                        android:paddingStart="@dimen/dp20"
+                                                        android:paddingEnd="@dimen/dp20">
+
+
+                                                        <TextView
+                                                            android:layout_width="0dp"
+                                                            android:layout_height="match_parent"
+                                                            android:layout_marginStart="@dimen/dp15"
+                                                            android:layout_weight="1"
+                                                            android:background="@color/transparent"
+                                                            android:drawableTint="@color/grey_dark"
+                                                            android:gravity="center_vertical"
+                                                            android:hint="Check distance from your locations"
+                                                            android:maxLines="1"
+                                                            android:textSize="@dimen/sp12"
+                                                            app:fontFamily="@font/inter_regular" />
+
+                                                    </LinearLayout>
+
+                                                </androidx.cardview.widget.CardView>
+
+                                            </RelativeLayout>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="end"
+                                                android:paddingTop="@dimen/dp3"
+                                                android:text="Powered by"
+                                                android:textColor="@color/grey_dark"
+                                                android:textSize="10sp" />
+
+                                            <ImageView
+                                                android:layout_width="80dp"
+                                                android:layout_height="20dp"
+                                                android:layout_gravity="end"
+                                                android:layout_marginTop="-5dp"
+                                                android:scaleType="centerCrop"
+                                                android:src="@drawable/gmap_logo" />
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/dp10"
+                                                android:orientation="horizontal">
+
+                                                <ImageView
+                                                    android:layout_width="@dimen/dp20"
+                                                    android:layout_height="@dimen/dp20"
+                                                    android:src="@drawable/pin_biz_icon"
+                                                    app:tint="@color/Minicash" />
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginStart="@dimen/dp5"
+                                                    android:layout_marginBottom="7dp"
+                                                    android:layout_weight="1"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:id="@+id/addressTv"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginLeft="@dimen/dp10"
+                                                        android:layout_marginEnd="@dimen/dp10"
+                                                        android:text="Holiday Inn, Sakinaka Junction, Andheri Kurla Road, Sakinaka, Andheri East, Mumbai"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="14sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/distance"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_marginTop="@dimen/dp5"
+                                                        android:text="0.3km"
+                                                        android:textColor="@color/black"
+                                                        android:textSize="14sp"
+                                                        app:fontFamily="@font/inter_bold" />
+                                                </LinearLayout>
+
+
+                                            </LinearLayout>
+                                        </LinearLayout>
+                                    </androidx.cardview.widget.CardView>
+
+                                    <!--chat-->
+                                    <LinearLayout
+                                        android:id="@+id/chat1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp15"
+                                        android:background="@drawable/button_boarder_2"
+                                        android:backgroundTint="@color/Minicash"
+                                        android:orientation="horizontal"
+                                        android:padding="@dimen/dp15">
+
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="4dp"
+                                            android:gravity="center"
+                                            android:text="Request for Service or Appointment"
+                                            android:textColor="@color/white"
+
+                                            android:textSize="15sp" />
+
+                                    </LinearLayout>
+
+
+                                    <!--                                rating-->
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp15"
+                                        android:orientation="horizontal">
+
+                                        <LinearLayout
+                                            android:id="@+id/rating"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginEnd="@dimen/dp10"
+
+                                            android:layout_weight="1"
+                                            android:background="@drawable/button_boarder_minicash"
+                                            android:orientation="horizontal"
+                                            android:padding="@dimen/dp15">
+
+                                            <androidx.cardview.widget.CardView
+                                                android:layout_width="@dimen/dp20"
+                                                android:layout_height="@dimen/dp20"
+                                                android:layout_margin="@dimen/dp2"
+                                                app:cardCornerRadius="@dimen/dp20">
+
+                                                <ImageView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_margin="@dimen/dp2"
+                                                    android:src="@drawable/star" />
+                                            </androidx.cardview.widget.CardView>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_marginLeft="4dp"
+                                                android:text="Rate this biz"
+                                                android:textColor="@color/Minicash"
+                                                android:textSize="12sp"
+                                                app:fontFamily="@font/inter_bold" />
+
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:id="@+id/busizz_card"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:background="@drawable/button_boarder_minicash"
+                                            android:orientation="horizontal"
+                                            android:padding="@dimen/dp15">
+
+                                            <androidx.cardview.widget.CardView
+                                                android:layout_width="@dimen/dp20"
+                                                android:layout_height="@dimen/dp20"
+                                                android:layout_margin="@dimen/dp2"
+                                                app:cardCornerRadius="@dimen/dp20"
+                                                app:cardElevation="-2dp">
+
+                                                <ImageView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:layout_margin="@dimen/dp2"
+                                                    android:src="@drawable/bizz_card_logo" />
+                                            </androidx.cardview.widget.CardView>
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_marginLeft="4dp"
+                                                android:text="Get eBusiness Card"
+                                                android:textColor="@color/Minicash"
+                                                android:textSize="12sp"
+                                                app:fontFamily="@font/inter_bold" />
+
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                    <!--                                About business-->
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/dp3"
+                                        android:layout_marginTop="@dimen/dp15"
+                                        android:layout_marginEnd="@dimen/dp3"
+                                        android:layout_marginBottom="@dimen/dp5"
+                                        app:cardCornerRadius="@dimen/dp10"
+                                        app:cardElevation="@dimen/dp2">
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginBottom="@dimen/dp5"
+                                            android:orientation="vertical"
+                                            android:padding="@dimen/dp10">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/dp15"
+                                                android:text="About Business"
+                                                android:textSize="16sp"
+                                                app:fontFamily="@font/inter_bold" />
+
+                                            <TextView
+                                                android:id="@+id/description"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="7dp"
+                                                android:text="Established in the year 1960, Cafe Marol in Andheri East, Mumbai is a top player in the category Tandoori Restaurants in the Mumbai."
+                                                android:textColor="@color/grey_dark"
+                                                android:textSize="14sp"
+                                                app:fontFamily="@font/inter_regular" />
+
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/dp10"
+                                                android:orientation="horizontal">
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="1"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:id="@+id/stablised"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="center"
+                                                        android:text="2009"
+                                                        android:textSize="18sp"
+                                                        app:fontFamily="@font/inter_bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="center"
+                                                        android:text="Since"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp"
+                                                        app:fontFamily="@font/inter_regular" />
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="1"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:id="@+id/old_bussiness_year"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="center"
+                                                        android:text="8+"
+                                                        android:textSize="18sp"
+                                                        app:fontFamily="@font/inter_bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="center"
+                                                        android:text="Years"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp"
+                                                        app:fontFamily="@font/inter_regular" />
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="1"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:id="@+id/avrage_rating_expration"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="center"
+                                                        android:text="Good"
+                                                        android:textSize="18sp"
+                                                        app:fontFamily="@font/inter_bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="center"
+                                                        android:text="Reviews"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp"
+                                                        app:fontFamily="@font/inter_regular" />
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_weight="1"
+                                                    android:orientation="vertical">
+
+                                                    <TextView
+                                                        android:id="@+id/avrageReview"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="center"
+                                                        android:text="@string/_4_7_5"
+                                                        android:textSize="18sp"
+                                                        app:fontFamily="@font/inter_bold" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="wrap_content"
+                                                        android:gravity="center"
+                                                        android:text="Ratings"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp"
+                                                        app:fontFamily="@font/inter_regular" />
+
+                                                </LinearLayout>
+                                            </LinearLayout>
+
+                                            <!--                                        Hide Elements Like website and Emails -->
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginTop="@dimen/dp15"
+                                                android:orientation="vertical"
+                                                android:visibility="gone">
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:orientation="horizontal">
+
+                                                    <ImageView
+                                                        android:layout_width="@dimen/dp25"
+                                                        android:layout_height="@dimen/dp25"
+                                                        android:padding="@dimen/dp5"
+                                                        android:src="@drawable/website_new_icon" />
+
+                                                    <TextView
+                                                        android:id="@+id/website"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:layout_weight="1"
+                                                        android:gravity="center_vertical"
+                                                        android:maxLines="1"
+                                                        android:text="Website"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="14sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/visit_website"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center_vertical"
+                                                        android:text="Visit now"
+                                                        android:textColor="@color/new_green2"
+                                                        android:textSize="10sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/dp10"
+                                                    android:orientation="horizontal">
+
+                                                    <ImageView
+                                                        android:layout_width="@dimen/dp25"
+                                                        android:layout_height="@dimen/dp25"
+                                                        android:padding="@dimen/dp5"
+                                                        android:src="@drawable/mail_icon" />
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:layout_weight="1"
+                                                        android:gravity="center_vertical"
+                                                        android:maxLines="1"
+                                                        android:text="vabilesh45@gmail.com"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/drop_mail"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center_vertical"
+                                                        android:text="Drop Mail"
+                                                        android:textColor="@color/new_green2"
+                                                        android:textSize="10sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/dp10"
+                                                    android:orientation="horizontal">
+
+                                                    <ImageView
+                                                        android:layout_width="@dimen/dp25"
+                                                        android:layout_height="@dimen/dp25"
+                                                        android:padding="@dimen/dp5"
+                                                        android:src="@drawable/new_contact_icon" />
+
+                                                    <TextView
+                                                        android:id="@+id/contact"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:layout_weight="1"
+                                                        android:gravity="center_vertical"
+                                                        android:maxLines="1"
+                                                        android:text="878832323, 678909098"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/calltoBusiness"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center_vertical"
+                                                        android:text="Call"
+                                                        android:textColor="@color/new_green2"
+                                                        android:textSize="10sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/dp10"
+                                                    android:orientation="horizontal">
+
+                                                    <ImageView
+                                                        android:layout_width="@dimen/dp25"
+                                                        android:layout_height="@dimen/dp25"
+                                                        android:padding="@dimen/dp5"
+                                                        android:src="@drawable/whatsapp_icon" />
+
+                                                    <TextView
+                                                        android:id="@+id/whatsapp_number"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:layout_weight="1"
+                                                        android:gravity="center_vertical"
+                                                        android:maxLines="1"
+                                                        android:text="878832323"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp" />
+
+                                                    <TextView
+                                                        android:id="@+id/whatsapp"
+                                                        android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:layout_gravity="center_vertical"
+                                                        android:text="WhatsApp"
+                                                        android:textColor="@color/new_green2"
+                                                        android:textSize="10sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/dp10"
+                                                    android:orientation="horizontal">
+
+                                                    <ImageView
+                                                        android:layout_width="@dimen/dp25"
+                                                        android:layout_height="@dimen/dp25"
+                                                        android:padding="@dimen/dp5"
+                                                        android:src="@drawable/green_star_icon" />
+
+                                                    <TextView
+                                                        android:id="@+id/GSTN_number"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:gravity="center_vertical"
+                                                        android:maxLines="1"
+                                                        android:text="@string/gstin"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginTop="@dimen/dp10"
+                                                    android:orientation="horizontal">
+
+                                                    <ImageView
+                                                        android:layout_width="@dimen/dp25"
+                                                        android:layout_height="@dimen/dp25"
+                                                        android:padding="@dimen/dp5"
+                                                        android:src="@drawable/green_star_icon" />
+
+                                                    <TextView
+                                                        android:id="@+id/pan_number"
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:gravity="center_vertical"
+                                                        android:maxLines="1"
+                                                        android:text="@string/pan_no"
+                                                        android:textColor="@color/grey_dark"
+                                                        android:textSize="12sp" />
+                                                </LinearLayout>
+                                            </LinearLayout>
+
+
+                                        </LinearLayout>
+                                    </androidx.cardview.widget.CardView>
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp15"
+                                    android:background="@drawable/button_boarder_2"
+                                    android:backgroundTint="@color/Minicash"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/dp15">
+
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_marginLeft="4dp"
+                                        android:gravity="start"
+                                        android:text="Do you have business? List your free business with us!"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp" />
+
+
+                                    <LinearLayout
+                                        android:id="@+id/create_business"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp10"
+                                        android:background="@drawable/button_boarder_2"
+                                        android:backgroundTint="@color/white"
+                                        android:padding="@dimen/dp10">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Free Listing Business" />
+
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="#0F3498DB"
+                                android:layout_marginTop="@dimen/dp30"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dp20">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Powered by Pinbiz"
+                                    android:textColor="@color/grey_light"
+                                    android:textSize="10sp"
+                                    android:layout_marginTop="@dimen/dp50"
+                                    app:fontFamily="@font/roboto_light" />
+
+                                <TextView
+                                    android:id="@+id/name1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="NAme"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="15sp"
+                                    app:fontFamily="@font/inter_regular" />
+
+                                <TextView
+                                    android:id="@+id/shortAddress1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="NAme"
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="10sp"
+                                    app:fontFamily="@font/inter_regular" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp10"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp10"
+                                        android:layout_height="@dimen/dp10"
+                                        android:src="@drawable/pin_biz_icon"
+                                        android:layout_marginTop="@dimen/dp5"
+                                        app:tint="@color/grey_dark" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginBottom="7dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/addressTv1"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/dp10"
+                                            android:layout_marginEnd="@dimen/dp10"
+                                            android:text="Holiday Inn, Sakinaka Junction, Andheri Kurla Road, Sakinaka, Andheri East, Mumbai"
+                                            android:textColor="@color/grey_dark"
+                                            app:fontFamily="@font/roboto_light"
+                                            android:textSize="12sp" />
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp10"
+                                    android:layout_marginBottom="@dimen/dp100"
+                                    android:orientation="horizontal">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp10"
+                                        android:layout_height="@dimen/dp10"
+                                        android:src="@drawable/ic_contact"
+                                        android:layout_marginTop="@dimen/dp5"
+                                        app:tint="@color/grey_dark" />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginBottom="7dp"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/contactNumber"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/dp10"
+                                            android:layout_marginEnd="@dimen/dp10"
+                                            android:text="Holiday Inn, Sakinaka Junction, Andheri Kurla Road, Sakinaka, Andheri East, Mumbai"
+                                            android:textColor="@color/grey_dark"
+                                            app:fontFamily="@font/roboto_light"
+                                            android:textSize="12sp" />
+
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.core.widget.NestedScrollView>
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

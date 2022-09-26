@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:minWidth="@dimen/dp80"
+    android:gravity="center"
+    android:paddingStart="@dimen/dp5"
+    android:paddingEnd="@dimen/dp5"
+    tools:text="500"
+    android:id="@+id/amountTv"
+    android:layout_marginEnd="@dimen/dp10"
+    android:background="@drawable/selector_line"
+    android:textSize="@dimen/sp16"
+    android:textColor="@drawable/selector_text_color"
+    android:layout_height="@dimen/dp40">
+
+</TextView>

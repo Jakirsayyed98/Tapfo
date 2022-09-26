@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/verified"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+   <!--
+
+     <LinearLayout
+         android:id="@+id/wallet_card"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:paddingTop="@dimen/dp5"
+         android:orientation="vertical">
+
+         <androidx.cardview.widget.CardView
+             android:id="@+id/wallet_card1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <RelativeLayout
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="@dimen/dp10">
+
+                 <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:orientation="horizontal">
+
+                     <ImageView
+                         android:id="@+id/image"
+                         android:layout_width="@dimen/dp40"
+                         android:layout_height="@dimen/dp40"
+                         android:layout_margin="@dimen/dp10"
+                         tools:background="@color/black" />
+
+                     <LinearLayout
+                         android:layout_width="wrap_content"
+                         android:layout_height="match_parent"
+                         android:orientation="vertical">
+
+
+                         <LinearLayout
+                             android:layout_width="wrap_content"
+                             android:layout_height="match_parent"
+                             android:orientation="vertical">
+                             <TextView
+                                 android:id="@+id/Cashback_from"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="Cashback from"
+                                 android:textSize="12sp" />
+
+                             <TextView
+                                 android:id="@+id/brandNameTv"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="wrap_content"
+                                 android:text="AJIO"
+                                 android:textSize="16sp"
+                                 android:textStyle="bold"
+                                 app:fontFamily="@font/inter_bold" />
+
+                             <TextView
+                                 android:id="@+id/dateTv"
+                                 android:layout_width="wrap_content"
+                                 android:layout_height="match_parent"
+                                 android:layout_gravity="bottom"
+                                 android:layout_marginLeft="5dp"
+                                 android:gravity="bottom"
+                                 android:text="22 Dec 2021, 16:40"
+                                 android:textColor="#8F8E8E"
+                                 android:textSize="10sp" />
+                         </LinearLayout>
+
+                     </LinearLayout>
+
+
+
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentEnd="true"
+                     android:layout_marginStart="140dp"
+                     android:orientation="vertical">
+
+                     <TextView
+                         android:id="@+id/balenceTv"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:text="₹34.40"
+                         android:gravity="end"
+                         android:textColor="@color/black"
+                         android:textSize="16sp"
+                         app:fontFamily="@font/inter_bold" />
+
+                     <TextView
+                         android:id="@+id/cashbackPercent"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="end"
+                         android:layout_marginTop="5dp"
+                         android:gravity="bottom"
+                         android:text=""
+                         android:textColor="@color/green_dark"
+                         android:textSize="12sp"/>
+                     <TextView
+                         android:id="@+id/staticline"
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="end"
+                         android:gravity="bottom"
+                         android:text="credited to wallet"
+                         android:textColor="@color/green_dark"
+                         android:textSize="12sp" />
+
+                 </LinearLayout>
+             </RelativeLayout>
+
+         </androidx.cardview.widget.CardView>
+
+     </LinearLayout>
+
+     -->
+    <LinearLayout
+        android:id="@+id/wallet_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/dp5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp15"
+            android:paddingTop="@dimen/dp5"
+            android:paddingRight="@dimen/dp15"
+            android:paddingBottom="@dimen/dp5">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardElevation="-5dp"
+                android:layout_margin="@dimen/dp5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/icon"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_wallet"
+                        app:tint="@color/orange"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+
+
+                            <TextView
+                                android:id="@+id/Amount"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:textColor="#1abc9c"
+                                android:text="500"
+                                android:layout_gravity="center_vertical"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/inter_bold"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/payoption"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Swiggy"
+                                app:fontFamily="@font/roboto_condensed_bold"
+                                android:textColor="@color/black"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/credited"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:text="credited"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="12sp" />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/dateTv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="April 29, 2022"
+                            android:layout_marginTop="5dp"
+                            android:textColor="@color/grey_dark"
+                            android:textSize="9sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:background="#4DC1C1C1" />
+    </LinearLayout>
+</LinearLayout>

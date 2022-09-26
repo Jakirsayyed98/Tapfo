@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.vouchers.VoucherDetailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="match_parent"
+            android:foreground="?actionBarItemBackground"
+            android:padding="@dimen/dp15"
+            android:src="@drawable/ic_back"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/dp50"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/brand_vouchers"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/favouriteIv"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/selector_favourites_webview" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/sp_white_corner_10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/sp_white_corner_10"
+                    android:backgroundTint="#520071"
+                    android:paddingStart="@dimen/dp10"
+                    android:paddingTop="@dimen/dp10"
+                    android:paddingBottom="@dimen/dp10">
+
+                    <ImageView
+                        android:id="@+id/logoIv"
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp50"
+                        android:layout_marginEnd="@dimen/dp5"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:id="@+id/nameTv"
+                        style="@style/TextViewSemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/cashbackTv"
+                        android:layout_toEndOf="@+id/logoIv"
+                        android:text="Flipkart Voucher"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        style="@style/TextViewNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/nameTv"
+                        android:layout_toStartOf="@+id/cashbackTv"
+                        android:layout_toEndOf="@+id/logoIv"
+                        android:text="E-Gift voucher (Instant Voucher)"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp12" />
+
+                    <TextView
+                        android:id="@+id/cashbackTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="@dimen/dp5"
+                        android:background="@drawable/sp_left_corners_10"
+                        android:backgroundTint="@color/white"
+                        android:paddingStart="@dimen/dp5"
+                        android:paddingTop="@dimen/dp3"
+                        android:paddingEnd="@dimen/dp5"
+                        android:paddingBottom="@dimen/dp3"
+                        android:text="Flat 8% Cashback"
+                        android:textSize="@dimen/sp12" />
+
+                    <TextView
+                        android:id="@+id/claimedTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cashbackTv"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp2"
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:gravity="center"
+                        android:text="20k Claimed"
+                        android:textColor="@color/white"
+                        app:drawableStartCompat="@drawable/ic_person" />
+
+                    <TextView
+                        android:id="@+id/earnedCashbackTv"
+                        style="@style/TextViewSemiBold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/claimedTv"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:text="₹500"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp18" />
+
+                    <TextView
+                        android:id="@+id/inclusiveTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/earnedCashbackTv"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:gravity="center"
+                        android:text="@string/inclusive_all_taxes"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp12" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerCashbackCount"
+                        android:layout_width="wrap_content"
+                        android:layout_marginEnd="@dimen/dp5"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/logoIv"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_toStartOf="@+id/inclusiveTv" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/redeemable"
+                        android:text="Redeemable"
+                        android:textColor="@color/black"
+                        style="@style/TextViewNormal"
+                        android:textSize="@dimen/sp12"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <TextView
+                        android:id="@+id/onlineTv"
+                        android:text="Online"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:textColor="@color/green_light"
+                        android:layout_toEndOf="@+id/redeemable"
+                        android:layout_width="wrap_content"
+                        android:textSize="@dimen/sp12"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_check_circle" />
+
+                    <TextView
+                        android:id="@+id/outletsTv"
+                        android:text="Outlets"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:textColor="@color/red"
+                        android:drawablePadding="@dimen/dp5"
+                        android:textSize="@dimen/sp12"
+                        android:layout_toEndOf="@+id/onlineTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/ic_close_circle" />
+
+                    <TextView
+                        android:gravity="end"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:textSize="@dimen/sp10"
+                        android:layout_toEndOf="@+id/outletsTv"
+                        style="@style/TextViewNormal"
+                        android:text="How to Redeem | Terms &amp; Conditions"
+                        android:textColor="@color/purple_500"
+                        android:layout_alignParentEnd="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RelativeLayout>
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerCoupons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

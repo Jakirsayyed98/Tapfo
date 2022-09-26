@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.AllUpiPaymentProcess.SendMoneyFromUPI.BankTransfer.FindIFSCCodeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dp10">
+
+            <ImageView
+                android:id="@+id/backIv"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="15dp"
+                android:src="@drawable/new_back_btn" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:padding="@dimen/dp5"
+                    android:text="Search For IFSC"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/sp16"
+                    app:fontFamily="@font/inter_bold" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp5">
+
+                <TextView
+                    android:id="@+id/selectBank"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:layout_marginRight="@dimen/dp20"
+                    android:background="@drawable/button_boarder_2"
+                    android:padding="@dimen/dp10"
+                    android:hint="Select Bank" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:layout_marginRight="@dimen/dp20"
+                    android:background="@drawable/button_boarder_2"
+                    android:padding="@dimen/dp10"
+                    android:hint="Select State" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:layout_marginRight="@dimen/dp20"
+                    android:background="@drawable/button_boarder_2"
+                    android:padding="@dimen/dp10"
+                    android:hint="Seleect City" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:layout_marginRight="@dimen/dp20"
+                    android:background="@drawable/button_boarder_2"
+                    android:padding="@dimen/dp10"
+                    android:hint="Select Branch" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/proceedBtn"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp30"
+                android:layout_marginRight="@dimen/dp20"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/upi_payment_btn"
+                android:paddingStart="@dimen/dp20"
+                android:paddingRight="@dimen/dp20"
+                android:text="Confirm &amp; Proceed"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp18"
+                android:textStyle="bold"
+                app:fontFamily="@font/roboto_light" />
+
+            <TextView
+                android:id="@+id/hintForUPIID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:gravity="center"
+                android:padding="@dimen/dp5"
+                android:text="This information will be securely saved per Tapfo Pay Terms of\nservice and Privacy Policy"
+                android:textColor="@color/grey_dark"
+                android:textSize="11sp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</FrameLayout>

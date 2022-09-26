@@ -1,0 +1,363 @@
+package app.tapho.ui.activecashback
+
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.graphics.Bitmap
+import android.os.Bundle
+import android.transition.TransitionManager
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.core.content.ContextCompat
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
+import androidx.palette.graphics.Palette
+import app.tapho.R
+import app.tapho.databinding.FragmentOrderDetailBinding
+import app.tapho.lightstatusBar
+import app.tapho.ui.home.HomeActivity
+import app.tapho.ui.tcash.model.TCashDashboardData
+import app.tapho.utils.withSuffixAmount
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.BitmapImageViewTarget
+import com.bumptech.glide.request.transition.Transition
+import com.google.gson.Gson
+import java.util.*
+
+
+class OrderDetailFragment : DialogFragment() {
+    private var _binding: FragmentOrderDetailBinding? = null
+
+    companion object {
+        fun newInstance(): OrderDetailFragment {
+            val args = Bundle()
+
+            val fragment = OrderDetailFragment()
+            fragment.arguments = args
+            return fragment
+        }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setStyle(STYLE_NORMAL, R.style.Theme_Tapfo)
+
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        _binding = FragmentOrderDetailBinding.inflate(inflater, container, false)
+        return _binding?.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Gson().fromJson(arguments?.getString("ORDER"), TCashDashboardData::class.java)
+            ?.let { data ->
+                setData(data)
+                dateFunction(data)
+            }
+
+//        _binding?.continueLi?.setOnClickListener {
+//            activity?.supportFragmentManager?.setFragmentResult("ACTIVATE",Bundle().apply {
+//                putBoolean("ACTIVATE",true)
+//            })
+//            dismiss()
+//        }
+    }
+
+    @SuppressLint("ResourceType")
+    private fun setData(data: TCashDashboardData) {
+
+
+
+        _binding?.backIv?.setOnClickListener {
+            val intent = Intent(context, HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        _binding?.image?.let { it1 ->
+            Glide.with(this).asBitmap().load(data.image)
+                .into(object : BitmapImageViewTarget(it1) {
+                    override fun onResourceReady(
+                        resource: Bitmap,
+                        transition: Transition<in Bitmap>?
+                    ) {
+                        super.onResourceReady(resource, transition)
+                        setColor(resource)
+                    }
+                })
+        }
+        val cashbackAmt = data.user_commision.toString()
+        val transactionAmt = data.sale_amount.toString()
+        val percentage = cashbackAmt.toDouble() / transactionAmt.toDouble() * 100
+
+        _binding?.invite?.setOnClickListener {
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.setPackage("com.whatsapp")
+            val appLink:String="https://play.google.com/store/apps/details?id=app.tapho"
+            intent.putExtra(Intent.EXTRA_TEXT, "Hey\n"+appLink)
+            intent.type = "text/plain"
+            startActivity(Intent.createChooser(intent, "Share To:"))
+        }
+        _binding?.nameTv?.text = data.offer_name
+        // _binding?.nameTv2?.text = getString(R.string.activate, data.offer_name)
+        _binding?.orderAmountTv?.text = withSuffixAmount(data.sale_amount)
+        _binding?.transactionDate?.text = " Transaction Completed. " + data.date
+        val finalValue = String.format("%.2f", percentage).toDouble()
+        _binding?.cashbackAmountTv?.text = finalValue.toString() + "% Cashback"//  data.user_commision+"% Cashback"
+//        _binding?.refrenceIdTv?.text =
+//            SpannableString(getString(R.string.reference_id_, data.affiliate_id)).apply {
+//                setSpan(StyleSpan(Typeface.BOLD), 13, length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+//            }
+        _binding?.redirectline?.text = getString(R.string.cashback_recieved_from, data.offer_name)
+        _binding?.redirectline1?.text = getString(R.string.cashbackhold, data.offer_name)
+
+        if (data.status?.uppercase() == "VERIFIED") {
+            _binding?.verifedConformation?.setImageResource(R.drawable.verifiedok)
+            _binding?.backgorundtext?.text = getString(
+                R.string.your_cashback_verified,
+                withSuffixAmount(data.user_commision),
+                data.offer_name
+            )
+            _binding?.cashbackStatus?.text = getString(R.string.verified_from, data.offer_name)
+        } else  if (data.status?.uppercase() == "VALIDATED") {
+            _binding?.verifedConformation?.setImageResource(R.drawable.verifiedok)
+            _binding?.backgorundtext?.text = getString(
+                R.string.your_cashback_verified,
+                withSuffixAmount(data.user_commision),
+                data.offer_name
+            )
+            _binding?.cashbackStatus?.text = getString(R.string.verified_from, data.offer_name)
+        } else if (data.status?.uppercase() == "PENDING") {
+            _binding?.backgorundtext?.text = getString(
+                R.string.your_cashback_pending,
+                withSuffixAmount(data.user_commision),
+                data.offer_name
+            )
+            _binding?.cashbackStatus?.text = getString(R.string.pending_from, data.offer_name)
+        } else {
+            _binding?.verifedConformation?.setImageResource(R.drawable.rejectedok)
+            _binding?.backgorundtext?.text = getString(
+                R.string.your_cashback_rejected,
+                withSuffixAmount(data.user_commision),
+                data.offer_name
+            )
+            _binding?.cashbackStatus?.text = getString(R.string.Rejected_from, data.offer_name)
+        }
+
+
+        val color = when (data.status?.uppercase()) {
+            "VERIFIED" -> ContextCompat.getColor(
+                requireContext(),
+                R.color.green_dark
+            )
+            "VALIDATED" -> ContextCompat.getColor(
+                requireContext(),
+                R.color.green_dark
+            )
+            "PENDING" -> ContextCompat.getColor(requireContext(), R.color.offer_coupon)
+            else -> ContextCompat.getColor(requireContext(), R.color.red)
+        }
+        _binding?.statusTextTv?.text = getString(R.string.cashback_pending_from_,data.status, data.offer_name)
+        _binding?.statusTextTv?.setTextColor(color)
+        _binding?.backgorundtext?.setBackgroundColor(color)
+//        _binding?.statusTv?.let {
+//            ViewCompat.setBackgroundTintList(
+//                it,
+//                ColorStateList.valueOf(color)
+//            )
+//        }
+
+        _binding?.tapfoTransactionID?.text = data.trans_id + "-" + data.user_id
+        _binding?.statusTextTv?.setTextColor(color)
+        _binding?.merchantId?.text = data.trans_id
+        _binding?.arrowdown?.setOnClickListener {
+            if (_binding?.VisibilityLayout?.visibility == View.VISIBLE) {
+                TransitionManager.beginDelayedTransition(_binding?.cardview)
+                _binding?.VisibilityLayout?.visibility = View.GONE
+                _binding?.arrowdown?.setImageResource(R.drawable.arrow_down)
+            } else {
+                TransitionManager.beginDelayedTransition(_binding?.cardview)
+                _binding?.VisibilityLayout?.visibility = View.VISIBLE
+                _binding?.arrowdown?.setImageResource(R.drawable.arrow_up)
+            }
+        }
+        /*
+//        _binding?.statusTv?.text = data.status?.replaceFirstChar { it.uppercase() }
+//        _binding?.tvCanceledRet?.visibility = View.GONE
+//        when {
+//            data.status?.uppercase() == "PENDING" -> {
+//                _binding?.ivPending?.let {
+//                    ViewCompat.setBackgroundTintList(
+//                        it,
+//                        ColorStateList.valueOf(color)
+//                    )
+//                }
+//                _binding?.statusTextTv?.text =
+//                    getString(R.string.cashback_pending_from_, data.offer_name)
+//            }
+//            data.status?.uppercase() == "REJECTED" -> {
+//                _binding?.ivPending?.let {
+//                    ViewCompat.setBackgroundTintList(
+//                        it,
+//                        ColorStateList.valueOf(color)
+//                    )
+//                }
+//                _binding?.statusTextTv?.text =
+//                    getString(R.string.cashback_rejected_from_, data.offer_name)
+//                _binding?.tvCanceledRet?.visibility = View.VISIBLE
+//            }
+//            else -> {
+//                _binding?.statusTextTv?.text =
+//                    getString(R.string.cashback_verified_from_, data.offer_name)
+//            }
+//        }
+
+         */
+    }
+
+    private fun dateFunction(data: TCashDashboardData) {
+        if (data.date.toString().length == 10) {
+            Log.d("Date", data.date.toString())
+            val date100 = data.date.toString().trim() + " 10/10/10"
+            val date0 = date100
+            val data1 = date0//.trim()
+            val length1 = data1.length
+            val data2 = data1.removeRange(10, 19)
+            val data3 = data2;
+
+            val data4 = data3.reversed()
+            //start
+            val data5 = data4.dropLast(8) //81
+            val maindate = data5.reversed()//18
+            //end
+            //start 1
+            val data6 = data1.removeRange(7, 18)
+            val data8 = data6.removeRange(0, 4)
+
+            val data7 = data8.reversed()
+            val mainMonth = data7.removeRange(2, 4)
+            //end 1
+            //statrt2
+            val year = data3.removeRange(4, 10)
+
+            var month: String? = null
+            if (mainMonth.equals("01")) {
+                month = "Jan"
+            } else if (mainMonth.equals("02")) {
+                month = "Feb"
+            } else if (mainMonth.equals("03")) {
+                month = "Mar"
+            } else if (mainMonth.equals("04")) {
+                month = "Apr"
+            } else if (mainMonth.equals("05")) {
+                month = "May"
+            } else if (mainMonth.equals("06")) {
+                month = "Jun"
+            } else if (mainMonth.equals("07")) {
+                month = "Jul"
+            } else if (mainMonth.equals("08")) {
+                month = "Aug"
+            } else if (mainMonth.equals("09")) {
+                month = "Sep"
+            } else if (mainMonth.equals("10")) {
+                month = "Oct"
+            } else if (mainMonth.equals("11")) {
+                month = "Nov"
+            } else if (mainMonth.equals("12")) {
+                month = "Dec"
+            }
+
+            val dataMonth = month.toString()
+            val actualDate = dataMonth + " " + maindate + ", " + year
+
+            _binding?.transactionDate?.text = " Transaction Completed. " +  actualDate
+            _binding?.transactionDate1?.text=actualDate
+
+        }
+        else if (data.date.toString().length == 19) {
+            val date100 = data.date.toString().trim()
+            val date0 = date100
+            val data1 = date0//.trim()
+            val length1 = data1.length
+            val data2 = data1.removeRange(10, 19)
+            val data3 = data2;
+
+            val data4 = data3.reversed()
+            //start
+            val data5 = data4.dropLast(8) //81
+            val maindate = data5.reversed()//18
+            //end
+            //start 1
+
+            val data6 = data1.removeRange(7, 19)
+            val data8 = data6.removeRange(0, 5)
+            val data7 = data8//.reversed()
+
+            val mainMonth = data7
+            //end 1
+            //statrt2
+            val year = data3.removeRange(4, 10)
+
+            var month: String? = null
+            if (mainMonth.equals("01")) {
+                month = "Jan"
+            } else if (mainMonth.equals("02")) {
+                month = "Feb"
+            } else if (mainMonth.equals("03")) {
+                month = "Mar"
+            } else if (mainMonth.equals("04")) {
+                month = "Apr"
+            } else if (mainMonth.equals("05")) {
+                month = "May"
+            } else if (mainMonth.equals("06")) {
+                month = "Jun"
+            } else if (mainMonth.equals("07")) {
+                month = "Jul"
+            } else if (mainMonth.equals("08")) {
+                month = "Aug"
+            } else if (mainMonth.equals("09")) {
+                month = "Sep"
+            } else if (mainMonth.equals("10")) {
+                month = "Oct"
+            } else if (mainMonth.equals("11")) {
+                month = "Nov"
+            } else if (mainMonth.equals("12")) {
+                month = "Dec"
+            }
+
+            val dataMonth1 = month.toString()
+            val actualDate1 = dataMonth1 + " " + maindate + ", " + year
+
+            _binding?.transactionDate?.text = " Transaction Completed. " + actualDate1
+            _binding?.transactionDate1?.text=actualDate1
+
+
+        }
+        else {
+            _binding?.transactionDate?.text = " Transaction Completed. " + data.date
+            _binding?.transactionDate1?.text=data.date
+
+        }
+    }
+
+
+    private fun setColor(bitmap: Bitmap) {
+//        val defColor = ContextCompat.getColor(requireContext(), R.color.black)
+        createPaletteSync(bitmap).vibrantSwatch?.rgb?.let { setColor(it) }
+    }
+
+    private fun createPaletteSync(bitmap: Bitmap): Palette = Palette.from(bitmap).generate()
+
+    private fun setColor(color: Int) {
+        // (_binding?.continueLi?.background as GradientDrawable).setColor(color)
+    }
+
+}

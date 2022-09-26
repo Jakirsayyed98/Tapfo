@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp20"
+    android:paddingEnd="@dimen/dp20"
+    tools:context=".ui.login.VerifyErrorFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_white" />
+
+
+    <ImageView
+        android:layout_width="@dimen/dp80"
+        android:layout_height="@dimen/dp80"
+        android:layout_marginTop="@dimen/dp100"
+        android:src="@drawable/ic_error" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:fontFamily="@font/inter_bold"
+        android:text="@string/unable_to_verify"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tvTryAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="@string/you_have_entered" />
+
+
+    <TextView
+        android:id="@+id/forgotPasscodeTv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="@string/forgot_passcode_try_with_otp"
+        android:textColor="@color/black" />
+
+
+</LinearLayout>

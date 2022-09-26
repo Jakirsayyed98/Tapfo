@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.AllUpiPaymentProcess.SendMoneyFromUPI.PayToMobileNumber.MobileNumberNotUPIMemberFragment">
+
+    <LinearLayout
+        android:id="@+id/back"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="15dp"
+            android:src="@drawable/new_back_btn" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mobile_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:fontFamily="@font/inter_bold"
+        android:paddingLeft="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp10"
+        android:text=""/>
+
+    <TextView
+        android:id="@+id/invite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey_dark"
+        android:textSize="14sp"
+        android:paddingLeft="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="@string/invite_them_to_go_cashless"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10"
+        android:background="@color/grey_dark"/>
+
+
+    <TextView
+        android:id="@+id/dont_worry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey_dark"
+        android:textSize="14sp"
+        android:paddingLeft="@dimen/dp20"
+        android:text="@string/don_t_worry_you_can_still_send_money_to"/>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:fontFamily="@font/inter_bold"
+        android:paddingLeft="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp30"
+        android:text="Send  from other option"/>
+
+    <LinearLayout
+        android:id="@+id/afterGettingError"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ShowOnWrongUPIID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/OtherPaymentOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

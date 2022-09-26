@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.activecashback.ActiveCashbackScreenNew.NewOrderFragment">
+
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/relative_layout"
+        android:layout_marginBottom="-299dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp10">
+
+                    <ImageView
+                        android:id="@+id/backIv"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:src="@drawable/ic_back"
+                        app:tint="@color/black" />
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="@dimen/dp60"
+                        android:layout_height="@dimen/dp50"
+                        android:layout_below="@+id/backIv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_weight="1"
+                        tools:src="@drawable/intro_1" />
+
+                    <TextView
+                        android:id="@+id/nameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/image"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:ellipsize="end"
+                        android:gravity="center"
+                        android:maxWidth="@dimen/dp80"
+                        android:maxLines="1"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp12"
+                        tools:text="Dominoes" />
+
+                    <TextView
+                        android:id="@+id/orderAmountTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/nameTv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:drawableEnd="@drawable/verified"
+                        android:drawablePadding="@dimen/dp5"
+                        android:fontFamily="@font/kollektif_bold"
+                        android:text="₹20"
+                        android:textSize="30dp"
+                        app:fontFamily="@font/kollektif_bold" />
+
+                    <TextView
+                        android:id="@+id/cashbackAmountTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/orderAmountTv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:background="@drawable/textbackground"
+                        android:fontFamily="@font/kollektif_bold"
+                        android:padding="8dp"
+                        android:textSize="15dp"
+                        app:fontFamily="@font/kollektif_bold" />
+
+                    <LinearLayout
+                        android:id="@+id/trasctiondate1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/cashbackAmountTv"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp20"
+                            android:layout_height="@dimen/dp20"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:src="@drawable/okright" />
+
+                        <TextView
+                            android:id="@+id/transactionDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Transaction Completed .February 17,2022 18:40 am"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/backgorundtext"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/trasctiondate1"
+                        android:layout_marginTop="15dp"
+                        android:background="#2F4DF1"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:text="@string/your_cashback_pending"
+                        android:textColor="@color/white"
+                        android:textStyle="bold" />
+
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp10"
+                android:background="@drawable/cardviewboarder"
+                app:cardCornerRadius="@dimen/dp5"
+                app:cardElevation="@dimen/dp5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/cardviewboarder"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_weight="1"
+                                android:paddingLeft="@dimen/dp5"
+                                android:text="Cashback Status"
+                                android:textSize="@dimen/sp18"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/inter_bold" />
+
+                            <ImageView
+                                android:id="@+id/arrowdown"
+                                android:layout_width="@dimen/dp70"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/dp20"
+                                android:layout_weight="1"
+                                android:gravity="end"
+                                android:src="@drawable/arrow_down" />
+
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/Visibility_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp10"
+                            android:visibility="gone">
+
+                            <View
+                                android:layout_width="@dimen/dp1"
+                                android:layout_height="15dp"
+                                android:layout_alignTop="@+id/liNotice"
+                                android:layout_alignBottom="@+id/liNotice"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="20dp"
+                                android:background="@drawable/sp_vertical_line"
+                                android:backgroundTint="#2AAF0C" />
+
+                            <LinearLayout
+                                android:id="@+id/liNotice"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingTop="@dimen/dp10">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:layout_gravity="center"
+                                        android:layout_marginRight="@dimen/dp5"
+                                        android:src="@drawable/verifiedok" />
+
+                                    <TextView
+                                        android:id="@+id/activeTv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="@dimen/dp5"
+                                        android:text="Transaction Checked"
+                                        android:textColor="#6E6868"
+                                        android:textSize="12sp"
+                                        android:textStyle="bold"
+                                        app:fontFamily="@font/inter_regular" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp20">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:layout_gravity="center"
+                                        android:layout_marginRight="@dimen/dp5"
+                                        android:src="@drawable/verifiedok" />
+
+                                    <TextView
+                                        android:id="@+id/redirectline"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="@dimen/dp5"
+                                        android:fontFamily="@font/inter_regular"
+                                        android:text="@string/cashback_recieved_from"
+                                        android:textColor="#6E6868"
+                                        android:textSize="12sp"
+                                        app:fontFamily="@font/inter_regular" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp20">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:layout_gravity="center"
+                                        android:layout_marginRight="@dimen/dp5"
+                                        android:src="@drawable/verifiedok" />
+
+
+                                    <TextView
+                                        android:id="@+id/redirectline1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="@dimen/dp5"
+                                        android:fontFamily="@font/inter_regular"
+                                        android:text="@string/cashbackhold"
+                                        android:textColor="#6E6868"
+                                        android:textSize="12sp"
+                                        app:fontFamily="@font/inter_regular" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp20">
+
+                                    <com.airbnb.lottie.LottieAnimationView
+                                        android:id="@+id/verifedConformation"
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        app:lottie_autoPlay="true"
+                                        app:lottie_loop="true"
+                                        app:lottie_rawRes="@raw/verification_progress" />
+
+                                    <TextView
+                                        android:id="@+id/statusTextTv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginLeft="@dimen/dp5"
+                                        android:fontFamily="@font/inter_regular"
+                                        android:text="@string/cashback_pending_from_"
+                                        android:textColor="#6E6868"
+                                        android:textSize="12sp"
+                                        app:fontFamily="@font/inter_regular" />
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="Transaction ID"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/inter_bold" />
+
+                            <TextView
+                                android:id="@+id/merchant_id"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="SWIGGY2908788HGBV"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/inter_regular" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="Transaction Date and Time"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/kollektif" />
+
+                            <TextView
+                                android:id="@+id/transactionDate1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="Feb 18, 2022 10:40am"
+                                android:textSize="@dimen/sp12"
+                                app:fontFamily="@font/inter_regular" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="Cashback status"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/inter_bold" />
+
+                            <TextView
+                                android:id="@+id/cashback_status"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="@string/pending_from"
+                                android:textSize="@dimen/sp12"
+                                app:fontFamily="@font/inter_regular" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="Cashback validation up to"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/inter_bold" />
+
+                            <TextView
+                                android:id="@+id/cashback_validation"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="40 to 60 Days"
+                                android:textSize="@dimen/sp12"
+                                app:fontFamily="@font/inter_regular" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="Reference ID"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/inter_bold" />
+
+                            <TextView
+                                android:id="@+id/tapfo_transactionID"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:text="SWIGGY2908788HGBV-Tapfo810"
+                                android:textAllCaps="true"
+                                android:textSize="@dimen/sp12"
+                                app:fontFamily="@font/inter_regular" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/relative_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:paddingRight="@dimen/dp5"
+        android:paddingBottom="@dimen/dp5">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="0dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="@dimen/dp10"
+                app:cardElevation="@dimen/dp5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/buttonback"
+                    android:padding="5dp"
+                    android:text="Need Support"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp14" />
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/invite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                app:cardCornerRadius="@dimen/dp10"
+                app:cardElevation="@dimen/dp5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/buttonback"
+                    android:backgroundTint="@color/white"
+                    android:padding="5dp"
+                    android:text="Invite your friends"
+                    android:textColor="#2341D3"
+                    android:textSize="@dimen/sp14" />
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,1724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/homeScreenLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.home.HomeFragment">
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/gamestab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/transparent"
+        android:clickable="true"
+        android:src="@drawable/games_24" />
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fitsSystemWindows="true"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="@color/bg_grey"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+
+                        <!--  Profile-->
+
+                        <RelativeLayout
+                            android:id="@+id/relativeLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/orange1"
+                            android:paddingLeft="@dimen/dp10"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp10"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <RelativeLayout
+                                android:id="@+id/re_profile"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginTop="@dimen/dp10">
+
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="40dp"
+                                    android:layout_height="@dimen/dp40"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/circle"
+                                    app:cardCornerRadius="@dimen/dp50"
+                                    app:cardElevation="4dp">
+
+                                    <FrameLayout
+                                        android:id="@+id/image_frame"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_margin="2dp">
+
+                                        <TextView
+                                            android:id="@+id/profileName"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:background="@drawable/circle"
+                                            android:backgroundTint="@color/red"
+                                            android:gravity="center"
+                                            android:maxLength="1"
+                                            android:text="A"
+                                            android:textAllCaps="true"
+                                            android:textColor="@color/white"
+                                            android:textSize="20sp"
+                                            android:textStyle="bold" />
+
+                                        <ImageView
+                                            android:id="@+id/profileIv"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:src="@drawable/ic_account_circle" />
+
+                                    </FrameLayout>
+                                </androidx.cardview.widget.CardView>
+
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_toEndOf="@+id/re_profile"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:letterSpacing="0.08"
+                                    android:text="Hello!"
+                                    android:textColor="@color/white"
+                                    app:fontFamily="@font/seoulhangangcondensed_boldl" />
+
+                                <TextView
+                                    android:id="@+id/name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:letterSpacing="0.03"
+                                    android:text="Anuj"
+                                    android:textColor="@color/white"
+                                    app:fontFamily="@font/roboto_condensed_bold" />
+                            </LinearLayout>
+
+
+                            <RelativeLayout
+                                android:id="@+id/scan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp10"
+                                android:layout_toStartOf="@+id/cashback_b">
+
+                                <ImageView
+                                    android:id="@+id/scanIV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_scanner_24"
+                                    app:tint="@color/white" />
+
+                            </RelativeLayout>
+
+                            <LinearLayout
+                                android:id="@+id/cashback_b"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:layout_marginEnd="5dp"
+                                android:layout_toStartOf="@+id/notificationRe"
+                                android:background="@drawable/white_boarder"
+                                android:paddingRight="@dimen/dp5">
+
+                                <ImageView
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/white_boarder"
+                                    android:padding="@dimen/dp5"
+                                    android:src="@drawable/logo" />
+
+                                <TextView
+                                    android:id="@+id/coinsTv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/roboto_light"
+                                    android:gravity="center"
+                                    android:padding="@dimen/dp5"
+                                    android:text="2,249"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/notificationRe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/dp10">
+
+                                <ImageView
+                                    android:id="@+id/notificationIv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/ic_notifications"
+                                    app:tint="@color/white" />
+
+
+                            </RelativeLayout>
+
+                            <TextView
+                                android:id="@+id/notificationCount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignStart="@+id/notificationRe"
+                                android:layout_alignTop="@+id/notificationRe"
+                                android:layout_alignEnd="@+id/notificationRe"
+                                android:layout_alignBottom="@+id/notificationRe"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginTop="2dp"
+                                android:layout_marginEnd="2dp"
+                                android:background="@drawable/circle"
+                                android:backgroundTint="@color/orange1"
+                                android:gravity="center"
+                                android:text="5"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:background="#4AFFFFFF"
+                            app:layout_constraintBottom_toBottomOf="@+id/relativeLayout" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+                <!-- Search-->
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bottomsheet_back"
+                    android:backgroundTint="@color/orange1"
+                    android:paddingLeft="@dimen/dp10"
+                    android:paddingTop="@dimen/dp10"
+                    android:paddingRight="@dimen/dp10"
+                    android:rotation="180"
+                    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                    <!--
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="20dp"
+                                        android:paddingTop="@dimen/dp5"
+                                        android:paddingBottom="@dimen/dp5"
+                                        android:src="@drawable/logo" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/roboto_light"
+                                        android:gravity="center"
+                                        android:text="cash:"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/coinsTv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:fontFamily="@font/roboto_light"
+                                        android:gravity="center"
+                                        android:paddingLeft="@dimen/dp5"
+                                        android:text="2,249"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+                                -->
+                    <LinearLayout
+                        android:id="@+id/searchTool12"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginBottom="@dimen/dp5"
+                        android:background="@drawable/sp_white_corner_20"
+                        android:backgroundTint="#33FFFFFF"
+                        android:rotation="180">
+
+                        <TextView
+                            android:id="@+id/searchTv1"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:drawableEnd="@drawable/ic_search"
+                            android:gravity="center_vertical"
+                            android:hint="what are you looking for today?"
+                            android:maxLines="1"
+                            android:padding="@dimen/dp5"
+                            android:textColor="@color/white"
+                            android:textColorHint="#70FFFFFF"
+                            android:textSize="@dimen/sp12" />
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+                <!-- Scrolling Start-->
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <!-- Categories Section-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:elevation="5dp"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp10"
+                            android:paddingTop="10dp"
+                            android:paddingRight="@dimen/dp10">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerAppCategory"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/dp5"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+                        </LinearLayout>
+
+                        <!-- tarnsaction Have or not-->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/no_transaction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="@dimen/dp20"
+                            android:visibility="gone"
+                            app:cardCornerRadius="@dimen/dp10"
+                            app:cardElevation="@dimen/dp5">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:paddingBottom="@dimen/dp10">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="2">
+
+                                    <TextView
+                                        android:id="@+id/startearningTV"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:padding="@dimen/dp10"
+                                        android:text="@string/startearning"
+                                        android:textColor="@color/grey_dark"
+                                        android:textSize="@dimen/sp12" />
+
+                                    <ImageView
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_gravity="end|center_vertical"
+                                        android:layout_weight="1"
+                                        android:src="@drawable/snooze" />
+                                </LinearLayout>
+
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="37dp"
+                                    android:layout_marginLeft="@dimen/dp10"
+                                    android:background="@drawable/button"
+                                    android:backgroundTint="@color/orange1"
+                                    android:padding="@dimen/dp2"
+                                    android:text="Start Earning"
+                                    android:textAllCaps="false"
+                                    android:textColor="@color/white"
+                                    android:textSize="10sp" />
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                        <!-- Banner 1-->
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/banner1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp200"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabLayout1"
+                            android:layout_width="4dp"
+                            android:layout_height="5dp"
+                            android:visibility="gone"
+                            app:tabBackground="@drawable/dotselector"
+                            app:tabIndicatorHeight="0dp" />
+
+                        <!-- Favourites Section-->
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/favouritescard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20"
+                            app:cardCornerRadius="@dimen/dp10"
+                            app:cardElevation="@dimen/dp2">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="180dp"
+                                android:src="@drawable/favimage" />
+                        </androidx.cardview.widget.CardView>
+
+                        <LinearLayout
+                            android:id="@+id/favourites"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="my favourites"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <TextView
+                                    android:id="@+id/AddMoreFavTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="+add more"
+                                    android:textColor="@color/orange"
+                                    android:textSize="15sp"
+                                    app:fontFamily="@font/inter_regular" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:text="make your favourites with quick link!"
+                                android:textColor="#690A0A0A"
+                                android:textSize="13sp"
+                                app:fontFamily="@font/inter_regular" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerFavourites"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp" />
+
+
+                        </LinearLayout>
+
+
+                        <!--Shop with Cashback-->
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20"
+                            app:cardCornerRadius="@dimen/dp10">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/dp20"
+                                android:paddingRight="@dimen/dp20">
+
+                                <LinearLayout
+                                    android:id="@+id/layout"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp20"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/textview"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp10"
+                                        android:text="1200+ Partners with\nCashback"
+                                        android:textSize="16sp"
+                                        app:fontFamily="@font/inter_bold" />
+
+                                    <TextView
+                                        android:id="@+id/textview1"
+                                        android:layout_width="315dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp5"
+                                        android:text="Shop over top partners like Flipkart, myntra, Ajio  and save upto ₹40,000."
+                                        android:textColor="#949191"
+                                        android:textSize="@dimen/sp12" />
+
+                                    <androidx.appcompat.widget.AppCompatButton
+                                        android:id="@+id/allMerchantsTv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="38dp"
+                                        android:layout_marginTop="@dimen/dp10"
+                                        android:layout_marginBottom="12dp"
+                                        android:background="@drawable/button"
+                                        android:backgroundTint="@color/orange"
+                                        android:padding="@dimen/dp10"
+                                        android:text="Shop with Cashback"
+                                        android:textAllCaps="false"
+                                        android:textColor="@color/white"
+                                        app:fontFamily="@font/inter_regular" />
+                                </LinearLayout>
+
+                                <ImageView
+                                    android:layout_width="180dp"
+                                    android:layout_height="@dimen/dp60"
+                                    android:layout_alignTop="@+id/layout"
+                                    android:layout_alignEnd="@+id/layout"
+                                    android:layout_alignParentEnd="true"
+                                    android:src="@drawable/cashbackreward" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <!--Last Transaction-->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/lasttransaction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="15dp"
+                            android:clipToPadding="false"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20"
+                            android:scrollbars="vertical" />
+
+                        <!-- Recommended for you Section-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="10dp"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="recomended for You"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <TextView
+                                    android:id="@+id/recommendedAll"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:gravity="end"
+                                    android:text="+explore all"
+                                    android:textColor="@color/orange" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="earn cashback over 9,000 merchants"
+                                android:textColor="#690A0A0A"
+                                android:textSize="10sp" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerPopularMerchants"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+                        </LinearLayout>
+
+
+                        <!-- Utilities Apps Section-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#E5E5E5"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Utilities Apps"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <TextView
+                                    android:id="@+id/utilitiesSeeAll"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:gravity="end"
+                                    android:text="explore all >"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <TextView
+                                style="@style/TextViewNormal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/dp5"
+                                android:text="explore all daily service apps in one tap!"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="@dimen/sp10" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recommended"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+                        </LinearLayout>
+
+
+                        <!--Shop-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#14656565"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="super saver products"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <TextView
+                                    android:id="@+id/AllProducat"
+                                    style="@style/TextViewNormal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="All Partners >"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="@dimen/sp12" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="shop 9,000 stores products in one tap!"
+                                android:textColor="#69000000"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/shopProduct"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+                        </LinearLayout>
+
+                        <!-- Banner 2-->
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/banner2"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:elevation="@dimen/dp2"
+                            app:iss_auto_cycle="true"
+                            app:iss_corner_radius="20"
+                            app:iss_delay="0"
+                            app:iss_period="4000">
+
+                        </androidx.viewpager2.widget.ViewPager2>
+
+                        <!-- exculsive cashback  Section-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="exculsive cashback"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <TextView
+                                    android:id="@+id/exculsiveCashbackAll"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:gravity="end"
+                                    android:text="see all >"
+                                    android:textColor="@color/orange" />
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/exculsiveCashback"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+                        </LinearLayout>
+                        <!-- In The SpotLight Apps Section-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="in the Spotlight"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <TextView
+                                    android:id="@+id/spotlightSeeAll"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:gravity="end"
+                                    android:text="view all >"
+                                    android:textColor="@color/orange" />
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/spotLight"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+                        </LinearLayout>
+
+                        <!-- Featured Partner  Section-->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerCashbackpartner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:clipToPadding="false"
+                            android:paddingLeft="@dimen/dp10"
+                            android:paddingRight="@dimen/dp10"
+                            android:scrollbars="vertical" />
+
+                        <!--Headlines Adapter-->
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerHeadline"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="5dp"
+                            android:layout_marginTop="5dp"
+                            android:background="#4AE5E5E5" />
+
+                        <!--
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp5"
+                            android:layout_marginEnd="@dimen/dp5"
+                            app:cardCornerRadius="@dimen/dp10"
+                            app:cardUseCompatPadding="true">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/dp10">
+
+                                <ImageView
+                                    android:layout_width="@dimen/dp20"
+                                    android:layout_height="@dimen/dp20"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/ic_rupee_blue" />
+
+                                <TextView
+                                    style="@style/TextViewSemiBold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_marginStart="@dimen/dp25"
+                                    android:text="Shop with Cashback" />
+
+
+                                <TextView
+                                    android:id="@+id/allMerchantsTv"
+                                    style="@style/TextViewNormal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/dp30"
+                                    android:layout_alignParentEnd="true"
+                                    android:background="@drawable/sp_white_corner_15"
+                                    android:backgroundTint="@color/screenGreen"
+                                    android:gravity="center"
+                                    android:paddingStart="@dimen/dp10"
+                                    android:paddingEnd="@dimen/dp10"
+                                    android:text="@string/all_merchants"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white"
+                                    android:textSize="@dimen/sp12" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+            -->
+
+
+                        <!-- New Partners Apps Section-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    style="@style/TextViewSemiBold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="new partners "
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    app:fontFamily="@font/kollektif_bold" />
+
+                                <TextView
+                                    android:id="@+id/newPartnerAll"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:gravity="end"
+                                    android:text="view all >"
+                                    android:textColor="@color/orange" />
+                            </LinearLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/newPartner"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+                        </LinearLayout>
+
+                        <!-- Banner4  Section-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20">
+
+                            <TextView
+                                style="@style/TextViewSemiBold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="promoted"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/kollektif_bold" />
+
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/banner4"
+                                android:layout_width="match_parent"
+                                android:layout_height="140dp"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10" />
+                        </LinearLayout>
+
+                        <!-- Sponsered Section-->
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/sponsored"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20" />
+
+
+                        <!--
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="In the Spotlight"
+                            android:textColor="@color/black"
+                            android:layout_margin="@dimen/dp10"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            app:fontFamily="@font/inter_bold"/>
+
+                        <androidx.viewpager.widget.ViewPager
+                            android:id="@+id/spotlight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="200dp"
+                            android:clipToPadding="false"
+                            android:paddingStart="@dimen/dp20"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:paddingEnd="@dimen/dp20"
+                            android:visibility="gone" />
+                        -->
+                        <!--
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:layout_marginStart="@dimen/dp5"
+                                            android:layout_marginEnd="@dimen/dp5"
+                                            android:padding="@dimen/dp10">
+
+                                            <TextView
+                                                style="@style/TextViewSemiBold"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/categories"
+                                                android:textColor="@color/black"
+                                                android:visibility="gone" />
+
+                                            <TextView
+                                                style="@style/TextViewNormal"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginEnd="@dimen/dp5"
+                                                android:text="Shop +1200 stores &amp; Earn Extra Cashback"
+                                                android:textColor="@color/grey_dark"
+                                                android:visibility="gone"
+                                                android:textSize="@dimen/sp10" />
+
+                                            <androidx.recyclerview.widget.RecyclerView
+                                                android:id="@+id/recyclerAppCategory"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:clipToPadding="false"
+                                                android:layout_marginStart="@dimen/dp5"
+                                                android:layout_marginEnd="@dimen/dp5"
+                                                android:scrollbars="vertical" />
+
+                                        </LinearLayout>
+                        -->
+                        <!--Banner 5 Ads-->
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Banner5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clipToPadding="false"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20"
+                            android:scrollbars="vertical" />
+
+
+                        <!--Offers For You Section-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#e6ffe6"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:id="@+id/cashbackPartner"
+                                    style="@style/TextViewSemiBold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Offers For you"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <TextView
+                                    android:id="@+id/newCashbackPartnerMoreIv"
+                                    style="@style/TextViewNormal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="All Partners >"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="@dimen/sp12" />
+                            </RelativeLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/offers"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+                        </LinearLayout>
+
+                        <!--Banner 6-->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Banner6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clipToPadding="false"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20"
+                            android:scrollbars="vertical" />
+                        <!--Banner 7-->
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Banner7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:clipToPadding="false"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20"
+                            android:scrollbars="vertical" />
+
+                        <!--Featured Partner-->
+                        <!--
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardCashbackPartner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp5"
+                            android:layout_marginEnd="@dimen/dp5"
+                            app:cardCornerRadius="@dimen/dp10"
+                            app:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dp10">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+                                    <TextView
+                                        android:id="@+id/cashbackPartner"
+                                        style="@style/TextViewSemiBold"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/featured_partners"
+                                        android:textColor="@color/black" />
+
+                                    <TextView
+                                        style="@style/TextViewNormal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/cashbackPartner"
+                                        android:text="@string/new_cashback_partners"
+                                        android:textColor="@color/grey_dark"
+                                        android:textSize="@dimen/sp10" />
+
+                                    <TextView
+                                        android:id="@+id/newCashbackPartnerMoreIv"
+                                        style="@style/TextViewNormal"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:text="All Partners >"
+                                        android:textColor="@color/purple_500"
+                                        android:textSize="@dimen/sp12" />
+                                </RelativeLayout>
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerCashbackpartner"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    android:clipToPadding="false"
+                                    android:scrollbars="vertical" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+                        -->
+                        <!--Favourites-->
+                        <!--
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp5"
+                            android:layout_marginEnd="@dimen/dp5"
+                            android:visibility="visible"
+                            app:cardCornerRadius="@dimen/dp10"
+                            app:cardUseCompatPadding="true">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/dp10">
+
+                                <ImageView
+                                    android:layout_width="@dimen/dp20"
+                                    android:layout_height="@dimen/dp20"
+                                    android:src="@drawable/favourite" />
+
+                                <TextView
+                                    android:id="@+id/fevTvHint"
+                                    style="@style/TextViewSemiBold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp25"
+                                    android:text="@string/my_favorite" />
+
+                                <TextView
+                                    style="@style/TextViewNormal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/fevTvHint"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_marginStart="@dimen/dp25"
+                                    android:layout_marginEnd="@dimen/dp5"
+                                    android:layout_toStartOf="@+id/addMoreTv"
+                                    android:text="favourites makes quick Shopping on one tap!"
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="@dimen/sp10" />
+
+                               <ImageView
+                                    android:layout_marginTop="@dimen/dp10"
+                                    android:layout_toStartOf="@+id/addMoreTv"
+                                    android:src="@drawable/ic_add"
+                                    android:layout_width="@dimen/dp20"
+                                    android:layout_height="@dimen/dp20"/>
+
+                                <TextView
+                                    android:id="@+id/addMoreTv"
+                                    style="@style/TextViewNormal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    android:gravity="center"
+                                    android:paddingTop="@dimen/dp5"
+                                    android:paddingBottom="@dimen/dp5"
+                                    android:text="@string/add_more"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="@dimen/sp12" />
+
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerFavourites"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/addMoreTv"
+                                    android:layout_marginTop="@dimen/dp20" />
+
+                            </RelativeLayout>
+                        </androidx.cardview.widget.CardView>
+            -->
+                        <!--
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp5"
+                                        app:cardCornerRadius="@dimen/dp10"
+                                        app:cardUseCompatPadding="true">
+
+                                        <RelativeLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:padding="@dimen/dp10">
+
+                                            <ImageView
+                                                android:layout_width="@dimen/dp20"
+                                                android:layout_height="@dimen/dp20"
+                                                android:layout_centerVertical="true"
+                                                android:src="@drawable/ic_rupee_blue" />
+
+                                            <TextView
+                                                style="@style/TextViewSemiBold"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_centerVertical="true"
+                                                android:layout_marginStart="@dimen/dp25"
+                                                android:text="Shop with Cashback" />
+
+
+                                            <TextView
+                                                android:id="@+id/allMerchantsTv"
+                                                style="@style/TextViewNormal"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="@dimen/dp30"
+                                                android:layout_alignParentEnd="true"
+                                                android:background="@drawable/sp_white_corner_15"
+                                                android:backgroundTint="@color/screenGreen"
+                                                android:gravity="center"
+                                                android:paddingStart="@dimen/dp10"
+                                                android:paddingEnd="@dimen/dp10"
+                                                android:text="@string/all_merchants"
+                                                android:textAllCaps="true"
+                                                android:textColor="@color/white"
+                                                android:textSize="@dimen/sp12" />
+
+                                        </RelativeLayout>
+                                    </androidx.cardview.widget.CardView>
+
+                        -->
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardPopularMerchants"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20"
+                            android:visibility="gone"
+                            app:cardCornerRadius="@dimen/dp10"
+                            app:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dp5">
+
+                                <TextView
+                                    style="@style/TextViewSemiBold"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Popular"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+
+                                <!-- <androidx.viewpager2.widget.ViewPager2
+                                     android:id="@+id/pagerPopularMerchants"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content" />-->
+
+                                <!--<com.zhpan.indicator.IndicatorView
+                                    android:id="@+id/merchantsIndicator"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    app:vpi_slide_mode="smooth"
+                                    app:vpi_slider_checked_color="@color/black"
+                                    app:vpi_slider_normal_color="@color/bg_grey"
+                                    app:vpi_slider_radius="@dimen/dp5"
+                                    app:vpi_style="circle" />-->
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <com.zhpan.indicator.IndicatorView
+                            android:id="@+id/indicator_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="-20dp"
+                            app:vpi_slide_mode="smooth"
+                            app:vpi_slider_checked_color="@color/white"
+                            app:vpi_slider_normal_color="@color/black"
+                            app:vpi_slider_radius="@dimen/dp5"
+                            app:vpi_style="circle" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cardCashbackMerchantsFragment"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp20"
+                            android:visibility="gone"
+                            app:cardCornerRadius="@dimen/dp10"
+                            app:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dp5">
+
+                                <com.google.android.material.tabs.TabLayout
+                                    android:id="@+id/tabLayout"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    app:tabIndicatorColor="@android:color/darker_gray"
+                                    app:tabMode="fixed"
+                                    app:tabTextAppearance="@style/TextAppearance.AppCompat.Button"
+                                    app:tabTextColor="@color/black" />
+
+                                <TextView
+                                    style="@style/TextViewNormal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    android:text="popular merchants with high cashback rates"
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="@dimen/sp10" />
+
+
+                                <androidx.viewpager2.widget.ViewPager2
+                                    android:id="@+id/pagerCashbackMerchantsFragment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content" />
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <!--            enable later-->
+                        <!--<LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp15"
+                            android:layout_marginEnd="@dimen/dp15">
+
+                            <TextView
+                                style="@style/TextViewNormal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/dp40"
+                                android:layout_weight="1"
+                                android:background="@drawable/sp_white_corner_5"
+                                android:backgroundTint="@color/purple_light"
+                                android:gravity="center"
+                                android:text="Refer &amp; Earn"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                style="@style/TextViewNormal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/dp40"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/sp_white_corner_5"
+                                android:backgroundTint="@color/purple_light"
+                                android:gravity="center"
+                                android:text="Offers"
+                                android:textColor="@color/white" />
+
+                            <TextView
+                                style="@style/TextViewNormal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/dp40"
+                                android:layout_weight="1"
+                                android:background="@drawable/sp_white_corner_5"
+                                android:backgroundTint="@color/purple_light"
+                                android:gravity="center"
+                                android:text="Gift Vouchers"
+                                android:textColor="@color/white" />
+                        </LinearLayout>-->
+
+                        <!--            <androidx.recyclerview.widget.RecyclerView-->
+                        <!--                android:id="@+id/recyclerOffer"-->
+                        <!--                android:layout_width="match_parent"-->
+                        <!--                android:layout_height="wrap_content"-->
+                        <!--                android:clipToPadding="false"-->
+                        <!--                android:paddingStart="@dimen/dp10"-->
+                        <!--                android:paddingEnd="@dimen/dp10"-->
+                        <!--                android:scrollbars="vertical" />-->
+
+                        <!--offer and merchant Details   20-Apr-2022-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardOffer"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:cardBackgroundColor="@color/offer_coupon"
+                                app:cardCornerRadius="@dimen/dp10"
+                                app:cardUseCompatPadding="true">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="@dimen/dp5">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp50"
+                                        android:layout_height="@dimen/dp50"
+                                        android:paddingTop="@dimen/dp10"
+                                        android:paddingBottom="@dimen/dp10"
+                                        android:src="@drawable/ic_offer_" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/offers_coupons"
+                                        android:textColor="@color/white" />
+
+                                </LinearLayout>
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cardMerchantStoreDetails"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:cardBackgroundColor="@color/offer_coupon"
+                                app:cardCornerRadius="@dimen/dp10"
+                                app:cardUseCompatPadding="true">
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center"
+                                    android:padding="@dimen/dp5">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp50"
+                                        android:layout_height="@dimen/dp50"
+                                        android:paddingTop="@dimen/dp10"
+                                        android:paddingBottom="@dimen/dp10"
+                                        android:src="@drawable/ic_merchent_store_white" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/merchant_store_detail"
+                                        android:textColor="@color/white" />
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </LinearLayout>
+
+                        <!--<androidx.cardview.widget.CardView
+                            android:id="@+id/cardPromoted"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp5"
+                            android:layout_marginEnd="@dimen/dp5"
+                            app:cardCornerRadius="@dimen/dp10"
+                            app:cardUseCompatPadding="true">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="@dimen/dp5">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/promoted"
+                                    android:textColor="@color/black" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerPromoted"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:clipToPadding="false"
+                                    android:scrollbars="vertical" />
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>-->
+                        <!--
+                                    <androidx.viewpager.widget.ViewPager
+                                        android:id="@+id/pagerCashbackBanner"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/dp100"
+                                        android:clipToPadding="false"
+                                        android:paddingStart="@dimen/dp20"
+                                        android:paddingEnd="@dimen/dp20" />
+
+                                    <com.zhpan.indicator.IndicatorView
+                                        android:id="@+id/bannerIndicator"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:layout_marginTop="-20dp"
+                                        app:vpi_slide_mode="smooth"
+                                        app:vpi_slider_checked_color="@color/grey_v_light"
+                                        app:vpi_slider_normal_color="@color/white"
+                                        app:vpi_slider_radius="@dimen/dp5"
+                                        app:vpi_style="circle" />
+                        -->
+                        <!--            enabled later-->
+
+                        <!-- <androidx.cardview.widget.CardView
+                             android:id="@+id/cardServiceMore"
+                             android:layout_width="match_parent"
+                             android:layout_height="wrap_content"
+                             android:layout_marginStart="@dimen/dp5"
+                             android:layout_marginEnd="@dimen/dp5"
+                             app:cardCornerRadius="@dimen/dp10"
+                             app:cardUseCompatPadding="true">
+
+                             <LinearLayout
+                                 android:layout_width="match_parent"
+                                 android:layout_height="wrap_content"
+                                 android:orientation="vertical"
+                                 android:padding="@dimen/dp5">
+
+                                 <TextView
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:text="@string/service_more"
+                                     android:textColor="@color/black" />
+
+
+                                 <androidx.recyclerview.widget.RecyclerView
+                                     android:id="@+id/recyclerServiceMore"
+                                     android:layout_width="match_parent"
+                                     android:layout_height="wrap_content"
+                                     android:clipToPadding="false"
+                                     android:scrollbars="vertical" />
+                             </LinearLayout>
+                         </androidx.cardview.widget.CardView>-->
+                        <!--
+                                    <androidx.viewpager.widget.ViewPager
+                                        android:id="@+id/pagerCashbackBanner4"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/dp150"
+                                        android:clipToPadding="false"
+                                        android:paddingStart="@dimen/dp20"
+                                        android:paddingEnd="@dimen/dp20" />
+                                    <androidx.viewpager.widget.ViewPager
+                                        android:id="@+id/pagerCashbackBanner5"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/dp200"
+                                        android:clipToPadding="false"
+                                        android:paddingStart="@dimen/dp20"
+                                        android:paddingEnd="@dimen/dp20" />
+                        -->
+                        <!--AllProduct-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#14656565"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Products For You"
+                                    android:textColor="@color/black"
+                                    android:textSize="20sp"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <TextView
+                                    android:id="@+id/seeall"
+                                    style="@style/TextViewNormal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:text="see all >"
+                                    android:textColor="@color/purple_500"
+                                    android:textSize="@dimen/sp12" />
+                            </RelativeLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Cultured top products from 1200+ partners "
+                                android:textColor="#69000000"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/AllshopProduct"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+
+            </LinearLayout>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

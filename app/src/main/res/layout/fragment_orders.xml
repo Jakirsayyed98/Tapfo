@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sp_top_corners_10"
+    android:padding="@dimen/dp8"
+    tools:context=".ui.activecashback.OrdersFragment">
+
+    <!--
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+    -->
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressBar"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/transprentloadinbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/ic_rupee1"
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp100"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/coin123" />
+
+        <TextView
+            android:id="@+id/emptyTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/your_earnings_appear_here"
+            android:textSize="13.5sp"
+            app:fontFamily="@font/inter_regular" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/reCashbackRates1" />
+
+
+    <RelativeLayout
+        android:id="@+id/reCashbackRates1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/sp_top_corners_10"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/dp10"
+        android:paddingStart="@dimen/dimen_15dp"
+        android:paddingEnd="@dimen/dp15"
+        android:paddingBottom="@dimen/dp20">
+
+        <ImageView
+            android:id="@+id/arrow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp10"
+            android:rotation="180"
+            android:src="@drawable/ic_arrow_down" />
+
+        <!--
+
+        <ImageView
+            android:id="@+id/ic_rupee12"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:layout_below="@+id/arrow1"
+            android:layout_marginEnd="@dimen/dp10"
+            android:src="@drawable/analytics_img" />
+-->
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/ic_rupee12"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_below="@+id/arrow1"
+            android:layout_marginEnd="@dimen/dp10"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/coin123" />
+
+        <TextView
+            android:id="@+id/cashbackRatesTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/arrow1"
+            android:layout_toEndOf="@+id/ic_rupee12"
+            android:fontFamily="@font/kollektif_bold"
+            android:text="@string/terms_condition"
+            app:fontFamily="@font/inter_bold" />
+
+        <TextView
+            android:id="@+id/tcTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/cashbackRatesTv"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_toEndOf="@+id/ic_rupee12"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/check_cashback_rates"
+            android:textColor="#6E6868"
+            android:textSize="10sp"
+            app:fontFamily="@font/inter_regular" />
+
+    </RelativeLayout>
+
+
+<!--
+    <RelativeLayout
+        android:id="@+id/ReposrtOfAnalytics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/sp_top_corners_10"
+        android:backgroundTint="@color/white"
+        android:elevation="@dimen/dp10"
+        android:paddingStart="@dimen/dimen_15dp"
+        android:paddingEnd="@dimen/dp15"
+        android:visibility="gone"
+        android:paddingBottom="@dimen/dp20">
+
+        <ImageView
+            android:id="@+id/arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginBottom="@dimen/dp10"
+            android:rotation="180"
+            android:src="@drawable/ic_arrow_down" />
+
+        <ImageView
+            android:id="@+id/ic_rupee"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:layout_below="@+id/arrow"
+            android:layout_marginEnd="@dimen/dp10"
+            android:src="@drawable/analytics_img" />
+
+
+        <TextView
+            android:id="@+id/reportAndAnalytics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/arrow"
+            android:layout_toEndOf="@+id/ic_rupee"
+            android:fontFamily="@font/kollektif_bold"
+            android:text="Report and Analytics"
+            app:fontFamily="@font/inter_bold" />
+
+        <TextView
+            android:id="@+id/reportAndAnalyticsTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/reportAndAnalytics"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_toEndOf="@+id/ic_rupee"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/check_swiggy_s_cash"
+            android:textColor="#6E6868"
+            android:textSize="10sp"
+            app:fontFamily="@font/inter_regular" />
+
+    </RelativeLayout>
+
+-->
+
+</RelativeLayout>

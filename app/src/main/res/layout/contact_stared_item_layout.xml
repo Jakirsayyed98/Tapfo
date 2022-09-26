@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp5">
+
+    <ImageView
+        android:id="@+id/profileIv"
+        android:layout_width="@dimen/item_grid_image_height"
+        android:layout_height="@dimen/item_grid_image_height"
+        android:layout_marginEnd="@dimen/dp10" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_toStartOf="@+id/starIv"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_toEndOf="@+id/profileIv"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_toStartOf="@+id/starIv"
+        android:layout_toEndOf="@+id/profileIv"
+        tools:text="1234567890" />
+
+    <ImageView
+        android:id="@+id/starIv"
+        android:layout_width="@dimen/dp25"
+        android:layout_height="@dimen/dp25"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp10"
+        android:src="@drawable/ic_fev_selected"
+        app:tint="@color/offer_coupon" />
+</RelativeLayout>

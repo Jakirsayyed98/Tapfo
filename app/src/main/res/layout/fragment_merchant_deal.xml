@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.MerchantDealFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:src="@drawable/new_back_btn"
+            android:padding="5dp"
+            android:layout_margin="@dimen/dp10"
+            app:tint="@color/black" />
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/productNameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:layout_marginTop="50dp"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="5dp"
+                android:textSize="25sp"
+                app:fontFamily="@font/seoulhangangcondensed_boldl" />
+
+            <TextView
+                android:id="@+id/productNameTv1"
+                android:layout_width="@dimen/dp130"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dimen_20dp"
+                android:letterSpacing="0.03"
+                android:lineSpacingExtra="5dp"
+                android:text="deals Club"
+                android:textSize="25sp"
+                app:fontFamily="@font/seoulhangangcondensed_boldl" />
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="@dimen/dp20"
+            android:layout_marginBottom="638dp" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/layout"
+            android:layout_alignParentBottom="true">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/deals"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/layout"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginBottom="428dp" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/icRupee1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/no_order_found"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Upcoming Soon!"
+                android:textSize="14sp"
+                app:fontFamily="@font/inter_regular"
+                android:textColor="@color/orange1"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dp10"/>
+
+
+            <TextView
+                android:id="@+id/emptyTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/inter_regular"
+                android:text="Our teach team working on it"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:textColor="#565656"
+                android:layout_marginTop="20dp"
+                android:lineSpacingExtra="1dp"
+                app:fontFamily="@font/inter_regular" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

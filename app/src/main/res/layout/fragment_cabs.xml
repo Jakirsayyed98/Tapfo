@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.home.CabsContainer.CabsFragment">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/bannerImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabIndicatorColor="@android:color/darker_gray"
+        app:tabMode="fixed"
+        app:tabIndicatorFullWidth="false"
+        app:tabSelectedTextColor="@color/green_light"
+        app:tabTextColor="@android:color/white" />
+
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pagerCashbackMerchantsFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

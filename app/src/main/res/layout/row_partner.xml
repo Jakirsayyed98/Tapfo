@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/dp90"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/dp5"
+    android:gravity="center"
+    android:padding="@dimen/dp5"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_partner"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:src="@drawable/intro_1" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:maxWidth="@dimen/dp80"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="@dimen/sp12"
+        tools:text="Dominoes"
+        android:textColor="@color/black" />
+
+</LinearLayout>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.activecashback.ActiveCashbackScreenNew.ActiveCashbackFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/productNameTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_20dp"
+                    android:layout_marginTop="50dp"
+                    android:letterSpacing="0.03"
+                    android:lineSpacingExtra="5dp"
+                    android:text="Swiggy"
+                    android:textSize="25sp"
+                    app:fontFamily="@font/seoulhangangcondensed_boldl" />
+
+                <TextView
+                    android:id="@+id/productNameTv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dimen_20dp"
+                    android:letterSpacing="0.03"
+                    android:lineSpacingExtra="5dp"
+                    android:text="Cashback"
+                    android:textSize="25sp"
+                    app:fontFamily="@font/seoulhangangcondensed_boldl" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/MiniAppCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    app:cardCornerRadius="20dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/background"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/black" />
+
+                        <ImageView
+                            android:id="@+id/background1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/cardshades" />
+
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="@dimen/dp55"
+                            android:layout_height="@dimen/dp55"
+                            android:layout_margin="20dp"
+                            app:cardCornerRadius="100dp">
+
+                            <ImageView
+                                android:id="@+id/productIv"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="2dp" />
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:id="@+id/cashbackTv"
+                            android:layout_width="@dimen/dp130"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginRight="@dimen/dp20"
+                            android:text="Upto 5% Cashback"
+                            android:textColor="@color/white"
+                            android:textSize="25sp"
+                            app:fontFamily="@font/roboto_condensed_bold" />
+
+                        <TextView
+                            android:id="@+id/cashbackAMT"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/storewallet"
+                            android:layout_marginStart="@dimen/dp20"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="₹390"
+                            android:textColor="@color/white"
+                            android:textSize="40sp"
+                            app:fontFamily="@font/inter_bold" />
+
+                        <TextView
+                            android:id="@+id/storewallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:layout_marginRight="@dimen/dp20"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:text="My swiggy Cashback "
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+
+                        <TextView
+                            android:id="@+id/ApplicableText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/cashbackTv"
+                            android:layout_alignStart="@+id/cashbackTv"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="0dp"
+                            android:text="Applicable for all users "
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/roboto_light" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignStart="@+id/cashbackTv"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginStart="0dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="Valid on sucess order*"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/roboto_light" />
+
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp5">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp10"
+                        android:background="@drawable/button_dra_border2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp20">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Orders &amp; Cashback"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/roboto_condensed_bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="check all recent orders and cashback details"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/roboto_light" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp10"
+                        android:background="@drawable/button_dra_border2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp20">
+
+                        <TextView
+                            android:id="@+id/merchant_deal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Swiggy’s deals"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/roboto_condensed_bold" />
+
+                        <TextView
+                            android:id="@+id/checkDeals"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="check all recent orders and cashback details"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/roboto_light" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/createvoucher"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp10"
+                        android:background="@drawable/button_dra_border2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp20">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Create Voucher"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/roboto_condensed_bold" />
+
+                        <TextView
+                            android:id="@+id/voucherTag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Save 8% on all swiggy vouchers"
+                            android:textColor="#0A9A33"
+                            android:textSize="11sp"
+                            app:fontFamily="@font/roboto_light" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/term"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/continueLi"
+                    android:layout_below="@+id/createvoucher"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:text="By proceeding you are agreeing to our merchant’s cashback terms &amp; Policy"
+                    android:textSize="8sp"
+                    app:fontFamily="@font/roboto_light"
+                    tools:ignore="NotSibling" />
+
+                <LinearLayout
+                    android:id="@+id/continueLi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:background="@drawable/button_dra_border2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp10">
+
+                    <TextView
+                        android:id="@+id/nameTv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/roboto_condensed_light"
+                        android:gravity="center"
+                        android:text="Open Swiggy "
+                        android:textSize="@dimen/sp16" />
+
+                    <TextView
+                        android:id="@+id/cashback1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="to activate upto 5% cashback*"
+                        android:textSize="@dimen/sp14"
+                        app:fontFamily="@font/roboto_light" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

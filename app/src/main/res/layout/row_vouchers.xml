@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/merchantImage"
+        android:layout_width="@dimen/item_grid_image_height"
+        android:layout_height="@dimen/item_grid_image_height"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        tools:src="@drawable/intro_1" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        style="@style/TextViewSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/fevIv"
+        android:layout_toEndOf="@+id/merchantImage"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:text="OYO Rooms" />
+
+    <TextView
+        android:id="@+id/offerTv"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTv"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_toEndOf="@+id/merchantImage"
+        android:drawablePadding="@dimen/dp10"
+        android:textColor="#4DEA09"
+        app:drawableStartCompat="@drawable/ic_check_circle"
+        tools:text="vcjnasjncsicn icicjdsi" />
+
+    <TextView
+        android:id="@+id/typeTv"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/offerTv"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_toEndOf="@+id/merchantImage"
+        tools:text="vcjnasjncsicn icicjdsi" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_below="@+id/typeTv"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_toEndOf="@+id/merchantImage"
+        android:background="@color/grey_light" />
+
+
+    <ImageView
+        android:id="@+id/fevIv"
+        android:layout_width="@dimen/dp40"
+        android:layout_height="@dimen/dp40"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/sp_white_corner_10"
+        android:backgroundTint="@color/grey_light"
+        android:padding="@dimen/dp8"
+        android:src="@drawable/selector_fev" />
+
+</RelativeLayout>

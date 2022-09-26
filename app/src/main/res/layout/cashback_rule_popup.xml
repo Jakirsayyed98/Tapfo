@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="@dimen/dp15"
+    android:paddingRight="@dimen/dp15"
+    android:elevation="@dimen/dp100"
+    android:paddingBottom="@dimen/dp10"
+    android:orientation="vertical">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/dp100"
+        android:layout_height="@dimen/dp100"
+        app:lottie_autoPlay="true"
+        android:visibility="gone"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/money" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pending_credits"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:fontFamily="@font/roboto_condensed_bold"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/All_pending_cashback_transactions"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/grey_dark"
+        android:textSize="13sp"/>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/viewAllTransaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/base_button_design"
+        android:layout_marginTop="25dp"
+        android:text="@string/view_earnings"
+        android:textColor="@color/white"
+        android:layout_marginBottom="@dimen/dp20"
+        android:textAllCaps="true"
+        app:fontFamily="@font/inter_semibold"
+        android:elevation="@dimen/dp50"
+        android:backgroundTint="@color/orange1"/>
+
+</LinearLayout>

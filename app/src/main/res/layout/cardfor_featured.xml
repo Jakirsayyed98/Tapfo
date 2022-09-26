@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp5"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="170dp"
+        android:layout_height="220dp"
+        android:layout_margin="@dimen/dp3"
+        app:cardCornerRadius="10dp"
+        android:elevation="@dimen/dp2">
+
+        <TextView
+            android:id="@+id/grab"
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="@color/green_light"
+            android:padding="@dimen/dp3"
+            android:textSize="@dimen/sp10"
+            android:visibility="gone"
+            tools:text="Grab Offer" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_marginLeft="@dimen/dp5"
+            android:layout_marginRight="@dimen/dp5"
+            android:padding="@dimen/dp3"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_partner"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                tools:src="@drawable/intro_1" />
+
+            <TextView
+                android:id="@+id/cashbackTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:fontFamily="@font/inter_bold"
+                android:textStyle="bold"
+                tools:text="Earn Upto 12% Cashback" />
+<!--
+            <TextView
+                android:id="@+id/grab"
+                style="@style/TextViewSemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/green_light"
+                android:layout_marginTop="@dimen/dp5"
+                android:textSize="@dimen/sp12"
+                tools:text="Grab Offer" />
+
+            -->
+
+            <TextView
+                android:id="@+id/nameTv"
+                style="@style/TextViewSemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/dp5"
+                android:textSize="@dimen/sp12"
+                tools:text="Dominoes" />
+
+            <TextView
+                android:id="@+id/discription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/grey_font"
+                android:layout_marginTop="@dimen/dp5"
+                android:textSize="@dimen/sp12"
+                tools:text="Dominoes" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

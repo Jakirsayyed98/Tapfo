@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/dp10"
+    tools:context=".ui.wallet.WalletOfferDialogFragment">
+
+
+    <TextView
+        android:text="@string/never_run_out_of_wallet_balence"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp16"
+        style="@style/TextViewSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Topup wallet with cashback | save upto ₹10000 on wallet recharge"
+        android:textColor="@color/black"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerCashbackOffers"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

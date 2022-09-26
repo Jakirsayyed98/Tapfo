@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp5"
+        app:cardCornerRadius="@dimen/dp5">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:scaleType="centerCrop"
+        android:src="@color/grey_light" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        style="@style/TextViewSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp5"
+        android:text="Street Dunkies" />
+
+    <TextView
+        android:id="@+id/playsTv"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameTv"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginBottom="@dimen/dp5"
+        android:text="32.6K Plays"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/sp12" />
+
+    <TextView
+        style="@style/TextViewNormal"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTv"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/dp5"
+        android:background="@color/green_dark"
+        android:gravity="center"
+        android:paddingTop="@dimen/dp2"
+        android:paddingBottom="@dimen/dp2"
+        android:text="PLAY"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp12" />
+    </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

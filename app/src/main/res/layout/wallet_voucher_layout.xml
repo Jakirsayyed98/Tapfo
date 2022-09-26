@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:cardBackgroundColor="@color/walletscreen"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="5dp">
+<!--        android:background="@drawable/tapfo_card"-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="@color/greenshade"
+            android:orientation="vertical"
+            android:layout_marginTop="-5dp"
+            android:paddingLeft="@dimen/dp5"
+            android:paddingRight="@dimen/dp5"
+            android:paddingTop="@dimen/dp5">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="@dimen/dp10">
+
+                <LinearLayout
+                    android:id="@+id/layoutnew"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+                            android:id="@+id/layout"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:text="Tapfo "
+                                android:textColor="@color/white"
+                                android:textSize="27sp"
+                                app:fontFamily="@font/baloo" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp15"
+                                android:paddingTop="@dimen/dp3"
+                                android:text="card"
+                                android:textColor="@color/white"
+                                android:textSize="15sp"
+                                app:fontFamily="@font/roboto_light" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/layout"
+                            android:layout_alignParentStart="true"
+                            android:layout_marginStart="@dimen/dp15"
+                            android:layout_marginTop="-5dp"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="Voucher"
+                            android:textColor="@color/white"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/roboto_light" />
+
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp15"
+                        android:layout_marginTop="@dimen/dp30"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_light"
+                            android:text="Add "
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/dp15" />
+
+
+                        <TextView
+                            android:id="@+id/Amount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="28sp"
+                            android:layout_marginTop="-5dp"
+                            app:fontFamily="@font/baloo" />
+
+                        <TextView
+                            android:id="@+id/cashbackAmount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/win_assured_100_cashback"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/roboto_light" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="@dimen/dp15"
+                    android:text="T&amp;C Apply"
+                    android:textColor="@color/white"
+                    android:textSize="9sp"
+                    app:fontFamily="@font/roboto_light" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/AddMoneyToWallet"
+                    android:layout_width="98dp"
+                    android:layout_height="35dp"
+                    android:layout_below="@id/layoutnew"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="@dimen/dp15"
+                    android:background="@drawable/button_boarder_3"
+                    android:backgroundTint="#1F9D55"
+                    android:padding="@dimen/dp5"
+                    android:text="Redeem Now"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="10.5dp"
+                    app:fontFamily="@font/roboto_light" />
+
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

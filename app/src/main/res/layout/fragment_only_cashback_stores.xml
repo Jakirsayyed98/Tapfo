@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.home.OnlyCashbackStoresFragment">
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:fitsSystemWindows="true"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true"
+                    app:contentScrim="@color/bg_grey"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+
+                <!-- Scrolling Start-->
+                <androidx.core.widget.NestedScrollView
+                    android:id="@+id/scrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#29E28CB9"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp10">
+
+                            <ImageView
+                                android:id="@+id/back_btn"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_margin="15dp"
+                                android:src="@drawable/new_back_btn" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dp15"
+                                    android:text="Explore 18,00+ Stores"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    app:fontFamily="@font/scada_bold" />
+
+                                <ImageView
+                                    android:layout_width="@dimen/dp25"
+                                    android:layout_height="@dimen/dp25"
+                                    android:layout_marginLeft="@dimen/dp10"
+                                    android:src="@drawable/emoji_icon" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp15"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Shop it. "
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Earn it. "
+                                    android:textColor="@color/green_dark"
+                                    android:textSize="11sp" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Save it."
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="11sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp15"
+                                android:layout_marginTop="@dimen/dp15"
+                                android:layout_marginRight="@dimen/dp20"
+                                android:layout_marginBottom="@dimen/dp30"
+                                android:text="@string/save_upto_80_000_on_your_shopping_over_900_popular_cashback_stores_more"
+                                android:textColor="#565656"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/inter_regular" />
+
+                        </LinearLayout>
+                        <!-- Categories Section-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dp10"
+                            >
+                            
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerAppCategory"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="@dimen/dp5"
+                                android:clipToPadding="false"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:scrollbars="vertical" />
+
+                        </LinearLayout>
+
+
+                        <!--my favourites-->
+
+                        <LinearLayout
+                            android:id="@+id/favourites"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:visibility="gone"
+                            android:paddingRight="@dimen/dp20">
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="@dimen/dp30"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/favimage1"
+                                    android:text="Favourites by you"
+                                    android:textSize="@dimen/sp16"
+                                    app:fontFamily="@font/inter_bold" />
+
+                                <androidx.appcompat.widget.AppCompatButton
+                                    android:id="@+id/AddMoreFavTV"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="36dp"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/dp10"
+                                    android:layout_marginTop="@dimen/dp10"
+                                    android:layout_marginEnd="@dimen/dp10"
+                                    android:layout_marginBottom="@dimen/dp10"
+                                    android:background="@drawable/button_border"
+                                    android:backgroundTint="@color/white"
+                                    android:gravity="center"
+                                    android:visibility="gone"
+                                    android:padding="@dimen/dp5"
+                                    android:text="+add more"
+                                    android:textAllCaps="false"
+                                    app:fontFamily="@font/inter_regular" />
+
+                            </RelativeLayout>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerFavourites"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="5dp" />
+
+
+                        </LinearLayout>
+
+
+
+                        <!-- Featured Partner  Section & Offers For You-->
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp30"
+                            android:paddingLeft="@dimen/dp20"
+                            android:text="Featured Partner"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp16"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            app:fontFamily="@font/inter_bold" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerCashbackpartner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:clipToPadding="false"
+                            android:paddingLeft="@dimen/dp10"
+                            android:paddingRight="@dimen/dp10"
+                            android:scrollbars="vertical"
+                            android:visibility="gone" />
+
+                        <!-- Recommended for you Section-->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="vertical"
+                            android:paddingLeft="@dimen/dp20"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingBottom="@dimen/dp10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Recommended For You"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/sp16"
+                                    android:textStyle="bold"
+                                    app:fontFamily="@font/inter_bold" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:text="earn cashback over 9,000+ merchants"
+                                android:textColor="#99807D7D"
+                                android:textSize="12sp" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerPopularMerchants"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+
+                            <androidx.appcompat.widget.AppCompatButton
+                                android:id="@+id/recommendedAll"
+                                android:layout_width="126dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:background="@drawable/button_border"
+                                android:elevation="@dimen/dp10"
+                                android:gravity="center"
+                                android:visibility="gone"
+                                android:padding="@dimen/dp10"
+                                android:text="+explore all"
+                                android:textAllCaps="false"
+                                android:textColor="@color/orange2"
+                                app:fontFamily="@font/inter_regular" />
+
+                        </LinearLayout>
+
+
+                        <!-- Banner 1-->
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/banner1"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp200"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="10dp" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabLayout1"
+                            android:layout_width="4dp"
+                            android:layout_height="5dp"
+                            android:visibility="gone"
+                            app:tabBackground="@drawable/dotselector"
+                            app:tabIndicatorHeight="0dp" />
+
+
+                    </LinearLayout>
+                </androidx.core.widget.NestedScrollView>
+
+            </LinearLayout>
+
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

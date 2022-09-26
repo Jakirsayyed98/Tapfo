@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.merchants.MerchantOfferDetailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/merchantImage"
+            android:layout_width="@dimen/item_grid_image_height"
+            android:layout_height="@dimen/item_grid_image_height"
+            android:layout_marginEnd="@dimen/dp10"
+            tools:background="@drawable/sp_black_corner_10" />
+
+        <TextView
+            android:id="@+id/merchantNameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/extraCashbackTv"
+            android:layout_toEndOf="@+id/merchantImage"
+            android:fontFamily="@font/inter_bold"
+            android:textColor="@color/black"
+            app:fontFamily="@font/inter_bold"
+            tools:text="Flipkart deals" />
+
+        <TextView
+            android:id="@+id/offerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp30"
+            android:layout_below="@+id/merchantNameTv"
+            android:layout_toEndOf="@+id/merchantImage"
+            android:background="@drawable/sp_white_corner_15"
+            android:backgroundTint="@color/green_light_bg"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp10"
+            android:paddingEnd="@dimen/dp10"
+            android:textColor="@color/green_dark"
+            android:textSize="@dimen/sp12"
+            tools:text="12 Offers" />
+
+        <TextView
+            android:id="@+id/extraCashbackTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/green_dark"
+            android:textSize="@dimen/sp12"
+            tools:text="+ Extra upto 12% cashback" />
+
+        <TextView
+            android:id="@+id/shopNowTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/extraCashbackTv"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_left_corners_10"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp10"
+            android:paddingTop="@dimen/dp5"
+            android:paddingEnd="@dimen/dp10"
+            android:paddingBottom="@dimen/dp5"
+            android:text="@string/shop_now"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp12" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:background="@drawable/sp_white_top_corner_10"
+        android:orientation="vertical">
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/grey_light" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerDeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:paddingTop="@dimen/dp10" />
+
+
+        <LinearLayout
+            android:id="@+id/emptyLi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp60"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_marginEnd="@dimen/dp30"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp80"
+                android:layout_height="@dimen/dp80"
+                android:src="@drawable/ic_offer_empty" />
+
+            <TextView
+                android:id="@+id/titleEmptyTv"
+                style="@style/TextViewSemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_title_offer"
+                android:textColor="@color/purple_500" />
+
+            <TextView
+                android:id="@+id/messEmptyTv"
+                style="@style/TextViewNormal"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dp5"
+                android:textSize="@dimen/sp12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty_offer_mess" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

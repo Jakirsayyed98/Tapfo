@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.CustomeCategorySection.CustomeShopCategoryFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="@dimen/dp10">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp20"
+                android:src="@drawable/new_back_btn" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="@dimen/dp10"
+                android:orientation="vertical"
+                android:padding="@dimen/dp10">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/producatQty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:maxLines="1"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/searchTool"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp45"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="@dimen/dp5"
+                android:background="@drawable/button_border"
+                android:paddingStart="@dimen/dp20"
+                android:paddingEnd="@dimen/dp20">
+
+                <EditText
+                    android:id="@+id/searchEt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:drawableTint="@color/grey_dark"
+                    android:gravity="center_vertical"
+                    android:hint="Search product"
+                    android:maxLines="1"
+                    android:textSize="@dimen/sp12"
+                    app:fontFamily="@font/inter_regular" />
+
+                <ImageView
+                    android:layout_width="@dimen/dp25"
+                    android:layout_height="@dimen/dp25"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/search_icon"
+                    app:tint="@color/grey_dark" />
+            </LinearLayout>
+        </LinearLayout>
+        <!--
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/AllSearch"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/layout"
+                    android:layout_marginTop="10dp" />
+<!--
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+        -->
+    </LinearLayout>
+
+    <!--
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="#4D8C52FF"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/dp40"
+                        android:paddingTop="@dimen/dp10"
+                        android:paddingRight="@dimen/dp20"
+                        android:paddingBottom="@dimen/dp10">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Compare-like never!"
+                            android:textSize="@dimen/sp14"
+                            app:fontFamily="@font/inter_bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Shop and earn upto 12% Cashback "
+                            android:textSize="10sp"
+                            app:fontFamily="@font/inter_regular" />
+                    </LinearLayout>
+    -->
+</RelativeLayout>

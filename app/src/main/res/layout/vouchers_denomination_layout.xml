@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="@dimen/dp15"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginBottom="@dimen/dp5"
+        android:orientation="vertical"
+        android:background="@drawable/button_boarder_2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/voucheramount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1000"
+                android:gravity="start"
+                android:textSize="32sp"
+                app:fontFamily="@font/baloo"/>
+            <TextView
+                android:id="@+id/userDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="1"
+                android:gravity="end"
+                android:textSize="32sp"
+                app:fontFamily="@font/baloo"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-15dp"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/voucherfinalamount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/voucher_amount_200"
+                android:gravity="start"
+                android:textSize="12sp"
+                app:fontFamily="@font/roboto_light"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="off"
+                android:gravity="end"
+                android:textSize="12sp"
+                app:fontFamily="@font/roboto_light"/>
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/saveAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/saving_amount_20"
+            android:textSize="10sp"
+            android:textColor="@color/grey_dark"
+            app:fontFamily="@font/roboto_light"
+            android:layout_marginTop="25dp"
+            android:gravity="end"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:id="@+id/linearLayout16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_boarder_2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp10">
+
+                <TextView
+                    android:id="@+id/voucherAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="200"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/baloo" />
+
+                <TextView
+                    android:id="@+id/Quantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_weight="1"
+                    android:gravity="start"
+                    android:text="*0"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/baloo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/quntitylayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/button_boarder_2"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+               <TextView
+                   android:id="@+id/less"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="-"
+                   android:paddingStart="10dp"
+                   android:layout_marginEnd="@dimen/dp10"
+                   android:textSize="35sp"
+                   app:fontFamily="@font/baloo"/>
+
+                <TextView
+                    android:id="@+id/finalquantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:padding="@dimen/dp5"
+                    android:textSize="@dimen/dp20"
+                    app:fontFamily="@font/baloo"/>
+
+                <TextView
+                    android:id="@+id/add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+"
+                    android:layout_marginStart="@dimen/dp15"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:textSize="@dimen/sp25"
+                    app:fontFamily="@font/baloo"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/addLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@drawable/button_boarder_2"
+                android:gravity="end"
+                android:paddingStart="@dimen/dp20"
+                android:paddingEnd="@dimen/dp20"
+                android:visibility="visible"
+                android:paddingTop="@dimen/dp10"
+                android:paddingBottom="@dimen/dp10"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="ADD"
+                   android:textSize="14sp"
+                   android:layout_gravity="center"
+                   app:fontFamily="@font/roboto_condensed_bold"/>
+
+
+            </LinearLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

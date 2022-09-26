@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/dp10"
+    android:paddingEnd="@dimen/dp10">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:background="@color/transparent"
+        android:hint="@string/enter_amount_or_search_for_plan"
+        android:inputType="text"
+        android:textSize="@dimen/sp14" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:background="@color/grey_light" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPlanType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPlans"
+        android:paddingTop="@dimen/dp10"
+        android:clipToPadding="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5" />
+
+</LinearLayout>

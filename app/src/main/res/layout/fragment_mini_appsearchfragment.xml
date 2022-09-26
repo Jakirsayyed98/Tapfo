@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.MiniAppsearchfragmentFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/homebackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/new_back_btn" />
+
+        <LinearLayout
+            android:id="@+id/searchTool"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp55"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="@dimen/dp5"
+            android:background="@drawable/button_border"
+            android:paddingStart="@dimen/dp20"
+            android:paddingEnd="@dimen/dp20">
+
+            <EditText
+                android:id="@+id/searchEt"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:drawableTint="@color/grey_dark"
+                android:gravity="center_vertical"
+                android:background="@color/transparent"
+                android:hint="Search merchant Flipkart, Ajio..."
+                app:fontFamily="@font/inter_regular"
+                android:maxLines="1"
+                android:textSize="@dimen/sp12" />
+
+            <ImageView
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:src="@drawable/search_icon"
+                app:tint="@color/grey_dark"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingRight="@dimen/dp10"
+            android:paddingBottom="@dimen/dp10"
+            app:cardCornerRadius="@dimen/dp10">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/liLable"
+                android:paddingTop="@dimen/dp10"
+                tools:listitem="@layout/row_partner" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.login.VerifyOtpFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp20"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:text="@string/next_time2"
+                    android:textColor="#003910"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.08"
+                    app:fontFamily="@font/seoulhangangcondensed_boldl" />
+
+                <TextView
+                    android:id="@+id/numberTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:letterSpacing="0.01"
+                    android:text="@string/enter_4_digit_passcode_nto_verify"
+                    android:textColor="#333739"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_light" />
+
+
+                <com.chaos.view.PinView
+                    android:id="@+id/pinView"
+                    style="@style/PinWidget.PinView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp5"
+                    android:elevation="@dimen/dp5"
+                    android:enabled="true"
+                    android:inputType="number"
+                    android:textColor="@color/orange"
+                    app:cursorColor="@color/orange"
+                    app:itemCount="4"
+                    app:itemHeight="@dimen/dp50"
+                    app:itemRadius="@dimen/dp10"
+                    app:itemSpacing="@dimen/dp20"
+                    app:itemWidth="@dimen/dp50"
+                    app:lineColor="@color/black"/>
+
+                <LinearLayout
+                    android:id="@+id/linear_error"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/loginwithOTP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:letterSpacing="0.01"
+                    android:gravity="center"
+                    android:text="@string/passcode_was_incorrect_otp_login"
+                    android:textColor="#333739"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_light" />
+                </LinearLayout>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_proceed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/dp40"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:background="@drawable/login_btn"
+                    android:paddingStart="@dimen/dp20"
+                    android:paddingRight="@dimen/dp20"
+                    android:text="Proceed"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp18"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/roboto_light" />
+
+                <TextView
+                    android:id="@+id/loginwithOTP1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Forgot passcode? Try with OTP"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:letterSpacing="0.01"
+                    android:textColor="#333739"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:layout_marginTop="@dimen/dp20"
+                    app:fontFamily="@font/roboto_light"/>
+
+<!--
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:background="@color/white"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_margin="5dp"
+                        android:weightSum="3">
+
+                        <ImageView
+                            android:layout_width="15dp"
+                            android:layout_height="15dp"
+                            android:layout_gravity="center"
+                            android:background="@drawable/button"
+                            android:backgroundTint="@color/black"
+                            android:src="@drawable/wrong" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:lines="1"
+                            android:text="Passcode was incorrect!"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/kollektif" />
+
+                        <TextView
+                            android:id="@+id/loginwithOTP1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:text="Try with OTP"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/kollektif" />
+
+                    </LinearLayout>
+
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+-->
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

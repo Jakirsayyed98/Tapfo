@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/favourites"
+        android:icon="@drawable/ic_favorite"
+        android:title="favourites"/>
+
+    <item android:id="@+id/forYou"
+        android:icon="@drawable/ic_offer_empty"
+        android:title="for you"/>
+
+    <item android:id="@+id/club"
+        android:icon="@drawable/ic_home"
+        android:title="club"/>
+
+    <item android:id="@+id/offer"
+        android:icon="@drawable/ic_wallet"
+        android:title="offer"/>
+
+    <item android:id="@+id/notification"
+        android:icon="@drawable/ic_notifications"
+        android:title="notification"/>
+
+</menu>

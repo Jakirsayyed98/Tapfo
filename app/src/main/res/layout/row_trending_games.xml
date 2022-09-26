@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/dp5"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_toEndOf="@+id/image"
+        style="@style/TextViewSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Assassian Knight" />
+
+    <TextView
+        android:id="@+id/playsTv"
+        android:layout_below="@+id/nameTv"
+        android:layout_toEndOf="@+id/image"
+        style="@style/TextViewNormal"
+        android:textColor="@color/grey_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="12.03 M Plays" />
+
+    <TextView
+        style="@style/TextViewSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/playsTv"
+        android:layout_toEndOf="@+id/image"
+        android:text="Play now"
+        android:textColor="#0D86A0" />
+
+</RelativeLayout>

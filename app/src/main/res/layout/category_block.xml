@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dp10"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginRight="@dimen/dp5"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="5dp"
+        app:cardElevation="5dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_border_orange">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dp5"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_marginTop="@dimen/dp10"
+                android:src="@drawable/intro_1" />
+
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Shop"
+                android:layout_marginBottom="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp15"
+                app:fontFamily="@font/inter_bold"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/coming"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="coming soon"
+                android:gravity="left"
+                android:background="@color/black"
+                android:paddingLeft="@dimen/dp8"
+                android:paddingRight="@dimen/dp5"
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="10sp"
+
+                />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

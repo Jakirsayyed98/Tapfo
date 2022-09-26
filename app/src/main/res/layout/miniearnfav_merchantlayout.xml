@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="10dp"
+    android:layout_marginRight="@dimen/dp5"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <androidx.cardview.widget.CardView
+      android:id="@+id/icon_lay"
+      android:layout_width="55dp"
+      android:layout_height="55dp"
+      android:layout_margin="@dimen/dp2"
+      app:cardCornerRadius="@dimen/dp100"
+      app:cardBackgroundColor="@color/white">
+      <ImageView
+          android:id="@+id/iv_partner"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:layout_margin="@dimen/dp3"
+          android:scaleType="centerCrop"
+          android:src="@color/red">
+      </ImageView>
+
+  </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cashback"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_above="@+id/icon_lay"
+        android:layout_alignEnd="@+id/icon_lay"
+        app:cardBackgroundColor="@color/transparent"
+        android:outlineSpotShadowColor="@color/red"
+        android:outlineAmbientShadowColor="@color/red"
+        android:layout_marginBottom="-15dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/icon_cashback" />
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

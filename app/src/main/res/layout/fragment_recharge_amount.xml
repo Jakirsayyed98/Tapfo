@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.recharge.RechargeAmountFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp10"
+            android:src="@drawable/logo_circle" />
+
+        <TextView
+            android:id="@+id/contactNameTv"
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="Anuj Kumar"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/contactNumberTv"
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="909090909"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/regionTv"
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="Airtel Perpaid - Rajesthan"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/notNumberTv"
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:text="@string/change_operator"
+            android:textColor="@color/black" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp10">
+
+            <TextView
+                android:id="@+id/contactTypeTv"
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp40"
+                android:background="@drawable/sp_black_corner_20"
+                android:backgroundTint="#F9F0FF"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp10"
+                android:paddingEnd="@dimen/dp10"
+                android:text="Airtel Prepaid"
+                app:drawableEndCompat="@drawable/ic_arrow_down"
+                app:drawableTint="@color/purple_500" />
+
+
+            <TextView
+                android:id="@+id/regionSelectTv"
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp40"
+                android:layout_marginStart="@dimen/dp20"
+                android:background="@drawable/sp_black_corner_20"
+                android:backgroundTint="#F9F0FF"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp10"
+                android:paddingEnd="@dimen/dp10"
+                android:text="UP East"
+                app:drawableEndCompat="@drawable/ic_arrow_down"
+                app:drawableTint="@color/purple_500" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/amountEt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:fontFamily="@font/inter_semibold"
+                android:gravity="start"
+                android:inputType="number"
+                android:hint="@string/select_plan_or_enter_amount"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp16"
+                app:fontFamily="@font/inter_semibold" />
+
+            <Button
+                android:id="@+id/planBtn"
+                android:text="@string/plan"
+                android:textAllCaps="false"
+                android:layout_marginBottom="@dimen/dp5"
+                android:background="@drawable/sp_black_corner_10"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp40" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/fetchAgainTv"
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:text="@string/unable_to_fetch_bill_of"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp12" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="@dimen/dp5"
+            android:layout_margin="@dimen/dp10"
+            android:backgroundTint="@color/grey_v_light"
+            android:background="@drawable/sp_black_corner_10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="Unlimited Packs Enjoy Truly Unlimited Local STD &amp; Roaming Calls on any network daily 1GB &amp; 100 SMS."
+                android:textSize="@dimen/sp12"
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:text="Validity: 56 Days"
+                android:layout_marginTop="@dimen/dp5"
+                android:textSize="@dimen/sp12"
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/proceedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/sp_tcashback_button"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextViewBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/proceed_to_pay"
+            android:textColor="@color/white" />
+
+        <TextView
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="200 Cashback will be credited"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</RelativeLayout>

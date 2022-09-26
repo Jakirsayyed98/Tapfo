@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HistoryFragment">
+
+    <RelativeLayout
+        android:id="@+id/liTop"
+        android:layout_marginStart="@dimen/dp25"
+        android:layout_marginEnd="@dimen/dp25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/hintFav"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/history"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_help"
+            android:layout_alignParentEnd="true"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            app:tint="@color/purple_500" />
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerFavourite"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/liTop"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/dp20"
+        android:paddingTop="@dimen/dp10"
+        android:paddingEnd="@dimen/dp20"
+        android:paddingBottom="@dimen/dp50" />
+
+    <LinearLayout
+        android:id="@+id/emptyLi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="@dimen/dp100"
+            android:layout_height="@dimen/dp100"
+            android:src="@drawable/ic_empty_redeem" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No New Transactions"
+            android:textStyle="bold"
+            android:textColor="@color/purple_500" />
+
+        <TextView
+            android:id="@+id/emptyListTv"
+            android:layout_marginTop="@dimen/dp5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp40"
+            android:layout_marginEnd="@dimen/dp40"
+            android:gravity="center"
+            android:text="Your transaction orders will appear here"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp12" />
+
+    </LinearLayout>
+
+</RelativeLayout>

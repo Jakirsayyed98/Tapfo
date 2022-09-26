@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_games"
+    app:startDestination="@id/gamesHomeFragment">
+
+    <fragment
+        android:id="@+id/gamesHomeFragment"
+        android:name="app.tapho.ui.games.GamesHomeFragment"
+        android:label="fragment_games_home"
+        tools:layout="@layout/fragment_games_home" >
+
+        <action
+            android:id="@+id/action_gamesHomeFragment_to_gamesCategoryFragment"
+            app:destination="@id/gamesCategoryFragment" />
+        <action
+            android:id="@+id/action_gamesHomeFragment_to_moreGamesFragment"
+            app:destination="@id/moreGamesFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gamesCategoryFragment"
+        android:name="app.tapho.ui.games.GamesCategoryFragment"
+        android:label="fragment_games_category"
+        tools:layout="@layout/fragment_games_category" />
+    <fragment
+        android:id="@+id/moreGamesFragment"
+        android:name="app.tapho.ui.games.MoreGamesFragment"
+        android:label="fragment_more_games"
+        tools:layout="@layout/fragment_more_games" >
+
+        <action
+            android:id="@+id/action_moreGamesFragment_to_playNowFragment"
+            app:destination="@id/playNowFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/playNowFragment"
+        android:name="app.tapho.ui.games.PlayNowFragment"
+        android:label="fragment_play_now"
+        tools:layout="@layout/fragment_play_now" />
+
+
+</navigation>

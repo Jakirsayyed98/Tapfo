@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.vouchers.VoucherCayegoryDetailFragment">
+
+
+    <TextView
+        android:id="@+id/brandNameTv"
+        android:textColor="@color/black"
+        style="@style/TextViewSemiBold"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_gravity="center"
+        android:textSize="@dimen/sp18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/banner1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp150"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/dp20"
+        android:paddingEnd="@dimen/dp20" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSubCategories"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp10" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerVouchers"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

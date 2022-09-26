@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MiniCash.Fragments.MiniCashHomePageFragment">
+
+
+    <!--
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp70"
+                android:background="@drawable/minicash_shade"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand"
+                    android:text="INTRODUCING"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:textColor="#9E87D8" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:text="minicash"
+                    android:textColor="#9E87D8"
+                    android:textSize="40sp"
+                    android:layout_marginLeft="@dimen/dp20"
+                    app:fontFamily="@font/baloo"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:text="@string/changing_online_shopping_experience_like_cashback_you_love"
+                    android:textColor="#64589E"
+                    android:textSize="20sp"
+                    app:fontFamily="@font/baloo" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/staticLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/white"
+                app:layout_collapseMode="pin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp30"
+                        android:layout_height="@dimen/dp30"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:src="@drawable/new_back_btn"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="minicash"
+                        android:textColor="#9E87D8"
+                        android:textSize="25sp"
+                        android:layout_marginLeft="@dimen/dp20"
+                        app:fontFamily="@font/baloo"/>
+
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+-->
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/Minicash"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp45"
+                android:layout_centerVertical="true"
+                android:layout_margin="15dp"
+                android:background="@drawable/search_layot_background"
+                android:paddingStart="@dimen/dp10"
+                android:layout_weight="1"
+                android:paddingEnd="@dimen/dp20">
+
+                <ImageView
+                    android:id="@+id/backIv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/left_back_btn" />
+
+                <TextView
+                    android:id="@+id/searchEt"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:layout_weight="1"
+                    android:background="@color/transparent"
+                    android:drawableTint="@color/grey_dark"
+                    android:gravity="center_vertical"
+                    android:hint="Search for miniearn like Flipkart, Swiggy or more"
+                    android:imeOptions="actionDone"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/roboto_light" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:src="@drawable/tcash_icon_lay"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"/>
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+                <!--            Banner-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="@color/Minicash">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="miniearn"
+                        app:fontFamily="@font/baloo"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:textSize="38sp"
+                        android:textColor="@color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Shop with Cashback &amp; Rewards"
+                        android:textColor="@color/white"
+                        android:layout_marginStart="@dimen/dp20"
+                        android:textSize="10sp"
+                        android:layout_marginTop="-20dp"
+                        app:fontFamily="@font/quicksand" />
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/banner1"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:layout_margin="10dp"
+                        android:visibility="gone" />
+
+                    <!--            Categories miniearns-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/dp10"
+                        android:visibility="visible">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerAppCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp10"
+                            android:layout_marginRight="@dimen/dp10" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!--            Popular Miniearns-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dp30"
+                    android:paddingTop="@dimen/dp10"
+                    android:orientation="vertical"
+                    android:background="#B3F6F5F5"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:paddingStart="@dimen/dp5"
+                            tools:itemCount="2"
+                            tools:listitem="@layout/row_catgory_tabformini"
+                            android:orientation="horizontal"
+                            android:paddingEnd="@dimen/dp5" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/merchantdata"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:clipToPadding="false"
+                            tools:listitem="@layout/merchant_layout_data"
+                            android:paddingStart="@dimen/dp5"
+                            android:paddingEnd="@dimen/dp5" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:paddingStart="@dimen/dp15"
+                    android:paddingEnd="@dimen/dp15"
+                    android:paddingTop="@dimen/dp25"
+                    android:orientation="vertical"
+                    android:background="@drawable/background_shade">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="miniearn"
+                        android:textSize="35sp"
+                        android:textColor="@color/black"
+                        app:fontFamily="@font/baloo"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Shop with Cashback &amp; Rewards"
+                        android:textSize="10sp"
+                        android:textColor="@color/black"
+                        app:fontFamily="@font/roboto_light"
+                        android:layout_marginTop="-18dp"
+                        android:layout_marginStart="@dimen/dp5"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Next big thing is here!"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/dp20"
+                        app:fontFamily="@font/roboto_condensed_bold"/>
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Yeah, we heard you love extra cashback. Road\nto next level of shopping with saving experience\nlike never before."
+                        android:textSize="9sp"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/dp20"
+                        app:fontFamily="@font/roboto_light"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/orange1"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

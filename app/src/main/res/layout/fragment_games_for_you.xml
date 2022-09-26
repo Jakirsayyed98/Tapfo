@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".GamesForYouFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--Games Categories-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/games_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp15" />
+            <!--Recently Played List-->
+            <LinearLayout
+                android:id="@+id/recentlist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp5"
+                        android:layout_weight="1"
+                        android:text="Recently Played Games"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/inter_bold" />
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recntly_played"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="always"
+                    android:focusable="true"
+                    tools:listitem="10"
+                    app:spanCount="2"
+                    android:splitMotionEvents="true"/>
+            </LinearLayout>
+
+            <!--Trending Games-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp5"
+                        android:layout_weight="1"
+                        android:text="Trending Games"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/inter_bold" />
+
+                    <TextView
+                        android:id="@+id/seeAlltranding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginRight="@dimen/dp15"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        android:text="see All"
+                        android:textAllCaps="true"
+                        android:textColor="@color/screenGreen"
+                        android:textSize="@dimen/sp12" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:text="new games in the list"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/dp10" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/TrandingGames"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:overScrollMode="always"
+                    android:focusable="true"
+                    android:nestedScrollingEnabled="true"
+                    android:splitMotionEvents="true"/>
+            </LinearLayout>
+            <!--Popular-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/popular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:layout_weight="1"
+                    android:text="Popular Games"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:fontFamily="@font/inter_bold" />
+
+                <TextView
+                    android:id="@+id/seeAllPopular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dp15"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="see All"
+                    android:textAllCaps="true"
+                    android:textColor="@color/screenGreen"
+                    android:textSize="@dimen/sp12" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:text="most played games in all categories"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp10" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/populargames"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:padding="@dimen/dp10"
+                android:scrollbars="vertical" />
+
+            <!--Newly Added-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:layout_weight="1"
+                    android:text="Newly Added Games"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:fontFamily="@font/inter_bold" />
+
+                <TextView
+                    android:id="@+id/seeAllNewlyAddedGames"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dp15"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="see All"
+                    android:textAllCaps="true"
+                    android:textColor="@color/screenGreen"
+                    android:textSize="@dimen/sp12" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:text="new games in the list"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp10" />
+
+            <!--Banner-->
+<!--
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/Gamebanner1"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp180"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:elevation="@dimen/dp2"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="20"
+                app:iss_delay="0"
+                app:iss_period="4000" />
+          -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/NewlyAddedGames"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/Gamebanner1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp180"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:elevation="@dimen/dp2"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="20"
+                app:iss_delay="0"
+                app:iss_period="4000" />
+
+            <!--Most Played-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:layout_weight="1"
+                    android:text="Most played "
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:fontFamily="@font/inter_bold" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:text="Cultured top most played games for you"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp10" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/mostplayed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/AllMostPlayed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp10"
+                android:background="@drawable/button_border"
+                android:gravity="center"
+                android:padding="@dimen/dp10"
+                android:text="Explore most played games" />
+
+            <!--In The Spo Light-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:layout_weight="1"
+                    android:text="In the Spotlight"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:fontFamily="@font/inter_bold" />
+
+                <TextView
+                    android:id="@+id/seeAllspotlight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dp15"
+                    android:layout_weight="1"
+                    android:gravity="end"
+                    android:text="see All"
+                    android:textAllCaps="true"
+                    android:textColor="@color/screenGreen"
+                    android:textSize="@dimen/sp12"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:text="most playing games in this week"
+                android:textColor="@color/black"
+                android:textSize="@dimen/dp10" />
+
+            <com.denzcoskun.imageslider.ImageSlider
+                android:id="@+id/spotlight"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp180"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:elevation="@dimen/dp2"
+                app:iss_auto_cycle="true"
+                app:iss_corner_radius="20"
+                app:iss_delay="0"
+                app:iss_period="4000" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginRight="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp5"
+                android:layout_weight="1"
+                android:text="Featured Games"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:fontFamily="@font/inter_bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/popularAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

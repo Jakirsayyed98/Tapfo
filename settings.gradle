@@ -1,0 +1,2 @@
+rootProject.name = "Tapfo"
+include ':app'

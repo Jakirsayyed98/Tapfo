@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/titleTv"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/validityLi"
+        android:text="Rs.399 + Rs.99 PRIME Data: 1.5GB/day"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/descriptionTv"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titleTv"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/validityLi"
+        android:text="Voice: Unlimited Voice Calls"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/validityTv"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/descriptionTv"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_toStartOf="@+id/validityLi"
+        android:text="Type: Unlimited Packs"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/validityLi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_toStartOf="@+id/moreIv"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="399" />
+
+        <TextView
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="Validity"
+            android:textSize="@dimen/sp12" />
+
+        <TextView
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="90 Days"
+            android:textSize="@dimen/sp12" />
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/moreIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:src="@drawable/ic_right_arrow" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"
+        android:layout_below="@+id/validityTv"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10"
+        android:background="@color/grey_dark" />
+
+
+</RelativeLayout>

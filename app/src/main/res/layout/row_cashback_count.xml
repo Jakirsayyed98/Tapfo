@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:text="500x1"
+    style="@style/TextViewSemiBold"
+    android:gravity="center"
+    android:layout_marginEnd="@dimen/dp5"
+    android:textColor="@color/white"
+    android:backgroundTint="@color/offer_coupon"
+    android:paddingStart="@dimen/dp10"
+    android:paddingEnd="@dimen/dp10"
+    android:background="@drawable/sp_border_corner_15"
+    android:layout_height="@dimen/dp30">
+
+</TextView>

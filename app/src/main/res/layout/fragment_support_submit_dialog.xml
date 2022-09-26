@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.help.SupportSubmitDialogFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp50"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/ic_tapfo_help" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_margin="@dimen/dp20"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/ic_submitted"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"/>
+
+        <TextView
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="@string/request_submitted"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <TextView
+            android:textColor="@color/black2"
+            android:gravity="center"
+            android:text="Your request has been granted, please wait our customer support team will contact you shortly."
+            android:layout_marginTop="@dimen/dp15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

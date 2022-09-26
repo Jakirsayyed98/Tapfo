@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:elevation="@dimen/dp10"
+    android:layout_height="wrap_content"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp20">
+
+        <TextView
+            android:id="@+id/exit_tag_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/you_might_miss_out"
+            android:textColor="#9A9393"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/cashback_on_Exit"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Upto 900% cashback"
+            android:textColor="#1ABC9C"
+            android:layout_marginTop="@dimen/dp10"
+            android:textStyle="bold"
+            app:fontFamily="@font/roboto_condensed_bold"
+            android:textSize="23dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/are_you_sure"
+            android:layout_marginTop="@dimen/dp10"
+            android:textColor="@color/black"
+            android:textSize="12dp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.8dp"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="#B3AFAF" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp10"
+            android:weightSum="2">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/leave_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="37dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:textSize="12sp"
+                android:background="@drawable/button_border"
+                android:text="@string/leave_on" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/continue_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_border"
+                android:backgroundTint="#1ABC9C"
+                android:paddingLeft="@dimen/dp5"
+                android:textSize="12sp"
+                android:paddingRight="5dp"
+                android:text="Continue"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

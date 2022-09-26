@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.games.PlayNowFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/banner1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp150"
+                android:background="@color/purple_500" />
+
+            <ImageView
+                android:id="@+id/backIv"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_margin="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/back_blue_ic" />
+
+            <ImageView
+                android:id="@+id/gameIv"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp60"
+                android:layout_below="@+id/banner1"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@color/red" />
+
+            <TextView
+                android:id="@+id/nameTv"
+                style="@style/TextViewSemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/banner1"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_toEndOf="@+id/gameIv"
+                android:text="Street Dunkies" />
+
+            <TextView
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/nameTv"
+                android:layout_toEndOf="@+id/gameIv"
+                android:text="32.6K Plays"
+                android:textColor="@color/grey_dark" />
+
+            <ImageView
+                android:id="@+id/ratingIv"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_alignTop="@+id/nameTv"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp10"
+                android:src="@drawable/ic_fev_selected"
+                app:tint="@color/purple_500" />
+
+            <TextView
+                style="@style/TextViewSemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ratingIv"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dp10"
+                android:text="3.2"
+                android:textSize="@dimen/sp16" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:text="Description"
+            android:textSize="@dimen/sp16" />
+
+        <TextView
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:text="icwc bceeeeee eeeeeee eeewu   c weeeeeeee eeeeeeeeeeeeee eeeeeeeciu cweewuiocoweicjiowjcio"
+            android:textColor="@color/grey_dark" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp10"
+            android:background="@color/grey_dark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40" />
+
+            <TextView
+                style="@style/TextViewSemiBold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Play &amp; Earn Cash" />
+
+            <TextView
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coming Soon!"
+                android:textColor="@color/purple_500" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="Similar Games" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerSimilarGames"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+    <View
+        android:background="@color/grey_dark"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp1"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_margin="@dimen/dp10"
+            android:backgroundTint="#F3BEBD"
+            android:background="@drawable/sp_white_corner_20"
+            android:padding="@dimen/dp10"
+            android:src="@drawable/ic_like_selected_web"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            app:tint="@color/red" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/dp10"
+            android:text="Play Now"
+            android:gravity="center"
+            style="@style/TextViewSemiBold"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/purple_500"
+            android:background="@drawable/sp_white_corner_5"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"/>
+
+    </LinearLayout>
+
+</LinearLayout>

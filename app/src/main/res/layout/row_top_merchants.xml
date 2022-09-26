@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/dp5">
+
+    <ImageView
+        android:id="@+id/imageIv"
+        android:layout_width="@dimen/item_grid_image_height"
+        android:layout_height="@dimen/item_grid_image_height"
+        android:contentDescription="@string/merchant"
+        tools:src="@drawable/sp_black_corner_10" />
+
+    <ImageView
+        android:id="@+id/rupee"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:layout_marginStart="-10dp"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_toEndOf="@+id/imageIv"
+        android:src="@drawable/ic_rupee_green" />
+
+    <TextView
+        android:id="@+id/headingTv"
+        style="@style/TextViewSemiBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/rupee"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:text="Bombay Shaving Company" />
+
+    <TextView
+        android:id="@+id/punchlineTv"
+        style="@style/TextViewNormal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headingTv"
+        android:layout_toEndOf="@+id/rupee"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/sp12"
+        android:textStyle="bold"
+        tools:text="Bombay Shaving Company" />
+
+
+</RelativeLayout>

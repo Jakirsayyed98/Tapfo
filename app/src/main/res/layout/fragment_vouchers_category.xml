@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.vouchers.VouchersCategoryFragment">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp50"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="match_parent"
+            android:foreground="?actionBarItemBackground"
+            android:padding="@dimen/dp15"
+            android:src="@drawable/ic_back"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/dp50"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:text="@string/brand_vouchers"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/searchIv"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/favouriteIv"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/ic_search"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/favouriteIv"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/selector_favourites_webview" />
+    </RelativeLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/banner1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp150"
+        android:clipToPadding="false"
+        android:paddingStart="@dimen/dp20"
+        android:paddingEnd="@dimen/dp20" />
+
+    <LinearLayout
+        android:backgroundTint="#F3FD98"
+        android:background="@drawable/sp_white_corner_10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:paddingStart="@dimen/dp10"
+        android:paddingTop="@dimen/dp15"
+        android:paddingEnd="@dimen/dp10"
+        android:paddingBottom="@dimen/dp15">
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:src="@drawable/ic_fev_selected" />
+
+        <TextView
+            style="@style/TextViewSemiBold"
+            android:layout_width="0dp"
+            android:textSize="@dimen/sp16"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_weight="1"
+            android:text="@string/my_vouchers" />
+
+        <ImageView
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:src="@drawable/ic_right_arrow" />
+    </LinearLayout>
+
+    <TextView
+        android:text="@string/categories"
+        style="@style/TextViewSemiBold"
+        android:textSize="@dimen/sp16"
+        android:layout_marginStart="@dimen/dp15"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Shop over 300+ Brand Vouchers | save upto ₹20000"
+        android:layout_marginStart="@dimen/dp15"
+        android:layout_marginEnd="@dimen/dp15"
+        style="@style/TextViewNormal"
+        android:textSize="@dimen/sp12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerVouchers"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp15"
+        android:layout_marginEnd="@dimen/dp15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

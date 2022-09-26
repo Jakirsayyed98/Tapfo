@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.merchants.MerchantCouponDetailDialogFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btnRedeem"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:background="@drawable/sp_white_top_corner_10"
+        android:orientation="vertical"
+        android:padding="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/closeIv"
+            android:layout_width="@dimen/dp30"
+            android:layout_height="@dimen/dp30"
+            android:layout_gravity="end"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/close_gray_ic" />
+
+        <ImageView
+            android:id="@+id/imageIv"
+            android:layout_width="@dimen/item_grid_image_height"
+            android:layout_height="@dimen/item_grid_image_height"
+            android:layout_gravity="center"
+            tools:background="@color/grey_light" />
+
+        <TextView
+            android:id="@+id/nameTv"
+            style="@style/TextViewBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp5"
+            tools:text="Myntra" />
+
+        <TextView
+            android:id="@+id/lableTv"
+            style="@style/TextViewSemiBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/green_dark"
+            tools:text="50-60 % OFF" />
+
+        <TextView
+            android:id="@+id/titleTv"
+            style="@style/TextViewBold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:gravity="center"
+            tools:text="Myntra Live Fashion Sale 22nd - 25nd October" />
+
+        <LinearLayout
+            android:id="@+id/cashbackLi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_border_corner_15"
+            android:paddingStart="@dimen/dp10"
+            android:paddingTop="@dimen/dp5"
+            android:paddingEnd="@dimen/dp10"
+            android:paddingBottom="@dimen/dp5">
+
+            <ImageView
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:src="@drawable/ic_add_circle" />
+
+            <TextView
+                android:id="@+id/cashbackInfoIv"
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp10"
+                android:textColor="@color/purple_500"
+                tools:text="Earn Upto 12% cashback*" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp20"
+            android:text="@string/coupon_code" />
+
+        <TextView
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="@string/use_this_coupon_code_at_checkout" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_white_corner_10"
+            android:backgroundTint="@color/yellow"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp20"
+            android:paddingTop="@dimen/dp10"
+            android:paddingEnd="@dimen/dp20"
+            android:paddingBottom="@dimen/dp10">
+
+            <TextView
+                android:id="@+id/couponsTv"
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp20"
+                tools:text="MYNT" />
+
+            <ImageView
+                android:id="@+id/copyIv"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_marginStart="@dimen/dp5"
+                android:padding="@dimen/dp5"
+                android:src="@drawable/copy"
+                app:tint="@color/black" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp20"
+            android:background="@color/grey_light"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/validTv"
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:visibility="gone"
+            tools:text="@string/valid_till_" />
+
+        <TextView
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="@string/terms_conditions"
+            android:textColor="@color/purple_500"
+            android:visibility="gone" />
+
+        <TextView
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp30"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="@string/checkout_at_merchant_store"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRedeem"
+        style="@style/TextViewNormal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/sp_white_top_corner_10"
+        android:text="@string/redeem_now"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
