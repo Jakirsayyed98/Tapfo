@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".ui.localbizzUI.BusinessProfileFlow.BizzCardFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar_white2"
+                android:visibility="visible" />
+
+
+            <LinearLayout
+                android:id="@+id/cardFront"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp20">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/pin_biz_card_bg">
+
+                        <ImageView
+                            android:id="@+id/imageView6"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="@dimen/dp30"
+                            android:src="@drawable/pin_biz_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/Minicash" />
+
+                        <TextView
+                            android:id="@+id/textView2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:text="@string/LocalBizz_name"
+                            android:textColor="@color/Minicash"
+                            android:textSize="25sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                            app:layout_constraintStart_toEndOf="@+id/imageView6"
+                            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+                        <TextView
+                            android:id="@+id/textView3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:text="@string/connecting_business_to_local"
+                            android:textColor="@color/Minicash"
+                            android:textSize="9sp"
+                            app:fontFamily="@font/sans_medium"
+                            app:layout_constraintStart_toStartOf="@+id/imageView6"
+                            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:paddingLeft="@dimen/dp25"
+                            android:paddingTop="@dimen/dp25"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/Minicash"
+                            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+                        <TextView
+                            android:id="@+id/address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:paddingLeft="@dimen/dp25"
+                            android:paddingRight="@dimen/dp20"
+                            android:paddingTop="@dimen/dp5"
+                            android:textSize="13sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/Minicash"
+                            app:layout_constraintTop_toBottomOf="@+id/name" />
+
+
+                        <ImageView
+                            android:id="@+id/imageView7"
+                            android:layout_width="@dimen/dp20"
+                            android:layout_height="@dimen/dp20"
+                            android:layout_marginStart="@dimen/dp30"
+                            android:layout_marginTop="@dimen/dp25"
+                            android:src="@drawable/mobile_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/address"
+                            app:tint="@color/Minicash" />
+
+
+                        <TextView
+                            android:id="@+id/mobileNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/Minicash"
+                            app:fontFamily="@font/sans_medium"
+                            android:textStyle="bold"
+                            android:layout_marginStart="@dimen/dp10"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                            app:layout_constraintStart_toEndOf="@+id/imageView7"
+                            app:layout_constraintTop_toTopOf="@+id/imageView7" />
+
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="@dimen/dp20"
+                            android:layout_height="@dimen/dp20"
+                            android:layout_marginStart="@dimen/dp30"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:src="@drawable/whatsapp_icon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView7"
+                            app:tint="@color/Minicash" />
+
+
+                        <TextView
+                            android:id="@+id/whatsapp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="WhatsApp"
+                            android:textSize="12sp"
+                            android:textColor="@color/Minicash"
+                            app:fontFamily="@font/sans_medium"
+                            android:textStyle="bold"
+                            android:layout_marginStart="@dimen/dp10"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+                            app:layout_constraintStart_toEndOf="@+id/imageView8"
+                            app:layout_constraintTop_toTopOf="@+id/imageView8" />
+
+                        <TextView
+                            android:id="@+id/whatsapp_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/Minicash"
+                            android:textSize="14sp"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:layout_marginStart="@dimen/dp10"
+                            app:fontFamily="@font/sans_medium"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@+id/imageView8"
+                            app:layout_constraintTop_toBottomOf="@+id/whatsapp" />
+
+
+                        <ImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="@dimen/dp20"
+                            android:layout_height="@dimen/dp20"
+                            android:layout_marginStart="@dimen/dp30"
+                            android:layout_marginTop="@dimen/dp35"
+                            android:src="@drawable/emialicon"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView8"
+                            app:tint="@color/Minicash" />
+
+
+                        <TextView
+                            android:id="@+id/email"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Email id"
+                            android:textSize="12sp"
+                            android:textColor="@color/Minicash"
+                            app:fontFamily="@font/sans_medium"
+                            android:textStyle="bold"
+                            android:layout_marginStart="@dimen/dp10"
+                            app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+                            app:layout_constraintStart_toEndOf="@+id/imageView9"
+                            app:layout_constraintTop_toTopOf="@+id/imageView9" />
+
+                        <TextView
+                            android:id="@+id/emailid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/Minicash"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toStartOf="@+id/email"
+                            app:layout_constraintTop_toBottomOf="@+id/email" />
+
+                        <ImageView
+                            android:layout_width="75dp"
+                            android:layout_height="60dp"
+                            android:src="@drawable/pin_biz_card_logo"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="@dimen/dp25"
+                            android:layout_marginBottom="@dimen/dp15"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Disclaimer:Business hours may differ from the actual business working hour.Please contact to business for more details."
+                    android:textSize="10sp"
+                    android:visibility="gone"
+                    android:layout_marginTop="@dimen/dp10"
+                    app:fontFamily="@font/sans_medium"
+                    android:textColor="@color/Minicash"/>
+
+            </LinearLayout>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/saveCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/button_boarder_2"
+                android:layout_marginBottom="@dimen/dp10"
+                android:backgroundTint="@color/Minicash"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:text="Save to Gallery"
+                android:textAllCaps="false"
+                app:fontFamily="@font/sans_medium"
+                android:textColor="@color/white" />
+
+
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

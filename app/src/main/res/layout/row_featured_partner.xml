@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/dp5"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_partner"
+        android:layout_width="@dimen/item_grid_image_height"
+        android:layout_height="@dimen/item_grid_image_height"
+        tools:src="@drawable/intro_1" />
+
+    <TextView
+        android:id="@+id/cashbackTv"
+        android:layout_width="@dimen/dp80"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:gravity="center"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/sp10"
+        app:fontFamily="@font/sans_medium"
+        tools:text="Earn Upto 12% Cashback" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        app:fontFamily="@font/sans_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp12"
+        tools:text="Dominoes" />
+
+</LinearLayout>

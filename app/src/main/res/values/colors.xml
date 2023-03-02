@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#8C52FF</color>
+    <color name="purple_500">#5925C9</color>
+    <color name="lightpurple3">#3E3C77</color>
+    <color name="lightpurple4">#64589E</color>
+
+    <!--<color name="purple_500">#000</color>-->
+
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="lightblack">#222222</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="light_orange1">#1CF7881F</color>
+    <color name="grey_background">#F3F3F3</color>
+
+
+
+    <color name="keypad_button_color">#E1E0ED</color>
+    <color name="grey_v_light">#FAFAFA</color>
+    <color name="grey_dark">#909090</color>
+    <color name="new_grey">#C1FFFFFF</color>
+    <color name="new_grey1">#BFF5F5F5</color>
+    <color name="new_green2">#1ABC9C</color>
+    <color name="grey_light">#C1C1C1</color>
+    <color name="grey_light3">#C4C4C4</color>
+    <color name="light_greyforBg">#4FE5E5E5</color>
+    <color name="grey_light2">#D3D3D3</color>
+    <color name="bg_grey">#FAFAFA</color>
+    <color name="light_grey">#26FFFFFF</color>
+    <color name="offer_coupon">#FE815C</color>
+    <color name="light_purple_new">#DDE3F3</color>
+
+
+    <color name="status_bar">#353535</color>
+
+    <color name="tab_unselected_text_color">#6E6688</color>
+    <color name="black2">#555555</color>
+    <color name="green_light">#3BEE39</color>
+    <color name="screenGreen">#0DCA42</color>
+    <color name="greenshade">#5DB07F</color>
+    <color name="pinbizgrey">#565656</color>
+
+    <color name="green_dark">#008D3A</color>
+    <color name="green_dark2">#1f9d55</color>
+    <color name="green_light_bg">#E0FEDC</color>
+    <color name="green_dark3">#1E6B03</color>
+    <color name="red">#EF5350</color>
+    <color name="grey_tabs">#E7E7E7</color>
+    <color name="orange">#EE8300</color>
+    <color name="orange1">#FF7C2B</color>
+    <color name="orange2">#E67E22</color>
+    <color name="transparent">#00ffffff</color>
+
+
+    <!--    <color name="Minicash">#64589e</color>-->
+    <color name="Minicash">#FF7C2B</color>
+    <color name="pinbiz">#64589E</color>
+    <color name="GreenWalletBackgroundDark">#1F9D55</color>
+    <color name="walletscreen">#301F9D55</color>
+
+
+</resources>

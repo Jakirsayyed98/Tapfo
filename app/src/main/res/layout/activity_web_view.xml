@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/webViewBackground"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.WebViewActivity">
+
+    <LinearLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/toolbar1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backIv"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="match_parent"
+                android:foreground="?actionBarItemBackground"
+                android:padding="@dimen/dp10"
+                android:src="@drawable/ic_back"
+                app:tint="@color/white" />
+
+
+            <ImageView
+                android:id="@+id/secure"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/backIv"
+                android:padding="7dp"
+                android:src="@drawable/secure"
+                app:tint="@color/white" />
+
+            <LinearLayout
+                android:id="@+id/TApp_Redirect_Name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@+id/secure"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tapfo"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:fontFamily="@font/tt_regular" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toEndOf="@+id/secure"
+                    android:paddingEnd="@dimen/dp5"
+                    android:text="Mini "
+                    android:textColor="@color/green_dark"
+                    android:textSize="16sp"
+                    android:textStyle="italic"
+                    app:fontFamily="@font/tt_medium" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/cashbacklay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="65dp"
+                android:layout_toStartOf="@+id/favouriteIv"
+                android:layout_toEndOf="@+id/TApp_Redirect_Name"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/tcoin_icon" />
+
+                <TextView
+                    android:id="@+id/cashback1234"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:layout_marginEnd="3dp"
+                    android:text="Upto \n180r cashback"
+                    android:textAlignment="textStart"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/tt_regular" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/favouriteIv"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="20dp"
+                android:padding="7dp"
+                android:src="@drawable/selector_favourites_webview" />
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/securety"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:rotation="180"
+            android:visibility="gone"
+            app:cardElevation="@dimen/dp50">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:rotation="180">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp30"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:id="@+id/animationView"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/secure_gif" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/secure_policy"
+                            android:textColor="@color/orange"
+                            android:textSize="@dimen/sp14"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/secureLine1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:letterSpacing="0.02"
+                            android:lineHeight="13dp"
+                            android:text="@string/this_browsing_is_"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp10"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <TextView
+                            android:id="@+id/secureLine2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:letterSpacing="0.02"
+                            android:lineHeight="13dp"
+                            android:text="@string/this_browsing"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/sp10"
+                            app:fontFamily="@font/sans_medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/gotit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp25"
+                    android:gravity="center"
+                    android:text="Ok I Got it"
+                    android:textColor="#0977FD"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/sans_medium" />
+
+                <View
+                    android:layout_width="@dimen/dp50"
+                    android:layout_height="3dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="#0977FD" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/termsAndCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:backgroundTint="#3FA817"
+                        android:padding="@dimen/dp5"
+                        android:paddingBottom="@dimen/dp15"
+                        app:cardCornerRadius="@dimen/dp10"
+                        app:cardElevation="10dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp10">
+
+                            <View
+                                android:layout_width="250dp"
+                                android:layout_height="8dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/bg_horizontal"
+                                android:backgroundTint="@color/white" />
+
+                            <LinearLayout
+                                android:id="@+id/liNotice1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:paddingTop="@dimen/dp10"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@color/transparent"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/dp5">
+
+                                    <ImageView
+                                        android:id="@+id/image123"
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/correct123" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:gravity="center"
+                                        android:text="Link"
+                                        android:textColor="@color/white"
+                                        android:textSize="10sp"
+                                        app:fontFamily="@font/sans_medium" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp5"
+                                        android:gravity="center"
+                                        android:text="Activited"
+                                        android:textColor="@color/white"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold"
+                                        app:fontFamily="@font/sans_medium" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/dp5">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/correct123" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:gravity="center"
+                                        android:text="Cashback Credits"
+                                        android:textColor="@color/white"
+                                        android:textSize="10sp"
+                                        app:fontFamily="@font/sans_medium" />
+
+                                    <TextView
+                                        android:id="@+id/credit_hours"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp5"
+                                        android:gravity="center"
+                                        android:text=""
+                                        android:textColor="@color/white"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold"
+                                        app:fontFamily="@font/sans_medium" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical"
+                                    android:padding="@dimen/dp5">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp20"
+                                        android:layout_height="@dimen/dp20"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/smile" />
+
+                                    <TextView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:gravity="center"
+                                        android:text="Earn Upto"
+                                        android:textColor="@color/white"
+                                        android:textSize="@dimen/sp10"
+                                        app:fontFamily="@font/sans_medium" />
+
+                                    <TextView
+                                        android:id="@+id/cashbackinTerms"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp5"
+                                        android:gravity="center"
+                                        android:text="9.5% cashback"
+                                        android:textColor="@color/white"
+                                        android:textSize="13sp"
+                                        android:textStyle="bold"
+                                        app:fontFamily="@font/sans_medium" />
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="15dp"
+                        android:paddingRight="15dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="@string/terms_condition"
+                            app:fontFamily="@font/tt_medium" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/terms_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp8"
+                                android:text="@string/terms_condition_popup"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+
+                            <TextView
+                                android:id="@+id/terms_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="@string/cashback_credit_as_pending_"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="@string/Generally_our_merchant"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="@string/cashback_our_merchant"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="@string/nocashback_Applicable"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+
+                            <TextView
+                                android:id="@+id/terms_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="@string/decline_cashback"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="@string/cashback_credit_amt"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="@string/cashback_rates_are_subject"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:text="@string/cashback_is_approved_only_on"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/gotit1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp40"
+                        android:gravity="center"
+                        android:text="Ok I Got it"
+                        android:textColor="#0977FD"
+                        android:textSize="@dimen/sp18"
+                        app:fontFamily="@font/tt_medium" />
+
+                    <View
+                        android:id="@+id/back_btn"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="5dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/cardviewboarder"
+                        android:backgroundTint="#0061F2" />
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/securety"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="-10dp"
+            app:cardBackgroundColor="#00000000"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</RelativeLayout>

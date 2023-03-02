@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp15">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/firstline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLines="1"
+            android:text="Jakir"
+            android:textSize="16sp"
+            app:fontFamily="@font/sans_medium" />
+
+        <TextView
+            android:id="@+id/secondline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:maxLines="1"
+            android:text="185 202 -2 Block Marol , Station, Chakala Metro"
+            android:textSize="14sp"
+            app:fontFamily="@font/sans_medium" />
+    </LinearLayout>
+
+    <RadioButton
+        android:id="@+id/buttoncheck"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="@dimen/dp30"
+        android:layout_gravity="center_vertical"
+        android:buttonTint="@color/orange"
+        android:padding="5dp" />
+
+</LinearLayout>

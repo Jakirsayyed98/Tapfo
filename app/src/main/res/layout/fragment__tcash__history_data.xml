@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_TcashHitory"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
+    tools:context=".ui.tcash.Fragment_Tcash_HistoryData">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/nested"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp10"
+                android:layout_marginTop="@dimen/dp5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/backbtn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:src="@drawable/new_back_btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/black" />
+
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:paddingStart="@dimen/dp10"
+                    android:text="History"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/sans_medium"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/backbtn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/topbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/constraintLayout8"
+                android:padding="@dimen/dp10">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp15"
+                    android:background="@drawable/online_store_tab"
+                    android:padding="@dimen/dp10"
+                    app:fontFamily="@font/sans_medium"
+                    android:drawableEnd="@drawable/arrow_down"
+                    android:drawableTint="#1CF7881F"
+                    android:drawablePadding="-25dp"
+                    android:text="Online Store"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/orange1" />
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:background="@drawable/button_boarder_greyboarder"
+                    android:drawableEnd="@drawable/arrow_down"
+                    android:padding="10dp"
+                    android:text="Pending"
+                    android:gravity="center_vertical"
+                    app:fontFamily="@font/sans_medium"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/filter_chip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:background="@drawable/button_boarder_greyboarder"
+                    android:drawableEnd="@drawable/arrow_down"
+                    android:padding="10dp"
+                    android:text="Till date"
+                    android:gravity="center_vertical"
+                    app:fontFamily="@font/sans_medium"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerCashback"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/topbar" />
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/black"
+                android:layout_centerInParent="true"/>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/noTransaction"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/new_tcoin_icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:gravity="center"
+                android:text="Nothing here yet"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:fontFamily="@font/sans_medium" />
+
+
+            <TextView
+                android:id="@+id/emptyTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center"
+                android:lineSpacingExtra="1dp"
+                android:text=""
+                android:textColor="#565656"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:background="@drawable/button_boarder_3"
+                android:backgroundTint="@color/green_dark"
+                android:padding="@dimen/dp15">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/dp15"
+                    android:layout_marginEnd="@dimen/dp15"
+                    android:text="Okay, Got it"
+                    android:textColor="@color/white"
+                    app:fontFamily="@font/sans_medium"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

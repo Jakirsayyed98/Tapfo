@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.NewGame.GamesOneTimeSplashFragment">
+
+    <ImageView
+        android:id="@+id/SplashImg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/gamezop_splash"
+        android:scaleType="centerCrop"/>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp75"
+        android:backgroundTint="@color/white"
+        android:text="Get Started!"
+        android:textAllCaps="false"
+        android:textColor="@color/lightpurple4"
+        app:fontFamily="@font/sans_medium"
+        app:cornerRadius="@dimen/dp10"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

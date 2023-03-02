@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.profile.SetUpProfileActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_white"
+            android:visibility="invisible" />
+
+        <RelativeLayout
+            android:id="@+id/informationpage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/dp20">
+
+            <LinearLayout
+                android:id="@+id/detaillay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Set Profile"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:fontFamily="@font/sans_bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:text="Setup your profile will help us on better\ncustomization for you"
+                    android:textColor="#333739"
+                    android:textSize="14sp"
+                    app:fontFamily="@font/tt_regular" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="Enter full name"
+                    android:textColorHint="@color/grey_light"
+                    app:boxCornerRadiusBottomEnd="@dimen/dp10"
+                    app:boxCornerRadiusBottomStart="@dimen/dp10"
+                    app:boxCornerRadiusTopEnd="@dimen/dp10"
+                    app:boxCornerRadiusTopStart="@dimen/dp10"
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/nickname_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:cursorColor="@color/black"
+                        app:fontFamily="@font/tt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/email_id"
+                    android:textColorHint="@color/grey_light"
+                    app:boxCornerRadiusBottomEnd="@dimen/dp10"
+                    app:boxCornerRadiusBottomStart="@dimen/dp10"
+                    app:boxCornerRadiusTopEnd="@dimen/dp10"
+                    app:boxCornerRadiusTopStart="@dimen/dp10"
+                    app:boxStrokeColor="@color/black"
+                    app:hintTextColor="@color/black">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email_et"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionDone"
+                        android:inputType="textEmailAddress"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:cursorColor="@color/black"
+                        app:fontFamily="@font/tt_medium" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/errorcodeTVEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="#277586"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:fontFamily="@font/sans_medium" />
+
+
+                <TextView
+                    android:id="@+id/havearefercode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:text="Do you have friend's invite code?\n click here"
+                    android:lineSpacingExtra="0.6dp"
+                    android:textAlignment="center"
+                    android:textColor="#277586"
+                    android:textSize="16sp"
+                    android:layout_marginBottom="@dimen/dp5"
+                    app:fontFamily="@font/tt_medium" />
+
+                <TextView
+                    android:id="@+id/errorcodeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:text=""
+                    android:textAlignment="center"
+                    android:textColor="#277586"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:fontFamily="@font/sans_medium" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSetProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/login_btn1"
+                android:text="Get Started"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:paddingTop="@dimen/dp10"
+                android:paddingBottom="@dimen/dp10"
+                android:textSize="@dimen/sp20"
+                app:fontFamily="@font/sans_medium" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/black"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

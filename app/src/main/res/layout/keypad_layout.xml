@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="1"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_3"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="3"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_4"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="4"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_5"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="5"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_6"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
+            android:fontFamily="@font/sans_medium"
+            android:text="6"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_7"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="7"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_8"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="8"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_9"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="9"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="#"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_zero"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_weight="1"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="0"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp18"
+            app:backgroundTint="@color/keypad_button_color"
+            app:fontFamily="@font/sans_medium" />
+
+
+        <ImageView
+            android:id="@+id/button_delete"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/app_name"
+            android:padding="@dimen/dp10"
+            android:src="@drawable/ic_delete_text"
+            app:tint="?colorPrimary" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

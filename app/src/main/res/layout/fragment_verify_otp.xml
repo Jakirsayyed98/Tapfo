@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".ui.login.VerifyOtpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:padding="@dimen/dp30">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <!--   <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/kollektif_bold"
+                        android:text="@string/enter_the_4_digit"
+                        android:visibility="gone"
+                        android:textColor="@color/white" />
+
+
+    -->
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OTP"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        app:fontFamily="@font/sans_bold" />
+
+                    <TextView
+                        android:id="@+id/numberTv1"
+                        android:text="we have sent you 4 digit \nOTP to 909090909 "
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:textColor="#333739"
+                        android:textSize="14sp"
+                        app:fontFamily="@font/tt_regular" />
+
+
+                    <com.chaos.view.PinView
+                        android:id="@+id/pinView"
+                        style="@style/PinWidget.PinView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp30"
+                        android:elevation="@dimen/dp5"
+                        android:enabled="true"
+                        app:fontFamily="@font/sans_medium"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        app:cursorColor="@color/black"
+                        app:itemCount="4"
+                        app:itemHeight="@dimen/dp50"
+                        app:itemRadius="@dimen/dp10"
+                        app:itemSpacing="@dimen/dp20"
+                        app:itemWidth="@dimen/dp50"
+                        app:lineColor="@color/black" />
+
+                    <LinearLayout
+                        android:id="@+id/li_resend"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/resendBtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/transparent"
+                            app:fontFamily="@font/tt_regular"
+                            android:text="Resend OTP"
+                            android:textAllCaps="false"
+                            android:textColor="#277586"
+                            android:visibility="gone" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Didn't receive OTP? 00:"
+                                app:fontFamily="@font/tt_regular" />
+
+                            <TextView
+                                android:id="@+id/otpTimerTv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:text="0:30"
+                                android:textStyle="bold"
+                                app:fontFamily="@font/tt_demibold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_proceed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="@dimen/dp40"
+                        android:layout_marginBottom="@dimen/dp5"
+                        android:background="@drawable/login_btn1"
+                        android:paddingStart="@dimen/dp20"
+                        android:paddingRight="@dimen/dp20"
+                        android:paddingTop="@dimen/dp10"
+                        android:paddingBottom="@dimen/dp10"
+                        android:text="Verify"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp20"
+                        app:fontFamily="@font/tt_regular" />
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/black"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

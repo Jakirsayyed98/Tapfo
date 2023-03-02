@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/direct_rippleeffect"
+    android:orientation="horizontal">
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="165dp"
+        android:layout_height="190dp"
+        app:cardBackgroundColor="@color/grey_v_light"
+        app:cardCornerRadius="@dimen/dp20"
+        android:layout_margin="@dimen/dp8"
+        app:cardElevation="0.2dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_margin="@dimen/dp10"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="65dp"
+                android:layout_height="@dimen/dp65"
+                android:layout_marginTop="@dimen/dp10"
+                app:cardCornerRadius="@dimen/dp100"
+                android:layout_gravity="center_horizontal"
+                tools:src="@drawable/flipkart" />
+
+            <TextView
+                android:id="@+id/cashback"
+                android:layout_width="@dimen/dp80"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp12"
+                app:fontFamily="@font/sans_medium"
+                android:layout_gravity="center_horizontal"
+                tools:text="Earn Upto 12% Cashback" />
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cashback"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="2dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/grey_dark"
+                android:autoSizeTextType="uniform"
+                android:textSize="@dimen/sp12"
+                app:fontFamily="@font/sans_medium"
+                tools:text="Domi\nno\nes" />
+
+            <TextView
+                android:id="@+id/cashbackt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/icon"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-20dp"
+                android:background="@drawable/button"
+                android:backgroundTint="@color/green_dark"
+                android:gravity="center"
+                android:paddingLeft="@dimen/dp5"
+                android:visibility="gone"
+                android:paddingRight="@dimen/dp5"
+                android:text="Cashback"
+                app:fontFamily="@font/sans_medium"
+                android:textColor="@color/white"
+                android:textSize="8dp" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

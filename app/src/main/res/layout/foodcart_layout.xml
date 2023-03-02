@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/dp10">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/dish_type_bg"
+        android:padding="@dimen/dp3"
+        android:layout_marginEnd="@dimen/dp10"
+        android:src="@drawable/ic_dot"
+        android:layout_marginTop="@dimen/dp5"
+        app:tint="@color/red" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Aloo choco chips"
+            app:fontFamily="@font/sans_medium"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\u20B9 180"
+            android:layout_marginTop="@dimen/dp5"
+            app:fontFamily="@font/sans_medium"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cartQty"
+        android:layout_width="@dimen/dp100"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_boarder_3"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:padding="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/less"
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:layout_marginStart="@dimen/dp5"
+            android:src="@drawable/minus_icon" />
+
+        <TextView
+            android:id="@+id/qty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:text="90"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:paddingStart="@dimen/dp5"
+            android:paddingEnd="@dimen/dp5"
+            app:fontFamily="@font/sans_medium" />
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="@dimen/dp20"
+            android:layout_height="@dimen/dp20"
+            android:src="@drawable/addition_icon"
+            android:layout_marginEnd="@dimen/dp5"/>
+
+    </LinearLayout>
+</LinearLayout>

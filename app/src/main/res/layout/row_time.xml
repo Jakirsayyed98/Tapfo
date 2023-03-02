@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:minWidth="@dimen/dp100"
+    android:background="@drawable/sp_time"
+    android:gravity="center"
+    android:id="@+id/timeTv"
+    android:layout_marginStart="@dimen/dp5"
+    android:layout_marginEnd="@dimen/dp5"
+    android:layout_marginTop="@dimen/dp5"
+    android:layout_marginBottom="@dimen/dp5"
+    app:fontFamily="@font/sans_medium"
+    android:textColor="@drawable/selector_text_color2"
+    android:layout_height="@dimen/dp35">
+
+</TextView>

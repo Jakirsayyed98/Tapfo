@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.login.SetPasscodeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar_white" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:padding="@dimen/dp30">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp10">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="@string/next_time1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        app:fontFamily="@font/sans_bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:letterSpacing="0.01"
+                        android:text="@string/next_time"
+                        android:textColor="#333739"
+                        android:textSize="14sp"
+                        app:fontFamily="@font/tt_regular" />
+
+                    <com.chaos.view.PinView
+                        android:id="@+id/passcodeView"
+                        style="@style/PinWidget.PinView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp5"
+                        android:elevation="@dimen/dp5"
+                        android:enabled="true"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        app:cursorColor="@color/black"
+                        app:itemCount="4"
+                        app:fontFamily="@font/sans_medium"
+                        app:itemHeight="@dimen/dp50"
+                        app:itemRadius="@dimen/dp10"
+                        app:itemSpacing="@dimen/dp20"
+                        app:itemWidth="@dimen/dp50"
+                        app:lineColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/hintTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:text="@string/re_enter_passcode"
+                        android:textColor="#333739"
+                        app:fontFamily="@font/tt_regular" />
+
+                    <com.chaos.view.PinView
+                        android:id="@+id/passcodeReEnterView"
+                        style="@style/PinWidget.PinView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dp5"
+                        android:elevation="@dimen/dp5"
+                        android:enabled="true"
+                        android:inputType="number"
+                        android:textColor="@color/black"
+                        app:cursorColor="@color/black"
+                        app:itemCount="4"
+                        app:fontFamily="@font/sans_medium"
+                        app:itemHeight="@dimen/dp50"
+                        app:itemRadius="@dimen/dp10"
+                        app:itemSpacing="@dimen/dp20"
+                        app:itemWidth="@dimen/dp50"
+                        app:lineColor="@color/black" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_verify"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="@dimen/dp40"
+                        android:layout_marginBottom="@dimen/dp5"
+                        android:background="@drawable/login_btn1"
+                        android:paddingStart="@dimen/dp20"
+                        android:paddingRight="@dimen/dp20"
+                        android:paddingTop="@dimen/dp10"
+                        android:paddingBottom="@dimen/dp10"
+                        android:text="Proceed"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/sp20"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/black"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+
+</RelativeLayout>

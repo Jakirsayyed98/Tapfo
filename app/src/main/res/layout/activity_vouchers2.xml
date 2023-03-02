@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.BuyVoucher.VouchersActivity">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:name="app.tapho.ui.BuyVoucher.VouchersActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <LinearLayout
+        android:id="@+id/layoutBottom"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/dp20"
+        android:background="@drawable/floating_button_background"
+        android:backgroundTint="@color/white"
+        android:baselineAligned="false"
+        android:elevation="@dimen/dp5"
+        android:paddingEnd="@dimen/dp20"
+        android:visibility="gone"
+        android:paddingStart="@dimen/dp20"
+        app:layout_constraintBottom_toBottomOf="@+id/container"
+        tools:layout_editor_absoluteX="20dp">
+
+        <!--        Home tab-->
+
+        <LinearLayout
+            android:id="@+id/homeTab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/homeIv"
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:contentDescription="@string/home"
+                android:src="@drawable/selector_minihome" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/home"
+                android:layout_marginTop="@dimen/dp5"
+                android:textColor="@drawable/selector_text_colorfor_mini"
+                app:fontFamily="@font/sans_medium"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <!--        Fav tab-->
+
+        <LinearLayout
+            android:id="@+id/favouriteTab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:contentDescription="@string/offers"
+                android:src="@drawable/selector_minifav" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/favourites"
+                android:textColor="@drawable/selector_text_colorfor_mini"
+                android:textSize="@dimen/sp10"
+                app:fontFamily="@font/sans_medium"
+                android:layout_marginTop="@dimen/dp5"/>
+
+        </LinearLayout>
+
+        <!--        offer tab-->
+        <LinearLayout
+            android:id="@+id/offerTab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:contentDescription="@string/offers"
+                android:src="@drawable/selector_minioffer" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/offers"
+                android:textColor="@drawable/selector_text_colorfor_mini"
+                android:textSize="@dimen/sp10"
+                app:fontFamily="@font/sans_medium"
+                android:layout_marginTop="@dimen/dp5" />
+
+        </LinearLayout>
+
+
+        <!--        Tcash tab-->
+        <LinearLayout
+            android:id="@+id/tCashTab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:contentDescription="@string/tcash"
+                android:src="@drawable/selector_miniearning" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Earnings"
+                android:textColor="@drawable/selector_text_colorfor_mini"
+                android:textSize="@dimen/sp10"
+                android:layout_marginTop="@dimen/dp5"
+                app:fontFamily="@font/sans_medium"/>
+
+        </LinearLayout>
+
+
+        <!--        Notification tab-->
+        <LinearLayout
+            android:id="@+id/PurchasedTab"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="@dimen/dp25"
+                android:layout_height="@dimen/dp25"
+                android:contentDescription="@string/tcash"
+                android:src="@drawable/selector_miniearning"
+                app:tint="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="Purchased"
+                android:textColor="@drawable/selector_text_colorfor_mini"
+                android:textSize="@dimen/sp10"
+                android:layout_marginTop="@dimen/dp5"
+                app:fontFamily="@font/sans_medium"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

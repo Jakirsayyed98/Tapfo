@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeTorefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.OnlineStores.OnlineStoresFragment">
+
+    <RelativeLayout
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/black" />
+
+    </RelativeLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="@dimen/dp100"
+                    android:paddingTop="@dimen/dp5">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp10"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/backbtn"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="@dimen/dp5"
+                            android:src="@drawable/new_back_btn"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/black" />
+
+
+                        <TextView
+                            android:id="@+id/textView26"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp10"
+                            android:paddingStart="@dimen/dp10"
+                            android:text="Mini Save"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/sans_medium"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/backbtn"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <ImageView
+                            android:id="@+id/search"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="@dimen/dp10"
+                            android:src="@drawable/search_icon"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/favouritesBtn"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/black" />
+
+
+                        <ImageView
+                            android:id="@+id/favouritesBtn"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginEnd="@dimen/dp10"
+                            android:src="@drawable/favicon2"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/rupee"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/black" />
+
+
+                        <ImageView
+                            android:id="@+id/rupee"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="@dimen/dp10"
+                            android:src="@drawable/cashback_t_icon"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/topTab"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintLayout8" />
+
+                    <!--                    banner 9-->
+
+                    <LinearLayout
+                        android:id="@+id/bannerlay1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/topTab">
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/banner2"
+                            android:layout_width="match_parent"
+                            android:layout_height="210dp"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabLayout1"
+                            android:layout_width="30dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:background="@color/transparent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:tabBackground="@drawable/tabindicater4"
+                            app:tabGravity="fill"
+                            app:tabIndicator="@color/orange1"
+                            app:tabIndicatorHeight="0dp"
+                            app:tabMaxWidth="0dp"
+                            app:tabMode="fixed"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/popularcashbackstores"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp10"
+                        android:text="Popular Cashback Stores"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:fontFamily="@font/sans_medium"
+                        app:layout_constraintTop_toBottomOf="@+id/bannerlay1"/>
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerPopularMerchants"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:clipToPadding="false"
+                        android:scrollbars="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/popularcashbackstores"/>
+
+                    <TextView
+                        android:id="@+id/categoriesHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp10"
+                        android:text="Shop by Categories"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:fontFamily="@font/sans_medium"
+                        app:layout_constraintTop_toBottomOf="@+id/recyclerPopularMerchants" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerAppCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/categoriesHeading" />
+
+                    <!--                    banner 1-->
+
+                    <LinearLayout
+                        android:id="@+id/bannerlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginTop="@dimen/dp10"
+                        app:layout_constraintTop_toBottomOf="@+id/recyclerAppCategory">
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/banner1"
+                            android:layout_width="match_parent"
+                            android:layout_height="210dp"
+                            android:layout_marginTop="5dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/tabLayout"
+                            android:layout_width="30dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:background="@color/transparent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:tabBackground="@drawable/tabindicater4"
+                            app:tabGravity="fill"
+                            app:tabIndicator="@color/orange1"
+                            app:tabIndicatorHeight="0dp"
+                            app:tabMaxWidth="0dp"
+                            app:tabMode="fixed"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/Featured"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp10"
+                        android:text="New Cashback Partners"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:fontFamily="@font/sans_medium"
+                        app:layout_constraintTop_toBottomOf="@+id/bannerlay" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/popularApps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/Featured" />
+
+                    <TextView
+                        android:id="@+id/stepsHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/dp10"
+                        android:paddingTop="@dimen/dp10"
+                        android:text="Steps to earn more on normal shopping"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium"
+                        app:layout_constraintTop_toBottomOf="@+id/popularApps" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/stepsRV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/stepsHeading" />
+
+                    <!--                    MiniAppBanner-->
+                    <LinearLayout
+                        android:id="@+id/MiniAppBannerlayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/stepsRV">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="vertical">
+
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/MiniAppbanner"
+                                android:layout_width="match_parent"
+                                android:layout_height="180dp"/>
+                        </LinearLayout>
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/MiniAppbannertabLayout"
+                            android:layout_width="50dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:background="@color/transparent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:tabBackground="@drawable/tabindicater4"
+                            app:tabGravity="fill"
+                            app:tabIndicator="@color/orange1"
+                            app:tabIndicatorHeight="0dp"
+                            app:tabMaxWidth="0dp"
+                            app:tabMode="fixed"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/recommendedHeading"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp10"
+                        android:text="Recommended Cashback Stores"
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        app:fontFamily="@font/sans_medium"
+                        app:layout_constraintTop_toBottomOf="@+id/MiniAppBannerlayout" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recommended"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/recommendedHeading" />
+
+<!--                    MiniAppBanner1-->
+                    <LinearLayout
+                        android:id="@+id/MiniAppBannerlayout1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintTop_toBottomOf="@+id/recommended">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="vertical">
+
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/MiniAppbanner1"
+                                android:layout_width="match_parent"
+                                android:layout_height="180dp"/>
+                        </LinearLayout>
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/MiniAppbannertabLayout1"
+                            android:layout_width="50dp"
+                            android:layout_height="5dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:background="@color/transparent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:tabBackground="@drawable/tabindicater4"
+                            app:tabGravity="fill"
+                            app:tabIndicator="@color/orange1"
+                            app:tabIndicatorHeight="0dp"
+                            app:tabMaxWidth="0dp"
+                            app:tabMode="fixed"
+                            tools:ignore="SpeakableTextPresentCheck" />
+
+                    </LinearLayout>
+
+
+                    <!--Headlines Adapter-->
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerHeadline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/MiniAppBannerlayout1" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginLeft="-10dp"
+                    android:layout_marginRight="-10dp"
+                    android:layout_marginBottom="-10dp"
+                    android:src="@drawable/bottom_banner" />
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

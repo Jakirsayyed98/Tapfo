@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grey_v_light"
+    android:orientation="vertical"
+    tools:context=".ui.merchants.TCashWorkFragment">
+
+
+    <ScrollView
+        android:background="@drawable/sp_white_corner_10"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/dp10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dp200"
+                android:scaleType="fitEnd"
+                android:src="@drawable/intro_2" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp5"
+                android:text="Earn Tapfo Cash Over 300+ Cashback Merchants"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="With Tapfo, you can earn cash on shopping with our 300+ Active cashback merchant partners"
+                android:textColor="@color/black2"
+                android:textSize="@dimen/sp12" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@drawable/sp_black_corner_10"
+                android:backgroundTint="@color/green_light_bg"
+                android:gravity="center"
+                android:padding="@dimen/dp5"
+                android:text="When you shop from any active Tcashback merchants like Myntra, Ajio, Swiggy, so basically these Merchants paid marketing fees to Tapfo on your successful orders. we return back up to 90% of our marketing fees (revenue) as 'Tcashback' (Tcash) to you."
+                android:textColor="@color/green_dark"
+                android:textSize="@dimen/sp12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp10"
+                android:text="4 Steps to Earn Tapfo Cash"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_column="1">
+
+                        <TextView
+                            android:id="@+id/step1"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/sp_black_corner_20"
+                            android:backgroundTint="@color/purple_500"
+                            android:gravity="center"
+                            android:text="1."
+                            android:textColor="@color/white" />
+
+                        <View
+                            android:layout_width="@dimen/dp10"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/step1"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/sp_line" />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select Merchants"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Search or select active cashback merchant for shopping." />
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_column="1">
+
+                        <View
+                            android:layout_width="@dimen/dp10"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/step2"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/sp_line" />
+
+                        <TextView
+                            android:id="@+id/step2"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/sp_black_corner_20"
+                            android:backgroundTint="@color/purple_500"
+                            android:gravity="center"
+                            android:text="2."
+                            android:textColor="@color/white" />
+
+                        <View
+                            android:layout_width="@dimen/dp10"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/step2"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/sp_line" />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:paddingTop="@dimen/dp20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Redirected to merchants"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="After Redirected, shop normally on Tapfo App to earn TCashback" />
+
+                    </LinearLayout>
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_column="1">
+
+                        <View
+                            android:layout_width="@dimen/dp10"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/step3"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/sp_line" />
+
+                        <TextView
+                            android:id="@+id/step3"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/sp_black_corner_20"
+                            android:backgroundTint="@color/purple_500"
+                            android:gravity="center"
+                            android:text="3."
+                            android:textColor="@color/white" />
+
+                        <View
+                            android:layout_width="@dimen/dp10"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/step3"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/sp_line" />
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:paddingTop="@dimen/dp20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Check Tcashback Status"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Tapfo Cashback/rewards are valid on active cashback merchants." />
+
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_column="1">
+
+                        <View
+                            android:layout_width="@dimen/dp10"
+                            android:layout_height="match_parent"
+                            android:layout_above="@+id/step4"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/sp_line" />
+
+                        <TextView
+                            android:id="@+id/step4"
+                            android:layout_width="@dimen/dp40"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/sp_black_corner_20"
+                            android:backgroundTint="@color/purple_500"
+                            android:gravity="center"
+                            android:text="4."
+                            android:textColor="@color/white" />
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_column="1"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:paddingTop="@dimen/dp20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Complete Order"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/completeOrderTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/complete_order_info" />
+
+                    </LinearLayout>
+                </TableRow>
+
+            </TableLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/closeTv"
+        android:layout_margin="@dimen/dp5"
+        android:text="@string/close"
+        android:backgroundTint="@color/grey_light"
+        android:background="@drawable/sp_black_corner_20"
+        android:paddingStart="@dimen/dp20"
+        android:paddingEnd="@dimen/dp20"
+        android:paddingBottom="@dimen/dp5"
+        android:paddingTop="@dimen/dp5"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

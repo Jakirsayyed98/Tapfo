@@ -1,0 +1,1420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.localbizzUI.editBusinessProfile.EditBusinessFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_white2"
+        android:visibility="visible" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp20"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!--                Business Image-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginRight="@dimen/dp20"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_boarder_2">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp20">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginRight="@dimen/dp5"
+                                android:layout_marginBottom="@dimen/dp5"
+                                app:cardCornerRadius="@dimen/dp10">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="200dp">
+
+                                        <ImageView
+                                            android:id="@+id/shop_image"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:src="@drawable/add_to_photo"/>
+
+<!--                                        <ImageView-->
+<!--                                            android:id="@+id/shop_image_add"-->
+<!--                                            android:layout_width="100dp"-->
+<!--                                            android:layout_height="100dp"-->
+<!--                                            android:layout_centerInParent="true"-->
+<!--                                             />-->
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_below="@+id/card"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="@dimen/dp30"
+                                android:layout_marginTop="-50dp"
+                                android:layout_marginBottom="@dimen/dp5"
+                                app:cardCornerRadius="@dimen/dp100">
+
+                                <ImageView
+                                    android:id="@+id/icon_profile"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="@dimen/dp5"
+                                    android:src="@drawable/add_to_photo" />
+                            </androidx.cardview.widget.CardView>
+
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp10"
+                    android:orientation="horizontal">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_weight="1"
+                        android:text="About"
+                        android:textSize="@dimen/sp20"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:buttonTint="@color/new_green2"
+                        android:buttonTintMode="src_in"
+                        android:checked="true"
+                        android:clickable="false" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dp15"
+                    android:paddingRight="@dimen/dp15">
+                    <!--                Business Business Name-->
+                    <LinearLayout
+                        android:id="@+id/business_Business_Name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="Business Name"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/store_name_data"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Enter your business name"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/grey_dark"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:text="This business name will be appread on business profile page."
+                        android:textColor="@color/grey_dark"
+                        app:fontFamily="@font/sans_medium"
+                        android:textSize="10sp" />
+
+                    <!--                Business type-->
+                    <LinearLayout
+                        android:id="@+id/business_tvype"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_boarder_2"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="Business Type "
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/business_type"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Select the domain category of your business"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/grey_dark" />
+
+                    </LinearLayout>
+
+                    <!--            bussiness Category-->
+                    <LinearLayout
+                        android:id="@+id/business_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="Category"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/category_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Select your business category"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/grey_dark" />
+
+                    </LinearLayout>
+
+                    <!--            Business service-->
+                    <LinearLayout
+                        android:id="@+id/business_Services"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="Services"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/service"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Select your business services"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/grey_dark" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:text="@string/lets_people_know_about_your"
+                        android:textColor="@color/grey_dark"
+                        app:fontFamily="@font/sans_medium"
+                        android:textSize="10sp" />
+
+
+                    <!--            Business Tag-->
+                    <LinearLayout
+                        android:id="@+id/business_tag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="Tags"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/tags"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Select your business Tags"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/grey_dark" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:text="@string/lets_people_know_about_your"
+                        android:textColor="@color/grey_dark"
+                        app:fontFamily="@font/sans_medium"
+                        android:textSize="10sp" />
+
+
+
+
+                    <!--            bussiness Pancard ( Optional )-->
+                    <LinearLayout
+                        android:id="@+id/business_Pancard_lay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="Pancard ( Optional )"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/business_pancard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Enter your Pan number"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/grey_dark" />
+
+                    </LinearLayout>
+
+                    <!--            bussiness GSTIN Number-->
+                    <LinearLayout
+                        android:id="@+id/business_GSTIN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="GSTIN Number"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/GSTN_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Enter your business GSTN number"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium"
+                            android:textColor="@color/grey_dark" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/dp15"
+                        android:paddingRight="@dimen/dp15">
+
+
+                        <!--            Logo & Profile cover-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:paddingStart="@dimen/dp10"
+                            android:orientation="horizontal"
+                            android:paddingTop="@dimen/dp10">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="@string/logo_profile_cover"
+                                android:textSize="@dimen/sp20"
+                                app:fontFamily="@font/sans_medium" />
+
+
+                        </LinearLayout>
+
+
+                        <!-- Business Description -->
+                        <LinearLayout
+                            android:id="@+id/business_discription"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:background="@drawable/button_boarder_2"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dp15">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:text="Description"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                            <TextView
+                                android:id="@+id/business_description"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:ellipsize="end"
+                                android:maxLines="1"
+                                android:text="Tell About your Business"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/sans_medium"
+                                android:textColor="@color/grey_dark" />
+
+                        </LinearLayout>
+
+                        <!-- Phone number-->
+                        <LinearLayout
+                            android:id="@+id/business_Phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:background="@drawable/button_boarder_2"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dp15">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:text="Contacts"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                            <TextView
+                                android:id="@+id/contactnumber"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:text="Enter your business Conatcs"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/sans_medium"
+                                android:textColor="@color/grey_dark" />
+
+                        </LinearLayout>
+
+                        <!-- Email-->
+                        <LinearLayout
+                            android:id="@+id/business_Email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:background="@drawable/button_boarder_2"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dp15">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:text="Email"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                            <TextView
+                                android:id="@+id/addEmail"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:text="Enter your business email id"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/sans_medium"
+                                android:textColor="@color/grey_dark" />
+
+                        </LinearLayout>
+
+                        <!--    Business website -->
+                        <LinearLayout
+                            android:id="@+id/business_Website"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:background="@drawable/button_boarder_2"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            android:padding="@dimen/dp15">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:text="Website"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                            <TextView
+                                android:id="@+id/businessWebsite_url"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:text="Enter your business website Url"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/sans_medium"
+                                android:textColor="@color/grey_dark" />
+
+                        </LinearLayout>
+
+                        <!--     Business WhatsApp -->
+                        <LinearLayout
+                            android:id="@+id/Business_WhatsApp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:background="@drawable/button_boarder_2"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dp15">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:text="Business WhatsApp Number"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                            <TextView
+                                android:id="@+id/business_whatsapp_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:text="Enter your Business WhatsApp Number"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/sans_medium"
+                                android:textColor="@color/grey_dark" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginRight="@dimen/dp10"
+                            android:text="Note : Business WhatsApp is required for the Listing. so pleople can easily connect with you for the services."
+                            android:textColor="@color/grey_dark"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="10sp" />
+
+                        <!--     Business WhatsApp -->
+                        <LinearLayout
+                            android:id="@+id/business_estb_year"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:background="@drawable/button_boarder_2"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dp15">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:text="Established Year"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                            <TextView
+                                android:id="@+id/establised_year"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:text="Enter your business working since"
+                                android:textSize="12sp"
+                                app:fontFamily="@font/sans_medium"
+                                android:textColor="@color/grey_dark" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+
+                        android:orientation="vertical"
+                        android:paddingLeft="@dimen/dp15"
+                        android:paddingRight="@dimen/dp15">
+
+
+                        <!-- Location-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:paddingStart="@dimen/dp10"
+                            android:paddingTop="@dimen/dp10">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:text="Business Location"
+                                android:textSize="@dimen/sp20"
+                                app:fontFamily="@font/sans_medium" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/getCuurentLocationData"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp20"
+                            android:orientation="horizontal"
+                            android:paddingTop="@dimen/dp10">
+
+
+                            <ImageView
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/my_location" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="@dimen/dp20"
+                                android:layout_weight="1"
+                                android:text="Use Current Location"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="@dimen/sp20"
+                                app:fontFamily="@font/sans_medium" />
+
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.8dp"
+                            android:background="@color/grey_light" />
+
+
+                        <!--     Business Location -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:background="@drawable/button_boarder_2"
+                            android:orientation="vertical"
+                            android:padding="@dimen/dp15">
+
+
+                            <TextView
+                                android:id="@+id/current_location"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:text="Enter your Business Location"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                        </LinearLayout>
+
+                        <!--            bussiness Name-->
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="Floor, Tower, Shop no"
+                            android:textColorHint="@color/grey_light"
+                            app:boxCornerRadiusBottomEnd="@dimen/dp10"
+                            app:boxCornerRadiusBottomStart="@dimen/dp10"
+                            app:boxCornerRadiusTopEnd="@dimen/dp10"
+                            app:boxCornerRadiusTopStart="@dimen/dp10"
+                            app:boxStrokeColor="@color/black"
+                            app:hintTextColor="@color/black"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/floor"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:importantForAutofill="auto"
+                                app:fontFamily="@font/sans_medium"
+                                android:imeOptions="actionDone"
+                                app:cursorColor="@color/black" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="Area , Street, Society"
+                            android:textColorHint="@color/grey_light"
+                            app:boxCornerRadiusBottomEnd="@dimen/dp10"
+                            app:boxCornerRadiusBottomStart="@dimen/dp10"
+                            app:boxCornerRadiusTopEnd="@dimen/dp10"
+                            app:boxCornerRadiusTopStart="@dimen/dp10"
+                            app:boxStrokeColor="@color/black"
+                            app:hintTextColor="@color/black"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/area"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:fontFamily="@font/sans_medium"
+                                android:imeOptions="actionDone"
+                                app:cursorColor="@color/black" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="City"
+                            android:textColorHint="@color/grey_light"
+                            app:boxCornerRadiusBottomEnd="@dimen/dp10"
+                            app:boxCornerRadiusBottomStart="@dimen/dp10"
+                            app:boxCornerRadiusTopEnd="@dimen/dp10"
+                            app:boxCornerRadiusTopStart="@dimen/dp10"
+                            app:boxStrokeColor="@color/black"
+                            app:hintTextColor="@color/black"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/city"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:fontFamily="@font/sans_medium"
+                                android:imeOptions="actionDone"
+                                app:cursorColor="@color/black" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="Pin Code"
+                            android:textColorHint="@color/grey_light"
+                            app:boxCornerRadiusBottomEnd="@dimen/dp10"
+                            app:boxCornerRadiusBottomStart="@dimen/dp10"
+                            app:boxCornerRadiusTopEnd="@dimen/dp10"
+                            app:boxCornerRadiusTopStart="@dimen/dp10"
+                            app:boxStrokeColor="@color/black"
+                            app:hintTextColor="@color/black"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/pincode"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:fontFamily="@font/sans_medium"
+                                android:imeOptions="actionDone"
+                                app:cursorColor="@color/black" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="Landmark"
+                            android:textColorHint="@color/grey_light"
+                            app:boxCornerRadiusBottomEnd="@dimen/dp10"
+                            app:boxCornerRadiusBottomStart="@dimen/dp10"
+                            app:boxCornerRadiusTopEnd="@dimen/dp10"
+                            app:boxCornerRadiusTopStart="@dimen/dp10"
+                            app:boxStrokeColor="@color/black"
+                            app:hintTextColor="@color/black"
+                            app:layout_constraintTop_toBottomOf="@+id/textView5">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/landmark"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:fontFamily="@font/sans_medium"
+                                android:imeOptions="actionDone"
+                                app:cursorColor="@color/black" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="@dimen/dp15"
+                    android:paddingRight="@dimen/dp15">
+
+
+                    <!-- About Hours-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="horizontal"
+                        android:paddingStart="@dimen/dp10"
+                        android:paddingTop="@dimen/dp10">
+
+                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="Business Hours"
+                            android:textSize="@dimen/sp20"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                    </LinearLayout>
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/monday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:fontFamily="@font/sans_medium"
+                            android:padding="@dimen/dp5"
+                            android:text="Monday"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/mondaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/mondaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/mondayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+
+                    <!--                Tuesday-->
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Tuesday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tuesday"
+                            app:fontFamily="@font/sans_medium"
+                            android:padding="@dimen/dp5"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/tuesdaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/tuesdaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/tuesdayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:layout_gravity="center_vertical"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--                Wednesday-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Wednesday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            app:fontFamily="@font/sans_medium"
+                            android:layout_gravity="center_vertical"
+                            android:padding="@dimen/dp5"
+                            android:text="Wednesday"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Wednesdaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:layout_gravity="center_vertical"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Wednesdaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    android:layout_gravity="center_vertical"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Wednesdayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--                Thursday-->
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Thursday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thursday"
+                            app:fontFamily="@font/sans_medium"
+                            android:padding="@dimen/dp5"
+                            android:layout_weight="1"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Thursdaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Thursdaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Thursdayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                    <!--                Friday-->
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Friday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Friday"
+                            app:fontFamily="@font/sans_medium"
+                            android:layout_gravity="center_vertical"
+                            android:padding="@dimen/dp5"
+                            android:layout_weight="1"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Fridaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Fridaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Fridayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--                Saturday-->
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Saturday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Saturday"
+                            app:fontFamily="@font/sans_medium"
+                            android:layout_gravity="center_vertical"
+                            android:padding="@dimen/dp5"
+                            android:layout_weight="1"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Saturdaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Saturdaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Saturdayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <!--                Sunday-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/Sunday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sunday"
+                            app:fontFamily="@font/sans_medium"
+                            android:padding="@dimen/dp5"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Sundaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Sundaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp2"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Sundayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textColor="@color/black"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_verify"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/dp25"
+                android:layout_marginRight="@dimen/dp25"
+                android:layout_marginTop="@dimen/dp25"
+                android:layout_marginBottom="@dimen/dp100"
+                android:background="@drawable/pinbiz_btn"
+                android:paddingStart="@dimen/dp20"
+                android:paddingRight="@dimen/dp20"
+                android:text="Update"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp18"
+                android:textStyle="bold"
+                app:fontFamily="@font/sans_medium"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

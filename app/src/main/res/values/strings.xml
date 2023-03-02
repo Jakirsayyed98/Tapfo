@@ -1,0 +1,238 @@
+<resources>
+    <string name="app_name">Tapfo</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="set_passcode">Set 4 Digit Passcode</string>
+    <string name="next_time">set 4 digit 2FA passcode \nfor login</string>
+    <string name="next_time1">Set Passcode</string>
+    <string name="re_enter_passcode">Re-enter Passcode</string>
+    <string name="email_id">Email Id</string>
+
+    <string name="more">More</string>
+    <string name="ShopCompair">Shop&amp;Compair</string>
+    <string name="service_more"><![CDATA[Service & More]]></string>
+    <string name="education_courses_certificates"><![CDATA[Education Courses & Certificates]]></string>
+    <string name="offers">Offers</string>
+    <string name="favourites">Favourites</string>
+    <string name="tcash">Tcash</string>
+    <string name="home">Home</string>
+    <string name="cashback_merchants">Cashback Merchants</string>
+    <string name="less">Less</string>
+    <string name="All">All</string>
+    <string name="Offers">Offers</string>
+    <string name="popular_merchants">Popular Merchants</string>
+    <string name="redirected_please_wait2">Due to network low, Redirected taking longer than expected</string>
+    <string name="wow_you_unlocked_extra_tcashback">Congrats! Your Extra Cashback Unlocked</string>
+    <string name="merchant">Merchant</string>
+    <string name="earn_tcash">Earn TCash</string>
+    <string name="active">Active</string>
+    <string name="cashback_tracking_report">Cashback report generates in %s hrs after you order</string>
+    <string name="don_t_forget_about_cashback_rule_terms"><![CDATA[Don\'t forget to check Cashback Rates]]></string>
+    <string name="continue_on">Continue on</string>
+    <string name="cashback_valid_only">* Cashback valid on only 3 orders per IP address/email/contact no. in a month</string>
+    <string name="active_merchant">Active Cashback Merchant</string>
+    <string name="close">Close</string>
+    <string name="complete_order_info"><![CDATA[Only Successful orders are valid for Tapfo Cashback. To know more about Tcashback read the Terms & Conditions.]]></string>
+    <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="added_in_fev">Added in my favorite!</string>
+    <string name="removed_from_fav">Removed from favourites</string>
+    <string name="balance">Balance</string>
+    <string name="filter_by_earning_period">Filter By Earning Period</string>
+    <string name="all">All</string>
+    <string name="pending">Pending</string>
+    <string name="verified">Verified</string>
+    <string name="rejected">Rejected</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="last_7_days">Last 7 Days</string>
+    <string name="this_month">This Month</string>
+    <string name="last_month">Last Month</string>
+    <string name="last_90_days">Last 90 days</string>
+    <string name="last_6_month">Last 6 Months</string>
+    <string name="till_date">Till date</string>
+    <string name="validation_period">Validation period</string>
+    <string name="search">Search</string>
+    <string name="trending_merchants">Trending Merchants</string>
+    <string name="shop_now">Shop Now</string>
+    <string name="merchant_deals">By Merchants</string>
+    <string name="UPI">UPI</string>
+    <string name="Cashback">Cashback</string>
+    <string name="Merchants">Merchants</string>
+    <string name="categories">By Categories</string>
+
+    <string name="empty_title_offer">No %s found!</string>
+    <string name="empty_offer_mess">Currently, no %s are found, stay tuned for upcoming offers, deals &amp; coupons.</string>
+    <string name="logout">Logout</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="channel_description">tapfo_channel</string>
+    <string name="related_search">Related Search</string>
+    <string name="max_cashback_per_order">*max cashback per order</string>
+    <string name="who_tcash_works">Who Tcash works?</string>
+    <string name="please_wait_we_are_redirecting">Redirecting…</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="details">Details</string>
+    <string name="your_earnings_appear_here">you don’t have any orders with cashback yet. Shop\nnow and your cashback will appear here</string>
+
+    <string name="check_cashback_rates">Check %s cashback and rewards payout terms and condition policies.</string>
+    <string name="activate">Open %s</string>
+
+    <string name="secure_policy">Connection is secure</string>
+    <string name="this_browsing_is_">This browsing is secured via an SSL certificate from %s. This is a web view platform inbuilt app as per google play protect terms apply.</string>
+    <string name="this_browsing">%s is our merchant partner it shares your order details like order amount, Transaction date and time, product detail as per promotion and affiliation policy with Tapfo to provide you with updates</string>
+
+    <string name="_100_safe_amp_ssl_secured"><![CDATA[100% safe & SSL Secured]]></string>
+    <string name="terms_condition"><![CDATA[Terms & Condition:]]></string>
+    <string name="terms_condition_popup">• Cashback credits after the transaction will be verified from %s terms apply</string>
+    <string name="cashback_credit_as_pending_">• Cashback credit as pending from %s, once the merchant return and refund days are over it will be automatically validated.</string>
+    <string name="Generally_our_merchant">• Generally, our merchant takes 40 – 60 days to validate the pending cashback after the cancellation, return or refund policy days are over.</string>
+    <string name="cashback_our_merchant">• cashback for bulk orders will be rejected during the time validation period.</string>
+    <string name="nocashback_Applicable">• No Cashback is applicable on payment with gift cards &amp; promo codes.</string>
+    <string name="cashback_credit_amt">• cashback credit amount may differ from the mentioned due to the terms apply.</string>
+    <string name="this_cashback_offer">• This cashback offer is valid on only Tapfo App.</string>
+    <string name="this_cashback_offer_by_tapfo">• This cashback/rewards are offered by Tapfo.</string>
+    <string name="cashback_is_approved_only_on">• cashback is approved only on successfully delivered orders, products, or services.</string>
+    <string name="cashback_rates_are_subject">• cashback rates are subject to Tapfo. it can be changed or modified as per the merchant\'s payout structure without any prior notification.</string>
+    <string name="decline_cashback">• %s can decline cashback/rewards if the transaction is not completed in a single session after the link is activated.</string>
+    <string name="are_you_sure">Are you sure want to leave ?</string>
+    <string name="you_might_miss_out">You might miss out extra cashback from %s</string>
+    <string name="leave_on">LEAVE %s</string>
+    <string name="check_swiggy_s_cash">Check %s\'s cashback and rewards payout status or more</string>
+
+    <string name="_2_9_cashback"><b>2.9%</b>Cashback</string>
+    <string name="All_pending_cashback_transactions">Your all Cashback and rewards will be credited in your fopay balance. Our merchants takes 45 to 60 days to validate the order to verify your pending cashback.</string>
+    <string name="game_discription">A chess game for everyone: from beginners to experts! Choose between 3 difficulty modes, or directly pick from over 1100+ challenges to solve within a limited set of moves!</string>
+    <string name="by_proceeding_you_are"><![CDATA[By proceeding, you are agreeing to our Terms of service & Privacy policy]]></string>
+    <string name="passcode_was_incorrect_otp_login"><font color="#EF5350">Passcode was incorrect! \n</font><b>TRY WITH OTP</b> </string>
+    <string name="explore_more_categories">Explore more %s categories</string>
+    <string name="congrates_you_received">Congrates! you received ₹%s\n cashback on %s order.</string>
+
+    <string name="details_t_c_apply">T&amp;C Apply</string>
+    <string name="crafted_with_in_mumbai_india">Crafted with <font color="#FF0015">❤</font> in Mumbai, india</string>
+    <string name="fopay_card_balance_can_t_be_transferred_to_another_account"> Fopay Wallet Balance can’t be transferred to another account.</string>
+    <string name="all_your_cashback_referral"> All your cashback, referral bonus will be credited in foPay Wallet Balance after once it will be validated as per their terms &amp; conditions apply.</string>
+    <string name="it_can_t_be_withdrawn"> It Can’t be withdrawn in the form of cash or transferred to any bank account as per new RBI rule guidlines.</string>
+    <string name="recharge_for_0000000000">%s</string>
+    <string name="proceed_000">Proceed to Pay</string>
+    <string name="currently_20_partners_offer_extra_cashback">😍 Currently %s partners offer extra cashback!</string>
+    <string name="total_219_merchants">Total %s merchants</string>
+    <string name="_29_minicash_activated">😍 %s minis offer extra cashback!</string>
+
+
+    <string name="make_your_first_move_to_start_earnings_extra_on_s">you don’t have any transcations with %s yet, Start shopping - your earnings will appear here</string>
+    <string name="you_have_0_is_pending_from_hammer">You have %s is pending from %s.</string>
+    <string name="pending_credits">Rewards &amp; Cashback</string>
+    <string name="popular_on_miniearn">Popular cashback stores </string>
+    <string name="LocalBizz_name">Pinbiz</string>
+    <string name="lets_people_know_about_your">Lets people know about your business so people can find your business more easily.</string>
+    <string name="logo_profile_cover">Create Profile</string>
+    <string name="great_jakir_now_prepare_your">Great! %s. Now prepare your document for the business verification Our team will contact you soon</string>
+    <string-array name="select">
+        <item>Select Sub Category </item>
+    </string-array>
+    <string name="upto_9_cashback">Upto<font color="#E67E22"><b>%s</b></font>\nCashback</string>
+    <string name="by_proceeding_to">By proceeding to %s. you are agreeing to merchant’s Cashback or reward <u>Terms and conditions</u></string>
+    <string name="your_business_submitted_on_jul_1_2022_at_3_355_pm_is_being_processed">Your business submitted on %s is being processed</string>
+    <string name="_4_7_5">%s/5</string>
+    <string name="gstin">GSTIN: %s</string>
+    <string name="fopay_balance">Available Balance\n<font color="#EA4C49"><b>%s</b></font></string>
+    <string name="connecting_business_to_local">Connecting business to people</string>
+    <string name="monday_9_30_am_6_30_pm"><font color="#1ABC9C"><b>%s:</b></font> %s - %s</string>
+    <string name="what_are_the_services_offered_by">What are the services offered by %s</string>
+    <string name="what_is_the_best_category_to_describe_bn">What is the best category to describe %s</string>
+    <string name="select_sub_category_to_describe_bn">Select sub category to describe %s</string>
+
+
+    <string name="send_otp">Send OTP</string>
+    <string name="your_wallet_is_encrypted_and_secure">Your Pay wallet is <font color="#1F9D55">encrypted and secured</font></string>
+    <string name="pay_with_gpay_upi">PAY %s WITH %s UPI</string>
+    <string name="payment_of_299_sucessful">Payment of %s %s</string>
+    <string name="recharge_for">Recharge for %s</string>
+    <string name="from_phonepe_0_59">From %s <font color="#1F9D55"><b>%s</b></font></string>
+    <string name="win_assured_100_cashback">Wallet Cashback</string>
+    <string name="FLat_data">Flat %s cashback</string>
+    <string name="myntra_evoucher">Myntra eVoucher</string>
+    <string name="_2000">₹2000</string>
+    <string name="gift_card_voucher">Gift Card Voucher</string>
+    <string name="_14_may_2022">14 May 2022</string>
+    <string name="sucess">Success</string>
+    <string name="shop_on_sn_in_a_5_steps_amp_earn_extra_cashback_too">Shop on %s in 5 steps &amp; earn extra cashback too!</string>
+    <string name="order_payment_sucessfully">Order Payment\n<font color="#000"><b>Successfully</b></font> </string>
+    <string name="todo">TODO</string>
+    <string name="tapfo">Tapfo</string>
+    <string name="voucher">Voucher</string>
+    <string name="voucher_code">Voucher Code</string>
+    <string name="validity">VALIDITY</string>
+    <string name="pin">PIN</string>
+    <string name="voucher_status">Voucher Status</string>
+    <string name="t_amp_c_apply"><![CDATA[T&C Apply]]></string>
+
+    <string name="a">A</string>
+    <string name="cashback_term">%s Cashback Terms</string>
+    <string name="About_Cashback">About %s Cashback</string>
+
+
+    <string name="Cashback_terms">%s Cashback terms</string>
+    <string name="About_Swiggy_Cashback">About %s Cashback</string>
+
+
+    <string name="add_more_stores_in_your_favourite_section">Add more stores in your favourite section</string>
+    <string name="makemytrip_takes_24_hrs_to_validate_the_order_status"><![CDATA[ %s takes %s to validate the order status, once the order will be validated by the merchant as per their terms & conditions that automatically credits to your Tapfo balance.]]></string>
+    <string name="makemytrip_holds_cashback_up_to_45_to_60_days"><![CDATA[ %s holds cashback up to 45 to 60 days from the date of purchase due to return, refund, and cancellation policies, Once these Policies period over then, it will automatically validate your pending cashback as per terms & Conditions]]></string>
+    <string name="makemytrip_cashback_is_applicable_only_on">%s Cashback is applicable only on successful transactions. Any returned, refunded, or canceled transaction or order will not be eligible for a cashback offer.</string>
+    <string name="all_user_agreement_and_privacy">All user Agreement and Privacy Policies at %s website shall apply.</string>
+    <string name="if_the_user_cancels_returns_refunds">If the user cancels/returns/refunds/ the order after the cashback credit is availed, %s will reject the cashback amount under the validation period.</string>
+    <string name="tapfo_s_reserves_the_rights"><![CDATA[Tapfo & %s reserves the rights, at any time, without prior notice and without assigning any reason whatever, to add/alter/modify/change this cashback offer.]]></string>
+    <string name="for_any_queries_related_to_the_cashback">For any queries related to the cashback offers, please contact to Tapfo Support team only. %s will not entertain any correspondence or communication regarding this cashback offer from the Tapfo App.</string>
+    <string name="takes_24_48_hrs_to_track_the_transaction_status">Cashback will be processed %s hrs after the payment is completed on %s.</string>
+    <string name="to_avail_this_cashback_open_swiggy_via_tapfo_app">To Avail this cashback open %s via Tapfo App</string>
+    <string name="cashback_offer_is_active_for_a_limited_time">%s Cashback offer is active for a limited time period on Tapfo and the cashback offer can be Active/Inactive anytime without any prior notification to the customer.</string>
+    <string name="the_cashback_offer_will_be_calculated">The Cashback offer will be calculated on the total paid amount on %s ( excluding/including other fees ).</string>
+    <string name="incase_of_partial_returns_refunds">InCase of Partial/returns/refunds/cancel payments, the cashback offer stands void and the customer will not be eligible for the cashback from Tapfo App.</string>
+    <string name="all_purchases_made_by_the_customer"><![CDATA[All purchases made by the customer shall be governed by the standard Terms & Conditions ( Subjects to changes ), which include without limitation User Agreement, Privacy Policy, or the other product/service-related terms and conditions appearing on %s website.]]></string>
+    <string name="activate_the_s_to_open_the_mobile_web_by_tapfo_app">Activate the %s to open the mobile web by Tapfo App.</string>
+    <string name="after_the_payment_is_successful_you_will_earn_s">After the payment is successful, you will earn %s from %s</string>
+    <string name="once_s_validates_the_payment_from_us">Once %s validates the payment from us as per the Terms &amp; Conditions. Cashback will be credited automatically to the customer\'s Tapfo balance within 24 hrs.</string>
+    <string name="myntra_e_gift_card_worth_100">%s e-Gift Card worth </string>
+    <string name="read_terms_conditions"><u>Read Terms &amp; Conditions </u></string>
+    <string name="your_transcation_has_been">Your transcation has been verified from %s\nvia Tapfo app sucessfully.</string>
+    <string name="cashback_has_been_released">Cashback has been released from %s.</string>
+    <string name="swiggy_outstanding_cashback_for_validation">%s outstanding cashback for validation till order’s\nreturn, refund and cancellation period over.</string>
+    <string name="cashback_pending_from">Cashback pending from %s</string>
+    <string name="cashback_pending_from2">Cashback %s from %s</string>
+    <string name="forgot_passcode_ntry_with_otp">Forgot passcode \n<b>TRY WITH OTP</b></string>
+    <string name="wallet_orders_earnings_more"><![CDATA[Wallet, orders, Earnings & more]]></string>
+    <string name="how_s_cashback_work">How %s Cashback works</string>
+    <string name="popular_store">Popular Store</string>
+    <string name="how_it_works">How it works?</string>
+    <string name="help_and_support">Help and Support</string>
+    <string name="leave_feedback">Leave feedback</string>
+    <string name="faq_s">FAQ\'s</string>
+    <string name="online_cashback">Online Cashback</string>
+    <string name="top_merchants">Top merchants</string>
+    <string name="cashback_offers">Cashback Offers</string>
+    <string name="s_total_reviews">%s Total Reviews</string>
+    <string name="services_by">Services by %s</string>
+    <string name="reached_over_new_customers_for_your_local_business">Reached over new\ncustomers for your\nlocal Business.</string>
+    <string name="manage_business"><u>Manage business</u></string>
+    <string name="enter_your_tapfo_pay_pin">Enter your Tapfo Pay PIN to authorise money transfer of %s to monster pizza</string>
+    <string name="hi_name_what_s_your_pick">Hi %s,\nWhat’s your pick for <font color="#1F9D55">%s</font> time ?</string>
+
+    <string name="terms_amp_conditions"><u>Terms &amp; Conditions</u></string>
+
+    <string name="add_money_to">Add Money to <font color="#1f9d55">Tapfo pay wallet</font></string>
+    <string name="cashback_applied"> Cashback Applied : %s Cashback</string>
+    <string name="know_more"><u>know more</u></string>
+    <string name="load_instant_cash"><u>load instant cash</u></string>
+    <string name="tapfominis">Tapfo<font color="#1f9d55">Minis</font></string>
+    <string name="tapfoone">Tapfo<font color="#1f9d55">One</font></string>
+    <string name="howitwork"><u>How it works</u></string>
+    <string name="by_proceeding_to_freshtohome">By Proceeding to %s. you are agreeing to merchant Terms &amp; Condition</string>
+    <!--    <string name="title_activity_maps">MapsActivity</string>-->
+
+</resources>

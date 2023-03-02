@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    android:elevation="@dimen/dp100"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp10"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp15"
+        android:paddingRight="@dimen/dp15">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="Tapfo Reward"
+            android:textSize="18sp"
+            app:fontFamily="@font/sans_medium" />
+
+
+        <ImageView
+            android:layout_width="@dimen/dp45"
+            android:layout_height="@dimen/dp45"
+            android:src="@drawable/running_t_icon" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginBottom="@dimen/dp10"
+        android:background="@color/grey_light" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp15"
+        android:paddingRight="@dimen/dp15">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageIv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:cardBackgroundColor="@color/grey_v_light"
+            android:layout_marginEnd="@dimen/dp5"
+            app:cardCornerRadius="@dimen/dp40"
+            app:cardElevation="-10dp">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_margin="@dimen/dp10"
+                tools:background="@drawable/ic_add_circle" />
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/earned"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:autoSizeTextType="uniform"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="₹30 Cashback Pending from Swiggy"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/satorename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Cashback Store : Swiggy"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/orderID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="ID: 6789087GYHHHY...."
+                android:textSize="10sp"
+                app:fontFamily="@font/sans_medium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderamount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="₹200.90"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/percentage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="2.3%"
+                android:textAlignment="textEnd"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Cashback"
+                android:textAlignment="textEnd"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="23rd May 2022"
+                android:textAlignment="textEnd"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@color/grey_light" />
+
+
+    <TextView
+        android:id="@+id/lifetimeEarning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp15"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingStart="@dimen/dp15"
+        android:text="Reward Status"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:fontFamily="@font/sans_medium" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingStart="@dimen/dp15"
+        android:text="Track the live status of Reward till validation period "
+        android:textColor="@color/grey_dark"
+        android:textSize="12sp"
+        app:fontFamily="@font/sans_medium" />
+
+    <RelativeLayout
+        android:id="@+id/Visibility_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp10">
+
+        <View
+            android:layout_width="@dimen/dp1"
+            android:layout_height="20dp"
+            android:layout_alignTop="@+id/liNotice"
+            android:layout_alignBottom="@+id/liNotice"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/sp_vertical_line"
+            android:backgroundTint="#2AAF0C" />
+
+        <LinearLayout
+            android:id="@+id/liNotice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginEnd="@dimen/dp5"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/dp10">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:src="@drawable/verifiedok" />
+
+                <TextView
+                    android:id="@+id/activeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:text="@string/your_transcation_has_been"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/sans_medium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20">
+
+                <ImageView
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:src="@drawable/verifiedok" />
+
+                <TextView
+                    android:id="@+id/active2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:text="@string/cashback_has_been_released"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/sans_medium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20">
+
+                <ImageView
+                    android:layout_width="@dimen/dp20"
+                    android:layout_height="@dimen/dp20"
+                    android:layout_gravity="center"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:src="@drawable/verifiedok" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/active3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="@string/swiggy_outstanding_cashback_for_validation"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+
+                    <TextView
+                        android:id="@+id/dateofvalid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Validation period over till 31 Dec, 2022"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/verifedConformation"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/verification_progress" />
+
+                <TextView
+                    android:id="@+id/statusTextTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:text="@string/cashback_pending_from"
+                    android:textSize="12sp"
+                    android:maxLines="2"
+                    android:autoSizeTextType="uniform"
+                    app:fontFamily="@font/sans_medium" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20">
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/careditedToWallet"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"
+                    app:lottie_rawRes="@raw/verification_progress" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:text="Rewards has been credited to Tapfo Pay Wallet."
+                    android:textSize="12sp"
+                    app:fontFamily="@font/sans_medium" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/termsandCondition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp15"
+        android:layout_marginLeft="@dimen/dp5"
+        android:layout_marginTop="@dimen/dp15"
+        android:text="@string/read_terms_conditions"
+        android:textSize="14sp"
+        app:fontFamily="@font/sans_medium" />
+
+
+    <LinearLayout
+        android:id="@+id/openWebbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp20"
+        android:background="@drawable/button_boarder_2"
+        android:backgroundTint="@color/black"
+        android:orientation="vertical"
+        android:padding="@dimen/dp15">
+
+        <TextView
+            android:id="@+id/open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Okay! Got it"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:fontFamily="@font/sans_medium" />
+
+    </LinearLayout>
+
+</LinearLayout>

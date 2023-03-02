@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/dp15">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/dp40"
+        android:layout_height="@dimen/dp40" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/dp20"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Separated for your security"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/tt_bold" />
+
+        <TextView
+            android:id="@+id/t2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="Your Tapfo balance is held in a dedicated bank account’s
+transaction logs to secured from end to end data cloud."
+            android:textColor="#5f6368"
+            android:textSize="14sp"
+            app:fontFamily="@font/tt_regular" />
+    </LinearLayout>
+
+</LinearLayout>

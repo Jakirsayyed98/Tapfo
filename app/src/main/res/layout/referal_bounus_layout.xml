@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/top_round_corner"
+    android:orientation="vertical"
+    android:padding="@dimen/dp20"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <ImageView
+        android:id="@+id/aapliedicon"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp20" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp20"
+        android:text="Wow! Referral Code Applied"
+        android:textColor="@color/green_dark"
+        android:textSize="25sp"
+        app:fontFamily="@font/sans_bold" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="Congrates!"
+        android:textAlignment="center"
+        android:textColor="#333739"
+        android:textSize="20sp"
+        app:fontFamily="@font/sans_medium" />
+
+
+</LinearLayout>
+

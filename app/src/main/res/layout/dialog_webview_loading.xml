@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainRe"
+    android:orientation="vertical"
+    android:background="@color/paytm_gray"
+    android:padding="@dimen/dp10">
+
+    <ImageView
+        android:id="@+id/backbtnWeb"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="@dimen/dp15"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp10"
+        android:src="@drawable/backarrow" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageIv"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            tools:src="@drawable/ic_circle_arrow" />
+
+        <TextView
+            android:id="@+id/redirectingTv"
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:gravity="center"
+            android:letterSpacing="0.03"
+            android:text="@string/please_wait_we_are_redirecting"
+            android:textColor="@color/white"
+            app:fontFamily="@font/tt_light"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/redirectingTv22"
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:gravity="center"
+            app:fontFamily="@font/tt_regular"
+            android:text="@string/please_wait_we_are_redirecting"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/offerTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:background="@drawable/sp_cashback_tracking"
+            android:backgroundTint="@color/green_light_bg"
+            android:gravity="center"
+            android:paddingStart="@dimen/dp10"
+            android:paddingTop="@dimen/dp5"
+            android:visibility="gone"
+            android:paddingEnd="@dimen/dp10"
+            android:paddingBottom="@dimen/dp5"
+            android:textColor="@color/green_light"
+            app:fontFamily="@font/tt_regular"
+            tools:text="Upto 6% active" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:src="@drawable/secure"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/_100_safe_amp_ssl_secured"
+            android:layout_marginBottom="@dimen/dp50"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp5"
+            android:textColor="@color/white"
+            app:fontFamily="@font/sans_medium"
+            android:textSize="@dimen/sp14"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.merchants.MerchantOfferFragment">
+
+    <RelativeLayout
+        android:id="@+id/reBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/new_back_btn"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/backIv"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/offerIv"
+            android:fontFamily="@font/quicksand_bold"
+            android:layout_marginStart="@dimen/dp15"
+            android:text="Save more from 900+ Merchant's Deals, Offer &amp; Coupons"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:fontFamily="@font/sans_medium" />
+
+        <ImageView
+            android:id="@+id/offerIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_merchant_offer" />
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@drawable/sp_white_top_corner_10"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dp5"
+        android:paddingTop="@dimen/dp10"
+        android:paddingEnd="@dimen/dp5">
+
+        <EditText
+            android:id="@+id/searchEt"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:autofillHints="@string/search"
+            android:background="@drawable/button_boarder_2"
+            android:backgroundTint="@color/bg_grey"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:hint="\tSearch merchant Flipkart, Ajio..."
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="1"
+
+            android:textSize="@dimen/sp14"
+            app:fontFamily="@font/sans_regular"
+            android:drawableTint="@color/grey_dark"
+            app:drawableStartCompat="@drawable/ic_search" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerMerchantsOffer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp10"
+            android:clipToPadding="false" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/top_round_corner"
+    android:backgroundTint="@color/white"
+    android:elevation="@dimen/dp100"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/dp15"
+    android:paddingRight="@dimen/dp15"
+    android:paddingBottom="@dimen/dp10"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/dp30"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="60dp">
+
+
+
+            <ImageView
+                android:id="@+id/iconS"
+                android:layout_width="@dimen/dp60"
+                android:layout_height="@dimen/dp60"
+                android:layout_gravity="center_vertical"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/flipkart" />
+
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:id="@+id/icont"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_centerVertical="true"-->
+<!--                app:cardBackgroundColor="@color/grey_v_light"-->
+<!--                app:cardCornerRadius="@dimen/dp40"-->
+<!--                app:cardElevation="-10dp">-->
+
+            <ImageView
+                android:id="@+id/imageIv"
+                android:layout_width="@dimen/dp30"
+                android:layout_height="@dimen/dp30"
+                android:layout_alignBottom="@+id/iconS"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_toEndOf="@+id/iconS"
+                />
+<!--            </androidx.cardview.widget.CardView>-->
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp5"
+            android:layout_marginEnd="@dimen/dp5"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Congrates, "
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/discription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="You Cashback has been tracked from swiggy"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:fontFamily="@font/sans_medium" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/dp5"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:src="@drawable/running_t_icon"
+                android:layout_gravity="end"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/cashback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text=""
+                android:textColor="@color/green_dark"
+                android:textSize="20sp"
+                app:fontFamily="@font/sans_bold" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/viewAllTransaction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="@dimen/dp20"
+        android:background="@drawable/base_button_design"
+        android:backgroundTint="@color/black"
+        android:elevation="@dimen/dp50"
+        android:text="Track Your Reward"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:fontFamily="@font/sans_medium" />
+
+</LinearLayout>

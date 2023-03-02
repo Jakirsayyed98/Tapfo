@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="app.tapho" >
+
+
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+
+    <queries>
+        <package android:name="com.whatsapp" />
+    </queries>
+    <queries>
+        <package android:name="net.one97.paytm" />
+
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+
+    <application
+        android:name=".TapfoApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:resizeableActivity="false"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme_Tapfo"
+        android:usesCleartextTraffic="true" >
+
+   
+        <activity
+            android:name=".ui.TapfoFood.TapfoFoodContainerActivity"
+            android:exported="false" >
+        </activity>
+        <activity
+            android:name=".ui.ScanAndPay.ScanAndPayPaymentProcessingActivity"
+            android:exported="false" /> <!-- android:theme="@style/Theme_Tapfo" -->
+        <activity
+            android:name=".ui.ScanAndPay.ScanAndPayContainerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.scanner.NewScannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="www.tapfo.splashscreen"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+
+        <activity
+            android:name=".ui.ActiveCashbackForWebActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.BuyVoucher.VoucherPayments.VoucherTransactionProcessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.PaytmPaymentGateway.TransactionProcessingPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.tcash.DirectPaytmTransaction.StartPaymentprocessingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.BuyVoucher.VoucherPayments.VoucherPaymentBaseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.VerifyReferralCodeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MiniCash.Fragments.MiniCashActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.BuyVoucher.VouchersActivity"
+            android:exported="false" />
+        <activity android:name=".ui.localbizzUI.LocalBizSplashActivity" />
+        <activity android:name=".ui.localbizzUI.LocalbizContainerActivity" />
+        <activity
+            android:name=".ui.MiniCash.UI.MiniCashFragmentContainerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.MiniCash.UI.MiniCashSplashActivity"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.tapfo.MiniEarnActivitySplash" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.home.WebViewActivityForOffer"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.tapfo.ui.home.WebViewActivityForOffer" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.home.ShopProduct.NewWebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.webViewActivity2"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activecashback.ActiveCashbackScreenNew.ActiveCashbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.News.NewsWebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.News.HeadlinesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.News.NewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RechargeServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.OfferRedeemWebViewActivity"
+            android:exported="false"
+            tools:ignore="Instantiatable" >
+            <intent-filter>
+                <action android:name="com.tapfo.OfferRedeemWebViewActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.games.GameWebViewActivity"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.tapfo.redirectScreen.Games" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.scanner.scanner"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.tapfo.ScannerNotificationAction" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.PrivacyPolicyActivity" />
+        <activity
+            android:name=".ui.ContainerActivity"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.tapfo.ui.ContainerActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity> <!-- android:alwaysRetainTaskState="true" -->
+        <!-- android:launchMode="singleTask" -->
+        <activity
+            android:name=".ui.WebViewActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.tapfo.ui.WebViewActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.home.HomeActivity" />
+        <activity android:name=".ui.profile.SetUpProfileActivity" />
+        <activity android:name=".ui.login.VerifyOtpActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.intro.IntroActivity" /> <!-- android:theme="@style/SplashTheme" -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.com.vansuita.pickimage.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities" >
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/picker_provider_paths" />
+        </provider> <!-- [START firebase_service] -->
+        <!-- <service -->
+        <!-- android:name=".push.FCMService" -->
+        <!-- android:exported="false"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT" /> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+        <service
+            android:name=".push.FCMNotification"
+            android:exported="false"
+            android:permission="com.google.android.c2dm.permission.Send" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.Reciever" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".ServiceData.SmsBroadCastReciver"
+            android:exported="false"
+            tools:ignore="Instantiatable" >
+            <intent-filter>
+                <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

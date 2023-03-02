@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.profile.EditProfileFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp10"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="@dimen/dp5"
+            android:src="@drawable/new_back_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginEnd="@dimen/dp20"
+            android:background="@drawable/circle"
+            app:cardCornerRadius="@dimen/dp50"
+            app:cardElevation="5dp">
+
+            <FrameLayout
+                android:id="@+id/image_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="2dp">
+
+                <TextView
+                    android:id="@+id/profileName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/red"
+                    android:gravity="center"
+                    android:maxLength="1"
+                    android:text="A"
+                    android:textAllCaps="true"
+                    android:textColor="@color/white"
+                    android:textSize="40sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/sans_medium" />
+
+                <ImageView
+                    android:id="@+id/profileIv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_account_circle" />
+
+            </FrameLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!--
+                <TextView
+                    android:layout_marginTop="@dimen/dp20"
+                    android:text="@string/name"
+                    style="@style/TextViewNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/nameEt"
+                    android:inputType="textCapSentences"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="name"
+            android:textColorHint="@color/grey_light"
+            app:boxCornerRadiusBottomEnd="@dimen/dp10"
+            app:boxCornerRadiusBottomStart="@dimen/dp10"
+            app:boxCornerRadiusTopEnd="@dimen/dp10"
+            app:boxCornerRadiusTopStart="@dimen/dp10"
+            app:boxStrokeColor="@color/orange"
+            app:hintTextColor="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nameEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/sans_medium"
+                android:imeOptions="actionDone"
+                app:cursorColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--
+                <TextView
+                    android:layout_marginTop="@dimen/dp20"
+                    android:text="@string/email_address"
+                    style="@style/TextViewNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <EditText
+                    android:id="@+id/emailEt"
+                    android:inputType="textEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Email"
+            android:textColorHint="@color/grey_light"
+            app:boxCornerRadiusBottomEnd="@dimen/dp10"
+            app:boxCornerRadiusBottomStart="@dimen/dp10"
+            app:boxCornerRadiusTopEnd="@dimen/dp10"
+            app:boxCornerRadiusTopStart="@dimen/dp10"
+            app:boxStrokeColor="@color/orange"
+            app:hintTextColor="@color/orange">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailEt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:textSize="20sp"
+                app:fontFamily="@font/sans_medium"
+                android:imeOptions="actionDone"
+                android:textStyle="bold"
+                app:cursorColor="@color/black" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+        <!--
+                <TextView
+                    android:layout_marginTop="@dimen/dp20"
+                    android:text="@string/birthday"
+                    style="@style/TextViewNormal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/birthdayEt"
+                    style="@style/TextViewNormal"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/sp16"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp40"/>
+                -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp30">
+
+            <LinearLayout
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp5"
+                android:layout_marginTop="@dimen/dp5"
+                android:layout_marginEnd="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp5"
+                android:background="@drawable/updateprofile_btn"
+                android:padding="@dimen/dp5">
+
+                <TextView
+                    android:id="@+id/birthdayEt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:hint="01-01-2001"
+                    android:layout_margin="@dimen/dp5"
+                    android:textSize="20sp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/date"
+                android:layout_alignTop="@+id/date"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="-10dp"
+                android:background="@color/white"
+                android:padding="@dimen/dp2"
+                android:text="Date Of Birth"
+                android:textColor="@color/grey_light"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <TextView
+            style="@style/TextViewNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp20"
+            android:text="@string/gender" />
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/maleRb"
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/orange1"
+                android:text="@string/male" />
+
+            <RadioButton
+                android:id="@+id/femaleRb"
+                style="@style/TextViewNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:buttonTint="@color/orange1"
+                android:text="@string/female" />
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+    <!--
+        <Button
+            android:id="@+id/btnUpdateProfile"
+            android:text="@string/update_profile"
+            android:background="@drawable/sp_white_top_corner_10"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp60"/>
+    -->
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnUpdateProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/dp15"
+        android:layout_marginTop="@dimen/dp20"
+        android:layout_marginBottom="@dimen/dp5"
+        android:background="@drawable/login_btn"
+        android:text="Continue"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp18"
+        android:textStyle="bold"
+        app:fontFamily="@font/sans_medium" />
+
+</LinearLayout>

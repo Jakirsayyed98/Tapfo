@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.tcash.HomeCardToTcashPageFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/homeScreenLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lightblack"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/lightblack"
+                    android:backgroundTint="@color/lightblack"
+                    android:paddingLeft="@dimen/dp10"
+                    android:paddingTop="@dimen/dp15"
+                    android:paddingRight="@dimen/dp10">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/back"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="@dimen/dp5"
+                            android:src="@drawable/new_back_btn"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/white" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <ImageView
+                                android:layout_width="@dimen/dp20"
+                                android:layout_height="@dimen/dp20"
+                                android:src="@drawable/secure_icon" />
+
+                            <TextView
+                                android:id="@+id/secure"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/your_wallet_is_encrypted_and_secure"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                android:layout_marginStart="@dimen/dp5"
+                                app:fontFamily="@font/tt_light" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </RelativeLayout>
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/lightblack"
+                        android:backgroundTint="@color/lightblack"
+                        android:elevation="-5dp"
+                        android:fitsSystemWindows="true"
+                        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+                        <com.google.android.material.appbar.CollapsingToolbarLayout
+                            android:id="@+id/collapsing_toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:elevation="-5dp"
+                            android:fitsSystemWindows="true"
+                            app:contentScrim="@color/lightblack"
+                            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+                        </com.google.android.material.appbar.CollapsingToolbarLayout>
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/sp_white_top_corner_10"
+                        android:orientation="vertical"
+                        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/lightblack"
+                            android:paddingTop="@dimen/dp25"
+                            android:orientation="vertical">
+
+                            <com.google.android.material.tabs.TabLayout
+                                android:id="@+id/tabLayout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@color/lightblack"
+                                app:tabIndicatorColor="@color/white"
+                                android:layout_marginTop="@dimen/dp5"
+                                app:tabGravity="center"
+                                app:tabIndicatorHeight="@dimen/dp5"
+                                app:tabTextAppearance="@style/TextAppearance.AppCompat.Button"
+                                app:tabTextColor="@color/white" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="0.8dp"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp10"
+                                android:background="@color/black" />
+                        </LinearLayout>
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/viewPager"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
+
+                    </LinearLayout>
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/shimmer_view_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_anchorGravity="center">
+
+            <ProgressBar
+                android:id="@+id/shimmer_view_container1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:indeterminateTint="@color/black" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/shimmer_view_container1"
+                android:layout_marginTop="10dp"
+                android:text="Please wait..."
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:fontFamily="@font/sans_medium" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lowconnection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/interneterror" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Connection error"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/sans_medium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:gravity="center"
+                    android:text="Please refresh or restart you internet connection."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:fontFamily="@font/sans_medium" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp25"
+                    android:gravity="center"
+                    android:text="Pull down to Refresh this page."
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:fontFamily="@font/sans_medium" />
+
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/noconnection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/interneterror" />
+
+                <View
+                    android:layout_width="@dimen/dp100"
+                    android:layout_height="1dp"
+                    android:background="@color/grey_light3"
+                    android:elevation="@dimen/dp5" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:gravity="center"
+                    android:text="No Internet Connections!"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/tt_demibold" />
+
+
+                <TextView
+                    android:id="@+id/emptyTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="Please check your internet connection and try again"
+                    android:textColor="#565656"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/tt_regular" />
+
+
+                <LinearLayout
+                    android:id="@+id/retryinternetButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:background="@drawable/button_boarder_3"
+                    android:backgroundTint="@color/black"
+                    android:paddingStart="@dimen/dp15"
+                    android:paddingTop="@dimen/dp10"
+                    android:paddingEnd="@dimen/dp15"
+                    android:paddingBottom="@dimen/dp10">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/dp15"
+                        android:layout_marginEnd="@dimen/dp15"
+                        android:text="TRY again"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/tt_medium" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

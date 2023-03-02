@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.localbizzUI.BusinessFlow.AddInformationFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_white2"
+        android:visibility="visible" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp50"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp10"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/dp5">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_weight="1"
+                    android:text="Business Info"
+                    android:textSize="@dimen/sp20"
+                    app:fontFamily="@font/sans_medium" />
+
+                <TextView
+                    android:id="@+id/radioComplete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:clickable="false"
+                    android:text="1/4"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:fontFamily="@font/sans_medium" />
+
+
+            </LinearLayout>
+
+            <ProgressBar
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminateTint="@color/black"
+                android:paddingStart="@dimen/dp25"
+                android:paddingEnd="@dimen/dp25"
+                android:progress="25"
+                android:progressTint="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp20"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp15"
+                android:paddingRight="@dimen/dp15">
+
+                <!--                Business Business Name-->
+                <LinearLayout
+                    android:id="@+id/business_Business_Name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Business Name"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/store_name_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Enter your business name"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:text="This business name will be appread on business profile page."
+                    android:textColor="#565656"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/sans_medium" />
+
+                <!--                Business type-->
+                <LinearLayout
+                    android:id="@+id/business_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Business Type "
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/business_type_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Select the domain category of your business"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <!--            bussiness Category-->
+                <LinearLayout
+                    android:id="@+id/business_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Category"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/category_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Select your business category"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <!--            Business service-->
+                <LinearLayout
+                    android:id="@+id/business_Services"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Sub Category"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/service"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Select your business Sub Category"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:text="@string/lets_people_know_about_your"
+                    android:textColor="#565656"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/sans_medium" />
+
+                <!--            Business Est-->
+
+                <LinearLayout
+                    android:id="@+id/business_estb_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Established Year"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/establised_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Enter your business working since"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                    <!--            Business Tag-->
+                    <LinearLayout
+                        android:id="@+id/business_tag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="Tags"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/tags"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Select your business Tags"
+                            android:textColor="@color/grey_dark"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                    </LinearLayout>
+
+
+                    <!--            bussiness Pancard ( Optional )-->
+                    <LinearLayout
+                        android:id="@+id/business_Pancard_lay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="Pancard ( Optional )"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/business_pancard"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Enter your Pan number"
+                            android:textColor="@color/grey_dark"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                    </LinearLayout>
+
+                    <!--            bussiness GSTIN Number-->
+                    <LinearLayout
+                        android:id="@+id/business_GSTIN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical"
+                        android:padding="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:text="GSTIN Number (Optional)"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/GSTN_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp5"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Enter your business GSTN number"
+                            android:textColor="@color/grey_dark"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/save_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="@dimen/dp15"
+                android:layout_marginRight="@dimen/dp15"
+                android:layout_marginBottom="@dimen/dp25"
+                android:background="@drawable/pinbiz_btn"
+                android:paddingStart="@dimen/dp20"
+                android:paddingRight="@dimen/dp20"
+                android:text="Next"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/sp18"
+                app:fontFamily="@font/sans_medium"
+                app:layout_constraintBottom_toBottomOf="parent" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

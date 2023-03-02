@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/direct_rippleeffect"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp10"
+        android:paddingStart="@dimen/dp20"
+        android:paddingTop="@dimen/dp10"
+        android:paddingEnd="@dimen/dp20"
+        android:paddingBottom="@dimen/dp10">
+
+        <ImageView
+            android:id="@+id/imageIv"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:contentDescription="TODO"
+            android:padding="@dimen/dp5"
+            android:src="@drawable/ic_earnings"
+            tools:ignore="ContentDescription,HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dp10"
+                android:text="Earnings"
+                android:textSize="@dimen/sp16"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/discription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dp10"
+                android:text="Earnings"
+                android:textColor="#99333739"
+                android:textSize="11sp"
+                android:visibility="gone"
+                app:fontFamily="@font/sans_medium"
+                tools:ignore="HardcodedText,RtlSymmetry" />
+        </LinearLayout>
+
+        <Switch
+            android:id="@+id/switch_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:thumbTint="@color/green_dark"
+            android:trackTint="@color/grey_dark"
+            android:layout_gravity="center_vertical"
+            android:switchMinWidth="55dp"
+            android:checked="true"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:background="@color/grey_light"
+        android:visibility="gone" />
+
+</LinearLayout>

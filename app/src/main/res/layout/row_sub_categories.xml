@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="@dimen/dp10">
+
+    <ImageView
+        android:id="@+id/merchantImage"
+        android:layout_width="@dimen/item_grid_image_height"
+        android:layout_height="@dimen/item_grid_image_height"
+        android:layout_marginStart="@dimen/dp5"
+        tools:src="@drawable/intro_1" />
+
+    <!--
+    <ImageView
+        android:id="@+id/rupee"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:layout_marginStart="-10dp"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_toEndOf="@+id/merchantImage"
+        android:src="@drawable/ic_rupee_green" />
+
+    -->
+    <ImageView
+        android:id="@+id/rupee"
+        android:layout_width="@dimen/dp20"
+        android:layout_height="@dimen/dp20"
+        android:layout_marginStart="-10dp"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_toEndOf="@+id/merchantImage" />
+    <TextView
+        android:id="@+id/nameTv"
+        app:fontFamily="@font/sans_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/rupee"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        tools:text="OYO Rooms" />
+
+    <TextView
+        android:id="@+id/headlineTv"
+        app:fontFamily="@font/sans_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTv"
+        android:layout_toStartOf="@+id/fevIv"
+        android:layout_toEndOf="@+id/rupee"
+        android:textColor="@color/grey_dark"
+        android:maxLines="1"
+        android:textSize="@dimen/sp12"
+        tools:text="vcjnasjncsicn icicjdsi" />
+
+    <TextView
+        android:id="@+id/offerTv"
+        app:fontFamily="@font/sans_medium"
+        android:layout_width="wrap_content"
+        android:textSize="@dimen/sp12"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headlineTv"
+        android:layout_toEndOf="@+id/rupee"
+        android:textColor="@color/purple_500"
+        tools:text="vcjnasjncsicn icicjdsi" />
+
+
+    <ImageView
+        android:id="@+id/fevIv"
+        android:layout_width="@dimen/dp30"
+        android:layout_height="@dimen/dp30"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dp5"
+        android:padding="@dimen/dp5"
+        android:src="@drawable/selector_fev" />
+
+</RelativeLayout>

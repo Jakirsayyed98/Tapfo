@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.home.GameSearchFragment">
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp55"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/dp10"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_marginStart="@dimen/dp10"
+        android:background="@drawable/button_boarder_2"
+        android:paddingStart="@dimen/dp20"
+        android:paddingEnd="@dimen/dp20">
+        <ImageView
+            android:id="@+id/backIv"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/new_back_btn" />
+
+        <EditText
+            android:id="@+id/searchEt"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTint="@color/grey_dark"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:background="@color/transparent"
+            app:fontFamily="@font/sans_medium"
+            android:imeOptions="actionDone"
+            android:focusableInTouchMode="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:hint="Search Ludo,Race and many more"
+            android:maxLines="1"
+            android:textSize="@dimen/sp12" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp5"
+            android:background="@color/grey_dark"/>
+        <ImageView
+            android:id="@+id/mic"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/mic_icon" />
+
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/AllGames"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp5"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/dp15" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/black"
+        android:layout_centerInParent="true"/>
+</RelativeLayout>

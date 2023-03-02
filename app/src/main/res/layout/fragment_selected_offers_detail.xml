@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.merchants.SelectedOffersDetailFragment">
+
+    <RelativeLayout
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/black" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:padding="@dimen/dp10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backbtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="@dimen/dp5"
+                android:src="@drawable/new_back_btn"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/black" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp20"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:layout_marginBottom="@dimen/dp10"
+                    app:cardCornerRadius="@dimen/dp10">
+
+                    <ImageView
+                        android:id="@+id/logo"
+                        android:layout_width="@dimen/dp100"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp10" />
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp20"
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/label"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:textAllCaps="true"
+                        android:textSize="45sp"
+                        android:maxLines="2"
+                        android:autoSizeTextType="uniform"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/descriptionTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:textColor="@color/black"
+                        android:autoSizeTextType="uniform"
+                        android:maxLines="2"
+                        android:textSize="@dimen/sp16"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/cashback"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="@dimen/dp20"
+                        android:textColor="@color/green_dark"
+                        app:fontFamily="@font/sans_medium"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:id="@+id/couponsCodelay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:background="@drawable/coupon_bg"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/dp5"
+                        app:cardCornerRadius="@dimen/dp10">
+
+                        <TextView
+                            android:id="@+id/couponscode"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/dp5"
+                            android:layout_weight="1"
+                            android:padding="@dimen/dp5"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <ImageView
+                            android:id="@+id/copybtn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:padding="@dimen/dp10"
+                            android:src="@drawable/copy_icon"
+                            android:text="Copy"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLines="2"
+                                android:text="valid till"
+                                android:textColor="@color/grey_dark"
+                                android:textSize="@dimen/sp14"
+                                app:fontFamily="@font/sans_medium" />
+
+
+                            <TextView
+                                android:id="@+id/expiredate"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="@dimen/dp5"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_bold" />
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/leftdays"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="@dimen/dp5"
+                            android:layout_weight="1"
+                            android:textColor="@color/red"
+                            android:textSize="12sp"
+                            android:textAlignment="textEnd"
+                            android:text="sfga"
+                            app:fontFamily="@font/sans_medium" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.8dp"
+                        android:layout_marginTop="@dimen/dp20"
+                        android:background="@color/grey_light" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:maxLines="2"
+                        android:text="Before proceeding, you are agreeing to Terms &amp; Conditions. "
+                        android:textAlignment="center"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="@dimen/sp12"
+                        app:fontFamily="@font/sans_medium" />
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/claim_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:background="@drawable/button_boarder_0radius"
+                        android:backgroundTint="@color/green_dark"
+                        android:text="CLAIM OFFER"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/termsandcondition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:maxLines="2"
+                        android:padding="@dimen/dp5"
+                        android:text="Terms and Conditions"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/sp10"
+                        app:fontFamily="@font/sans_medium" />
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/morestores"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:elevation="@dimen/dp100"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp10"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp15"
+        android:paddingRight="@dimen/dp15">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:text="Tapfo Reward"
+            android:textSize="18sp"
+            app:fontFamily="@font/sans_medium" />
+
+
+        <ImageView
+            android:layout_width="@dimen/dp45"
+            android:layout_height="@dimen/dp45"
+            android:src="@drawable/running_t_icon" />
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginBottom="@dimen/dp10"
+        android:background="@color/grey_light" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp15"
+        android:paddingRight="@dimen/dp15">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
+            android:layout_marginEnd="@dimen/dp10"
+            android:src="@drawable/flipkart" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/earned"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="₹30 Cashback\nEarned"
+                android:textColor="@color/green_dark"
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/satorename"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Cashback Store : Swiggy"
+                android:textColor="@color/grey_dark"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/orderID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="ID: 6789087GYHHHY...."
+                android:textColor="@color/grey_dark"
+                android:textSize="10sp"
+                app:fontFamily="@font/sans_medium" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderamount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="₹200.90"
+                android:textAlignment="textEnd"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/percentage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="2.3%"
+                android:textAlignment="textEnd"
+                android:textColor="@color/grey_dark"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Cashback Claimed"
+                android:textAlignment="textEnd"
+                android:textColor="@color/grey_dark"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="23rd May 2022"
+                android:textAlignment="textEnd"
+                android:textColor="@color/grey_dark"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.7dp"
+        android:layout_marginTop="@dimen/dp10"
+        android:background="@color/grey_light" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp10"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp15"
+        android:paddingRight="@dimen/dp15">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="Total earned  till date:"
+            android:textColor="@color/grey_dark"
+            android:textSize="15sp"
+            app:fontFamily="@font/sans_medium" />
+
+        <TextView
+            android:id="@+id/lifetimeEarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text=" ₹430 "
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:fontFamily="@font/sans_medium" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingStart="@dimen/dp15"
+        android:text="Congrats, The reward has been successfully credited in\nyour Tapfo Pay Wallet."
+        android:textColor="@color/green_dark"
+        android:textSize="13sp"
+        app:fontFamily="@font/sans_medium" />
+
+
+    <LinearLayout
+        android:id="@+id/openWebbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp20"
+        android:background="@drawable/button_boarder_2"
+        android:backgroundTint="@color/black"
+        android:orientation="vertical"
+        android:padding="@dimen/dp15">
+
+        <TextView
+            android:id="@+id/open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Okay! Got it"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:fontFamily="@font/sans_medium" />
+
+        <TextView
+            android:id="@+id/cashback"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp3"
+            android:text="Earn upto 80 Cashback"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:fontFamily="@font/sans_medium" />
+
+    </LinearLayout>
+
+</LinearLayout>

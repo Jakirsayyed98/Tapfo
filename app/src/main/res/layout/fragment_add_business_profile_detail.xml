@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.localbizzUI.BusinessFlow.AddBusinessProfileDetailFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_white2"
+        android:visibility="visible" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp50"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp15"
+                android:paddingRight="@dimen/dp15">
+
+
+                <!--            Logo & Profile cover-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dp5">
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Business Info"
+                        android:textSize="@dimen/sp20"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/radioComplete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:clickable="false"
+                        android:text="2/4"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/sans_medium" />
+
+
+                </LinearLayout>
+
+                <ProgressBar
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:indeterminateTint="@color/black"
+                    android:paddingStart="@dimen/dp15"
+                    android:paddingEnd="@dimen/dp15"
+                    android:progress="50"
+                    android:progressTint="@color/black" />
+
+                <!--                Business Image-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/button_boarder_2"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dp5">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp5"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginRight="@dimen/dp5"
+                                android:layout_marginBottom="@dimen/dp5"
+                                app:cardCornerRadius="@dimen/dp10">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="160dp">
+
+                                        <ImageView
+                                            android:id="@+id/shop_image"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent" />
+
+                                        <ImageView
+                                            android:id="@+id/shop_image_add"
+                                            android:layout_width="50dp"
+                                            android:layout_height="50dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_marginEnd="10dp"
+                                            android:layout_marginBottom="10dp"
+                                            android:src="@drawable/add_to_photo" />
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="75dp"
+                                android:layout_height="75dp"
+                                android:layout_below="@+id/card"
+                                android:layout_alignParentLeft="true"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="@dimen/dp30"
+                                app:cardElevation="@dimen/dp5"
+                                android:layout_marginTop="-50dp"
+                                android:layout_marginBottom="@dimen/dp5"
+                                app:cardCornerRadius="@dimen/dp100">
+
+                                <ImageView
+                                    android:id="@+id/icon_profile"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_margin="@dimen/dp5"
+                                    android:src="@drawable/add_to_photo" />
+                            </androidx.cardview.widget.CardView>
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="Business Logo"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:text="Add logo and header image  of your business"
+                            android:textColor="@color/grey_dark"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/sans_medium" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <!-- Business Description -->
+                <LinearLayout
+                    android:id="@+id/business_discription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Description (Optional)"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/business_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:text="Tell About your Business"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <!-- Phone number-->
+                <LinearLayout
+                    android:id="@+id/business_Phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Business Contacts"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/contactnumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Enter your business Conatcs"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <!-- Email-->
+                <LinearLayout
+                    android:id="@+id/business_Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Business Email (Optional)"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/addEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Enter your business email id"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <!--    Business website -->
+                <LinearLayout
+                    android:id="@+id/business_Website"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp20"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Website"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/businessWebsite_url"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Enter your business website Url"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <!--     Business WhatsApp -->
+                <LinearLayout
+                    android:id="@+id/Business_WhatsApp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp15"
+                    android:background="@drawable/button_boarder_2"
+                    android:orientation="vertical"
+                    android:padding="@dimen/dp15">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:text="Business WhatsApp"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/business_whatsapp_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/dp5"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:text="Enter your Business WhatsApp Number"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="12sp"
+                        app:fontFamily="@font/sans_medium" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp10"
+                    android:text="Note : Business WhatsApp is required for the Listing. so pleople can easily connect with you for the services."
+                    android:textColor="@color/grey_dark"
+                    android:textSize="10sp"
+                    app:fontFamily="@font/sans_medium" />
+
+                <!--     Business WhatsApp -->
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_verify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/dp25"
+                    android:layout_marginBottom="@dimen/dp15"
+                    android:background="@drawable/pinbiz_btn"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp18"
+                    app:fontFamily="@font/sans_medium"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

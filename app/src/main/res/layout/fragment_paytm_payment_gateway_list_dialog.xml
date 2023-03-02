@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/top_cornors"
+    android:clipToPadding="false"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/list_item_spacing_half"
+    tools:context=".ui.PaytmPaymentGateway.PaytmPaymentGatewayFragment"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <LinearLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp10"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:id="@+id/linearLayout6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:padding="@dimen/dp15"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/back"
+                    android:layout_width="@dimen/dp30"
+                    android:layout_height="@dimen/dp30"
+                    android:padding="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp15"
+                    android:src="@drawable/cancel_btn_icon"
+                    app:tint="@color/black" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp20"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Total Payble"
+                    app:fontFamily="@font/tt_demibold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"/>
+
+
+                <TextView
+                    android:id="@+id/paybleAmount"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    app:fontFamily="@font/tt_demibold"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layout_weight="1"
+                    android:textAlignment="textEnd" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp5"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dp15"
+                    android:paddingTop="@dimen/dp5"
+                    android:paddingRight="@dimen/dp20"
+                    android:paddingBottom="@dimen/dp5">
+
+                    <ImageView
+                        android:id="@+id/opretor_icon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/dp20" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/numberandCircle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/tt_demibold" />
+
+                        <TextView
+                            android:id="@+id/opretor_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/tt_regular"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/recharge_amount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:textColor="#313131"
+                        android:textSize="14sp"
+                        android:text="101"
+                        app:fontFamily="@font/tt_regular" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dp15"
+                    android:paddingTop="@dimen/dp10"
+                    android:paddingRight="@dimen/dp15"
+                    android:background="@drawable/button_boarder_2"
+                    android:backgroundTint="@color/grey_background"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:paddingBottom="@dimen/dp10">
+
+                    <ImageView
+                        android:layout_width="@dimen/dp30"
+                        android:layout_height="@dimen/dp30"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:src="@drawable/profile_wallet_icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/dp10"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:id="@+id/TApp_Redirect_Name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tapfo"
+                                    android:textColor="@color/black"
+                                    android:textSize="16sp"
+                                    app:fontFamily="@font/tt_demibold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toEndOf="@+id/secure"
+                                    android:text="Pay "
+                                    android:textColor="@color/green_dark"
+                                    android:textSize="16sp"
+                                    android:textStyle="italic"
+                                    app:fontFamily="@font/tt_demibold" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="wallet"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="13sp"
+                            android:text="Available Balance"
+                            app:fontFamily="@font/tt_regular" />
+                        <TextView
+                            android:id="@+id/avilable_balance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:layout_gravity="center_vertical"
+                            android:textSize="13sp"
+                            android:textColor="@color/green_dark"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/tt_regular" />
+                        <!--                        minimum balance ₹100 required for redeem-->
+                        <!--                        Low balance : Add minimum ₹99 balance\nto use wallet for recharge-->
+                        <TextView
+                            android:id="@+id/minimumbalance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#EA4C49"
+                            android:textSize="13sp"
+                            android:visibility="gone"
+                            android:layout_gravity="center_vertical"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                    </LinearLayout>
+
+                    <CheckBox
+                        android:id="@+id/radio0"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:buttonTint="@color/green_dark"
+                        android:checked="true"
+                        android:clickable="false"
+                        android:gravity="center" />
+
+                </LinearLayout>
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/pspAppsLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dp15"
+                        android:paddingRight="@dimen/dp15">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:layout_weight="1"
+                            android:text="Pay remaining amount"
+                            android:textSize="16sp"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/tt_demibold" />
+
+                        <TextView
+                            android:id="@+id/PaybleAmount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp10"
+                            android:layout_weight="1"
+                            android:gravity="end"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            app:fontFamily="@font/tt_demibold" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dp15"
+                        android:paddingTop="@dimen/dp10"
+                        android:paddingRight="@dimen/dp15"
+                        android:paddingBottom="@dimen/dp10">
+
+                        <ImageView
+                            android:layout_width="@dimen/dp20"
+                            android:layout_height="@dimen/dp20"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/upi_icon_new" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginRight="@dimen/dp5"
+                            android:text="Select UPI Apps to Pay"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            app:fontFamily="@font/tt_medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text=" ( No fee Apply ) "
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/tt_regular" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:paddingLeft="@dimen/dp15"
+                        android:paddingRight="@dimen/dp15">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/PSPApps"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/linearLayout7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dp15"
+                    android:paddingTop="@dimen/dp15"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="@dimen/dp15"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@drawable/login_btn1"
+                        android:backgroundTint="@color/green_dark"
+                        android:text="@string/pay_with_gpay_upi"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        app:fontFamily="@font/sans_medium"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingStart="@dimen/dp30"
+        android:paddingTop="@dimen/dp50"
+        android:paddingEnd="@dimen/dp10"
+        android:paddingBottom="@dimen/dp50">
+
+        <ProgressBar
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:indeterminateTint="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="@dimen/dp20"
+            android:text="Initiating payment...."
+            android:textSize="16sp"
+            app:fontFamily="@font/sans_medium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/dp20"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp10"
+        android:paddingTop="@dimen/dp20"
+        android:paddingBottom="@dimen/dp25"
+        android:background="#f2fff8"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_gravity="center"
+            android:src="@drawable/bhim_new_icon" />
+    </LinearLayout>
+</LinearLayout>

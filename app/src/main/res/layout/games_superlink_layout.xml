@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/button_boarder_2"
+    android:layout_margin="@dimen/dp5"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        tools:src="@drawable/intro_1" />
+
+
+    <TextView
+        android:id="@+id/tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tags_border"
+        android:backgroundTint="@color/purple_500"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:padding="4dp"
+        android:textSize="7sp"
+        android:textColor="@color/white"
+        app:fontFamily="@font/sans_medium"
+        android:text="@string/Cashback"/>
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:layout_marginBottom="10dp"
+        android:textSize="11sp"
+        app:fontFamily="@font/sans_medium"
+        tools:text="More" />
+
+
+
+</RelativeLayout>

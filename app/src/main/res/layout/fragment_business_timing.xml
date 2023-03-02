@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".ui.localbizzUI.BusinessFlow.BusinessTimingFragment">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar_white2"
+        android:visibility="visible" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/dp15"
+                android:layout_marginBottom="@dimen/dp20"
+                android:paddingRight="@dimen/dp15">
+
+
+                <!-- About Hours-->
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/dp5">
+
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="Business Hours"
+                        android:textSize="@dimen/sp20"
+                        app:fontFamily="@font/sans_medium" />
+
+                    <TextView
+                        android:id="@+id/radioComplete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4/4"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:fontFamily="@font/sans_medium"
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:clickable="false" />
+
+
+                </LinearLayout>
+
+                <ProgressBar
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:progress="100"
+                    android:paddingStart="@dimen/dp15"
+                    android:paddingEnd="@dimen/dp15"
+                    android:progressTint="@color/black"
+                    android:indeterminateTint="@color/black"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp60"
+                    android:layout_weight="1"
+                    android:text="Please enter or update your business operation hours."
+                    android:textSize="13sp"
+                    app:fontFamily="@font/sans_medium" />
+
+                <!--   Everday  Business Hours -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical">
+
+<!--                    Everday-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/everday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Always Open"
+                            android:buttonTint="@color/black"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="@dimen/dp30"
+                            android:layout_weight="1"
+                            android:layout_marginBottom="@dimen/dp5"
+                            android:text="eg: Petrol pump, hospital, Pharmacy or more"
+                            android:textSize="12sp"
+                            android:textColor="@color/grey_dark"
+                            app:fontFamily="@font/sans_medium" />
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="horizontal">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey_light"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/dp10"
+                        android:layout_weight="1"/>
+
+
+                </LinearLayout>
+
+<!--                monday-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <!--                    Everday-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/monday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Monday"
+                            android:buttonTint="@color/black"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/mondaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/mondaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Closed"
+                                    android:gravity="center"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/mondayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:text="Closed"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+<!--                Tuesday-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/Tuesday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Tuesday"
+                            android:buttonTint="@color/black"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/tuesdaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/tuesdaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/tuesdayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--                Wednesday-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/Wednesday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Wednesday"
+                            android:buttonTint="@color/black"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Wednesdaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Wednesdaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Wednesdayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--                Thursday-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/Thursday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Thursday"
+                            android:buttonTint="@color/black"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Thursdaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Thursdaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Thursdayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--                Friday-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/Friday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Friday"
+                            android:buttonTint="@color/black"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Fridaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Fridaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Fridayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--                Saturday-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/Saturday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Saturday"
+                            android:buttonTint="@color/black"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Saturdaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Saturdaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:gravity="center"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Saturdayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <!--                Sunday-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/Sunday"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Sunday"
+                            android:buttonTint="@color/black"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"/>
+
+                        <LinearLayout
+                            android:id="@+id/Sundaytime"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Sundaystart"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:gravity="center"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/dp10"
+                                android:layout_weight="1"
+                                android:background="@drawable/button_boarder_2">
+                                <TextView
+                                    android:id="@+id/Sundayend"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Closed"
+                                    android:layout_margin="5dp"
+                                    android:gravity="center"
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="14sp"/>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_verify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/dp30"
+                    android:layout_marginLeft="@dimen/dp5"
+                    android:layout_marginRight="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp25"
+                    android:background="@drawable/pinbiz_btn"
+                    android:paddingStart="@dimen/dp20"
+                    android:paddingRight="@dimen/dp20"
+                    android:text="Continue"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/sp18"
+                    app:fontFamily="@font/sans_medium"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>

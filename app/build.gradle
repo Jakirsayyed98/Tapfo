@@ -1,0 +1,185 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.gms.google-services'
+    id 'com.google.firebase.crashlytics'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+
+}
+//25.2.9519653
+android {
+    compileSdkVersion 33
+    defaultConfig {
+        applicationId "app.tapho"
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 29
+        versionName "1.6.4" // 30-01-2023
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+         //   debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    ndkVersion '25.2.9519653'
+
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'//path of Android.mk file
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.5.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.5.2'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.1'
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.google.android.gms:play-services-location:21.0.0'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.1.0'
+    implementation 'com.google.android.gms:play-services-maps:18.1.0'
+    implementation 'com.google.firebase:firebase-messaging:23.1.0'
+    implementation 'com.google.android.gms:play-services-places:17.0.0'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    implementation 'com.google.firebase:firebase-dynamic-links:21.0.1'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation platform('com.google.firebase:firebase-bom:28.3.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation 'io.github.chaosleung:pinview:1.4.4'
+
+    //Retrofit and GSON
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.2'
+
+    //jetpack libs
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation 'androidx.palette:palette-ktx:1.0.0'
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
+    implementation("com.google.guava:guava:30.1.1-android")
+    implementation 'com.facebook.shimmer:shimmer:0.5.0'
+    implementation 'com.karumi:dexter:6.2.3'
+    implementation 'com.github.jrvansuita:PickImage:2.5.3'
+    implementation "com.paytm.nativesdk:core-wr:1.2.0"
+    implementation 'com.paytm.appinvokesdk:appinvokesdk:1.6.8'
+    implementation "com.paytm.nativesdk:core-wr:1.2.2"
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
+    // animation library
+    implementation "com.airbnb.android:lottie:5.2.0"
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.1")
+
+    implementation 'com.github.yuriy-budiyev:code-scanner:2.1.2'
+
+    //Google In App review
+    implementation 'com.google.android.play:core:1.8.0'
+    implementation 'com.google.android.play:core-ktx:1.8.1'
+
+    implementation 'io.github.kakyire:app-review:2.0.1'
+
+
+
+    //Room Database
+    implementation "androidx.room:room-runtime:2.4.3"
+    implementation "androidx.legacy:legacy-support-v4:1.0.0"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+
+    //new Room
+    implementation("androidx.room:room-runtime:2.4.3")
+    kapt("androidx.room:room-compiler:2.4.3")
+    implementation("androidx.room:room-ktx:2.4.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+
+
+
+    implementation("com.google.android.play:core:1.10.3")
+
+    // For Kotlin users also import the Kotlin extensions library for Play Core:
+    implementation("com.google.android.play:core-ktx:1.8.1")
+
+    implementation "com.google.android.gms:play-services-location:17.0.0"
+
+    def paging_version = "2.1.2"
+    implementation "androidx.paging:paging-runtime:$paging_version" // pagination
+
+
+    // Custome Chrome
+    implementation "androidx.browser:browser:1.4.0"
+    //easy permission
+//    implementation 'pub.devrel:easypermissions:3.0.0'
+//    implementation 'com.vmadalin:easypermissions-ktx:1.0.0'
+    // Stories
+    implementation 'com.github.OMARIHAMZA:StoryView:1.0.2-alpha'
+    // add these lines in your app build.gradle
+    implementation 'com.google.android.gms:play-services-auth:20.2.0'
+    implementation 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
+    //Material
+    implementation 'com.google.android.material:material:1.2.1'
+     //Palette
+    implementation 'androidx.palette:palette-ktx:1.0.0'
+
+
+    implementation 'com.google.android.material:material:1.7.0-alpha01'
+    def lottieVersion = "5.2.0"
+    implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    implementation "androidx.core:core:1.6.0"
+    implementation 'androidx.core:core-google-shortcuts:1.0.0'
+    // Tab Sync for recharge plans
+     implementation 'io.github.ahmad-hamwi:tabsync:1.0.1'
+
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
+
+    //Biometric
+    implementation "androidx.biometric:biometric:1.2.0-alpha05"
+
+
+    // show case view
+    implementation 'com.github.erkutaras:ShowcaseView:1.5.0'
+
+
+
+    // UPI librery
+    implementation 'com.shreyaspatil:EasyUpiPayment:2.0'
+
+
+
+
+}

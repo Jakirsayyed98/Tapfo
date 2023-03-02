@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RechargeService.Electricity.FinalCheckForPaymentsFragment">
+
+    <RelativeLayout
+        android:id="@+id/due_dateValid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/dp10"
+        >
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:paddingStart="@dimen/dp10"
+                android:paddingTop="@dimen/dp20"
+                android:paddingEnd="@dimen/dp10"
+                android:paddingBottom="@dimen/dp15"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/backbtn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="@dimen/dp5"
+                    android:src="@drawable/new_back_btn"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/white" />
+
+
+                <TextView
+                    android:id="@+id/textView26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:text="Electricity bill"
+                    android:textColor="@color/white"
+                    android:textSize="17sp"
+                    app:fontFamily="@font/tt_demibold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/backbtn"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/icon"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/Name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/dp10"
+                android:text="Jio Prepaid - Maharasthra"
+                android:textSize="20sp"
+                app:fontFamily="@font/sans_bold" />
+
+            <TextView
+                android:id="@+id/CutomerID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/recharge_for_0000000000"
+                android:textSize="14sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/rechargeAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/dp10"
+                android:text="300"
+                android:textColor="#1ABC9C"
+                android:textSize="35sp"
+                app:fontFamily="@font/sans_bold" />
+
+            <TextView
+                android:id="@+id/discription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp30"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginRight="@dimen/dp30"
+                android:layout_marginBottom="@dimen/dp10"
+                android:background="@drawable/button_border_orange"
+                android:backgroundTint="@color/grey_v_light"
+                android:gravity="center"
+                android:padding="@dimen/dp20"
+                android:text="dgfe yurfgyer ysdgfyery dfwergy serg sgwyr ergwr sgw4gge rwerwg8yrwergydgfw rwger8fgs rggsdbf wer"
+                android:textSize="14sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:id="@+id/due_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_boarder_2"
+                android:backgroundTint="#4DEE8300"
+                android:paddingLeft="@dimen/dp15"
+                android:paddingTop="@dimen/dp5"
+                android:paddingRight="@dimen/dp15"
+                android:paddingBottom="@dimen/dp5"
+                android:text="Bill Due Date: 29 Aug 22"
+                app:fontFamily="@font/sans_medium"
+                android:textColor="@color/orange1"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/viewDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/proceedTorecharge"
+            android:gravity="center"
+            android:visibility="gone"
+            android:text="View Detail"
+            app:fontFamily="@font/sans_medium"
+            android:textColor="@color/orange1"
+            android:textSize="13sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/proceedTorecharge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/dp20"
+            android:layout_marginRight="@dimen/dp20"
+            android:layout_marginBottom="@dimen/dp20"
+            android:background="@drawable/login_btn1"
+            android:backgroundTint="@color/black"
+            android:text="@string/proceed_000"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp18"
+            android:textStyle="bold"
+            app:fontFamily="@font/sans_medium" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/no_bill_due"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/dp10">
+
+    </RelativeLayout>
+</RelativeLayout>

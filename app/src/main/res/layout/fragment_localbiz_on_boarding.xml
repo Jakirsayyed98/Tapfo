@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/Minicash"
+    tools:context=".ui.localbizzUI.BusinessProfileFlow.localbizOnBoardingFragment">
+
+
+    <ImageView
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        app:tabBackground="@drawable/tabindicater2"
+        android:background="@color/transparent"
+        android:layout_marginTop="@dimen/dp20"
+        app:tabIndicatorHeight="0dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_continue"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/button_height"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp75"
+        android:backgroundTint="@color/white"
+        android:text="Get Started!"
+        android:textAllCaps="false"
+        android:textColor="@color/lightpurple4"
+        app:fontFamily="@font/sans_medium"
+        android:visibility="gone"
+        app:cornerRadius="@dimen/dp10"
+        android:textStyle="bold"/>
+
+
+
+
+</RelativeLayout>

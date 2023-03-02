@@ -1,0 +1,1496 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.localbizzUI.UserFlow.ShowSelectedBusinessDataFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/homeScreenLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/toplayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingTop="@dimen/dp10"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/backbutton"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp15"
+                android:layout_marginTop="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp5"
+                android:layout_marginBottom="@dimen/dp10"
+                android:src="@drawable/new_back_btn"
+                app:tint="@color/black" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/current_location_icon" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp10"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/locationname"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:maxLines="1"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/sans_medium" />
+
+                <TextView
+                    android:id="@+id/fulladdress"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="10sp"
+                    app:fontFamily="@font/sans_medium" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/toplayout">
+
+
+            <LinearLayout
+                android:id="@+id/searchTool"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingLeft="15dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="@dimen/dp5">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp55"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:background="@drawable/button_boarder_2"
+                    android:paddingStart="@dimen/dp20"
+                    android:paddingEnd="@dimen/dp20">
+
+
+                    <EditText
+                        android:id="@+id/searchEt"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/transparent"
+                        android:clickable="true"
+                        android:drawableTint="@color/grey_dark"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center_vertical"
+                        android:hint="Search for Stores, products or more"
+                        android:imeOptions="actionDone"
+                        android:maxLines="1"
+                        android:textSize="@dimen/sp16"
+                        app:fontFamily="@font/sans_medium" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- ShopProduct Product Section-->
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nestedScrolling"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp15"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginRight="@dimen/dp15"
+                    android:orientation="vertical"
+                    app:cardCornerRadius="@dimen/dp10">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--                                Profile Details-->
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/bannerCard"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="3dp"
+                                android:layout_marginTop="@dimen/dp3"
+                                android:layout_marginEnd="@dimen/dp3"
+                                android:layout_marginBottom="@dimen/dp3"
+                                app:cardCornerRadius="@dimen/dp10"
+                                app:cardElevation="-2dp">
+
+                                <ImageView
+                                    android:id="@+id/banner"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="160dp" />
+                            </androidx.cardview.widget.CardView>
+
+                            <LinearLayout
+                                android:id="@+id/layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/bannerCard"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="@dimen/dp5"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center_vertical"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:orientation="vertical">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="@dimen/dp15"
+                                                android:layout_height="@dimen/dp15"
+                                                android:src="@drawable/double_icon"
+                                                app:tint="@color/green_dark" />
+
+                                            <TextView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginStart="@dimen/dp5"
+                                                android:text="Verified Biz "
+                                                android:textColor="@color/green_dark"
+                                                android:textSize="12sp"
+                                                android:textStyle="italic|bold"
+                                                app:fontFamily="@font/sans_medium" />
+                                        </LinearLayout>
+
+
+                                        <TextView
+                                            android:id="@+id/name"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/dp10"
+                                            android:autoSizeTextType="uniform"
+                                            android:ellipsize="end"
+                                            android:maxLines="2"
+                                            android:text="Saptami - Holiday Inn"
+                                            android:textColor="@color/black"
+                                            android:textSize="24sp"
+                                            android:textStyle="bold"
+                                            app:fontFamily="@font/sans_medium" />
+
+
+                                        <TextView
+                                            android:id="@+id/shortAddress"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/dp5"
+                                            android:layout_weight="1"
+                                            android:ellipsize="end"
+                                            android:maxLines="1"
+                                            android:text="Marol Maroshi Road , Marol"
+                                            android:textColor="@color/pinbizgrey"
+                                            android:textSize="15sp"
+                                            app:fontFamily="@font/sans_light" />
+
+                                        <TextView
+                                            android:id="@+id/distance"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="@dimen/dp5"
+                                            android:layout_marginEnd="@dimen/dp5"
+                                            android:maxLines="1"
+                                            android:text="0.3 km"
+                                            android:textColor="@color/black"
+                                            android:textSize="14sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginTop="7dp"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal">
+
+
+                                            <ImageView
+                                                android:layout_width="20dp"
+                                                android:layout_height="20dp"
+                                                android:layout_margin="@dimen/dp2"
+                                                android:src="@drawable/ic_baseline_star_24"
+                                                app:tint="@color/black" />
+
+                                            <TextView
+                                                android:id="@+id/ratingdata"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:ellipsize="end"
+                                                android:text="4.3"
+                                                android:textColor="@color/green_dark"
+                                                android:textSize="15sp"
+                                                android:textStyle="bold"
+                                                app:fontFamily="@font/sans_medium" />
+
+                                            <TextView
+                                                android:id="@+id/ratingCount"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="7dp"
+                                                android:text="299 ratings"
+                                                android:textColor="@color/pinbizgrey"
+                                                android:textSize="15sp"
+                                                app:fontFamily="@font/sans_medium" />
+                                        </LinearLayout>
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginTop="@dimen/dp5"
+                                            android:gravity="center_vertical"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:id="@+id/statusofshop"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:text="Today : "
+                                                android:textColor="@color/black"
+                                                android:textSize="15sp"
+                                                app:fontFamily="@font/sans_medium" />
+
+                                            <TextView
+                                                android:id="@+id/Shoptime"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_marginEnd="@dimen/dp5"
+                                                android:text="Today : "
+                                                android:textColor="@color/green_dark"
+                                                android:textSize="15sp"
+                                                app:fontFamily="@font/sans_medium" />
+
+
+                                        </LinearLayout>
+                                    </LinearLayout>
+
+                                    <RelativeLayout
+                                        android:layout_width="80dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+
+                                        <androidx.cardview.widget.CardView
+                                            android:layout_width="70dp"
+                                            android:layout_height="70dp"
+                                            android:layout_alignParentStart="true"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_marginStart="@dimen/dp5"
+                                            android:layout_marginTop="@dimen/dp10"
+                                            android:layout_marginEnd="@dimen/dp5"
+                                            app:cardCornerRadius="@dimen/dp10"
+                                            app:cardElevation="@dimen/dp2">
+
+                                            <ImageView
+                                                android:id="@+id/icon"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent" />
+                                        </androidx.cardview.widget.CardView>
+
+                                        <LinearLayout
+                                            android:id="@+id/busizz_card"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentBottom="true"
+                                            android:layout_marginTop="@dimen/dp10"
+                                            android:orientation="horizontal">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_vertical"
+                                                android:layout_marginLeft="4dp"
+                                                android:text="Bizcard "
+                                                android:textColor="@color/black"
+                                                android:textSize="16sp"
+                                                app:fontFamily="@font/sans_medium" />
+
+                                        </LinearLayout>
+                                    </RelativeLayout>
+
+
+                                </LinearLayout>
+
+                                <!--                                service list-->
+
+
+                                <LinearLayout
+                                    android:id="@+id/businessserviceslay"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <!--chat-->
+                                    <LinearLayout
+                                        android:id="@+id/chat1"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp20"
+                                        android:background="@drawable/button_boarder_2"
+                                        android:backgroundTint="@color/black"
+                                        android:orientation="horizontal"
+                                        android:padding="@dimen/dp15">
+
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:layout_marginLeft="4dp"
+                                            android:gravity="center"
+                                            android:text="Send Enquiry"
+                                            android:textColor="@color/white"
+                                            android:textSize="15sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                    </LinearLayout>
+
+
+                                    <View
+                                        android:layout_width="match_parent"
+                                        android:layout_height="0.8dp"
+                                        android:layout_marginTop="@dimen/dp15"
+                                        android:background="@color/pinbizgrey" />
+
+                                    <TextView
+                                        android:id="@+id/servicesby"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp20"
+                                        android:text="@string/services_by"
+                                        android:textSize="18sp"
+                                        app:fontFamily="@font/sans_medium" />
+
+
+                                    <androidx.recyclerview.widget.RecyclerView
+                                        android:id="@+id/SuperLinksSUBRV"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/imageView2"
+                                        android:layout_marginTop="@dimen/dp10"
+                                        android:clipToPadding="false"
+                                        android:scrollbars="vertical" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0.8dp"
+                                    android:layout_marginTop="@dimen/dp15"
+                                    android:layout_marginBottom="@dimen/dp5"
+                                    android:background="@color/pinbizgrey" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <!--                                Address-->
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:layout_marginBottom="@dimen/dp5"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Locate &amp; Contact"
+                                android:textSize="18sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                            <!--
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content">
+
+
+                                    <androidx.cardview.widget.CardView
+                                        android:id="@+id/card"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="155dp"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_marginTop="@dimen/dp20"
+                                        app:cardCornerRadius="@dimen/dp10"
+                                        app:cardElevation="-2dp">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:scaleType="centerCrop"
+                                            android:src="@drawable/new_map_image" />
+
+                                    </androidx.cardview.widget.CardView>
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/card"
+                                        android:layout_marginStart="20dp"
+                                        android:layout_marginTop="-20dp"
+                                        android:layout_marginEnd="@dimen/dp20"
+                                        app:cardBackgroundColor="@color/transparent"
+                                        app:cardCornerRadius="@dimen/dp10">
+
+                                        <LinearLayout
+                                            android:id="@+id/direction"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="@dimen/dp50"
+                                            android:layout_centerVertical="true"
+                                            android:background="@drawable/button_boarder_minicash"
+                                            android:paddingStart="@dimen/dp20"
+                                            android:paddingEnd="@dimen/dp20">
+
+
+                                            <TextView
+                                                android:layout_width="0dp"
+                                                android:layout_height="match_parent"
+                                                android:layout_weight="1"
+                                                android:background="@color/transparent"
+                                                android:drawableTint="@color/greenshade"
+                                                android:gravity="center"
+                                                android:hint="Check distance from your locations"
+                                                android:maxLines="1"
+                                                android:textSize="@dimen/sp14"
+                                                app:fontFamily="@font/sans_medium" />
+
+                                        </LinearLayout>
+
+                                    </androidx.cardview.widget.CardView>
+
+                                </RelativeLayout>
+
+
+                            </LinearLayout>
+                            -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/dp20"
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="@dimen/dp20"
+                                    android:layout_height="@dimen/dp20"
+                                    android:src="@drawable/pin_biz_icon"
+                                    app:tint="@color/black" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp5"
+                                    android:layout_marginBottom="7dp"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:id="@+id/roadnumber"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dp10"
+                                        android:layout_marginEnd="@dimen/dp10"
+                                        android:text="5th Floor - 507 KP AURUM"
+                                        android:textColor="@color/black"
+                                        android:textSize="14sp"
+                                        app:fontFamily="@font/sans_medium" />
+
+                                    <TextView
+                                        android:id="@+id/addressTv"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/dp10"
+                                        android:layout_marginTop="@dimen/dp5"
+                                        android:layout_marginEnd="@dimen/dp10"
+                                        android:text="Holiday Inn, Sakinaka Junction, Andheri Kurla Road, Sakinaka, Andheri East, Mumbai"
+                                        android:textColor="@color/grey_dark"
+                                        android:textSize="14sp"
+                                        app:fontFamily="@font/sans_medium" />
+
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/direction"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+
+                                    <androidx.cardview.widget.CardView
+                                        android:layout_width="100dp"
+                                        android:layout_height="80dp"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_alignParentTop="true"
+                                        android:layout_alignParentEnd="true"
+                                        app:cardCornerRadius="@dimen/dp10"
+                                        app:cardElevation="-2dp">
+
+                                        <ImageView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:scaleType="centerCrop"
+                                            android:src="@drawable/new_map_image" />
+
+                                    </androidx.cardview.widget.CardView>
+
+                                    <LinearLayout
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:paddingStart="@dimen/dp5"
+                                            android:text="Powered by"
+                                            android:textColor="@color/grey_dark"
+                                            android:textSize="8sp" />
+
+                                        <ImageView
+                                            android:layout_width="50dp"
+                                            android:layout_height="17dp"
+                                            android:layout_marginTop="-2dp"
+                                            android:scaleType="centerCrop"
+                                            android:src="@drawable/gmap_logo" />
+                                    </LinearLayout>
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                        <!--                                About business-->
+                        <LinearLayout
+                            android:id="@+id/BusinessDetails"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/description"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Established in the year 1960, Cafe Marol in Andheri East, Mumbai is a top player in the category Tandoori Restaurants in the Mumbai."
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium" />
+
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp15"
+                                    android:orientation="horizontal">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/stablised"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="2009"
+                                            android:textSize="18sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Since"
+                                            android:textColor="@color/grey_dark"
+                                            android:textSize="12sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/old_bussiness_year"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="8+"
+                                            android:textSize="18sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Years"
+                                            android:textColor="@color/grey_dark"
+                                            android:textSize="12sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/avrage_rating_expration"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Good"
+                                            android:textSize="18sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Reviews"
+                                            android:textColor="@color/grey_dark"
+                                            android:textSize="12sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:id="@+id/avrageReview"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="@string/_4_7_5"
+                                            android:textSize="18sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:gravity="center"
+                                            android:text="Ratings"
+                                            android:textColor="@color/grey_dark"
+                                            android:textSize="12sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                    </LinearLayout>
+                                </LinearLayout>
+
+                                <!--                                        Hide Elements Like website and Emails -->
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp15"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:visibility="gone">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/dp25"
+                                            android:layout_height="@dimen/dp25"
+                                            android:padding="@dimen/dp5"
+                                            android:src="@drawable/website_new_icon" />
+
+                                        <TextView
+                                            android:id="@+id/website"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_weight="1"
+                                            android:gravity="center_vertical"
+                                            android:maxLines="1"
+                                            android:text="Website"
+                                            android:textColor="@color/grey_dark"
+                                            android:textSize="14sp"
+                                            app:fontFamily="@font/sans_medium" />
+
+                                        <TextView
+                                            android:id="@+id/visit_website"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:text="Visit now"
+                                            android:textColor="@color/new_green2"
+                                            android:textSize="10sp"
+                                            app:fontFamily="@font/sans_medium" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp10"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/dp25"
+                                            android:layout_height="@dimen/dp25"
+                                            android:padding="@dimen/dp5"
+                                            android:src="@drawable/mail_icon" />
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:maxLines="1"
+                                                android:text="Email"
+                                                android:textColor="@color/black"
+                                                android:textSize="16sp"
+                                                app:fontFamily="@font/sans_medium" />
+
+                                            <TextView
+                                                android:id="@+id/emailid"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="@dimen/dp5"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:maxLines="1"
+                                                android:text="vabilesh45@gmail.com"
+                                                android:textColor="@color/grey_dark"
+                                                android:textSize="14sp"
+                                                app:fontFamily="@font/sans_medium" />
+                                        </LinearLayout>
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp15"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/dp25"
+                                            android:layout_height="@dimen/dp25"
+                                            android:padding="@dimen/dp5"
+                                            android:src="@drawable/new_contact_icon" />
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:maxLines="1"
+                                                android:text="Contact"
+                                                android:textColor="@color/black"
+                                                android:textSize="16sp"
+                                                app:fontFamily="@font/sans_medium" />
+
+
+                                            <TextView
+                                                android:id="@+id/contact"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="@dimen/dp5"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:lineSpacingExtra="0.5dp"
+                                                android:text="878832323\n678909098"
+                                                android:textColor="@color/grey_dark"
+                                                android:textSize="14sp"
+                                                app:fontFamily="@font/sans_medium" />
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp10"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/dp25"
+                                            android:layout_height="@dimen/dp25"
+                                            android:padding="@dimen/dp5"
+                                            android:src="@drawable/whatsapp_icon" />
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:maxLines="1"
+                                                android:text="WhatsApp"
+                                                android:textColor="@color/black"
+                                                android:textSize="16sp"
+                                                app:fontFamily="@font/sans_medium" />
+
+                                            <TextView
+                                                android:id="@+id/whatsapp_number"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="@dimen/dp5"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:maxLines="1"
+                                                android:text="878832323"
+                                                android:textColor="@color/grey_dark"
+                                                android:textSize="14sp"
+                                                app:fontFamily="@font/sans_medium" />
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:id="@+id/gstlayout"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="@dimen/dp15"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+                                            android:layout_width="@dimen/dp25"
+                                            android:layout_height="@dimen/dp25"
+                                            android:src="@drawable/gst_icon" />
+
+
+                                        <LinearLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_weight="1"
+                                            android:orientation="vertical">
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_weight="1"
+                                                android:gravity="center_vertical"
+                                                android:maxLines="1"
+                                                android:text="GSTIN"
+                                                android:textColor="@color/black"
+                                                android:textSize="16sp"
+                                                app:fontFamily="@font/sans_medium" />
+
+
+                                            <TextView
+                                                android:id="@+id/GSTN_number"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:layout_marginLeft="10dp"
+                                                android:layout_marginTop="@dimen/dp5"
+                                                android:gravity="center_vertical"
+                                                android:maxLines="1"
+                                                android:text="@string/gstin"
+                                                android:textColor="@color/grey_dark"
+                                                android:textSize="14sp"
+                                                app:fontFamily="@font/sans_medium" />
+                                        </LinearLayout>
+
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="0.8dp"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:background="@color/pinbizgrey" />
+
+                    <LinearLayout
+                        android:id="@+id/rating"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:paddingTop="25dp"
+                        android:paddingBottom="@dimen/dp15">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:text="Share your Feedback"
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <RatingBar
+                            style="?android:attr/ratingBarStyleIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:isIndicator="true"
+                            android:numStars="5"
+                            android:progressTint="@color/green_dark" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.8dp"
+                            android:layout_marginTop="@dimen/dp15"
+                            android:background="@color/pinbizgrey" />
+                    </LinearLayout>
+
+                    <!-- rating-->
+                    <LinearLayout
+                        android:id="@+id/users_review"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:text="Voice of the Customers"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <TextView
+                            android:id="@+id/avrageRating"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="4dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="@dimen/dp10"
+                            android:text="4.3"
+                            android:textColor="@color/black"
+                            android:textSize="30sp"
+                            android:textStyle="bold"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <RatingBar
+                            android:id="@+id/ratingstar"
+                            style="?android:attr/ratingBarStyleIndicator"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:layout_marginBottom="@dimen/dp5"
+                            android:isIndicator="true"
+                            android:numStars="5"
+                            android:progressTint="@color/green_dark" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp25"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_margin="@dimen/dp2"
+                                android:src="@drawable/ic_baseline_star_24"
+                                app:tint="@color/black" />
+
+                            <TextView
+                                android:id="@+id/totalreview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="4dp"
+                                android:text="@string/s_total_reviews"
+                                android:textColor="@color/black"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/UsersReview"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/imageView2"
+                                android:layout_marginTop="@dimen/dp20"
+                                android:clipToPadding="false"
+                                android:scrollbars="vertical" />
+
+                            <TextView
+                                android:id="@+id/allReviews"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="View all Reviews"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp30"
+                        android:layout_marginBottom="@dimen/dp150"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp50"
+                            android:text="Powered by Tapfo (Pinbiz)"
+                            android:textColor="@color/grey_light"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/name1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:text="NAme"
+                            android:textColor="@color/grey_dark"
+                            android:textSize="15sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:id="@+id/shortAddress1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="NAme"
+                            android:textColor="@color/grey_dark"
+                            android:textSize="10sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="@dimen/dp50"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="@dimen/dp10"
+                                android:layout_height="@dimen/dp10"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:src="@drawable/pin_biz_icon"
+                                app:tint="@color/grey_dark" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp5"
+                                android:layout_marginBottom="7dp"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/addressTv1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dp10"
+                                    android:layout_marginEnd="@dimen/dp10"
+                                    android:text="Holiday Inn, Sakinaka Junction, Andheri Kurla Road, Sakinaka, Andheri East, Mumbai"
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="12sp"
+                                    app:fontFamily="@font/sans_medium" />
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/Location"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/ic_baseline_location_off_24" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Something went wrong!"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:fontFamily="@font/sans_medium"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:gravity="center"
+                android:text="Please Enable Your Location "
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:fontFamily="@font/sans_medium"/>
+
+
+            <!--            <androidx.appcompat.widget.AppCompatButton-->
+            <!--                android:id="@+id/retryLocation"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginStart="@dimen/dp20"-->
+            <!--                android:layout_marginTop="@dimen/dp20"-->
+            <!--                android:layout_marginEnd="@dimen/dp20"-->
+            <!--                android:layout_marginBottom="@dimen/dp20"-->
+            <!--                android:background="@drawable/button_boarder_2"-->
+            <!--                android:backgroundTint="@color/black"-->
+            <!--                android:text="Refresh this page."-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:textSize="14sp"-->
+            <!--                android:textAllCaps="false"-->
+            <!--                app:fontFamily="@font/sans_medium" />-->
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lowconnection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/interneterror" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Something went wrong!"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:fontFamily="@font/sans_medium"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:gravity="center"
+                android:text="Please refresh or restart you internet connection."
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:fontFamily="@font/sans_medium"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/retry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:background="@drawable/button_boarder_2"
+                android:backgroundTint="@color/black"
+                android:text="Refresh this page."
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:fontFamily="@font/sans_medium" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/noconnection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/interneterror" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="No Internet Connections!"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:gravity="center"
+                android:text="Please check your internet connection &amp; Try Again"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:fontFamily="@font/sans_medium"/>
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/retryinternetButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp20"
+                android:layout_marginEnd="@dimen/dp20"
+                android:layout_marginBottom="@dimen/dp20"
+                android:background="@drawable/button_boarder_2"
+                android:backgroundTint="@color/black"
+                android:text="TRY again"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:fontFamily="@font/sans_medium"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/shimmer_view_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/black"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:elevation="@dimen/dp5"
+        android:gravity="center_vertical"
+        android:padding="@dimen/dp10">
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/chatwithus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:layout_weight="1"
+            android:background="@drawable/button_boarder_2"
+            android:text="Chat with Us"
+            android:textAllCaps="false"
+            android:textColor="@color/green_dark"
+            app:fontFamily="@font/sans_medium" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/direction1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:layout_weight="1"
+            android:background="@drawable/button_boarder_2"
+            android:text="Get Direction"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            app:fontFamily="@font/sans_medium" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/callNow1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
+            android:layout_weight="1"
+            android:background="@drawable/button_boarder_2"
+            android:backgroundTint="@color/black"
+            android:text="Call Now"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:fontFamily="@font/sans_medium" />
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="100dp"
+    android:layout_height="110dp"
+    android:layout_margin="@dimen/dp5"
+    android:elevation="@dimen/dp2">
+<!--    android:background="@drawable/rippleeffect">-->
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        tools:src="@drawable/intro_1" />
+
+    <TextView
+        android:id="@+id/tags"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/tags_border"
+        android:backgroundTint="@color/purple_500"
+        android:padding="4dp"
+        android:text="@string/Cashback"
+        android:textColor="@color/white"
+        android:textSize="7sp"
+        android:visibility="gone" />
+
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="Super\nSaver"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:fontFamily="@font/sans_medium" />
+
+
+</RelativeLayout>

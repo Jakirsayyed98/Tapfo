@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingLeft="@dimen/dp20"
+    android:paddingTop="@dimen/dp10"
+    android:paddingBottom="@dimen/dp10"
+    android:paddingRight="@dimen/dp20"
+    android:layout_height="wrap_content">
+
+
+    <ImageView
+        android:id="@+id/iv_partner"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp10"
+        app:cardCornerRadius="@dimen/dp100"
+        tools:src="@drawable/intro_1" />
+
+
+    <TextView
+        android:id="@+id/rupee"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/iv_partner"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-15dp"
+        android:background="@drawable/button"
+        android:backgroundTint="@color/orange"
+        android:gravity="center"
+        android:visibility="gone"
+        android:paddingLeft="@dimen/dp5"
+        android:paddingRight="@dimen/dp5"
+        android:text="Cashback"
+        app:fontFamily="@font/sans_medium"
+        android:textColor="@color/white"
+        android:textSize="7dp" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_partner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        app:fontFamily="@font/sans_medium"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        tools:text="More" />
+
+    <TextView
+        android:id="@+id/nameTv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_partner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        app:fontFamily="@font/sans_medium"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp12"
+        tools:text="Less" />
+
+
+</RelativeLayout>

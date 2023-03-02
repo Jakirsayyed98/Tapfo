@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".ui.home.SearchDialogFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/sp_white_top_corner_10"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/white">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingLeft="@dimen/dp10">
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp55"
+                            android:layout_centerVertical="true"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="@dimen/dp5"
+                            android:background="@drawable/button_boarder_2"
+                            android:paddingStart="@dimen/dp20"
+                            android:paddingEnd="@dimen/dp20">
+                            <ImageView
+                                android:id="@+id/backIv"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/new_back_btn" />
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/searchEt"
+                                android:layout_width="0dp"
+                                android:maxLines="1"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:drawableTint="@color/grey_dark"
+                                android:gravity="center_vertical"
+                                android:layout_marginStart="10dp"
+                                android:background="@color/transparent"
+                                app:fontFamily="@font/sans_medium"
+                                android:hint="Search for Stores, products or more"
+                                android:textSize="@dimen/sp16" />
+
+                            <View
+                                android:layout_width="1dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_marginBottom="@dimen/dp10"
+                                android:layout_marginEnd="@dimen/dp5"
+                                android:background="@color/grey_dark"/>
+                            <ImageView
+                                android:id="@+id/mic"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/mic_icon" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/dp10"
+                        app:cardCornerRadius="@dimen/dp10">
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/popular_on_miniearn"
+                            android:paddingLeft="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:paddingRight="@dimen/dp10"
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="18sp"/>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_below="@+id/liLable"
+                            android:paddingTop="@dimen/dp10"
+                            />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/liLable"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/merchantsTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/trending_merchants"
+                        android:textColor="@color/black"
+                        app:fontFamily="@font/sans_medium"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/trendingIv"
+                        android:layout_width="@dimen/dp30"
+                        android:layout_height="@dimen/dp20"
+                        android:src="@drawable/ic_trending" />
+                </LinearLayout>
+
+
+
+
+
+            </RelativeLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:indeterminateTint="@color/black"/>
+
+    <LinearLayout
+        android:id="@+id/nomatch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:src="@drawable/interneterror"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No Merchant Found"
+            android:gravity="center"
+            android:textSize="18sp"
+            app:fontFamily="@font/sans_medium"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

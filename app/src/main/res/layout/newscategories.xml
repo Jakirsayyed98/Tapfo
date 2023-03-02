@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/news_Categories"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/dp30"
+    android:layout_marginStart="@dimen/dp5"
+    android:layout_marginEnd="@dimen/dp5"
+    android:background="@drawable/selector_category_tab"
+    android:gravity="center"
+    android:minWidth="@dimen/dp80"
+    android:paddingStart="@dimen/dp5"
+    android:paddingEnd="@dimen/dp5"
+    app:fontFamily="@font/sans_medium"
+    android:textColor="@drawable/selector_category_tab_text"
+    android:textSize="@dimen/sp12">
+
+</TextView>

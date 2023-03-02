@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginStart="@dimen/dp5"
+    android:layout_marginTop="@dimen/dp5"
+    android:layout_marginEnd="@dimen/dp5"
+    android:layout_marginBottom="@dimen/dp10"
+    android:background="@drawable/sp_top_corners_10"
+    android:elevation="@dimen/dp3"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_partner"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp150"
+        android:layout_marginBottom="@dimen/dp5"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/intro_1" />
+
+    <TextView
+        android:id="@+id/nameTv"
+        app:fontFamily="@font/sans_medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_partner"
+        android:layout_marginStart="@dimen/dp10"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp12"
+        tools:text="Dominoes" />
+
+    <TextView
+        android:id="@+id/cashbackTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameTv"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp5"
+        android:layout_toStartOf="@+id/earnNow"
+        android:textColor="@color/grey_dark"
+        android:textSize="@dimen/sp10"
+        app:fontFamily="@font/sans_medium"
+        tools:text="Earn Upto 12% Cashback" />
+
+
+    <TextView
+        android:id="@+id/earnNow"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp30"
+        android:layout_below="@+id/iv_partner"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginBottom="@dimen/dp5"
+        android:background="@drawable/sp_white_corner_5"
+        android:backgroundTint="@color/purple_500"
+        android:gravity="center"
+        android:paddingStart="@dimen/dp10"
+        android:paddingEnd="@dimen/dp10"
+        android:text="Earn Now"
+        android:textColor="@color/white"
+        app:fontFamily="@font/sans_medium"
+        android:textSize="@dimen/sp12" />
+
+</RelativeLayout>

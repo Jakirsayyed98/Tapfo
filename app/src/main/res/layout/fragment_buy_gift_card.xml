@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.home.BuyGiftCardFragment">
+
+    <LinearLayout
+        android:id="@+id/icRupee1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/no_order_found"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upcoming Soon!"
+            android:textSize="14sp"
+            app:fontFamily="@font/sans_medium"
+            android:textColor="@color/orange1"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/dp10"/>
+
+
+        <TextView
+            android:id="@+id/emptyTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/inter_regular"
+            android:text="Our teach team working on it"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:textColor="#565656"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="1dp"
+            app:fontFamily="@font/sans_medium" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

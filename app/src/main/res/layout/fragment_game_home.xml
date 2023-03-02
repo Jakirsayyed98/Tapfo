@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.home.NewGame.GameHomeFragment">
+
+    <LinearLayout
+        android:id="@+id/main_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/card"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginStart="@dimen/dp2"
+                                android:layout_marginTop="@dimen/dp40"
+                                android:layout_marginEnd="@dimen/dp2"
+                                android:layout_toStartOf="@+id/notificationRe"
+                                android:background="@color/white"
+                                app:cardCornerRadius="@dimen/dp80"
+                                app:cardElevation="4dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+
+                                    <!--search Btn-->
+                                    <RelativeLayout
+                                        android:id="@+id/search"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_gravity="center"
+                                        android:layout_toStartOf="@+id/cashback_b">
+
+                                        <ImageView
+                                            android:id="@+id/searchbtn"
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:layout_margin="@dimen/dp10"
+                                            android:src="@drawable/search_icon"
+                                            app:tint="@color/black" />
+
+                                    </RelativeLayout>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+
+                            <!--                                android:background="@drawable/intro_1"-->
+                            <androidx.viewpager2.widget.ViewPager2
+                                android:id="@+id/bannerTop"
+                                android:layout_width="match_parent"
+                                android:layout_height="250dp"
+                                android:background="@color/grey_dark" />
+
+                            <RelativeLayout
+                                android:id="@+id/notificationRe"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginStart="@dimen/dp5"
+                                android:layout_marginTop="40dp"
+                                android:layout_marginEnd="@dimen/dp10">
+
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/not"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/dp5"
+                                    android:layout_marginEnd="@dimen/dp5"
+                                    android:layout_marginBottom="@dimen/dp5"
+                                    android:background="@color/white"
+                                    app:cardCornerRadius="@dimen/dp80"
+                                    app:cardElevation="2dp">
+
+                                    <ImageView
+                                        android:id="@+id/notificationIv"
+                                        android:layout_width="25dp"
+                                        android:layout_height="25dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="@dimen/dp10"
+                                        android:src="@drawable/notification_image"
+                                        app:tint="@color/black" />
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/notificationavail"
+                                    android:layout_width="@dimen/dp10"
+                                    android:layout_height="@dimen/dp10"
+                                    android:layout_alignEnd="@+id/not"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_marginTop="@dimen/dp10"
+                                    app:cardCornerRadius="@dimen/dp50">
+
+                                    <ImageView
+                                        android:layout_width="@dimen/dp10"
+                                        android:layout_height="@dimen/dp10"
+                                        android:src="@drawable/ic_dot" />
+                                </androidx.cardview.widget.CardView>
+
+                            </RelativeLayout>
+
+                            <ImageView
+                                android:id="@+id/backIv"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_alignTop="@+id/card"
+                                android:layout_alignBottom="@+id/card"
+                                android:layout_alignParentStart="true"
+                                android:layout_marginStart="15dp"
+                                android:src="@drawable/new_back_btn"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:tint="@color/white" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/game_super_categories"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/dp10"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_marginEnd="@dimen/dp10"
+                        android:layout_marginBottom="10dp"
+                        android:clipToPadding="false"
+                        android:scrollbars="vertical" />
+
+                    <!--Recent Game-->
+                    <RelativeLayout
+                        android:id="@+id/recentlist"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/playAgainTv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Played by you"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerPlayAgain"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/playAgainTv"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+
+
+                    </RelativeLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/myfavRVList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/game_shade_for_category"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/dp10">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="My favourite games"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Play now"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/sans_regular" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/myfavRV"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/playAgainTv"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+
+                    </LinearLayout>
+
+
+                    <!-- Game Categories -->
+                    <RelativeLayout
+                        android:id="@+id/category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/categoryTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Games by categories"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/categoryTV"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginEnd="@dimen/dp10"
+                            android:layout_marginBottom="10dp"
+                            android:clipToPadding="false"
+                            android:scrollbars="vertical" />
+
+
+                    </RelativeLayout>
+
+                    <!--Featured Games-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:paddingStart="@dimen/dp5"
+                                android:text="Featured games"
+                                android:textSize="20sp"
+                                app:fontFamily="@font/sans_medium" />
+
+
+                            <ImageView
+                                android:id="@+id/TrandingGames"
+                                android:layout_width="wrap_content"
+                                android:layout_height="20dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="@dimen/dp10"
+                                android:rotation="180"
+                                android:src="@drawable/backarrow"
+                                app:tint="@color/black" />
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerTrendingGames"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Most played games-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/dp10"
+                                android:layout_marginTop="@dimen/dp5"
+                                android:paddingStart="@dimen/dp5"
+                                android:text="Most played games"
+                                android:textSize="20sp"
+                                app:fontFamily="@font/sans_medium" />
+
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerPopularGames"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Newly Added Game-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="New game launch"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerNewlyAdded"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/title"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp"
+                            android:clipToPadding="false"
+                            android:scrollbars="vertical" />
+
+
+                    </RelativeLayout>
+
+                    <!--Action Games-->
+                    <LinearLayout
+                        android:id="@+id/Action"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Action games"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/ActionGame"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Adventure Games-->
+                    <LinearLayout
+                        android:id="@+id/AdventureLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Adventure games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Adventure"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--              My  Trending games-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/game_shade_for_category"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/dp10">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Trending games"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Play now"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/sans_regular" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/mytrendingGames"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/playAgainTv"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+
+                    </LinearLayout>
+
+                    <!--Puzzle Games-->
+                    <LinearLayout
+                        android:id="@+id/PuzzleLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Puzzle games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Puzzle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Logic Games-->
+                    <LinearLayout
+                        android:id="@+id/LogicLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Logic games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Logic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Sports Games-->
+                    <LinearLayout
+                        android:id="@+id/SportsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Sports games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Sports"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Racing Games-->
+                    <LinearLayout
+                        android:id="@+id/RacingLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Racing games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Racing"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Battle Games-->
+                    <LinearLayout
+                        android:id="@+id/BattleLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Battle games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Battle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--              My  Popular games-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/game_shade_for_category"
+                        android:orientation="vertical"
+                        android:paddingTop="@dimen/dp10">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Popular games"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Play now"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/sans_regular" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/mypopularGames"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/playAgainTv"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+
+                    </LinearLayout>
+
+                    <!--Cricket Games-->
+                    <LinearLayout
+                        android:id="@+id/CricketLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Cricket games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Cricket"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Cards Games-->
+                    <LinearLayout
+                        android:id="@+id/CardsLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Cards games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Cards"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Zombies Games-->
+                    <LinearLayout
+                        android:id="@+id/ZombiesLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Zombies games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Zombies"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Strategy Games-->
+                    <LinearLayout
+                        android:id="@+id/StrategyLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Strategy games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Strategy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Arcade Games-->
+                    <LinearLayout
+                        android:id="@+id/ArcadeLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Arcade games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Arcade"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Sports & Racing Games-->
+                    <LinearLayout
+                        android:id="@+id/Sports_RacingLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Sports &amp; Racing games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Sports_Racing"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Puzzle & Logic Games-->
+                    <LinearLayout
+                        android:id="@+id/Puzzle_LogicLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Puzzle &amp; Logic games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Puzzle_Logic"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+                    <!--Featured Games-->
+                    <LinearLayout
+                        android:id="@+id/FeaturedLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp15"
+                        android:layout_marginBottom="@dimen/dp100"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/dp10"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:paddingStart="@dimen/dp5"
+                            android:text="Featured games"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"
+                            app:fontFamily="@font/sans_medium" />
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/Featured"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/dp10"
+                            android:layout_marginBottom="10dp" />
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        android:layout_marginLeft="-10dp"
+                        android:layout_marginRight="-10dp"
+                        android:layout_marginBottom="-10dp"
+                        android:src="@drawable/game_bottom_banner" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    <RelativeLayout
+        android:id="@+id/lowconnection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:src="@drawable/interneterror" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Something went wrong!"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp5"
+                android:gravity="center"
+                android:text="Please refresh or restart you internet connection."
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:fontFamily="@font/sans_medium" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp25"
+                android:gravity="center"
+                android:text="Refresh this page."
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textAllCaps="false"
+                android:padding="10dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_boarder_2"
+                app:fontFamily="@font/sans_medium" />
+
+
+        </LinearLayout>
+    </RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

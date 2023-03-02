@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:elevation="@dimen/dp100"
+    android:orientation="vertical"
+    android:padding="@dimen/dp20">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/dp10"
+        android:text="Contact us"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:fontFamily="@font/sans_medium" />
+
+    <TextView
+        android:id="@+id/business_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginRight="@dimen/dp10"
+        android:text="@string/Cashback"
+        android:textColor="@color/pinbizgrey"
+        android:textSize="18sp"
+        android:layout_marginTop="@dimen/dp10"
+        app:fontFamily="@font/sans_medium" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/contactList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/okay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mini_cash_btn"
+        android:layout_marginTop="@dimen/dp15"
+        android:backgroundTint="@color/black"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        app:fontFamily="@font/sans_medium"
+        android:text="Okay" />
+
+</LinearLayout>
