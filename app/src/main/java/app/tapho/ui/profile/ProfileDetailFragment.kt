@@ -123,19 +123,39 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
 
     private fun getTCashDashBoardDatViewmodel() {
         getSharedPreference().saveString("startProfile","0")
-        viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getDate(1, -12), TimePeriodDialog.getCurrentDate(),"2",this,object : ApiListener<TCashDasboardRes,Any?>{
-            override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                t.let {
-                    _binding!!.apply {
-                        walletbalance.text = withSuffixAmount(it!!.cash_available.toString())
-                        getSharedPreference().saveString("startProfile","1")
-                        getmainLayoutvisible()
+
+        val data = activity?.intent?.getStringExtra(DATA)
+
+        if (data.isNullOrEmpty().not()){
+           val tcash =  Gson().fromJson(data,TCashDasboardRes::class.java)
+            tcash.let {
+                _binding!!.apply {
+                    walletbalance.text = withSuffixAmount(it!!.cash_available.toString())
+                    getSharedPreference().saveString("startProfile","1")
+                    getmainLayoutvisible()
+                    merchantTransaction.setOnClickListener {click->
+                        ContainerActivity.openContainer(context, "cashbackcard", it)
                     }
                 }
-
             }
+        }else{
+            viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getDate(1, -12), TimePeriodDialog.getCurrentDate(),"2",this,object : ApiListener<TCashDasboardRes,Any?>{
+                override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
+                    t.let {
+                        _binding!!.apply {
+                            walletbalance.text = withSuffixAmount(it!!.cash_available.toString())
+                            getSharedPreference().saveString("startProfile","1")
+                            getmainLayoutvisible()
+                            merchantTransaction.setOnClickListener {click->
+                                ContainerActivity.openContainer(context, "cashbackcard", it)
+                            }
+                        }
+                    }
 
-        })
+                }
+
+            })
+        }
     }
 
     private fun getmainLayoutvisible() {
@@ -177,12 +197,7 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
         binding.editProfile.setOnClickListener {
             editProfile()
         }
-        binding.merchantTransaction.setOnClickListener {
-            ContainerActivity.openContainer(context, "cashbackcard", "")
-//            launch.launch(Intent(context, ContainerActivity::class.java).apply {
-//                putExtra(CONTAINER_TYPE_KEY, ContainerType.MERCHANT_REPORTS.toString())
-//            })
-        }
+
 
         val mAdapter = ProfileOptionsAdapter(this).apply {
             addItem(ProfileOptionsModel(R.drawable.online_fav_icon, "My Favourites", "","","My Favourites","0"))
@@ -228,6 +243,10 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
     }
 
     private fun editProfile() {
+
+        ContainerActivity.openContainer(requireContext(),"EditProfileFragment","")
+
+
         if (parentFragment is NavHostFragment)
             (parentFragment as NavHostFragment).navController
                 .navigate(R.id.action_profileDetailFragment_to_editProfileFragment)

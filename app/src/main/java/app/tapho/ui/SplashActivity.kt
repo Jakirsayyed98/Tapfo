@@ -69,76 +69,14 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         }
 
     }
-/*
-    private fun biometricfunction() {
-        val biometricmanager: BiometricManager = BiometricManager.from(this)
 
-        when(biometricmanager.canAuthenticate()){
-
-            BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE ->{
-                LogAppData("Device does not have fingerprint ")
-                splashCode()
-//                showdialogforSetup()
-            }
-
-            BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE ->{
-                LogAppData("Not Working")
-                splashCode()
-//                showdialogforSetup()
-            }
-
-            BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED ->{
-                LogAppData("Not Fingerprint Assigned")
-                assigend="1"
-                showdialogforSetup()
-            }
-
-            BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED -> {
-                TODO()
-            }
-            BiometricManager.BIOMETRIC_ERROR_UNSUPPORTED -> {
-                TODO()
-            }
-            BiometricManager.BIOMETRIC_STATUS_UNKNOWN -> {
-                TODO()
-            }
-            BiometricManager.BIOMETRIC_SUCCESS -> {
-                TODO()
-            }
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        if (intent!=null){
+            Log.d("notificationMyActivity",intent.toString())
         }
-
-        executor = ContextCompat.getMainExecutor(this)
-        biometricPrompt = BiometricPrompt(this, executor, object : BiometricPrompt.AuthenticationCallback() {
-            override fun onAuthenticationError(errorCode: Int, errString: CharSequence, ) {
-                super.onAuthenticationError(errorCode, errString)
-                Toast.makeText(applicationContext, "Authentication error: $errString", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult, ) {
-                super.onAuthenticationSucceeded(result)
-                Toast.makeText(applicationContext, "Authentication succeeded!", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onAuthenticationFailed() {
-                super.onAuthenticationFailed()
-                Toast.makeText(applicationContext, "Authentication failed", Toast.LENGTH_SHORT).show()
-            }
-        })
-
-
-        val promtinfo : PromptInfo = BiometricPrompt.PromptInfo.Builder()
-            .setTitle("Enter phone screen lock pattern, PIN, password or fingerprint")
-            .setDescription("Unlock Tapfo")
-            .setConfirmationRequired(false)
-            .setDeviceCredentialAllowed(true).build()
-
-
-
-
-        biometricPrompt.authenticate(promtinfo)
-
     }
-*/
+
     fun checkDeviceHasBiometric() {
         val biometricManager = BiometricManager.from(this)
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
@@ -245,10 +183,20 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     }
 
     private fun splashCode() {
-        val tag  = intent?.getStringExtra("TAGS")
-        val type  = intent?.getStringExtra("type")
-        getSharedPreference().saveString("TAGS",tag.toString())
-        getSharedPreference().saveString("type",type.toString())
+
+
+        val app_id  = intent?.getStringExtra("app_id")
+        val tag  = intent?.getStringExtra("tag")
+        val screen_url  = intent?.getStringExtra("screen_url")
+
+
+        getSharedPreference().saveString("app_id", app_id.toString())
+        getSharedPreference().saveString("tag", tag.toString())
+        getSharedPreference().saveString("screen_url", screen_url.toString())
+
+
+        Log.d("Url",tag.toString()+ " / "+app_id+ " / "+ screen_url)
+
 
 
         val verifyOtp = getSharedPreference().getBoolean(VERIFY_OTP)

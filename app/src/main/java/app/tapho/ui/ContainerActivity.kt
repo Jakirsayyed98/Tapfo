@@ -39,16 +39,12 @@ import app.tapho.ui.home.GamesContainer.SeeAllNewlyaddedFragment
 import app.tapho.ui.home.GamesContainer.SeeAllPopularFragment
 import app.tapho.ui.home.GamesContainer.SeeAllTrandingGamesFragment
 import app.tapho.ui.home.NewGame.*
-import app.tapho.ui.home.OfferAndCoupon.NewOfferAndCouponFragment
 import app.tapho.ui.home.OnlineStores.OnlineStoresFragment
 import app.tapho.ui.home.ReferAndEarn.ReferAndEarnFragment
 import app.tapho.ui.home.ReferAndEarn.referProfilelistFragment
 import app.tapho.ui.localbizzUI.BusinessProfileFlow.localbizOnBoardingFragment
 import app.tapho.ui.merchants.*
-import app.tapho.ui.profile.BecomeAPartnerFragment
-import app.tapho.ui.profile.CashbackHowItsWorksFragment
-import app.tapho.ui.profile.HowOnlineCashbackWorksFragment
-import app.tapho.ui.profile.ProfileBaseFragment
+import app.tapho.ui.profile.*
 import app.tapho.ui.tcash.*
 import app.tapho.ui.tcash.AddMoneyPopup.TopUpFragment
 import app.tapho.ui.tcash.DirectPaytmTransaction.AddBalanceStatusAndAmountFragment
@@ -126,12 +122,16 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
             type: String?,
             pointType: String?,
             title: String?,
+            data: Any?,
         ) {
             context?.startActivity(Intent(context, ContainerActivity::class.java).apply {
                 putExtra(CONTAINER_TYPE_KEY, type)
                 putExtra("pointType", pointType)
                 putExtra(TITLE, title)
-
+                if (data is Bundle)
+                    putExtras(data)
+                else if (data != null)
+                    putExtra(DATA, Gson().toJson(data))
             })
         }
 
@@ -369,12 +369,22 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
                 addFragment(CabsParentPageFragment.newInstance())
             }
 
-
-
+            "HistoryTabFragment" -> {
+                addFragment(HistoryTabFragment.newInstance())
+            }
 
             "NewHomeFragment" -> {
                 addFragment(NewHomeFragment.newInstance())
             }
+
+            "ProfileDetailFragment" -> {
+                addFragment(ProfileDetailFragment.newInstance())
+            }
+
+            "EditProfileFragment" -> {
+                addFragment(EditProfileFragment.newInstance())
+            }
+
             "BecomeAPartnerFragment" -> {
                 addFragment(BecomeAPartnerFragment.newInstance())
             }
@@ -553,10 +563,6 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
                 addFragment(NewsHeadlineFragment.newInstance())
             }
 
-            "Deals & Coupons" -> {
-                setTitlec(intent.getStringExtra(TITLE))
-                addFragment(NewOfferAndCouponFragment.newInstance())
-            }
 
             "OffersFragment" -> {
                 addFragment(OffersFragment.newInstance())

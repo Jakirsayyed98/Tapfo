@@ -109,7 +109,7 @@ class TapfoFoodHomeFragment : BaseFragment<FragmentTapfoFoodHomeBinding>(), Conn
                 addItem(FoodCustomeSuperCategoryModel1(R.drawable.spotlight_food,"","1",""))
                 addItem(FoodCustomeSuperCategoryModel1(R.drawable.free_delivery,"","1",""))
                 addItem(FoodCustomeSuperCategoryModel1(R.drawable.special_food,"","1",""))
-                addItem(FoodCustomeSuperCategoryModel1(R.drawable.delicious_food,"","1",""))
+//                addItem(FoodCustomeSuperCategoryModel1(R.drawable.delicious_food,"","1",""))
             }
 
         }

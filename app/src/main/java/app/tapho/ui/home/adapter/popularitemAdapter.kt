@@ -10,6 +10,7 @@ import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseRecyclerAdapter
 import app.tapho.ui.model.MiniApp
 import app.tapho.ui.model.NewCashback
+import app.tapho.ui.model.PromotedApp
 import app.tapho.utils.OPEN_WEB_VIEW
 import com.bumptech.glide.Glide
 
@@ -63,6 +64,12 @@ class popularitemAdapter <S>(private val clickListener: RecyclerClickListener) :
                 miniApp = s
                 tcash = s.tcash
                 cashback = s.cashback
+            }else if (s is PromotedApp) {
+                name = s.name
+                image = s.image
+                miniApp = s
+                tcash = s.tcash
+                cashback = s.cashback
             }
             if (morePos != 0 && adapterPosition == morePos - 1) {
                 binding.rupee.visibility = View.INVISIBLE
@@ -77,7 +84,7 @@ class popularitemAdapter <S>(private val clickListener: RecyclerClickListener) :
             } else {
                 kotlin.runCatching {
                 }
-                binding.rupee.visibility = if (tcash == "1" && showRupee) View.VISIBLE else View.INVISIBLE
+//                binding.rupee.visibility = if (tcash == "1" && showRupee) View.VISIBLE else View.INVISIBLE
 
                 Glide.with(itemView.context).load(image)
                     .placeholder(R.drawable.loding_app_icon)
@@ -86,7 +93,6 @@ class popularitemAdapter <S>(private val clickListener: RecyclerClickListener) :
                 binding.nameTv.text = name
                 binding.root.setOnClickListener {
                     clickListener.onRecyclerItemClick(0, miniApp, OPEN_WEB_VIEW)
-                    //   ActiveCashbackForWebActivity.openWebView(it.context,url,miniAppId,image,tCashType,isFavourite)
                 }
             }
         }

@@ -2,22 +2,18 @@ package app.tapho.ui.News.NewsFragment
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.text.Editable
 import android.text.Html
 import android.text.TextWatcher
 import android.text.format.DateUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
-import androidx.activity.OnBackPressedCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.tapho.R
@@ -26,14 +22,11 @@ import app.tapho.interfaces.ApiListener
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseFragment
 import app.tapho.ui.News.Adapter.CategoriesAdapter
-import app.tapho.ui.News.Adapter.NewsSliderAdapter
 import app.tapho.ui.News.Adapter.newCategoryAdapter
 import app.tapho.ui.News.Model.AllCategories.getCategories
 import app.tapho.ui.News.Model.AllNews.Data
 import app.tapho.ui.News.Model.AllNews.getAllNewsdata
-import app.tapho.ui.News.Model.NewsSliderModel
 import app.tapho.ui.News.NewsWebViewActivity
-import app.tapho.ui.home.HomeActivity
 import app.tapho.utils.AppSharedPreference
 import com.bumptech.glide.Glide
 import java.text.ParseException

@@ -112,7 +112,7 @@ class RechargeStatusPreviewFragment : BaseFragment<FragmentRechargeStatusPreview
 
                 } else {
                     statusBarColor(R.color.red)
-                    Glide.with(requireContext()).asGif().load(R.drawable.failed_icon).into( _binding!!.animationView)
+                    Glide.with(requireContext()).asGif().load(R.drawable.new_failed_icon).into( _binding!!.animationView)
                     statusBarTextBlack()
                 }
             }

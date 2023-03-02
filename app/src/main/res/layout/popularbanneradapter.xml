@@ -41,7 +41,7 @@
                 android:layout_height="@dimen/dp40"
                 android:layout_gravity="center_vertical"
                 android:gravity="center_vertical"
-                android:src="@drawable/flipkart" />
+                />
 
             <TextView
                 android:id="@+id/cashback"

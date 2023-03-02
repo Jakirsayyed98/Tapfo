@@ -149,7 +149,6 @@
             <ImageView
                 android:layout_width="@dimen/dp25"
                 android:layout_height="@dimen/dp25"
-                android:src="@drawable/food_bowl"
                 app:tint="@color/grey_dark" />
 
             <TextView

@@ -103,11 +103,11 @@ class ScanAndPayIntroFragment :BaseFragment<FragmentScanAndPayIntroBinding>() {
             addItem(CustomeScanAndPayFeatureModel(R.drawable.seamless_experience,"Seamless\nExperience",""))
             addItem(CustomeScanAndPayFeatureModel(R.drawable.track_expense,"Track\nExpenses",""))
             addItem(CustomeScanAndPayFeatureModel(R.drawable.pay_everywhere,"Pay\nEverywhere",""))
-            addItem(CustomeScanAndPayFeatureModel(R.drawable.all_in_one_upi_apps,"All in One\nUPI App",""))
-            addItem(CustomeScanAndPayFeatureModel(R.drawable.fa_payment_security,"2FA Payment\nSecurity",""))
-            addItem(CustomeScanAndPayFeatureModel(R.drawable.expenses_control,"Expenses\nControl",""))
+//            addItem(CustomeScanAndPayFeatureModel(R.drawable.all_in_one_upi_apps,"All in One\nUPI App",""))
+//            addItem(CustomeScanAndPayFeatureModel(R.drawable.fa_payment_security,"2FA Payment\nSecurity",""))
+//            addItem(CustomeScanAndPayFeatureModel(R.drawable.expenses_control,"Expenses\nControl",""))
             addItem(CustomeScanAndPayFeatureModel(R.drawable.upto_cashback_30,"Upto 30%\nCashback\n",""))
-            addItem(CustomeScanAndPayFeatureModel(R.drawable.assured_cashback,"Assured\nCashback",""))
+//            addItem(CustomeScanAndPayFeatureModel(R.drawable.assured_cashback,"Assured\nCashback",""))
        }
 
 

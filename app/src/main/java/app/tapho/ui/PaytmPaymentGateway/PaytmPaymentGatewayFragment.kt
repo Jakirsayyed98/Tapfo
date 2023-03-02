@@ -1,5 +1,6 @@
 package app.tapho.ui.PaytmPaymentGateway
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
@@ -120,7 +121,7 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
         val walletPay = cash_available.split(".")[0].toInt()
 
         // full Amount Reddem Code
-
+/*
         if (walletPay.toInt()>=Amount.toInt()){
             val PaybleAmount = 0
             getSharedPreference().saveString("WalletAmount",Amount.toString())
@@ -147,8 +148,43 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
                 onlyPspPay()
             }
         }
-
+*/
         // full Amount Reddem Code
+
+        // 70% start
+
+            if(walletPay>=1){
+
+                if (walletPay.toInt()>=Amount.toInt()){
+                    val walletPayAmount = roundOffAmount(( Amount.toDouble()/100*70).toString())
+                    val PaybleAmount = Amount.toDouble() - walletPayAmount.toDouble()
+                    getSharedPreference().saveString("WalletAmount",walletPayAmount.toString())
+                    getSharedPreference().saveString("PayableAmount",PaybleAmount.toString())
+                    _binding!!.PaybleAmount.text = withSuffixAmount(PaybleAmount.toString())
+                    _binding!!.minimumbalance.visibility = View.VISIBLE
+                    _binding!!.minimumbalance.text= "You can redeem "+ roundOff(walletPayAmount.toString()) +" on this recharge"
+                    startPaymentInitializ(withSuffixAmount3(PaybleAmount.toString()).toString())
+
+                }else if (walletPay.toInt()<= Amount.toInt()){
+                    val walletPayAmount = roundOffAmount(( walletPay.toDouble()/100*70).toString())
+                    val PaybleAmount = Amount.toDouble() - walletPayAmount.toDouble()
+                    getSharedPreference().saveString("WalletAmount",walletPayAmount.toString())
+                    getSharedPreference().saveString("PayableAmount",PaybleAmount.toString())
+                    _binding!!.minimumbalance.visibility = View.VISIBLE
+                    _binding!!.minimumbalance.text= "You can redeem "+roundOff(walletPayAmount.toString())+" on this recharge"
+                    _binding!!.PaybleAmount.text = withSuffixAmount(PaybleAmount.toString())
+                    startPaymentInitializ(withSuffixAmount3(PaybleAmount.toString()).toString())
+                }else{
+                    onlyPspPay()
+                }
+
+
+            }else{
+                onlyPspPay()
+            }
+
+
+        // 70% End
 
     }
 

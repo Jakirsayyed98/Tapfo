@@ -34,7 +34,6 @@
             android:layout_width="@dimen/dp35"
             android:layout_height="@dimen/dp35"
             android:scaleType="centerCrop"
-            android:src="@drawable/flipkart"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:contentDescription="@string/todo" />

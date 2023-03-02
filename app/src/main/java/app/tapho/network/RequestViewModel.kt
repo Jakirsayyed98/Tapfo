@@ -235,7 +235,7 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<getUserDetailRes, Any?>,
     ) {
         this.loadLis = loadLis
-             loadLis.showLoader()
+//             loadLis.showLoader()
         val req = JsonObject().apply {
             addProperty("user_id",userId)
         }
@@ -909,7 +909,7 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<RechargeServiceRes, Any?>,
     ) {
         this.loadLis = loadLis
-       loadLis?.showLoader()
+//       loadLis?.showLoader()
         val req = JsonObject().apply {
             addProperty("user_id",userid)
         }

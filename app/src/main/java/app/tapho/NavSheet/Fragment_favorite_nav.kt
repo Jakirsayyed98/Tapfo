@@ -88,6 +88,7 @@ class Fragment_favorite_nav : BaseFragment<FragmentFavoriteNavBinding>(), ApiLis
         FavouritesGames()
         setGameFavList()
         favBinding?.addMoreTv?.visibility = View.GONE
+        favBinding?.recyclerCashbackpartner?.visibility = View.GONE
         favBinding?.addMoreTv?.setOnClickListener {
             if (appCategoryList.isNullOrEmpty().not()){
                 FavouriteDialogFragment.newInstance(appCategoryList).show(childFragmentManager, null)
@@ -121,6 +122,8 @@ class Fragment_favorite_nav : BaseFragment<FragmentFavoriteNavBinding>(), ApiLis
     private fun getData() {
         viewModel.getHomeData("home", AppSharedPreference.getInstance(requireContext()).getUserId(), this, this)
     }
+
+
     companion object {
         @JvmStatic
         fun newInstance() =
@@ -169,6 +172,7 @@ class Fragment_favorite_nav : BaseFragment<FragmentFavoriteNavBinding>(), ApiLis
             }
             appCategoryList = it.app_category
             favBinding?.addMoreTv?.visibility = View.VISIBLE
+            favBinding?.recyclerCashbackpartner?.visibility = View.VISIBLE
             setAppCategory(getString(R.string.more))
 
         }

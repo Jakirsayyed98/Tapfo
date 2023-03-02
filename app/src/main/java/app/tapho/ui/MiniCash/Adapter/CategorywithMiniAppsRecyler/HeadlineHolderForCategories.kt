@@ -1,26 +1,16 @@
 package app.tapho.ui.MiniCash.Adapter.CategorywithMiniAppsRecyler
 
-import android.content.Context
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import app.tapho.databinding.RowHeadlineBinding
 import app.tapho.interfaces.RecyclerClickListener
-import app.tapho.network.RequestViewModel
 import app.tapho.network.Status
 import app.tapho.ui.ContainerActivity
-import app.tapho.ui.home.adapter.MiniAppHeadlinesAdapter
-import app.tapho.ui.merchants.model.CashbackMerchantsAllRes
 import app.tapho.ui.model.*
 import app.tapho.utils.AppSharedPreference
 import app.tapho.utils.OPEN_WEB_VIEW
 import app.tapho.viewmodels.MerchantsAllListViewModel
-import com.bumptech.glide.Glide
-import com.google.common.collect.Lists
 
 class HeadlineHolderForCategories(
     val binding: RowHeadlineBinding,

@@ -3,7 +3,6 @@ package app.tapho.ui.merchants
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,11 +17,9 @@ import app.tapho.ui.ActiveCashbackForWebActivity
 import app.tapho.ui.BaseFragment
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.home.SearchDialogFragment
-import app.tapho.ui.home.adapter.NewBannerDataAdapter
 import app.tapho.ui.home.adapter.NewBannerDataAdapter1
 import app.tapho.ui.home.adapter.SliderModelMain
 import app.tapho.ui.merchants.adapter.MiniAppsDataAdapter
-import app.tapho.ui.merchants.adapter.SubCategoryTabAdapter
 import app.tapho.ui.merchants.model.MiniAppRes
 import app.tapho.ui.model.*
 import app.tapho.utils.*

@@ -86,7 +86,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
             binding.homeIv.isSelected = true
         when (view) {
 //            binding.homeTab -> addFragment(HomeFragment.newInstance())
-          binding.homeTab -> addFragment(NewHomeFragment.newInstance())
+//          binding.homeTab -> addFragment(NewHomeFragment.newInstance())
             binding.offerTab -> addFragment(OffersFragment.newInstance())
             binding.Games -> addFragment(GameHomeFragment.newInstance())
             binding.News -> addFragment(NewsHeadlineFragment.newInstance())

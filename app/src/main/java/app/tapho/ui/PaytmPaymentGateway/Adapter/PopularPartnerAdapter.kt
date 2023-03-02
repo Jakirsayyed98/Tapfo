@@ -1,39 +1,22 @@
 package app.tapho.ui.PaytmPaymentGateway.Adapter
 
 import android.graphics.Typeface
-import android.graphics.drawable.Drawable
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.StyleSpan
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
-import androidx.core.graphics.drawable.toBitmap
-import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
-import app.tapho.R
-import app.tapho.databinding.NewlyaddedlayoutBinding
 import app.tapho.databinding.PopularMiniappLayoutBinding
-import app.tapho.databinding.PopulargamesBinding
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.ActiveCashbackForWebActivity
 import app.tapho.ui.BaseRecyclerAdapter
-import app.tapho.ui.WebViewActivity
-import app.tapho.ui.games.GameWebViewActivity
-import app.tapho.ui.games.adapter.PopularBrandAdapter
-import app.tapho.ui.games.models.getGames.Data
-import app.tapho.ui.model.CashbackMerchant
 import app.tapho.ui.model.MiniApp
 import app.tapho.ui.model.Popular
 import app.tapho.utils.OPEN_WEB_VIEW
-import app.tapho.utils.getSpannableCashbackText
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
-import java.text.DecimalFormat
+
 
 class PopularPartnerAdapter <S>(private val clickListener: RecyclerClickListener) :
     BaseRecyclerAdapter<S, PopularPartnerAdapter<S>.Holder>()  {

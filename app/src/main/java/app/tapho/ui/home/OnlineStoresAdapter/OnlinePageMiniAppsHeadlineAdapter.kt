@@ -2,7 +2,6 @@ package app.tapho.ui.home.OnlineStoresAdapter
 
 import android.annotation.SuppressLint
 import android.graphics.Bitmap
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,12 +12,9 @@ import app.tapho.databinding.*
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.ActiveCashbackForWebActivity
 import app.tapho.ui.BaseRecyclerAdapter
-import app.tapho.ui.home.adapter.MiniAppHeadlinesAdapter
 import app.tapho.ui.model.MiniApp
 import app.tapho.ui.model.NewCashback
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.BitmapImageViewTarget
-import com.bumptech.glide.request.transition.Transition
 
 class OnlinePageMiniAppsHeadlineAdapter<S>(private val clickListener: RecyclerClickListener) :
     BaseRecyclerAdapter<S, OnlinePageMiniAppsHeadlineAdapter<S>.Holder>() {

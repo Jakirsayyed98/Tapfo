@@ -22,7 +22,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/dp10"
             app:cardCornerRadius="@dimen/dp100"
-            tools:src="@drawable/flipkart" />
+             />
 
 
         <TextView

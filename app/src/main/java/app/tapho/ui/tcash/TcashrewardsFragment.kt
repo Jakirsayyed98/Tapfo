@@ -33,6 +33,7 @@ import app.tapho.utils.*
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fragment_payment_status_screen.*
 import java.net.URLDecoder
 import java.text.SimpleDateFormat
@@ -108,16 +109,34 @@ class TcashrewardsFragment : BaseFragment<FragmentTcashrewardsBinding>(),Recycle
         _binding!!.mainLayout.visibility = View.GONE
         _binding!!.title.text = title
         mAdapter!!.clear()
-        viewModel.getTCashDashboard(getUserId(),startDate, enddate,screenpointType,this,object : ApiListener<TCashDasboardRes,Any?>{
-            override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                t.let {
+
+        val data = activity?.intent?.getStringExtra(DATA)
+
+        if (!data.isNullOrEmpty()){
+
+            val tcash = Gson().fromJson(data,TCashDasboardRes::class.java)
+            tcash!!.let {
+                it.let {
                     lifetimeEaning=it!!.lifetime_earning.toString()
                     _binding!!.filterChip.text = tilldate
                     tcashdashboard = it
                     setAlltextData(it)
                 }
             }
-        })
+        }else{
+            viewModel.getTCashDashboard(getUserId(),startDate, enddate,screenpointType,this,object : ApiListener<TCashDasboardRes,Any?>{
+                override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
+                    t.let {
+                        lifetimeEaning=it!!.lifetime_earning.toString()
+                        _binding!!.filterChip.text = tilldate
+                        tcashdashboard = it
+                        setAlltextData(it)
+                    }
+                }
+            })
+        }
+
+
     }
 
 

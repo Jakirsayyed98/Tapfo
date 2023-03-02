@@ -39,6 +39,8 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>(){
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
+        statusBarTextWhite()
+        statusBarColor(R.color.white)
         _binding!!.btnUpdateProfile.isSelected = true
         init()
         return _binding?.root
@@ -47,8 +49,7 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>(){
     private fun init() {
        // binding.toolbar.tvTitle.text = getString(R.string.update_profile)
         binding.backIv.setOnClickListener {
-            if (parentFragment is NavHostFragment)
-                (parentFragment as NavHostFragment).navController.navigateUp()
+            activity?.onBackPressedDispatcher?.onBackPressed()
         }
 
         binding.birthdayEt.setOnClickListener {
@@ -103,13 +104,10 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>(){
     private fun updateProfile() {
         if (binding.nameEt.text!!.isEmpty()) {
             showMess("Please enter name")
+            Toast.makeText(requireContext(),"Please enter name",Toast.LENGTH_SHORT).show()
         } else if (binding.emailEt.text!!.isEmpty()) {
-            showMess("Please enter email address")
-        } else if (binding.birthdayEt.text.isEmpty()) {
-            showMess("Please select date of birth")
-        } else if (binding.rgGender.checkedRadioButtonId == -1) {
-            showMess("Please select date of birth")
-        } else{
+            Toast.makeText(requireContext(),"Please enter email address",Toast.LENGTH_SHORT).show()
+        }  else{
               UpdateProfile()
         }
     }
@@ -117,22 +115,17 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>(){
     private fun UpdateProfile() {
         viewModel.updateProfile2(loginData?.id.toString(), binding.emailEt.text.toString(), binding.nameEt.text.toString(), if (binding.rgGender.checkedRadioButtonId == R.id.maleRb) "1" else "2", binding.birthdayEt.text.toString(),  this, object : ApiListener<LoginRes,Any?>{
             override fun onSuccess(t: LoginRes?, mess: String?) {
-                if (t!!.errorMsg.toString()=="Successfully Update"){
-                    t.data?.let {
+                    t!!.data?.let {
                         getSharedPreference().saveString(LOGIN_DATA, Gson().toJson(it[0]))
-                        if (parentFragment is NavHostFragment) {
-                            (parentFragment as NavHostFragment).navController.navigateUp()
-                        }
+                        activity?.onBackPressedDispatcher?.onBackPressed()
                     }
-                }
+
             }
 
             override fun onError(mess: String?) {
                 super.onError(mess)
                 Toast.makeText(requireContext(),mess.toString(),Toast.LENGTH_SHORT).show()
-                if (parentFragment is NavHostFragment) {
-                    (parentFragment as NavHostFragment).navController.navigateUp()
-                }
+                activity?.onBackPressedDispatcher?.onBackPressed()
             }
         })
 

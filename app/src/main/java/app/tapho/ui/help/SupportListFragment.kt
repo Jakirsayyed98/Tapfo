@@ -57,7 +57,7 @@ class SupportListFragment :BaseFragment<FragmentSupportListBinding>() {
             }
 
         }).apply {
-            addItem(CustomeServicelist("1",R.drawable.creat_ticket, "Create Ticket", "Raise tickets related to refund, cashback missing, order transcation or any general issues." ,"Create Ticket","4"))
+//            addItem(CustomeServicelist("1",R.drawable.creat_ticket, "Create Ticket", "Raise tickets related to refund, cashback missing, order transcation or any general issues." ,"Create Ticket","4"))
   //          addItem(CustomeServicelist("2",R.drawable.service_whatsapp_icon, "WhatsApp Support", "Chat with us on whatsapp ","WhatsApp",""))
             addItem(CustomeServicelist("3",R.drawable.share_feedback, "Share Feedback", "Please share your valuable feedback with us","Share Feedback","2"))
             addItem(CustomeServicelist("4",R.drawable.request_callback, "Request Call Back", "Our team will get back to you as soon as possible.","Request Call Back","3"))

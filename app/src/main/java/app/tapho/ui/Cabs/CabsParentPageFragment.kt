@@ -8,8 +8,6 @@ import android.view.ViewGroup
 import app.tapho.R
 import app.tapho.databinding.FragmentCabsParentPageBinding
 import app.tapho.ui.BaseFragment
-import app.tapho.ui.home.BuyGiftCardFragment
-import app.tapho.ui.home.HomeTabFragment
 import app.tapho.ui.home.adapter.PagerFragmentAdapter
 import app.tapho.utils.getCustomTab2
 import com.google.android.material.tabs.TabLayoutMediator

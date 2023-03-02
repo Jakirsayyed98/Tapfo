@@ -9,7 +9,7 @@
         android:id="@+id/profileDetailFragment"
         android:name="app.tapho.ui.profile.ProfileDetailFragment"
         android:label="fragment_profile_detail"
-        tools:layout="@layout/fragment_profile_detail" >
+        tools:layout="@layout/fragment_profile_detail">
         <action
             android:id="@+id/action_profileDetailFragment_to_editProfileFragment"
             app:destination="@id/editProfileFragment" />

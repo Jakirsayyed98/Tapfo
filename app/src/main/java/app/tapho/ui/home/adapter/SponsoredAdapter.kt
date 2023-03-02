@@ -34,19 +34,16 @@ class SponsoredAdapter <S>(private val clickListener: RecyclerClickListener) :
                 image = s.image
                 url=s.url
 
-            } else if (s is /*app.tapho.ui.MerchantDatamodelClass.*/MiniApp) {
+            } else if (s is MiniApp) {
                 name = s.name
                 image = s.image
                 url=s.url
             }
-            Glide.with(itemView.context).load(image)/*.centerCrop()*/.into(binding.backround)
-            binding.name.text=name
-            binding.MiniAppCard.setOnClickListener {
-                val browserIntent =
-                    Intent(Intent.ACTION_VIEW, Uri.parse(url.toString()))
-              itemView.context.startActivity(browserIntent)
-               // ActiveCashbackForWebActivity.openWebView(itemView.context,url ,id, image, "", is_favourite.toString(), cashback, categoryID)
-                //    clickListener.onRecyclerItemClick(0, list, "MiniAppFragment")
+            Glide.with(itemView.context).load(image).circleCrop().into(binding.ivPartner)
+            binding.nameTv.text=name
+            binding.root.setOnClickListener {
+               clickListener.onRecyclerItemClick(0,url,"")
+
             }
 
         }

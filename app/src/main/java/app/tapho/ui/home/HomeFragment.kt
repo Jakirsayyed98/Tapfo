@@ -117,7 +117,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
     private val merchantViewMode: MerchantsAllListViewModel by viewModels()
     var Storiesdata: java.util.ArrayList<app.tapho.ui.Stories.Model.Data> = java.util.ArrayList()
     var StoriesCategoryID = 0
-
+    var tcashdashboard : TCashDasboardRes? = null
 
 //    var handler = Handler(Looper.getMainLooper())
 
@@ -333,7 +333,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
             dialog.setContentView(view)
             dialog.show()
             AllTransaction.setOnClickListener {
-                ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","0","Pending Rewards")
+                ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","0","Pending Rewards",tcashdashboard)
                 dialog.dismiss()
             }
         }else{
@@ -554,6 +554,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
                     _binding!!.pendingbalance.text = withSuffixAmount(t!!.pending.toString())
                     _binding!!.availbalance.text = withSuffixAmount(t.cash_available.toString())
                     _binding!!.lifetimeearning.text = withSuffixAmount(t.lifetime_earning.toString())
+
+                    tcashdashboard = t
+
                     val TempList: java.util.ArrayList<Double> = java.util.ArrayList()
                     var transaction = 0.0
                     t.data.let {
@@ -588,7 +591,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
     private fun setMoreClicks() {
         setMoreTextSuperLinks("Show less")
         _binding!!.pendingLayout.setOnClickListener {
-            ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","0","Pending Rewards")
+            ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","0","Pending Rewards",tcashdashboard)
         }
 
 
@@ -603,10 +606,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
             openAllPopularCashbackMerchants("1")
         }
         _binding!!.cashbackCard.setOnClickListener {
-            ContainerActivity.openContainer(context, "cashbackcard", "")
+            ContainerActivity.openContainer(context, "cashbackcard", tcashdashboard)
         }
         _binding!!.verifiedLayout.setOnClickListener {
-            ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","1","Total Rewards")
+            ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","1","Total Rewards",tcashdashboard)
         }
 
         _binding!!.recommendedAll.setOnClickListener {
@@ -622,7 +625,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
         }
 
         _binding!!.reProfile.setOnClickListener {
-            ContainerActivity.openContainer(context, ContainerType.PROFILE_EDIT.name, "")
+            ContainerActivity.openContainer(context,"ProfileDetailFragment", tcashdashboard)
         }
 
         _binding!!.AddMoreFavTV.setOnClickListener {
@@ -986,10 +989,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
             }
 
             "Pending Rewards"->{
-                ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","0","Pending Rewards")
+                ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","0","Pending Rewards",tcashdashboard)
             }
             "Total Rewards"->{
-                ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","1","Total Rewards")
+                ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","1","Total Rewards",tcashdashboard)
             }
 
             "addtopup"->{

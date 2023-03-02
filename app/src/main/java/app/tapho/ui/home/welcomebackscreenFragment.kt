@@ -49,7 +49,7 @@ class welcomebackscreenFragment : BaseFragment<FragmentWelcomebackscreenBinding>
                 startActivity(Intent(requireContext(), HomeActivity::class.java))
                 activity?.finish()
             }
-        },5000)
+        },1000)
 
 
         return _binding?.root

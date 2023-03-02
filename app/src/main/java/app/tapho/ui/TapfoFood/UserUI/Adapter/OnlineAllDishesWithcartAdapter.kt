@@ -7,13 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.RecyclerView
-import app.tapho.R
 import app.tapho.databinding.*
 import app.tapho.interfaces.RecyclerClickListener
-import app.tapho.ui.ActiveCashbackForWebActivity
 import app.tapho.ui.BaseRecyclerAdapter
-import app.tapho.ui.BuyVoucher.RoomDatabase.VouchersData
-import app.tapho.ui.home.adapter.MiniAppHeadlinesAdapter
 import app.tapho.ui.model.MiniApp
 
 

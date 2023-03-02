@@ -146,29 +146,16 @@ class RechargeServiceActivity : BaseActivity<ActivityRechargeServiceBinding>(){
                 if (data is Data) {
                     getSharedPreference().saveString("servicetype", data.id)
                     when (type) {
-                        "Prepaid-Mobile" -> {
-                            ContainerActivity.openContainer(
-                                this@RechargeServiceActivity,
-                                "mobile_prepaid",
-                                ""
-                            )
+                        "Prepaid-Mobile" -> { ContainerActivity.openContainer(this@RechargeServiceActivity, "mobile_prepaid", "")
                         }
                         "DTH" -> {
-                            ContainerActivity.openContainer(
-                                this@RechargeServiceActivity,
-                                "DTH_Recharge",
-                                ""
-                            )
+                            ContainerActivity.openContainer(this@RechargeServiceActivity, "DTH_Recharge", "")
                         }
                         "Electricity" -> {
                             ContainerActivity.openContainer(this@RechargeServiceActivity, "Electricity_bill", "")
                         }
                         else -> {
-                            ContainerActivity.openContainer(
-                                this@RechargeServiceActivity,
-                                "BuyGiftCard",
-                                ""
-                            )
+                            ContainerActivity.openContainer(this@RechargeServiceActivity, "BuyGiftCard", "")
                         }
                     }
                 }

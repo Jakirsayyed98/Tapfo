@@ -19,9 +19,6 @@ import app.tapho.ui.BaseFragment
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.MiniCash.Adapter.MiniCashNewCategoryUniversaladapter
 import app.tapho.ui.MiniCash.UI.MiniCashFragmentContainerActivity
-import app.tapho.ui.WebViewActivity
-import app.tapho.ui.activecashback.ActiveCashbackScreenNew.ActiveCashbackActivity
-import app.tapho.ui.merchants.adapter.NewCategoryUniversaladapter
 import app.tapho.ui.merchants.model.MiniAppRes
 import app.tapho.ui.model.AppCategory
 import app.tapho.ui.model.MiniApp

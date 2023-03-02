@@ -68,7 +68,7 @@ class OnlineStoresFragment : BaseFragment<FragmentOnlineStoresBinding>(),ApiList
         callVideoModelClass()
 
       _binding!!.rupee.setOnClickListener {
-          ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","0","Pending Rewards")
+          ContainerActivity.openContainerforPointScreen(requireContext(),"TcashrewardsFragment","0","Pending Rewards",null)
         }
 
         _binding!!.favouritesBtn.setOnClickListener {

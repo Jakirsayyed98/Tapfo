@@ -362,7 +362,7 @@
                         android:layout_height="20dp"
                         android:layout_marginTop="@dimen/dp5"
                         android:layout_marginEnd="@dimen/dp10"
-                        android:src="@drawable/contactless_delivery" />
+                   />
 
 
                     <LinearLayout

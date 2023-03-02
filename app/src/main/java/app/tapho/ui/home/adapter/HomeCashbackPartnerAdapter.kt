@@ -8,18 +8,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import app.tapho.R
-import app.tapho.databinding.CardforFeaturedBinding
 import app.tapho.databinding.HomecashbackpartnerlayoutBinding
 import app.tapho.interfaces.RecyclerClickListener
-import app.tapho.showShort
 import app.tapho.ui.BaseRecyclerAdapter
 import app.tapho.ui.model.BannerList
 import app.tapho.ui.model.MiniApp
-import app.tapho.ui.model.NewCashback
-import app.tapho.ui.model.Service
 import app.tapho.utils.OPEN_WEB_VIEW
-import app.tapho.utils.getSpannableCashbackText
 import com.bumptech.glide.Glide
 
 class HomeCashbackPartnerAdapter <S>(private val clickListener: RecyclerClickListener) :

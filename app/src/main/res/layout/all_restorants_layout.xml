@@ -75,7 +75,7 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:src="@drawable/time_icon" />
+                    />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -136,7 +136,7 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:src="@drawable/free_delivery1" />
+                 />
 
             <TextView
                 android:layout_width="wrap_content"

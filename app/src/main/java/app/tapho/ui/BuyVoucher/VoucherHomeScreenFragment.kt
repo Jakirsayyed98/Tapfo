@@ -69,9 +69,6 @@ class VoucherHomeScreenFragment : BaseFragment<FragmentVoucherHomeScreenBinding>
             _binding!!.swipeRefresh.isRefreshing = false
         }
 
-        _binding!!.favouritesBtn.setOnClickListener {
-            openContainer("favouritesBtn", "", false, "")
-        }
         _binding!!.supportpage.setOnClickListener {
                 ContainerActivity.openContainer(requireContext(),"OpenServiceList","")
             }

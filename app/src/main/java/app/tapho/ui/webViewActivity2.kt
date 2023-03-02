@@ -22,9 +22,7 @@ import app.tapho.R
 import app.tapho.databinding.ActivityWebView2Binding
 import app.tapho.interfaces.ApiListener
 import app.tapho.network.BaseRes
-import app.tapho.ui.activecashback.OrdersFragment
 import app.tapho.ui.home.WebviewLoadingDialog
-import app.tapho.ui.merchants.model.StoreDeals
 import app.tapho.ui.model.WebTCashRes
 import app.tapho.utils.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -455,7 +453,7 @@ class webViewActivity2 : BaseActivity<ActivityWebView2Binding>(), ApiListener<We
 
 
         val exit_tag_text: TextView = view.findViewById(R.id.exit_tag_text)
-        exit_tag_text.text = getString(R.string.you_might_miss_out, OrdersFragment.appNameMerchant)
+//        exit_tag_text.text = getString(R.string.you_might_miss_out, OrdersFragment.appNameMerchant)
 
         val cashback_on_Exit: TextView = view.findViewById(R.id.cashback_on_Exit)
         if (cashbackOnExit.toString().equals("null")) {

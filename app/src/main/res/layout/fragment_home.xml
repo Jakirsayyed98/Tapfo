@@ -457,7 +457,7 @@
                                                                     android:layout_height="22dp"
                                                                     android:layout_alignParentEnd="true"
                                                                     android:layout_centerVertical="true"
-                                                                    android:src="@drawable/calender_icon" />
+                                                                   />
                                                             </RelativeLayout>
 
                                                         </LinearLayout>

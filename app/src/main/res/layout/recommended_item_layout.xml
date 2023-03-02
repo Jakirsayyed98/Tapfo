@@ -6,16 +6,14 @@
     android:layout_height="wrap_content"
     android:padding="5dp">
 
-
     <ImageView
         android:id="@+id/iv_partner"
-        android:layout_width="@dimen/dp50"
-        android:layout_height="@dimen/dp50"
+        android:layout_width="@dimen/dp60"
+        android:layout_height="@dimen/dp60"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp10"
         app:cardCornerRadius="@dimen/dp100"
         tools:src="@drawable/intro_1" />
-
 
     <TextView
         android:id="@+id/rupee"
@@ -24,16 +22,17 @@
         android:layout_above="@+id/iv_partner"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-15dp"
+        android:layout_marginBottom="-20dp"
         android:background="@drawable/button"
         android:backgroundTint="@color/orange"
         android:gravity="center"
         android:paddingLeft="@dimen/dp5"
         android:paddingRight="@dimen/dp5"
         android:text="Cashback"
-        app:fontFamily="@font/sans_medium"
         android:textColor="@color/white"
-        android:textSize="7dp" />
+        android:textSize="12dp"
+        android:visibility="gone"
+        app:fontFamily="@font/sans_medium" />
 
     <TextView
         android:id="@+id/nameTv"
@@ -45,8 +44,8 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/black"
-        app:fontFamily="@font/sans_medium"
-        android:textSize="11sp"
+        android:textSize="14sp"
+        app:fontFamily="@font/tt_regular"
         tools:text="More" />
 
     <TextView
@@ -59,8 +58,8 @@
         android:ellipsize="end"
         android:maxLines="1"
         android:textColor="@color/black"
-        android:textSize="@dimen/sp12"
+        android:textSize="@dimen/sp14"
+        app:fontFamily="@font/tt_regular"
         tools:text="Less" />
-
 
 </RelativeLayout>

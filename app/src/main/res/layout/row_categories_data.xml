@@ -31,8 +31,7 @@
         android:layout_height="@dimen/dp20"
         android:layout_marginStart="-25dp"
         android:layout_toEndOf="@+id/image"
-        android:visibility="invisible"
-        android:src="@drawable/ic_rupee_green" />
+        android:visibility="invisible" />
 
     <TextView
         android:id="@+id/nameTv"

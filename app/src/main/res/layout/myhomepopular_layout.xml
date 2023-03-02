@@ -30,7 +30,7 @@
                 android:layout_marginTop="@dimen/dp10"
                 app:cardCornerRadius="@dimen/dp100"
                 android:layout_gravity="center_horizontal"
-                tools:src="@drawable/flipkart" />
+                 />
 
             <TextView
                 android:id="@+id/cashback"

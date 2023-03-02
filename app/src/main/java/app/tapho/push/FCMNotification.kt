@@ -5,10 +5,9 @@ import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_CLEAR_TASK
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.util.Log
 import androidx.core.app.NotificationCompat
+import app.tapho.ui.ContainerActivity
 import app.tapho.ui.SplashActivity
 import app.tapho.utils.AppSharedPreference
 import com.bumptech.glide.Glide
@@ -46,70 +45,89 @@ class FCMNotification : FirebaseMessagingService() {
 
         kotlin.runCatching {
             notification.setStyle(NotificationCompat.BigPictureStyle().bigPicture(Glide.with(this).asBitmap().load(message.data["icon"]).submit().get()))
-            notification.setLargeIcon(Glide.with(this).asBitmap().load(message.data["icon1"]).submit().get())
-
-
+            notification.setLargeIcon(
+                Glide.with(this).asBitmap().load(message.data["icon1"]).submit().get()
+            )
         }
 
-        if (message.data.containsKey("screen_url")) {
-            val inten = Intent(this.applicationContext, SplashActivity::class.java)
-            inten.putExtra("TAGS", message.data["gamezop_id"].toString())
-            inten.putExtra("type", "2")
-            val Pintent = PendingIntent.getActivities(
-                applicationContext,
-                Random.nextInt(),
-                arrayOf(inten),
-                PendingIntent.FLAG_IMMUTABLE
-            )
-            notification.setContentIntent(Pintent)
-        } else {
-            when (message.data["tag"]) {
-                "com.tapfo.ui.ContainerActivity" -> {
+
+        val intent = Intent(this.applicationContext, SplashActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+
+
+        if (message.data["screen_url"].toString().isNullOrEmpty().not()){
+            when(message.data["screen_url"].toString()){
+                "com.tapfo.redirectScreen.Games"->{
                     val inten = Intent(this.applicationContext, SplashActivity::class.java)
-                    inten.putExtra("TAGS", message.data["tag"].toString())
-                    inten.putExtra("type", "1")
-                    val Pintent = PendingIntent.getActivities(
-                        applicationContext,
-                        Random.nextInt(),
-                        arrayOf(inten),
-                        PendingIntent.FLAG_IMMUTABLE
-                    )
+                    inten.putExtra("app_id", message.data["app_id"].toString())
+                    inten.putExtra("tag", message.data["tag"].toString())
+                    inten.putExtra("screen_url", message.data["screen_url"].toString())
+
+                    val Pintent = PendingIntent.getActivities(applicationContext, Random.nextInt(), arrayOf(inten), PendingIntent.FLAG_IMMUTABLE)
                     notification.setContentIntent(Pintent)
+
+
+
+//                    getSharedPreference().saveString("app_id", message.data["app_id"].toString())
+//                    getSharedPreference().saveString("tag", message.data["tag"].toString())
+//                    getSharedPreference().saveString("screen_url", message.data["screen_url"].toString())
                 }
-                "com.tapfo.ui.WebViewActivity" -> {
+                "com.tapfo.ui.WebviewActivity"->{
+
                     val inten = Intent(this.applicationContext, SplashActivity::class.java)
-                    inten.putExtra("TAGS", message.data["app_category_mini_app_id"].toString())
-                    inten.putExtra("type", "3")
-                    val Pintent = PendingIntent.getActivities(
-                        applicationContext,
-                        Random.nextInt(),
-                        arrayOf(inten),
-                        PendingIntent.FLAG_IMMUTABLE
-                    )
+                    inten.putExtra("app_id", message.data["app_id"].toString())
+                    inten.putExtra("tag", message.data["tag"].toString())
+                    inten.putExtra("screen_url", message.data["screen_url"].toString())
+
+                    val Pintent = PendingIntent.getActivities(applicationContext, Random.nextInt(), arrayOf(inten), PendingIntent.FLAG_IMMUTABLE)
                     notification.setContentIntent(Pintent)
+
+
+//                    getSharedPreference().saveString("app_id", message.data["app_id"].toString())
+//                    getSharedPreference().saveString("tag", message.data["tag"].toString())
+//                    getSharedPreference().saveString("screen_url", message.data["screen_url"].toString())
+
                 }
-                "com.tapfo.ui.home.WebViewActivityForOffer" -> {
+                "com.tapfo.ui.ContainerActivity"->{
+
                     val inten = Intent(this.applicationContext, SplashActivity::class.java)
-                    inten.putExtra("TAGS", message.data["app_category_mini_app_id"].toString())
-                    inten.putExtra("type", "4")
-                    val Pintent = PendingIntent.getActivities(
-                        applicationContext,
-                        Random.nextInt(),
-                        arrayOf(inten),
-                        PendingIntent.FLAG_IMMUTABLE
-                    )
+                    inten.putExtra("app_id", message.data["app_id"].toString())
+                    inten.putExtra("tag", message.data["tag"].toString())
+                    inten.putExtra("screen_url", message.data["screen_url"].toString())
+
+                    val Pintent = PendingIntent.getActivities(applicationContext, Random.nextInt(), arrayOf(inten), PendingIntent.FLAG_IMMUTABLE)
                     notification.setContentIntent(Pintent)
+
+
+//                    getSharedPreference().saveString("app_id", message.data["app_id"].toString())
+//                    getSharedPreference().saveString("tag", message.data["tag"].toString())
+//                    getSharedPreference().saveString("screen_url", message.data["screen_url"].toString())
+
                 }
-                else -> {
+                "com.tapfo.ui.home.WebViewActivityForOffer"->{
+
                     val inten = Intent(this.applicationContext, SplashActivity::class.java)
-                    inten.putExtra("TAGS", " ")
-                    inten.putExtra("type", "5")
-                    val Pintent = PendingIntent.getActivities(
-                        applicationContext,
-                        Random.nextInt(),
-                        arrayOf(inten),
-                        PendingIntent.FLAG_IMMUTABLE
-                    )
+                    inten.putExtra("app_id", message.data["app_id"].toString())
+                    inten.putExtra("tag", message.data["tag"].toString())
+                    inten.putExtra("screen_url", message.data["screen_url"].toString())
+
+                    val Pintent = PendingIntent.getActivities(applicationContext, Random.nextInt(), arrayOf(inten), PendingIntent.FLAG_IMMUTABLE)
+                    notification.setContentIntent(Pintent)
+
+
+//                    getSharedPreference().saveString("app_id", message.data["app_id"].toString())
+//                    getSharedPreference().saveString("tag", message.data["tag"].toString())
+//                    getSharedPreference().saveString("screen_url", message.data["screen_url"].toString())
+
+                }
+                else->{
+                    val inten = Intent(this.applicationContext, SplashActivity::class.java)
+                    inten.putExtra("app_id", message.data["app_id"].toString())
+                    inten.putExtra("tag", message.data["tag"].toString())
+                    inten.putExtra("screen_url", message.data["screen_url"].toString())
+
+                    val Pintent = PendingIntent.getActivities(applicationContext, Random.nextInt(), arrayOf(inten), PendingIntent.FLAG_IMMUTABLE)
                     notification.setContentIntent(Pintent)
                 }
             }

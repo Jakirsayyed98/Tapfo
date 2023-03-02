@@ -205,19 +205,15 @@
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:layout_toEndOf="@+id/secure"
-                                    android:text="Pay "
+                                    android:text="wallet "
+                                    android:layout_marginStart="@dimen/dp5"
                                     android:textColor="@color/green_dark"
                                     android:textSize="16sp"
                                     android:textStyle="italic"
                                     app:fontFamily="@font/tt_demibold" />
                             </LinearLayout>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="wallet"
-                                android:textSize="14sp"
-                                app:fontFamily="@font/tt_regular" />
+
                         </LinearLayout>
 
                         <TextView
@@ -228,6 +224,7 @@
                             android:textSize="13sp"
                             android:text="Available Balance"
                             app:fontFamily="@font/tt_regular" />
+
                         <TextView
                             android:id="@+id/avilable_balance"
                             android:layout_width="match_parent"
@@ -238,6 +235,7 @@
                             android:textColor="@color/green_dark"
                             android:textStyle="bold"
                             app:fontFamily="@font/tt_regular" />
+
                         <!--                        minimum balance ₹100 required for redeem-->
                         <!--                        Low balance : Add minimum ₹99 balance\nto use wallet for recharge-->
                         <TextView

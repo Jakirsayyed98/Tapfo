@@ -20,8 +20,6 @@
     <color name="keypad_button_color">#E1E0ED</color>
     <color name="grey_v_light">#FAFAFA</color>
     <color name="grey_dark">#909090</color>
-    <color name="new_grey">#C1FFFFFF</color>
-    <color name="new_grey1">#BFF5F5F5</color>
     <color name="new_green2">#1ABC9C</color>
     <color name="grey_light">#C1C1C1</color>
     <color name="grey_light3">#C4C4C4</color>
@@ -43,7 +41,6 @@
     <color name="pinbizgrey">#565656</color>
 
     <color name="green_dark">#008D3A</color>
-    <color name="green_dark2">#1f9d55</color>
     <color name="green_light_bg">#E0FEDC</color>
     <color name="green_dark3">#1E6B03</color>
     <color name="red">#EF5350</color>

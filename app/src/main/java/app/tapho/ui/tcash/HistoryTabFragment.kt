@@ -15,6 +15,8 @@ import app.tapho.ui.ContainerActivity
 import app.tapho.ui.tcash.adapter.CustomeTcashCategoryModel
 import app.tapho.ui.tcash.adapter.customeTransactionCategoriesAdapter
 import app.tapho.ui.tcash.model.TCashDasboardRes
+import app.tapho.utils.DATA
+import com.google.gson.Gson
 
 
 class HistoryTabFragment : BaseFragment<FragmentHistoryTabBinding>() {
@@ -33,12 +35,29 @@ class HistoryTabFragment : BaseFragment<FragmentHistoryTabBinding>() {
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentHistoryTabBinding.inflate(inflater,container,false)
+        statusBarTextWhite()
+        statusBarColor(R.color.white)
+        activity?.intent?.getStringExtra(DATA).let {
+            val tcash = Gson().fromJson(it,TCashDasboardRes::class.java)
+            getTcashdashboard(tcash)
+        }
 
-        getTcashDashboard()
+        _binding!!.back.setOnClickListener {
+            activity?.onBackPressedDispatcher?.onBackPressed()
+        }
+
+
         return _binding?.root
     }
 
-    private fun getTcashDashboard() {
+    private fun getTcashdashboard(tcash: TCashDasboardRes?) {
+
+        tcash!!.let {
+            _binding!!.progress.visibility = View.GONE
+            setCategoryeslayout(it)
+        }
+
+        /*
         viewModel.getTCashDashboard(getUserId(),TimePeriodDialog.getDate(1,0),TimePeriodDialog.getCurrentDate(),"1",this,object : ApiListener<TCashDasboardRes,Any?>{
             override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
                 t!!.let {
@@ -47,6 +66,8 @@ class HistoryTabFragment : BaseFragment<FragmentHistoryTabBinding>() {
                 }
             }
         })
+
+         */
     }
 
     private fun setCategoryeslayout(tcash: TCashDasboardRes) {

@@ -52,8 +52,7 @@
                         android:backgroundTint="@color/white"
                         android:padding="@dimen/dp5"
                         android:paddingStart="7dp"
-                        android:layout_marginStart="@dimen/dp3"
-                        android:src="@drawable/flipkart_logo" />
+                        android:layout_marginStart="@dimen/dp3" />
                 </androidx.cardview.widget.CardView>
 
 

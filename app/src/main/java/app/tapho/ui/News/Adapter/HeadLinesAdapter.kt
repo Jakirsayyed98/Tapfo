@@ -33,11 +33,11 @@ class HeadLinesAdapter (private val clickListener: RecyclerClickListener) :
                     binding.cad.visibility=View.GONE
                 }else{
                     Glide.with(itemView.context).load(data.featured_image).centerCrop().into(binding.images)
-                    Glide.with(itemView.context).load(R.drawable.newsprovider).circleCrop().into(binding.newsImg)
+//                    Glide.with(itemView.context).load(R.drawable.newsprovider).circleCrop().into(binding.newsImg)
                     binding.headlines.text = Html.fromHtml(data.name)
                     val url=data.link
                     if (url.contains("www.")){
-                        var providerName = url.replace("https://www.", "")
+                        val providerName = url.replace("https://www.", "")
                         var name = providerName.replaceAfter(".", "")
                         binding.providerName.text = "· " + "" + name.replace(".","")
                     }else{

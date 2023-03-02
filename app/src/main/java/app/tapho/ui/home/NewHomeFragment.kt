@@ -115,15 +115,13 @@ class NewHomeFragment : BaseFragment<FragmentNewHomeBinding>() {
 //        _binding!!.notificationRe.setOnClickListener {
 //            ContainerActivity.openContainer(context, "AllNotification", "")
 //        }
-//        _binding!!.cashbackCard.setOnClickListener {
-//            ContainerActivity.openContainer(context, "cashbackcard", "")
-//        }
+
         _binding!!.favouritesBtn.setOnClickListener {
             ContainerActivity.openContainer(requireContext(),"favouritesBtn", "", false, "")
         }
 
         _binding!!.reProfile.setOnClickListener {
-            ContainerActivity.openContainer(context, ContainerType.PROFILE_EDIT.name, "")
+            ContainerActivity.openContainer(context, "ProfileDetailFragment", null)
         }
 
         _binding!!.scanner.setOnClickListener {
@@ -143,7 +141,7 @@ class NewHomeFragment : BaseFragment<FragmentNewHomeBinding>() {
 
     private fun init() {
         val mAdapter = PagerFragmentAdapter(this)
-        mAdapter.addFragment(HomeTabFragment.newInstance(),"")
+     //   mAdapter.addFragment(HomeTabFragment.newInstance(),"")
 //        mAdapter.addFragment(BuyGiftCardFragment.newInstance(), getString(R.string.UPI))
         binding.viewPager.adapter = mAdapter
 //        TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, pos ->

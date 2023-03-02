@@ -3,7 +3,6 @@ package app.tapho.ui.BuyVoucher
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
-import app.tapho.NavSheet.Fragment_favorite_nav
 import app.tapho.R
 import app.tapho.databinding.ActivityVouchers2Binding
 import app.tapho.ui.BaseActivity
@@ -48,7 +47,7 @@ class VouchersActivity : BaseActivity<ActivityVouchers2Binding>() {
             binding.homeTab -> addFragment(VoucherHomeScreenFragment.newInstance())
             binding.tCashTab -> addFragment(VoucherPurchasedHistoryFragment.newInstance())
             binding.offerTab -> addFragment(BuyGiftCardFragment.newInstance())
-            binding.favouriteTab -> addFragment(Fragment_favorite_nav.newInstance())
+
             binding.PurchasedTab -> addFragment(PurchasedVouchersFragment.newInstance())
 
         }

@@ -116,6 +116,7 @@ class SelectUPIAppsForPaymentFragment : BaseFragment<FragmentSelectUPIAppsForPay
 
         val walletPay = cash_available.toDouble()
 
+// above 99 cash reedem code here
         /*
         if (walletPay.toDouble()<99){
             val walletPayAmount = 0
@@ -260,12 +261,13 @@ class SelectUPIAppsForPaymentFragment : BaseFragment<FragmentSelectUPIAppsForPay
 
         }
 
-        */ // above 99 cash reedem code here
+        */
+        // above 99 cash reedem code here
 
 
         // full Amount Reddem Code
 
-
+/*
         if (walletPay>=Amount.toDouble()){
 
             _binding!!.radio0.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -331,8 +333,6 @@ class SelectUPIAppsForPaymentFragment : BaseFragment<FragmentSelectUPIAppsForPay
 
         }else
             if (walletPay<Amount.toDouble()){
-
-
                 _binding!!.radio0.setOnCheckedChangeListener { buttonView, isChecked ->
                     if (isChecked){
                         val PaybleAmount =Amount.toDouble()- walletPay
@@ -397,14 +397,14 @@ class SelectUPIAppsForPaymentFragment : BaseFragment<FragmentSelectUPIAppsForPay
                 setVisilityOfLayout()
                 startPaymentInitializ(withSuffixAmount3(PaybleAmount.toString()).toString())
             }
-
+*/
 
         // full Amount Reddem Code
 
 
         // 70 % Logic
 
-        /*
+
         _binding!!.radio0.setOnCheckedChangeListener { buttonView, isChecked ->
             progressvisible()
             if (isChecked){
@@ -533,7 +533,7 @@ class SelectUPIAppsForPaymentFragment : BaseFragment<FragmentSelectUPIAppsForPay
                 setVisilityOfLayout()
             }
         }
-*/
+
         // 70% end
 
         setAllTextAndIcons()

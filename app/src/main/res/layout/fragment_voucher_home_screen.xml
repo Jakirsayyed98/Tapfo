@@ -71,21 +71,12 @@
                         android:layout_marginEnd="@dimen/dp10"
                         android:src="@drawable/search_icon"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/favouritesBtn"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:tint="@color/black" />
-
-
-                    <ImageView
-                        android:id="@+id/favouritesBtn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginEnd="@dimen/dp10"
-                        android:src="@drawable/favicon2"
-                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/supportpage"
                         app:layout_constraintTop_toTopOf="parent"
                         app:tint="@color/black" />
+
+
+
 
 
                     <ImageView

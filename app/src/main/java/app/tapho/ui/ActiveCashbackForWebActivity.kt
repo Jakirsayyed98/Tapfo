@@ -1,40 +1,29 @@
 package app.tapho.ui
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.content.pm.ResolveInfo
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.webkit.GeolocationPermissions
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.result.ActivityResultLauncher
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.ContactOnWhatsapp
 import app.tapho.HtmlToText
 import app.tapho.R
 import app.tapho.databinding.ActivityActiveCashbackForWebBinding
 import app.tapho.interfaces.ApiListener
-import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.network.BaseRes
-import app.tapho.ui.activecashback.ActiveCashbackScreenNew.ActiveCashbackActivity
 import app.tapho.ui.help.model.CustomeServicelist
 import app.tapho.ui.home.WebviewLoadingDialog
-import app.tapho.ui.home.adapter.CustomeHowCBRedeemBloksAdapter
-import app.tapho.ui.merchants.model.CustomeModel
 import app.tapho.ui.merchants.model.StoreDeals
 import app.tapho.ui.model.WebTCashRes
 import app.tapho.ui.tcash.TimePeriodDialog
@@ -42,8 +31,6 @@ import app.tapho.ui.tcash.model.TCashDasboardRes
 import app.tapho.ui.tcash.model.TCashDashboardData
 import app.tapho.utils.*
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.BitmapImageViewTarget
-import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 
@@ -510,11 +497,11 @@ class ActiveCashbackForWebActivity : BaseActivity<ActivityActiveCashbackForWebBi
                 ContainerActivity.openContainer(this, "HowOnlineCashbackWorksFragment", "", false, "")
             }
             R.id.help -> {
-                val data  =CustomeServicelist("4",R.drawable.request_callback, "Request Call Back", "Our team will get back to you as soon as possible.","Request Call Back","3")
+                val data  =CustomeServicelist("4",R.drawable.ic_call, "Request Call Back", "Our team will get back to you as soon as possible.","Request Call Back","3")
                 ContainerActivity.openContainerForSupport(this,"NeedSupportFragment",data)
             }
             R.id.feedback -> {
-                val data  =CustomeServicelist("3",R.drawable.share_feedback, "Share Feedback", "Please share your valuable feedback with us","Share Feedback","2")
+                val data  =CustomeServicelist("3",R.drawable.share, "Share Feedback", "Please share your valuable feedback with us","Share Feedback","2")
                 ContainerActivity.openContainerForSupport(this,"NeedSupportFragment",data)
             }
             R.id.faq -> {
