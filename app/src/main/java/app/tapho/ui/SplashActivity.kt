@@ -21,6 +21,7 @@ import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.core.content.ContextCompat
 import app.tapho.R
 import app.tapho.databinding.ActivitySplashBinding
+import app.tapho.ui.home.HomeActivity
 import app.tapho.ui.intro.IntroActivity
 import app.tapho.ui.login.VerifyOtpActivity
 import app.tapho.ui.tcash.TimePeriodDialog
@@ -70,12 +71,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     }
 
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        if (intent!=null){
-            Log.d("notificationMyActivity",intent.toString())
-        }
-    }
 
     fun checkDeviceHasBiometric() {
         val biometricManager = BiometricManager.from(this)
@@ -183,8 +178,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     }
 
     private fun splashCode() {
-
-
         val app_id  = intent?.getStringExtra("app_id")
         val tag  = intent?.getStringExtra("tag")
         val screen_url  = intent?.getStringExtra("screen_url")
@@ -214,28 +207,15 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
                                 kotlin.runCatching {
                                     val loginData = getSharedPreference().getLoginData()
                                     if (loginData == null) {
-                                        startActivity(
-                                            Intent(
-                                                this@SplashActivity,
-                                                IntroActivity::class.java
-                                            )
-                                        )
+                                        startActivity(Intent(this@SplashActivity, IntroActivity::class.java))
                                         finish()
                                     } else {
                                         if (getSharedPreference().getBoolean(REACHED_HOME)) {
-                                            ContainerActivity.openContainer(
-                                                this@SplashActivity,
-                                                "WelcomeBackScreen",
-                                                ""
-                                            )
+//                                            ContainerActivity.openContainer(this@SplashActivity, "WelcomeBackScreen", "")
+                                            startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
                                             finish()
                                         } else
-                                            startActivity(
-                                                Intent(
-                                                    this@SplashActivity,
-                                                    VerifyOtpActivity::class.java
-                                                )
-                                            )
+                                            startActivity(Intent(this@SplashActivity, VerifyOtpActivity::class.java))
                                     }
                                 }
                             }

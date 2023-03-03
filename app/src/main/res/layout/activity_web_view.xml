@@ -79,7 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginStart="65dp"
+                android:layout_marginStart="45dp"
                 android:layout_toStartOf="@+id/favouriteIv"
                 android:layout_toEndOf="@+id/TApp_Redirect_Name"
                 android:gravity="center"

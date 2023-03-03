@@ -14,6 +14,7 @@ import app.tapho.network.Status
 import app.instagst.ui.interfaces.LoaderListener2
 import app.tapho.NavSheet.Fragment_favorite_nav
 import app.tapho.R
+import app.tapho.databinding.BlockUserScreenBinding
 import app.tapho.databinding.DialogFavouriteFragmentBinding
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.LoaderFragment
@@ -29,6 +30,7 @@ import com.google.gson.reflect.TypeToken
 
 class FavouriteDialogFragment : DialogFragment(), RecyclerClickListener, LoaderListener2 {
     private var binding: DialogFavouriteFragmentBinding? = null
+
     private var viewModel: CategoriesDataViewModel? = null
     private var mAdapter: FavouriteAdapter? = null
     private var isAnyChange: Boolean = false

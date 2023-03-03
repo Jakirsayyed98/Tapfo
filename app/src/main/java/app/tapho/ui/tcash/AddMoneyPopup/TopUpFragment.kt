@@ -20,11 +20,13 @@ import app.tapho.ui.tcash.TimePeriodDialog
 import app.tapho.ui.tcash.model.AddMoneyVoucers.AddWalletVoucherRes
 import app.tapho.ui.tcash.model.AddMoneyVoucers.Data
 import app.tapho.ui.tcash.model.TCashDasboardRes
+import app.tapho.utils.DATA
 import app.tapho.utils.withSuffixAmount
+import com.google.gson.Gson
 
 
 class TopUpFragment : BaseFragment<FragmentTopUpBinding>() {
-
+    var tcashdashboard: TCashDasboardRes? = null
     var totalAmount = ""
     var Amount = ""
     var CouponApply = ""
@@ -50,63 +52,64 @@ class TopUpFragment : BaseFragment<FragmentTopUpBinding>() {
         _binding!!.progress.visibility = View.VISIBLE
         if (CouponApply.isNullOrEmpty().not()) {
             _binding!!.cashbacklayout.visibility = View.VISIBLE
-            _binding!!.offerText.text ="Cashback Applied: "+ withSuffixAmount(cashback)+" Cashback"
+            _binding!!.offerText.text =
+                "Cashback Applied: " + withSuffixAmount(cashback) + " Cashback"
         } else {
             _binding!!.cashbacklayout.visibility = View.GONE
         }
         _binding!!.Amount.setText(Amount)
 
 
-        getofferdata()
+
         statusBarTextWhite()
         Addmoneysuggetion()
         getTcashdata()
-
+        setAndEnableClick()
         return _binding?.root
     }
 
-    private fun getofferdata() {
-        viewModel.getWalletOfferVouchers(getUserId(), this, object : ApiListener<AddWalletVoucherRes, Any?> {
-            override fun onSuccess(t: AddWalletVoucherRes?, mess: String?) {
-                t.let {
-                    setAndEnableClick(it!!.data)
-                }
-            }
-        })
-    }
-
-
-
     private fun getTcashdata() {
-        viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getDate(1, -12),
-            TimePeriodDialog.getCurrentDate(),"2", this, object : ApiListener<TCashDasboardRes, Any?> {
-                override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                    t?.let {
-                        availablebalance = it.cash_available.toString()
-                        _binding!!.cashavailable.text = withSuffixAmount(it.cash_available.toString())
-                        _binding!!.mainLayout.visibility = View.VISIBLE
-                        _binding!!.progress.visibility = View.GONE
+
+        val data = activity?.intent?.getStringExtra(DATA)
+        if (data.isNullOrEmpty().not()) {
+            val tcash = Gson().fromJson(data, TCashDasboardRes::class.java)
+            tcash.let {
+                availablebalance = it.cash_available.toString()
+                _binding!!.cashavailable.text = withSuffixAmount(it.cash_available.toString())
+                _binding!!.mainLayout.visibility = View.VISIBLE
+                _binding!!.progress.visibility = View.GONE
+            }
+        } else {
+            viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getDate(1, -12), TimePeriodDialog.getCurrentDate(), "2", this, object : ApiListener<TCashDasboardRes, Any?> {
+                    override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
+                        t?.let {
+                            availablebalance = it.cash_available.toString()
+                            _binding!!.cashavailable.text =
+                                withSuffixAmount(it.cash_available.toString())
+                            _binding!!.mainLayout.visibility = View.VISIBLE
+                            _binding!!.progress.visibility = View.GONE
+                        }
                     }
-                }
-            })
+                })
+
+
+        }
     }
 
-    private fun setAndEnableClick(txndata: List<Data>) {
+    private fun setAndEnableClick() {
         _binding!!.btnVerify.isSelected = true
         _binding!!.Amount.addTextChangedListener {
 
             _binding!!.btnVerify.isClickable = true
             _binding!!.btnVerify.isSelected = true
             if (_binding!!.Amount.text!!.length >= 2) {
-                if (_binding!!.Amount.text.toString().toDouble()<=10000){
+                if (_binding!!.Amount.text.toString().toDouble() <= 10000) {
                     _binding!!.btnVerify.isClickable = true
                     _binding!!.btnVerify.isSelected = true
-                }else{
+                } else {
                     _binding!!.btnVerify.isClickable = false
                     _binding!!.btnVerify.isSelected = false
                 }
-
-
             } else {
                 _binding!!.btnVerify.isClickable = false
                 _binding!!.btnVerify.isSelected = false
@@ -119,12 +122,21 @@ class TopUpFragment : BaseFragment<FragmentTopUpBinding>() {
                 _binding!!.MaxthanAmount.visibility = View.VISIBLE
                 if (_binding!!.Amount.text.toString().toDouble() <= 10000.00) {
 
-                    if (availablebalance.toDouble() + _binding!!.Amount.text.toString().toDouble() >= 10000) {
+                    if (availablebalance.toDouble() + _binding!!.Amount.text.toString()
+                            .toDouble() >= 10000
+                    ) {
                         requireView().showShortSnack("Your Maximum wallet limit is ₹20000. T&C apply")
                     } else {
                         // Intializing Payment without wallet Amount
-                        getSharedPreference().saveString("AddWalletAmount", _binding!!.Amount.text.toString())
-                        ContainerActivity.openContainer(requireContext(), "AddMoneyToWalletWithPaytm", "")
+                        getSharedPreference().saveString(
+                            "AddWalletAmount",
+                            _binding!!.Amount.text.toString()
+                        )
+                        ContainerActivity.openContainer(
+                            requireContext(),
+                            "AddMoneyToWalletWithPaytm",
+                            ""
+                        )
                         activity?.finish()
                         requireView().showShortSnack("Allow To Update Your Wallet")
                     }
@@ -144,45 +156,28 @@ class TopUpFragment : BaseFragment<FragmentTopUpBinding>() {
                 _binding!!.outlinedTextField.hintTextColor = ColorStateList.valueOf(Color.RED)
                 _binding!!.outlinedTextField.hint = "Enter Amount Here"
                 totalAmount = "0"
-                /*
-                txndata.forEach {
-                    if (it.amount.equals(_binding!!.Amount.text)){
-                        _binding!!.cashbacklayout.visibility = View.VISIBLE
-                        getSharedPreference().saveString("wallet_cashback",it.cashback)
-                        _binding!!.offerText.text ="Cashback Applied: "+ withSuffixAmount(it.cashback)+" Cashback"
-                    }else{
-                        getSharedPreference().saveString("wallet_cashback","0")
-                    }
-                }
-                */
-
                 Addmoneysuggetion()
-            }else{
-/*
-                txndata.forEach {
-                    if (it.amount.equals(_binding!!.Amount.text.toString())){
-                        _binding!!.cashbacklayout.visibility = View.VISIBLE
-                        _binding!!.offerText.text ="Cashback Applied: "+ withSuffixAmount(it.cashback)+" Cashback"
-                    }
-                }
-*/
-                if (_binding!!.Amount.text.toString().toDouble()<=10000){
-                    if (_binding!!.Amount.text.toString().toDouble()>=10.00){
+            } else {
+
+                if (_binding!!.Amount.text.toString().toDouble() <= 10000) {
+                    if (_binding!!.Amount.text.toString().toDouble() >= 10.00) {
                         _binding!!.MaxthanAmount.setTextColor(Color.parseColor("#008D3A"))
                         _binding!!.outlinedTextField.boxStrokeColor = Color.parseColor("#008D3A")
                         _binding!!.outlinedTextField.hint = "Enter Amount Here"
-                        _binding!!.outlinedTextField.hintTextColor = ColorStateList.valueOf(Color.parseColor("#008D3A"))
+                        _binding!!.outlinedTextField.hintTextColor =
+                            ColorStateList.valueOf(Color.parseColor("#008D3A"))
                         _binding!!.btnVerify.isClickable = true
                         _binding!!.btnVerify.isSelected = true
-                    }else{
+                    } else {
                         _binding!!.MaxthanAmount.setTextColor(Color.RED)
                         _binding!!.outlinedTextField.boxStrokeColor = Color.RED
-                        _binding!!.outlinedTextField.hintTextColor = ColorStateList.valueOf(Color.RED)
+                        _binding!!.outlinedTextField.hintTextColor =
+                            ColorStateList.valueOf(Color.RED)
                         _binding!!.outlinedTextField.hint = "Amount should be greater than 10"
                         _binding!!.btnVerify.isClickable = false
                         _binding!!.btnVerify.isSelected = false
                     }
-                }else{
+                } else {
                     _binding!!.MaxthanAmount.setTextColor(Color.RED)
                     _binding!!.outlinedTextField.boxStrokeColor = Color.RED
                     _binding!!.outlinedTextField.hintTextColor = ColorStateList.valueOf(Color.RED)
@@ -190,14 +185,10 @@ class TopUpFragment : BaseFragment<FragmentTopUpBinding>() {
                     _binding!!.btnVerify.isClickable = false
                     _binding!!.btnVerify.isSelected = false
                 }
-
-
-//                _binding!!.outlinedTextField.boxStrokeColor = Color.parseColor("#008D3A")
-//                _binding!!.outlinedTextField.hintTextColor = ColorStateList.valueOf(Color.parseColor("#008D3A"))
             }
         }
         _binding!!.back.setOnClickListener {
-            activity?. onBackPressedDispatcher?.onBackPressed()
+            activity?.onBackPressedDispatcher?.onBackPressed()
         }
     }
 

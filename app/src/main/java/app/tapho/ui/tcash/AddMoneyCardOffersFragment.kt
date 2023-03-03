@@ -49,7 +49,7 @@ class AddMoneyCardOffersFragment : BaseFragment<FragmentAddMoneyCardOffersBindin
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
                 if (data is Data){
                     getSharedPreference().saveString("wallet_cashback",data.cashback)
-                    ContainerActivity.openContainerForVoucher(context, "addtopup", data.amount,"CouponApply",data.cashback)
+                    ContainerActivity.openContainerForVoucher(context, "addtopup", data.amount,"CouponApply",data.cashback,"")
                 }
             }
         })

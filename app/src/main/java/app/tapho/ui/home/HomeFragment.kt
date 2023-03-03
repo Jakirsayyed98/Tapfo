@@ -997,7 +997,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
 
             "addtopup"->{
                 getSharedPreference().saveString("wallet_cashback", "0")
-                ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "")
+                ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "",tcashdashboard)
             }
 
             "OnlineStores" -> {

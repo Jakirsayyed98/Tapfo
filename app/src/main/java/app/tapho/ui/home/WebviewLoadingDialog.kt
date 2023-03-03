@@ -73,50 +73,12 @@ class WebviewLoadingDialog : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-/*
-        binding?.imageIv?.animationXAttention(Attention.ATTENTION_BOUNCE, duration = 500, listener = object : Animator.AnimatorListener{
-            override fun onAnimationStart(animation: Animator) {
-                binding?.imageIv?.animationXZoom(Zoom.ZOOM_IN_DOWN)
-            }
 
-            override fun onAnimationEnd(animation: Animator) {
-
-            }
-
-            override fun onAnimationCancel(animation: Animator) {
-
-            }
-
-            override fun onAnimationRepeat(animation: Animator) {
-                binding?.imageIv?.animationXZoom(Zoom.ZOOM_IN_DOWN)
-            }
-
-        })
-*/
 
         binding!!.backbtnWeb.setOnClickListener {
             activity?. onBackPressedDispatcher?.onBackPressed()
         }
-/*
-        binding?.redirectingTv?.animationXAttention(Attention.ATTENTION_FLASH, duration = 500, listener = object : Animator.AnimatorListener{
-            override fun onAnimationStart(animation: Animator) {
-                binding?.redirectingTv?.animationXSlide(Slide.SLIDE_IN_LEFT)
-            }
 
-            override fun onAnimationEnd(animation: Animator) {
-
-            }
-
-            override fun onAnimationCancel(animation: Animator) {
-
-            }
-
-            override fun onAnimationRepeat(animation: Animator) {
-                binding?.redirectingTv?.animationXSlide(Slide.SLIDE_IN_LEFT)
-            }
-
-        })
-*/
 
         Glide.with(this).asBitmap().load(arguments?.getString(DATA)).circleCrop().placeholder(R.drawable.loding_app_icon).into(object : BitmapImageViewTarget(view.findViewById(R.id.imageIv)) {
                 override fun onResourceReady(resource: Bitmap, transition: Transition<in Bitmap>?) {
@@ -155,8 +117,7 @@ class WebviewLoadingDialog : DialogFragment() {
 
     private fun setColor(color: Int) {
         dialog?.window?.statusBarColor=color
-        dialog?.window?.addFlags(  WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS //    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-                 )
+        dialog?.window?.addFlags(  WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS) //    WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         view?.findViewById<RelativeLayout>(R.id.mainRe)?.setBackgroundColor(color)
     }
 

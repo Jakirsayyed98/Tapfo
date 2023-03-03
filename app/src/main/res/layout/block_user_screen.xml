@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:paddingStart="@dimen/dp30"
+        android:paddingEnd="@dimen/dp20"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/account_disable" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="Your account has been suspended!"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/sans_medium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="The Tapfo account registered with us is now disabled. It looks like it was used in a way that seriously violated Tapfo’s policies."
+            android:textColor="@color/grey_dark"
+            android:textSize="15sp"
+            app:fontFamily="@font/sans_medium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="We understand your account is important to us. so if you think this was a mistake, send a mail to"
+            android:textColor="@color/grey_dark"
+            android:textSize="15sp"
+            app:fontFamily="@font/sans_medium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp15"
+            android:text="suspended@tapfo.in"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:fontFamily="@font/sans_medium" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp5"
+            android:text="and submit a request to restore it. you’ll need to do this soon, because disabled accounts are suspended, along with account data stored with Tapfo."
+            android:textColor="@color/grey_dark"
+            android:textSize="15sp"
+            app:fontFamily="@font/sans_medium" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -72,10 +72,9 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
     private fun init() {
         progressVISIBLE()
 
-         activity?.intent?.getStringExtra(DATA).let {
-             val tcash = Gson().fromJson(it,TCashDasboardRes::class.java)
-             getTcashdashboard(tcash)
-        }
+
+             getTcashdashboard()
+
         viewModel.get_user_detail(getUserId(),this,object : ApiListener<getUserDetailRes,Any?>{
             override fun onSuccess(t: getUserDetailRes?, mess: String?) {
                 t!!.data.get(0).let {
@@ -125,39 +124,45 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
 
         _binding!!.AddBalance.setOnClickListener {
             getSharedPreference().saveString("wallet_cashback", "0")
-            ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "")
+            ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "",tcashdashboard)
         }
     }
 
-    private fun getTcashdashboard(tcash: TCashDasboardRes?) {
-        tcash!!.let {
+    private fun getTcashdashboard() {
+
+        val data = activity?.intent?.getStringExtra(DATA)
+        if (data.isNullOrEmpty().not()) {
+            val tcash = Gson().fromJson(data,TCashDasboardRes::class.java)
             showHome()
-            tcashdashboard = it
-            _binding!!.pending.text = withSuffixAmount(it.pending.toString())
-            _binding!!.cashAvailable.text = withSuffixAmount(it.cash_available.toString())
-            _binding!!.cashAvailable1.text = withSuffixAmount(it.cash_available.toString())
-            _binding!!.lifetimeEarning.text = withSuffixAmount(it.lifetime_earning.toString())
+            tcashdashboard = tcash
+            _binding!!.pending.text = withSuffixAmount(tcash.pending.toString())
+            _binding!!.cashAvailable.text = withSuffixAmount(tcash.cash_available.toString())
+            _binding!!.cashAvailable1.text = withSuffixAmount(tcash.cash_available.toString())
+            _binding!!.lifetimeEarning.text = withSuffixAmount(tcash.lifetime_earning.toString())
             _binding!!.alltransaction.setOnClickListener {click->
-                ContainerActivity.openContainer(requireContext(), "HistoryTabFragment", it ,false, "")
+                ContainerActivity.openContainer(requireContext(), "HistoryTabFragment", tcash ,false, "")
             }
-        }
-        /*
+        }else {
 
-        viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getCurrentDate(), TimePeriodDialog.getCurrentDate(), "2", this, object :
-                ApiListener<TCashDasboardRes, Any?> {
-                override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                    t!!.let {
-                        showHome()
-                        _binding!!.pending.text = withSuffixAmount(it.pending.toString())
-                        _binding!!.cashAvailable.text = withSuffixAmount(it.cash_available.toString())
-                        _binding!!.cashAvailable1.text = withSuffixAmount(it.cash_available.toString())
 
-                        _binding!!.lifetimeEarning.text =withSuffixAmount(it.lifetime_earning.toString())
+                viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getCurrentDate(), TimePeriodDialog.getCurrentDate(), "2", this, object :
+                    ApiListener<TCashDasboardRes, Any?> {
+                    override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
+                        t!!.let {
+                            showHome()
+                            _binding!!.pending.text = withSuffixAmount(it.pending.toString())
+                            _binding!!.cashAvailable.text = withSuffixAmount(it.cash_available.toString())
+                            _binding!!.cashAvailable1.text = withSuffixAmount(it.cash_available.toString())
+                            _binding!!.lifetimeEarning.text =withSuffixAmount(it.lifetime_earning.toString())
+                            _binding!!.alltransaction.setOnClickListener {click->
+                                ContainerActivity.openContainer(requireContext(), "HistoryTabFragment", it ,false, "")
+                            }
+                        }
                     }
-                }
-            })
-         */
+                })
 
+
+        }
 
     }
 
@@ -167,11 +172,11 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
                 when (data) {
                     "Custom" -> {
                         getSharedPreference().saveString("wallet_cashback", "0")
-                        ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "")
+                        ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "",tcashdashboard)
                     }
                     else -> {
                         getSharedPreference().saveString("wallet_cashback", "0")
-                        ContainerActivity.openContainerForVoucher(context, "addtopup", data.toString(), "", "")
+                        ContainerActivity.openContainerForVoucher(context, "addtopup", data.toString(), "", "",tcashdashboard)
                     }
 
                 }
@@ -198,7 +203,7 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
                 when (data) {
                     "Add balance" -> {
                         getSharedPreference().saveString("wallet_cashback", "0")
-                        ContainerActivity.openContainerForVoucher(context, "addtopup", "200", "", "")
+                        ContainerActivity.openContainerForVoucher(context, "addtopup", "200", "", "",tcashdashboard)
                     }
                     "Buy Voucher" -> {
                         startActivity(Intent(requireContext(), VouchersActivity::class.java))
@@ -250,7 +255,7 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
 
             "addtopup" -> {
                 getSharedPreference().saveString("wallet_cashback", "0")
-                ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "")
+                ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "",tcashdashboard)
             }
 
             "OnlineStores" -> {

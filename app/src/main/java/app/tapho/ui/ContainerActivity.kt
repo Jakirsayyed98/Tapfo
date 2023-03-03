@@ -333,13 +333,17 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
             Amount: String?,
             CouponApply: String?,
             cashback: String?,
+            data: Any?,
         ) {
             context?.startActivity(Intent(context, ContainerActivity::class.java).apply {
                 putExtra(CONTAINER_TYPE_KEY, type)
                 putExtra("Amount", Amount)
                 putExtra("CouponApply", CouponApply)
                 putExtra("cashback", cashback)
-
+                if (data is Bundle)
+                    putExtras(data)
+                else if (data != null)
+                    putExtra(DATA, Gson().toJson(data))
             })
         }
     }
@@ -433,7 +437,7 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
                 addFragment(SupportListFragment.newInstance())
             }
               "WelcomeBackScreen" -> {
-                addFragment(welcomebackscreenFragment.newInstance())
+                addFragment(welcomebackscreenFragment.newInstance(null))
             }
             getString(R.string.cashback_merchants) -> {
                 setTitlec(intent.getStringExtra(TITLE))

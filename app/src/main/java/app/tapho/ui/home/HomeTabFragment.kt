@@ -3,6 +3,7 @@ package app.tapho.ui.home
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -29,6 +30,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
 import androidx.core.graphics.drawable.IconCompat
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -40,6 +42,7 @@ import app.tapho.Connection.ConnectivityListener
 import app.tapho.R
 import app.tapho.RechargeServiceActivity
 import app.tapho.databinding.FragmentHomeTabBinding
+import app.tapho.databinding.FragmentWelcomebackscreenBinding
 import app.tapho.interfaces.ApiListener
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.network.BaseRes
@@ -119,6 +122,9 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeTabBinding.inflate(inflater, container, false)
+
+        welcomebackscreenFragment.newInstance(appCategoryList).show(childFragmentManager, null)
+
         favViewModel = ViewModelProvider(this).get(FavouriteViewModel::class.java)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
         statusBarColor(R.color.lightblack)
@@ -310,9 +316,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
                                             it.get(0).let {
                                                 ActiveCashbackForWebActivity.openWebView(
                                                     requireContext(),
-                                                    it.url,
-                                                    it.id,
-                                                    it.image,
+   it.url,it.id, it.image,
                                                     it.tcash,
                                                     it.is_favourite,
                                                     it.cashback,
@@ -573,14 +577,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
     }
 
     private fun blockUser() {
-        val builder = AlertDialog.Builder(requireContext())
-        val dialog = builder.create()
-        dialog.setTitle("Your Account has been suspended ")
-        dialog.setMessage("Contact our support team for feather process .")
-
-        dialog.setCancelable(false)
-        dialog.show()
-
+        BlockUserDialogFragment.newInstance(null).show(childFragmentManager, null)
     }
 
     private fun updateRechargeStatus() {
@@ -656,6 +653,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
                 t?.let {
                     getSharedPreference().saveString("StartLoading", "1")
                     showHome()
+
                     val app_id = getSharedPreference().getString("app_id")
                     val tag = getSharedPreference().getString("tag")
                     val screen_url = getSharedPreference().getString("screen_url")
@@ -750,8 +748,6 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
             }
         })
     }
-
-
 
     //Recent Miniapp
     private fun getRecentMiniappList() {
@@ -981,7 +977,6 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         TabLayoutMediator(_binding!!.popularMinitabLayout, _binding!!.popularMinibanner,false) { _,_ -> }.attach()
     }
 
-
     private fun setPromotedBannerAuto(banners: java.util.ArrayList<BannerList>) {
 
         if (banners.isNullOrEmpty()) {
@@ -1043,7 +1038,6 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
 
         TabLayoutMediator(_binding!!.tabLayout1, _binding!!.bannerPromoted, false) { _, _ -> }.attach()
     }
-
 
     private fun getWebUrlData2(s: String, type: String) {
         viewModel.searchMiniApp(getUserId(), s, this, object : ApiListener<WebTCashRes, Any?> {
@@ -1186,7 +1180,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
 
             "addtopup" -> {
                 getSharedPreference().saveString("wallet_cashback", "0")
-                ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "")
+                ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "",tcashdashboard)
             }
 
             "OnlineStores" -> {
