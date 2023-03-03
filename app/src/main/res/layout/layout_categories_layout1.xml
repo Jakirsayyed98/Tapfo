@@ -25,11 +25,11 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:ellipsize="end"
-        android:maxLines="2"
+        android:maxLines="1"
         android:gravity="center"
         app:fontFamily="@font/tt_regular"
         android:textColor="#99000000"
-        android:textSize="14sp"
+        android:textSize="13sp"
         tools:text="More" />
 
 

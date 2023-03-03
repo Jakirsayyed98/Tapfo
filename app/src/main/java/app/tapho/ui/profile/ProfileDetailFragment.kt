@@ -53,7 +53,7 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
                 activity?.finish()
             }
         }
-
+    var tcashdashboard : TCashDasboardRes? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -132,6 +132,7 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
                 _binding!!.apply {
                     walletbalance.text = withSuffixAmount(it!!.cash_available.toString())
                     getSharedPreference().saveString("startProfile","1")
+                    tcashdashboard = it
                     getmainLayoutvisible()
                     merchantTransaction.setOnClickListener {click->
                         ContainerActivity.openContainer(context, "cashbackcard", it)
@@ -315,7 +316,7 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
     }
 
     private fun shareApp() {
-        ContainerActivity.openContainer(requireContext(), "referandearnscreen", "")
+        ContainerActivity.openContainer(requireContext(), "referandearnscreen", tcashdashboard)
         /*
         val sendIntent: Intent = Intent().apply {
             action = Intent.ACTION_SEND

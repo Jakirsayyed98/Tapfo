@@ -180,6 +180,7 @@
 
 
                     </RelativeLayout>
+
                     <androidx.core.widget.NestedScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -430,60 +431,65 @@
 
 
                             <!--SuperLink Categories Section-->
-
                             <LinearLayout
-                                android:layout_width="wrap_content"
+                                android:id="@+id/superlinkLayout"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_centerVertical="true"
-                                android:layout_marginStart="@dimen/dp20"
-                                android:layout_marginTop="@dimen/dp15"
-                                android:layout_toEndOf="@+id/secure"
-                                android:orientation="horizontal">
+                                android:orientation="vertical">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Tapfo"
-                                    android:textColor="@color/black"
-                                    android:textSize="20sp"
-                                    app:fontFamily="@font/tt_demibold" />
-
-                                <TextView
+                                <LinearLayout
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
-                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginStart="@dimen/dp20"
+                                    android:layout_marginTop="@dimen/dp15"
                                     android:layout_toEndOf="@+id/secure"
-                                    android:paddingEnd="@dimen/dp5"
-                                    android:text="One "
-                                    android:textColor="@color/green_dark"
-                                    android:textSize="20sp"
-                                    android:textStyle="italic|bold"
-                                    app:fontFamily="@font/tt_medium" />
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Tapfo"
+                                        android:textColor="@color/black"
+                                        android:textSize="20sp"
+                                        app:fontFamily="@font/tt_demibold" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_toEndOf="@+id/secure"
+                                        android:paddingEnd="@dimen/dp5"
+                                        android:text="One "
+                                        android:textColor="@color/green_dark"
+                                        android:textSize="20sp"
+                                        android:textStyle="italic|bold"
+                                        app:fontFamily="@font/tt_medium" />
+                                </LinearLayout>
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp5"
+                                    android:paddingStart="@dimen/dp20"
+                                    android:paddingEnd="@dimen/dp10"
+                                    android:text="Making every day simple "
+                                    android:textColor="@color/grey_dark"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/tt_regular" />
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/SuperLinksRV"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="@dimen/dp10"
+                                    android:layout_marginTop="@dimen/dp10"
+                                    android:layout_marginRight="@dimen/dp10"
+                                    android:layout_marginBottom="10dp"
+                                    android:clipToPadding="false"
+                                    android:scrollbars="vertical" />
                             </LinearLayout>
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/dp5"
-                                android:paddingStart="@dimen/dp20"
-                                android:paddingEnd="@dimen/dp10"
-                                android:text="Making every day simple "
-                                android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
-                                app:fontFamily="@font/tt_regular" />
-
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/SuperLinksRV"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/dp10"
-                                android:layout_marginTop="@dimen/dp10"
-                                android:layout_marginRight="@dimen/dp10"
-                                android:layout_marginBottom="10dp"
-                                android:clipToPadding="false"
-                                android:scrollbars="vertical" />
-
                             <!--Recently Section-->
                             <LinearLayout
                                 android:id="@+id/recentLayout"
@@ -650,6 +656,7 @@
 
                             <!-- promoted Section-->
                             <LinearLayout
+                                android:id="@+id/promotedsection"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/dp10"
@@ -683,60 +690,56 @@
 
 
                             <!-- Favourites Section-->
+
+
                             <LinearLayout
+                                android:id="@+id/favourites"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/dp10"
+                                android:layout_marginTop="@dimen/dp30"
+                                android:layout_marginRight="@dimen/dp10"
+                                android:layout_marginBottom="10dp"
                                 android:orientation="vertical">
 
                                 <LinearLayout
-                                    android:id="@+id/favourites"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="@dimen/dp10"
-                                    android:layout_marginTop="@dimen/dp30"
-                                    android:layout_marginRight="@dimen/dp10"
-                                    android:layout_marginBottom="10dp"
-                                    android:orientation="vertical">
+                                    android:layout_height="wrap_content">
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:layout_weight="1"
-                                            android:gravity="center_vertical"
-                                            android:paddingStart="@dimen/dp10"
-                                            android:text="Favourites"
-                                            android:textSize="20sp"
-                                            android:textStyle="bold"
-                                            app:fontFamily="@font/tt_medium" />
-
-
-                                        <TextView
-                                            android:id="@+id/AddMoreFavTV"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center"
-                                            android:gravity="center_vertical"
-                                            android:padding="@dimen/dp5"
-                                            android:text="+ add more"
-                                            android:textColor="@color/greenshade"
-                                            android:textSize="18sp"
-                                            app:fontFamily="@font/tt_demibold" />
-                                    </LinearLayout>
-
-
-                                    <androidx.recyclerview.widget.RecyclerView
-                                        android:id="@+id/recyclerFavourites"
+                                    <TextView
                                         android:layout_width="match_parent"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginTop="@dimen/dp10" />
+                                        android:layout_gravity="center"
+                                        android:layout_weight="1"
+                                        android:gravity="center_vertical"
+                                        android:paddingStart="@dimen/dp10"
+                                        android:text="Favourites"
+                                        android:textSize="20sp"
+                                        android:textStyle="bold"
+                                        app:fontFamily="@font/tt_medium" />
 
 
+                                    <TextView
+                                        android:id="@+id/AddMoreFavTV"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_gravity="center"
+                                        android:gravity="center_vertical"
+                                        android:padding="@dimen/dp5"
+                                        android:text="+ add more"
+                                        android:textColor="@color/greenshade"
+                                        android:textSize="18sp"
+                                        app:fontFamily="@font/tt_demibold" />
                                 </LinearLayout>
+
+
+                                <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/recyclerFavourites"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/dp10" />
+
+
                             </LinearLayout>
 
 

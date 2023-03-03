@@ -15,9 +15,11 @@ import app.tapho.ui.ContainerActivity
 import app.tapho.ui.tcash.TimePeriodDialog
 import app.tapho.ui.tcash.model.TCashDasboardRes
 import app.tapho.ui.tcash.model.Txn
+import app.tapho.utils.DATA
 import app.tapho.utils.toast
 import app.tapho.utils.withSuffixAmount
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.gson.Gson
 
 
 class ReferAndEarnFragment : BaseFragment<FragmentReferAndEarnBinding>() {
@@ -65,33 +67,66 @@ class ReferAndEarnFragment : BaseFragment<FragmentReferAndEarnBinding>() {
     }
 
     private fun getViewmodelData() {
-        viewModel.getTCashDashboard(getUserId(),TimePeriodDialog.getDate(1, -12),
-            TimePeriodDialog.getCurrentDate(),"2",this,object : ApiListener<TCashDasboardRes,Any?>{
-                override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                    t.let {
-                        it!!.let {
-                            val referdata : ArrayList<Txn> = ArrayList()
-                           it.txn.forEach {
-                                if ((it.type.equals("4"))){
-                                    referdata.add(it)
-                                }
-                            }
-                            _binding!!.refcount.text =  referdata.size.toString()
-                            var cashback = 0.0
-                            referdata.forEach {
-                                cashback= cashback+it.cashback.toDouble()
-                            }
-                            _binding!!.earnings.text = withSuffixAmount(cashback.toString())!!.dropLast(3)
-                            _binding!!.seeAll.setOnClickListener {
-                                ContainerActivity.openContainer(requireContext(),"OperAllMyReferProfile",referdata)
-                            }
-                            _binding!!.progress.visibility = View.GONE
-                            _binding!!.mainLayout.visibility = View.VISIBLE
-                        }
+        val data = activity?.intent?.getStringExtra(DATA).toString()
 
+        if (data.isNullOrEmpty().not()){
+
+           val tcash = Gson().fromJson(data,TCashDasboardRes::class.java)
+            tcash.let {
+                    it!!.let {
+                        val referdata : ArrayList<Txn> = ArrayList()
+                        it.txn.forEach {
+                            if ((it.type.equals("4"))){
+                                referdata.add(it)
+                            }
+                        }
+                        _binding!!.refcount.text =  referdata.size.toString()
+                        var cashback = 0.0
+                        referdata.forEach {
+                            cashback= cashback+it.cashback.toDouble()
+                        }
+                        _binding!!.earnings.text = withSuffixAmount(cashback.toString())!!.dropLast(3)
+                        _binding!!.seeAll.setOnClickListener {click->
+                            ContainerActivity.openContainer(requireContext(),"OperAllMyReferProfile",it)
+                        }
+                        _binding!!.progress.visibility = View.GONE
+                        _binding!!.mainLayout.visibility = View.VISIBLE
                     }
-                }
-            })
+            }
+
+        }else{
+
+
+            viewModel.getTCashDashboard(getUserId(),TimePeriodDialog.getDate(1, -12),
+                TimePeriodDialog.getCurrentDate(),"2",this,object : ApiListener<TCashDasboardRes,Any?>{
+                    override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
+                        t.let {
+                            it!!.let {
+                                val referdata : ArrayList<Txn> = ArrayList()
+                                it.txn.forEach {
+                                    if ((it.type.equals("4"))){
+                                        referdata.add(it)
+                                    }
+                                }
+                                _binding!!.refcount.text =  referdata.size.toString()
+                                var cashback = 0.0
+                                referdata.forEach {
+                                    cashback= cashback+it.cashback.toDouble()
+                                }
+                                _binding!!.earnings.text = withSuffixAmount(cashback.toString())!!.dropLast(3)
+                                _binding!!.seeAll.setOnClickListener {click->
+                                    ContainerActivity.openContainer(requireContext(),"OperAllMyReferProfile",it)
+                                }
+                                _binding!!.progress.visibility = View.GONE
+                                _binding!!.mainLayout.visibility = View.VISIBLE
+                            }
+
+                        }
+                    }
+                })
+
+        }
+
     }
 
 

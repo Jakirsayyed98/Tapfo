@@ -60,34 +60,65 @@ class referProfilelistFragment : BaseFragment<FragmentReferProfilelistBinding>()
     }
 
     private fun getViewmodelData() {
-        viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getDate(1, -12),
-            TimePeriodDialog.getCurrentDate(),"2",this,object : ApiListener<TCashDasboardRes, Any?> {
-                override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                    t.let {
-                        it!!.let {
-                            val referdata : ArrayList<Txn> = ArrayList()
-                            it.txn.forEach {
-                                if ((it.type.equals("4"))){
-                                    if (it.referral_user_detail.isNullOrEmpty().not()){
-                                        referdata.add(it)
+        val data = activity?.intent?.getStringExtra(DATA)
+        if (data.isNullOrEmpty().not()){
+           val tcashdashboard = Gson().fromJson(data,TCashDasboardRes::class.java)
+            tcashdashboard.let {
+                it!!.let {
+                    val referdata : ArrayList<Txn> = ArrayList()
+                    it.txn.forEach {
+                        if ((it.type.equals("4"))){
+                            if (it.referral_user_detail.isNullOrEmpty().not()){
+                                referdata.add(it)
+                            }
+                        }
+                    }
+
+                    _binding!!.refcount.text =  referdata.size.toString()
+                    var cashback = 0.0
+                    referdata.forEach {
+                        cashback= cashback+it.cashback.toDouble()
+                    }
+                    _binding!!.earnings.text = withSuffixAmount(cashback.toString())!!.dropLast(3)
+                    mAdapter!!.addAllItem(referdata)
+                    _binding!!.progress.visibility = View.GONE
+                    _binding!!.mainLayout.visibility = View.VISIBLE
+                }
+
+            }
+        }else{
+            viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getDate(1, -12),
+                TimePeriodDialog.getCurrentDate(),"2",this,object : ApiListener<TCashDasboardRes, Any?> {
+                    override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
+                        t.let {
+                            it!!.let {
+                                val referdata : ArrayList<Txn> = ArrayList()
+                                it.txn.forEach {
+                                    if ((it.type.equals("4"))){
+                                        if (it.referral_user_detail.isNullOrEmpty().not()){
+                                            referdata.add(it)
+                                        }
                                     }
                                 }
+
+                                _binding!!.refcount.text =  referdata.size.toString()
+                                var cashback = 0.0
+                                referdata.forEach {
+                                    cashback= cashback+it.cashback.toDouble()
+                                }
+                                _binding!!.earnings.text = withSuffixAmount(cashback.toString())!!.dropLast(3)
+                                mAdapter!!.addAllItem(referdata)
+                                _binding!!.progress.visibility = View.GONE
+                                _binding!!.mainLayout.visibility = View.VISIBLE
                             }
 
-                            _binding!!.refcount.text =  referdata.size.toString()
-                            var cashback = 0.0
-                            referdata.forEach {
-                                cashback= cashback+it.cashback.toDouble()
-                            }
-                            _binding!!.earnings.text = withSuffixAmount(cashback.toString())!!.dropLast(3)
-                           mAdapter!!.addAllItem(referdata)
-                            _binding!!.progress.visibility = View.GONE
-                            _binding!!.mainLayout.visibility = View.VISIBLE
                         }
-
                     }
-                }
-            })
+                })
+        }
+
+
+
     }
 
 

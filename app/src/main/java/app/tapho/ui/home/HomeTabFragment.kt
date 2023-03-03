@@ -663,6 +663,11 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
 
                     popularList = it.popular
                     Superlinks!!.addAllItem(it.super_category!!)
+                    if (it.super_category.isNullOrEmpty().not()){
+                        _binding!!.superlinkLayout.visibility = View.VISIBLE
+                    }else{
+                        _binding!!.superlinkLayout.visibility = View.GONE
+                    }
 
                     appCategoryList = it.app_category
                     setAppCategory(getString(R.string.more))
@@ -846,6 +851,11 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
             adapter = mAdapter
         }
         mAdapter.clear()
+        if (list.isNullOrEmpty().not()){
+            _binding!!.promotedsection.visibility = View.VISIBLE
+        }else{
+            _binding!!.promotedsection.visibility = View.GONE
+        }
         mAdapter.addAllItem(
             if (list.size > 12) {
                 list.subList(0, 12)
@@ -1194,7 +1204,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
             }
           
             "ReferAndEarn" -> {
-                ContainerActivity.openContainer(requireContext(), "referandearnscreen", "")
+                ContainerActivity.openContainer(requireContext(), "referandearnscreen", tcashdashboard)
 
             }
 

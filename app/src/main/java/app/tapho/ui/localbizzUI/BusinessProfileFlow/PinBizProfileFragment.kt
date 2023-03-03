@@ -90,7 +90,7 @@ class PinBizProfileFragment : BaseFragment<FragmentPinBizProfileBinding>() {
                         LocalbizContainerActivity.openContainer(requireContext(), "AddInformation")
                     }
                     "Refer & Earn" -> {
-                        ContainerActivity.openContainer(requireContext(), "referandearnscreen", "")
+                        ContainerActivity.openContainer(requireContext(), "referandearnscreen", null)
                     }
                     "Ads & Campaign" -> {
 

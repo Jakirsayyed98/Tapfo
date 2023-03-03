@@ -261,7 +261,7 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
             }
 
             "ReferAndEarn" -> {
-                ContainerActivity.openContainer(requireContext(), "referandearnscreen", "")
+                ContainerActivity.openContainer(requireContext(), "referandearnscreen", tcashdashboard)
             }
 
             "Scan & Pay" -> {

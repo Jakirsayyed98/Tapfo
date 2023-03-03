@@ -2,7 +2,6 @@ package app.tapho.ui.scanner
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.Dialog
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
@@ -16,7 +15,6 @@ import android.os.Looper
 import android.util.Log
 import android.util.SparseArray
 import android.view.SurfaceHolder
-import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -30,11 +28,8 @@ import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseActivity
 import app.tapho.ui.PaytmPaymentGateway.Adapter.PSPModelClass
 import app.tapho.ui.PaytmPaymentGateway.Adapter.SmartIntentPSPAdapter
-import app.tapho.ui.PaytmPaymentGateway.TransactionProcessingPageActivity
 import app.tapho.ui.intro.IntroNewAdapter
 import app.tapho.ui.intro.sliderItem
-import app.tapho.utils.customToast
-import app.tapho.utils.withSuffixAmount
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
@@ -42,7 +37,6 @@ import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
 import java.io.IOException
-import java.util.ArrayList
 
 
 class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
@@ -167,13 +161,30 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
     }
 
     private fun setRVforPSP(PSPRv: RecyclerView,DeeplInkURI: String) {
+
+        val uri = Uri.Builder()
+            .scheme("upi")
+            .authority("pay")
+            .appendQueryParameter("pa", "9221065740-2@okbizaxis")
+            .appendQueryParameter("pn", "ASGAR HUSSAIN SAYYED")
+            .appendQueryParameter("mc", "4121")
+            .appendQueryParameter("tr", "BCR2DN6TZ6Z7LP2B")
+            .appendQueryParameter("tn", "Transaction Check")
+            .appendQueryParameter("am", "1")
+            .appendQueryParameter("cu", "INR")
+
+            .build()
+//            .appendQueryParameter("url", "your-transaction-url")
+
         val SmartIntentPSPAdapterdaa = SmartIntentPSPAdapter(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
                 Log.d("DeepLink",DeeplInkURI)
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(DeeplInkURI))
-                intent.data = Uri.parse(DeeplInkURI)
+
+                val intent = Intent(Intent.ACTION_VIEW)
+                intent.data = uri
                 intent.setPackage(data.toString())
                 startActivityForResult(intent, REQUEST_CODE)
+
             }
 
         }).apply {
@@ -190,8 +201,7 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
             adapter = SmartIntentPSPAdapterdaa
         }
     }
-
-
+    
     fun isAppInstalled(packageName: String): Boolean {
         val pm = this.getPackageManager()
         try {
@@ -224,7 +234,6 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         }
     }
 
-
     private fun showCopyDialog(textData: String) {
         val dialog= BottomSheetDialog(this)
         val view = layoutInflater.inflate(R.layout.upi_dialog, null)
@@ -253,7 +262,6 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         dialog.setContentView(view)
         dialog.show()
     }
-
 
     private fun Setbannerdata(bannerdata: MutableList<sliderItem>) {
         binding.banner1.adapter= IntroNewAdapter(bannerdata,binding.banner1)

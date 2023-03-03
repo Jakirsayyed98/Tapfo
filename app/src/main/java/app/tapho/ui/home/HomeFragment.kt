@@ -1010,7 +1010,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
                 setMoreTextSuperLinks("Show less")
             }
             "ReferAndEarn" -> {
-                ContainerActivity.openContainer(requireContext(), "referandearnscreen", "")
+                ContainerActivity.openContainer(requireContext(), "referandearnscreen", tcashdashboard)
             }
             "Show more" -> {
                 setMoreTextSuperLinks("Show more")
