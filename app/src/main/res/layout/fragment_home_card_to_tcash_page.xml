@@ -33,11 +33,12 @@
                     android:paddingRight="@dimen/dp10">
 
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
+                    <LinearLayout
                         android:id="@+id/constraintLayout8"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="@dimen/dp5"
+                        android:orientation="horizontal"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent">
 
@@ -56,9 +57,9 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
                             android:layout_alignParentTop="true"
                             android:layout_alignParentEnd="true"
+                            app:layout_constraintStart_toEndOf="@id/back"
                             android:layout_marginTop="@dimen/dp5"
                             android:gravity="center"
                             android:orientation="horizontal"
@@ -80,7 +81,7 @@
                                 android:textSize="14sp"
                                 app:fontFamily="@font/tt_light" />
                         </LinearLayout>
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
 
 
                 </RelativeLayout>

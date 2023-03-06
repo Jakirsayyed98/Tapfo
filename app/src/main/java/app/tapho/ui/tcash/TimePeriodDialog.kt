@@ -114,8 +114,7 @@ class TimePeriodDialog : BottomSheetDialogFragment(), RecyclerClickListener {
 
         if (parentFragment is AllTransactionFragment) {
             (parentFragment as AllTransactionFragment).getData(startDate,
-                endDate,
-                (data as TimeModel).time)
+                endDate, (data as TimeModel).time)
         }
         dismiss()
        // appLog((data as TimeModel).time + "  " + startDate + "  " + endDate)

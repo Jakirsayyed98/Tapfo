@@ -57,7 +57,7 @@ class BlockUserDialogFragment : DialogFragment(){
     ): View? {
         binding = BlockUserScreenBinding.inflate(inflater, container, false)
         dialog!!.setCancelable(false)
-
+        dialog?.window?.statusBarColor = Color.BLACK
         return binding?.root
     }
 

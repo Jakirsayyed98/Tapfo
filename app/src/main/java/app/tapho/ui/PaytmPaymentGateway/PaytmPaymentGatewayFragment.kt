@@ -44,17 +44,17 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
     lateinit var viewModel: RequestViewModel
 
 
-    val BHIM_UPI = "in.org.npci.upiapp"
+//    val BHIM_UPI = "in.org.npci.upiapp"
     val GOOGLE_PAY = "com.google.android.apps.nbu.paisa.user"
     val PHONE_PE = "com.phonepe.app"
     val PAYTM = "net.one97.paytm"
-    val Amazon_Pay = "in.amazon.mShop.android.shopping"
-    val Axis = "com.axis.mobile"
+//    val Amazon_Pay = "in.amazon.mShop.android.shopping"
+//    val Axis = "com.axis.mobile"
     val Cred = "com.dreamplug.androidapp"
     val Whatsapp = "com.whatsapp"
-    val WhatsappB = "com.whatsapp.w4b"
-    val ICICI = "com.csam.icici.bank.imobile"
-    val upiApps = listOf<String>(PAYTM, GOOGLE_PAY, PHONE_PE, BHIM_UPI,Amazon_Pay,Axis,Cred,Whatsapp,WhatsappB,ICICI)
+//    val WhatsappB = "com.whatsapp.w4b"
+//    val ICICI = "com.csam.icici.bank.imobile"
+    val upiApps = listOf<String>(PAYTM, GOOGLE_PAY, PHONE_PE,Cred,Whatsapp)
 
     var PSPModelClass: ArrayList<PSPModelClass> = ArrayList()
     private var SmartIntentPSPAdapterdaa: SmartIntentPSPAdapter? = null
@@ -182,8 +182,6 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
             }else{
                 onlyPspPay()
             }
-
-
         // 70% End
 
     }

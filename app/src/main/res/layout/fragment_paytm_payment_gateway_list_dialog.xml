@@ -8,8 +8,8 @@
     android:clipToPadding="false"
     android:orientation="vertical"
     android:paddingTop="@dimen/list_item_spacing_half"
-    tools:context=".ui.PaytmPaymentGateway.PaytmPaymentGatewayFragment"
-    app:layout_behavior="@string/bottom_sheet_behavior">
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    tools:context=".ui.PaytmPaymentGateway.PaytmPaymentGatewayFragment">
 
     <LinearLayout
         android:id="@+id/main"
@@ -42,8 +42,8 @@
                     android:id="@+id/back"
                     android:layout_width="@dimen/dp30"
                     android:layout_height="@dimen/dp30"
-                    android:padding="@dimen/dp5"
                     android:layout_marginRight="@dimen/dp15"
+                    android:padding="@dimen/dp5"
                     android:src="@drawable/cancel_btn_icon"
                     app:tint="@color/black" />
 
@@ -59,24 +59,24 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Total Payble"
-                    app:fontFamily="@font/tt_demibold"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
                     android:layout_weight="1"
-                    android:gravity="center_vertical"/>
+                    android:gravity="center_vertical"
+                    android:text="Total Payble"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/tt_demibold" />
 
 
                 <TextView
                     android:id="@+id/paybleAmount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text=""
-                    app:fontFamily="@font/tt_demibold"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
                     android:layout_weight="1"
-                    android:textAlignment="textEnd" />
+                    android:text=""
+                    android:textAlignment="textEnd"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/tt_demibold" />
 
             </LinearLayout>
 
@@ -136,7 +136,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/tt_regular"
-                            android:textSize="14sp" />
+                            android:textSize="13sp" />
                     </LinearLayout>
 
                     <TextView
@@ -144,25 +144,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="bottom"
+                        android:text="101"
                         android:textColor="#313131"
                         android:textSize="14sp"
-                        android:text="101"
                         app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:layout_marginBottom="@dimen/dp10"
+                    android:background="@drawable/button_boarder_2"
+                    android:backgroundTint="@color/grey_background"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/dp15"
                     android:paddingTop="@dimen/dp10"
                     android:paddingRight="@dimen/dp15"
-                    android:background="@drawable/button_boarder_2"
-                    android:backgroundTint="@color/grey_background"
-                    android:layout_marginStart="@dimen/dp10"
-                    android:layout_marginEnd="@dimen/dp10"
-                    android:layout_marginTop="@dimen/dp10"
-                    android:layout_marginBottom="@dimen/dp10"
                     android:paddingBottom="@dimen/dp10">
 
                     <ImageView
@@ -206,7 +206,6 @@
                                     android:layout_centerVertical="true"
                                     android:layout_toEndOf="@+id/secure"
                                     android:text="wallet "
-                                    android:layout_marginStart="@dimen/dp5"
                                     android:textColor="@color/green_dark"
                                     android:textSize="16sp"
                                     android:textStyle="italic"
@@ -219,20 +218,20 @@
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
                             android:layout_gravity="center_vertical"
-                            android:textSize="13sp"
+                            android:layout_marginTop="2dp"
                             android:text="Available Balance"
+                            android:textSize="13sp"
                             app:fontFamily="@font/tt_regular" />
 
                         <TextView
                             android:id="@+id/avilable_balance"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
                             android:layout_gravity="center_vertical"
+                            android:layout_marginTop="2dp"
+                            android:textColor="@color/black"
                             android:textSize="13sp"
-                            android:textColor="@color/green_dark"
                             android:textStyle="bold"
                             app:fontFamily="@font/tt_regular" />
 
@@ -242,11 +241,11 @@
                             android:id="@+id/minimumbalance"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="#EA4C49"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/grey_dark"
                             android:textSize="13sp"
                             android:visibility="gone"
-                            android:layout_gravity="center_vertical"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
 
                     </LinearLayout>
@@ -262,8 +261,6 @@
                         android:gravity="center" />
 
                 </LinearLayout>
-
-
 
 
                 <LinearLayout
@@ -288,8 +285,8 @@
                             android:layout_marginBottom="@dimen/dp10"
                             android:layout_weight="1"
                             android:text="Pay remaining amount"
-                            android:textSize="16sp"
                             android:textColor="@color/black"
+                            android:textSize="16sp"
                             app:fontFamily="@font/tt_demibold" />
 
                         <TextView
@@ -300,8 +297,8 @@
                             android:layout_marginBottom="@dimen/dp10"
                             android:layout_weight="1"
                             android:gravity="end"
-                            android:textSize="14sp"
                             android:textColor="@color/black"
+                            android:textSize="14sp"
                             app:fontFamily="@font/tt_demibold" />
                     </LinearLayout>
 
@@ -346,8 +343,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/white"
                         android:layout_marginTop="@dimen/dp5"
+                        android:background="@color/white"
                         android:paddingLeft="@dimen/dp15"
                         android:paddingRight="@dimen/dp15">
 
@@ -428,14 +425,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:layout_marginTop="@dimen/dp20"
-        android:paddingStart="@dimen/dp10"
-        android:paddingEnd="@dimen/dp10"
-        android:paddingTop="@dimen/dp20"
-        android:paddingBottom="@dimen/dp25"
         android:background="#f2fff8"
-        android:layout_gravity="center">
+        android:gravity="center"
+        android:paddingStart="@dimen/dp10"
+        android:paddingTop="@dimen/dp20"
+        android:paddingEnd="@dimen/dp10"
+        android:paddingBottom="@dimen/dp25">
 
         <ImageView
             android:layout_width="wrap_content"

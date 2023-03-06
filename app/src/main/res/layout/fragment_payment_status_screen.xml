@@ -11,14 +11,14 @@
     android:orientation="vertical"
     tools:context=".ui.PaytmPaymentGateway.paymentStatusScreenFragment">
 
-<!--    android:id="@+id/paymentlayout"-->
+    <!--    android:id="@+id/paymentlayout"-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/paymentdetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible"
-        android:orientation="vertical"
         android:background="@color/GreenWalletBackgroundDark"
+        android:orientation="vertical"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,13 +40,13 @@
                 android:id="@+id/SuccessScreen"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/dp90"
                 android:orientation="vertical"
                 android:padding="@dimen/dp15"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginBottom="@dimen/dp90">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <androidx.core.widget.NestedScrollView
                     android:layout_width="match_parent"
@@ -857,7 +857,6 @@
                                         app:layout_constraintTop_toBottomOf="@+id/cashbackdetaild">
 
 
-
                                         <TextView
                                             android:id="@+id/CashbackAmountT"
                                             android:layout_width="match_parent"
@@ -912,8 +911,8 @@
                                                 android:id="@+id/cashbackstatusd"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="wrap_content"
-                                                android:textColor="@color/red"
                                                 android:layout_marginTop="@dimen/dp5"
+                                                android:textColor="@color/red"
                                                 android:textSize="13sp"
                                                 app:fontFamily="@font/tt_regular"
                                                 app:layout_constraintTop_toBottomOf="@+id/CashbackStatus" />
@@ -1054,7 +1053,7 @@
                                 android:text="T&amp;C Apply"
                                 android:textColor="@color/white"
                                 android:textSize="13sp"
-                                app:fontFamily="@font/tt_regular"/>
+                                app:fontFamily="@font/tt_regular" />
 
                         </LinearLayout>
 
@@ -1160,6 +1159,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
+
         <LinearLayout
             android:id="@+id/failedbtnlayout"
             android:layout_width="match_parent"
@@ -1181,8 +1181,8 @@
                 android:backgroundTint="@color/red"
                 android:text="Retry"
                 android:textAllCaps="false"
-                android:visibility="gone"
                 android:textColor="@color/white"
+                android:visibility="gone"
                 app:fontFamily="@font/tt_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

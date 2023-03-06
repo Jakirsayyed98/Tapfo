@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -261,7 +260,6 @@ class HomeScreenFragment  : BaseFragment<FragmentHomeScreenBinding>(), ApiListen
 
                 }
                 .addOnFailureListener {
-                    Toast.makeText(requireContext(), "Failed on getting current location", Toast.LENGTH_SHORT).show()
                 }
         }
 
@@ -288,8 +286,7 @@ class HomeScreenFragment  : BaseFragment<FragmentHomeScreenBinding>(), ApiListen
                     } else {
                         // permission denied
                         Location()
-                        Toast.makeText(requireContext(), "You need to grant permission to access location",
-                            Toast.LENGTH_SHORT).show()
+
                     }
                 }
             }

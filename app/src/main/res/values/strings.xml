@@ -94,7 +94,7 @@
     <string name="decline_cashback">• %s can decline cashback/rewards if the transaction is not completed in a single session after the link is activated.</string>
     <string name="are_you_sure">Are you sure want to leave ?</string>
     <string name="you_might_miss_out">You might miss out extra cashback from %s</string>
-    <string name="leave_on">LEAVE %s</string>
+    <string name="leave_on">Exit %s</string>
 
     <string name="_2_9_cashback"><b>2.9%</b>Cashback</string>
     <string name="All_pending_cashback_transactions">Your all Cashback and rewards will be credited in your fopay balance. Our merchants takes 45 to 60 days to validate the order to verify your pending cashback.</string>

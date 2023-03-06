@@ -92,9 +92,6 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(){
                     putExtra(DATA, Gson().toJson(data))
             })
         }
-
-
-
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -111,12 +108,23 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(){
         favourite=intent.getStringExtra(IS_FAVOURITE)
         cashback=intent.getStringExtra(CASHBACK)
         binding.favouriteIv.isSelected = favourite == "1"
+
         intent.getStringExtra(DATA).let {
             if (it.isNullOrEmpty().not()){
                 Gson().fromJson(it,WebTCashRes::class.java).let {
                     res = it
                     setTermsData(it)
                 }
+            }else{
+                viewModel.searchMiniApp(getUserId(),miniAppId,this,object :ApiListener<WebTCashRes,Any?>{
+                    override fun onSuccess(t: WebTCashRes?, mess: String?) {
+                        t!!.let {
+                            res = it
+                            setTermsData(it)
+                        }
+                    }
+
+                })
             }
         }
 
@@ -297,7 +305,6 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(){
         dialog.show()
     }
 
-
     private fun makeFav(favouriteIv: ImageView) {
         viewModel.miniAppFev(AppSharedPreference.getInstance(this).getUserId(), miniAppId, this,
             object : ApiListener<BaseRes, Any?> {
@@ -330,8 +337,9 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(){
             })
     }
 
-
     private fun setTermsData(it: WebTCashRes) {
+        Log.d("@@@@@",it.data.get(0).name.toString())
+
         MerchantName = it.data.get(0).name
         binding.terms1.text = getString(R.string.terms_condition_popup, MerchantName)
         binding.terms2.text = getString(R.string.cashback_credit_as_pending_,MerchantName)
@@ -340,7 +348,6 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(){
         binding.secureLine2.text = getString(R.string.this_browsing, MerchantName)
         binding.creditHours.text = it.data.get(0).merchant_payout!!.report
 //        binding.favouriteIv.isSelected = it.data.get(0).is_favourite == "1"
-
         MerchantName = MerchantName.toString()
     }
 
@@ -358,7 +365,6 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(){
         }
         return super.onKeyDown(keyCode, event)
     }
-
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -380,7 +386,6 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(){
             }
         }
     }
-
 
     @SuppressLint("MissingInflatedId")
     override fun onBackPressed() {
@@ -413,7 +418,7 @@ class WebViewActivity : BaseActivity<ActivityWebViewBinding>(){
             if (cashbackOnExit.toString().contains("null")) {
                 cashback_on_Exit.visibility = View.GONE
                 exit_tag_text.visibility = View.GONE
-                exit.text = "Leave"
+                exit.text = "Exit"
             } else {
                 cashback_on_Exit.text = cashbackOnExit
             }

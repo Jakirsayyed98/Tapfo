@@ -26,7 +26,7 @@
             android:text="Cancel Payment"
             android:textColor="@color/black"
             android:textSize="16sp"
-            app:fontFamily="@font/sans_bold" />
+            app:fontFamily="@font/tt_demibold" />
 
         <TextView
             android:layout_width="match_parent"
@@ -35,7 +35,7 @@
             android:text="Are you sure you want to cancel this payment "
             android:textColor="@color/grey_dark"
             android:textSize="14sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,7 +51,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/button_boarder_2"
                 android:backgroundTint="@color/black"
-                android:text="Cancel now"
+                android:text="Yes"
+                android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:fontFamily="@font/sans_medium" />
 
@@ -63,6 +64,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/button_boarder_2"
                 android:text="No"
+                android:textAllCaps="false"
                 android:textColor="@color/black"
                 app:fontFamily="@font/sans_medium" />
 

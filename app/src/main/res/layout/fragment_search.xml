@@ -64,7 +64,7 @@
                                 android:layout_marginStart="10dp"
                                 android:background="@color/transparent"
                                 app:fontFamily="@font/sans_medium"
-                                android:hint="Search for Stores, products or more"
+                                android:hint="Search for Stores"
                                 android:textSize="@dimen/sp16" />
 
                             <View

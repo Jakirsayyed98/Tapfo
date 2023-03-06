@@ -1,39 +1,32 @@
 package app.tapho.ui.PaytmPaymentGateway
 
 import android.annotation.SuppressLint
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.net.Uri
-import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.Handler
-import android.os.Looper
-import android.util.Log
+import android.os.*
 import android.view.View
-import android.widget.Toast
+import android.widget.RemoteViews
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.NotificationCompat
-import androidx.core.content.ContentProviderCompat.requireContext
 import app.tapho.R
 import app.tapho.databinding.ActivityTransactionProcessingPage2Binding
 import app.tapho.interfaces.ApiListener
-import app.tapho.network.MyApi
-import app.tapho.ui.ActiveCashbackForWebActivity
 import app.tapho.ui.BaseActivity
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.PaytmPaymentGateway.TransactionStatus.TransactionStatusRes
-import app.tapho.ui.RechargeService.ModelData.FinalToRecharge.Data
 import app.tapho.ui.RechargeService.ModelData.FinalToRecharge.RechargeDoneOrNotRes
 import app.tapho.ui.RechargeService.ModelData.RechargeStatus.checkRechargeStatusRes
-import app.tapho.ui.model.Popular
+import app.tapho.ui.home.HomeActivity
 import app.tapho.ui.tcash.TimePeriodDialog
-import app.tapho.ui.tcash.model.RechargeDetail
 import app.tapho.ui.tcash.model.TCashDasboardRes
-import app.tapho.ui.tcash.model.Txn
 import app.tapho.ui.walletTransactionData.addUserTransactionRes
 import app.tapho.utils.*
 import com.bumptech.glide.Glide
@@ -41,6 +34,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcessingPage2Binding>() {    private val channelID = "BitinfozCoder"
 
@@ -62,6 +56,13 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
     private val REQUEST_CODE = 981223
     lateinit var coundown: CountDownTimer
     lateinit var coundown1: CountDownTimer
+
+
+    lateinit var notificationManager: NotificationManager
+    lateinit var notificationChannel: NotificationChannel
+    lateinit var builder: Notification.Builder
+    private val channelId = "i.apps.notifications"
+    private val description = "Test notification"
 
     companion object{
         fun openContainerForPayment(
@@ -339,6 +340,7 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                             Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_done_icon).circleCrop().into(binding.rechargeStatus)
                             setToBlankData()
                             coundown1.cancel()
+                            Notificationsend(it.Status)
                             ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatuspreviewpage",t.errorCode,user_transactionId,it.Status,"Recharge",PspAppName,"2",null)
                             finish()
                         }
@@ -351,6 +353,7 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                             Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_failed_icon).circleCrop().into(binding.rechargeStatus)
                             setToBlankData()
                             coundown1.cancel()
+                            Notificationsend("Failed")
                             ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatuspreviewpage",t.errorCode,user_transactionId,it.Status,"Recharge",PspAppName,"1",null)
                             finish()
                         }
@@ -359,6 +362,7 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                             Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_failed_icon).circleCrop().into(binding.rechargeStatus)
                             setToBlankData()
                             coundown1.cancel()
+
                             ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatuspreviewpage",t.errorCode,user_transactionId,it.Status,"Recharge",PspAppName,"1",null)
                             finish()
                         }
@@ -398,6 +402,7 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                                     binding.rechargeTime.text = finalDatewithAMPM(it.recharge_detail.get(0).created_at)
                                     Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_done_icon).circleCrop().into(binding.rechargeStatus)
                                     setToBlankData()
+                                    Notificationsend(it.recharge_detail.get(0).status)
                                     ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatuspreviewpage",it.recharge_detail.get(0).status,userTransactionid,status,"Recharge",PspAppName,"2",null)
                                     finish()
                                 }
@@ -406,6 +411,7 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                                     val status = objectd.getString("Status")
                                     Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_failed_icon).circleCrop().into(binding.rechargeStatus)
                                     setToBlankData()
+                                    Notificationsend(it.recharge_detail.get(0).status)
                                     ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatuspreviewpage",it.recharge_detail.get(0).status,userTransactionid,status,"Recharge",PspAppName,"1",null)
                                     finish()
                                 }
@@ -416,6 +422,41 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                 }
             }
         })
+    }
+
+
+    fun Notificationsend(status:String) {
+        val strtitle = "Recharge for ${withSuffixAmount(Amount)} is $status"
+        val strtext = "No extra charges for mobile recharge"
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+//        val intent:Intent= Intent(this,HomeActivity::class.java)
+//        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+//        val contentView = RemoteViews(packageName, R.layout.activity_after_notification)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            notificationChannel = NotificationChannel(channelId, description, NotificationManager.IMPORTANCE_HIGH)
+            notificationChannel.enableLights(true)
+            notificationChannel.lightColor = Color.GREEN
+            notificationChannel.enableVibration(false)
+            notificationManager.createNotificationChannel(notificationChannel)
+
+            builder = Notification.Builder(this, channelId)
+                .setSmallIcon(R.drawable.app_icon)
+                .setContentTitle(strtitle)
+                .setContentText(strtext)
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.scanner_banner1))
+//                .setContentIntent(pendingIntent)
+        } else {
+
+            builder = Notification.Builder(this)
+                .setSmallIcon(R.drawable.app_icon)
+                .setContentTitle(strtitle)
+                .setContentText(strtext)
+                .setLargeIcon(BitmapFactory.decodeResource(this.resources, R.drawable.scanner_banner1))
+//                .setContentIntent(pendingIntent)
+        }
+        notificationManager.notify(1234, builder.build())
+
     }
 
 

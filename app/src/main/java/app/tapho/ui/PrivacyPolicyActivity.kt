@@ -7,8 +7,8 @@ import app.tapho.R
 import app.tapho.databinding.ActivityPrivacyPolicyBinding
 
 class PrivacyPolicyActivity : BaseActivity<ActivityPrivacyPolicyBinding>() {
-    private val PRIVACY_POLICY = "https://tapfo.in/privacy-policy/"
-    private val TERMS_CONDITION = "https://tapfo.in/terms-conditions/"
+    private val PRIVACY_POLICY = "https://sites.google.com/view/tapfo2023/home"
+    private val TERMS_CONDITION = "https://sites.google.com/view/tapfo2023/home"
 
     @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {

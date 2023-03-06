@@ -6,6 +6,7 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.Typeface
 import android.location.LocationManager
 import android.net.ConnectivityManager
@@ -27,6 +28,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.ColorInt
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.startActivity
 import androidx.core.location.LocationManagerCompat
@@ -847,6 +849,27 @@ fun bodyToString(request: RequestBody): String {
         "did not work"
     }
 }
+
+
+ fun Context.setOnCustomeCrome(url: String) {
+    val customIntent = CustomTabsIntent.Builder()
+    customIntent.setToolbarColor(ContextCompat.getColor(this, R.color.white))
+    val backbtn = BitmapFactory.decodeResource(resources, R.drawable.ic_arrow_back_black_24dp)
+    customIntent.setCloseButtonIcon(backbtn)
+    customIntent.setDefaultShareMenuItemEnabled(false)
+    customIntent.build()
+    openCustomTab(this, customIntent.build(), Uri.parse(url))
+}
+
+private fun openCustomTab(context: Context, customTabsIntent: CustomTabsIntent, Url: Uri) {
+    val packageName = "com.android.chrome"
+    customTabsIntent.intent.setPackage(packageName)
+    customTabsIntent.launchUrl(context, Url)
+
+}
+
+
+
 
 fun hasNetwork(context: Context): Boolean? {
     var isConnected: Boolean? = false // Initial Value

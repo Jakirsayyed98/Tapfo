@@ -60,8 +60,9 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentProfileDetailBinding.inflate(inflater, container, false)
-        statusBarTextWhite()
-        statusBarColor(R.color.white)
+
+        statusBarTextBlack()
+        statusBarColor(R.color.black)
         progressVisible()
 
         val runnable = object : Runnable{
@@ -85,8 +86,6 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
         _binding!!.mainLayout.visibility = View.GONE
         _binding!!.progress.visibility = View.VISIBLE
     }
-
-
 
     private fun getAllViewmodelAndData() {
         getTCashDashBoardDatViewmodel()
@@ -168,29 +167,29 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
 
     private fun setData() {
         val loginData = getSharedPreference().getLoginData()
-        Glide.with(requireContext()).load(loginData?.image).apply(
-            RequestOptions().circleCrop().placeholder(R.drawable.loding_app_icon)
-        ).into(_binding!!.profileIv)
+//        Glide.with(requireContext()).load(loginData?.image).apply(
+//            RequestOptions().circleCrop().placeholder(R.drawable.loding_app_icon)
+//        ).into(_binding!!.profileIv)
         _binding!!.name.text =requireContext().CamelCaseValue( loginData?.name!!)
-        _binding!!.mobile.text = "+91 " + loginData?.mobile_no
+        _binding!!.mobile.text = "+91-" + loginData?.mobile_no
 
         if (loginData.email.isNullOrEmpty()){
             _binding!!.email.visibility = View.GONE
         }else{
-            _binding!!.email.text = loginData.email
+            _binding!!.email.text = "  "+loginData.email
         }
 
-        if (loginData.image.isNullOrEmpty()) {
-            _binding!!.profileName.visibility = View.VISIBLE
-            _binding!!.profileIv.visibility = View.GONE
-            _binding!!.profileName.text = loginData.name
-
-        } else {
-            _binding!!.profileName.visibility = View.GONE
-            Glide.with(this).load(loginData.image).apply(
-                RequestOptions().circleCrop().placeholder(R.drawable.loding_app_icon)
-            ).into(_binding!!.profileIv)
-        }
+//        if (loginData.image.isNullOrEmpty()) {
+//            _binding!!.profileName.visibility = View.VISIBLE
+//            _binding!!.profileIv.visibility = View.GONE
+//            _binding!!.profileName.text = loginData.name
+//
+//        } else {
+//            _binding!!.profileName.visibility = View.GONE
+//            Glide.with(this).load(loginData.image).apply(
+//                RequestOptions().circleCrop().placeholder(R.drawable.loding_app_icon)
+//            ).into(_binding!!.profileIv)
+//        }
     }
 
     private fun init() {

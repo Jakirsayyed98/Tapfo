@@ -10,10 +10,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
-import android.util.Base64
 import android.util.Log
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
@@ -76,31 +74,31 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         val biometricManager = BiometricManager.from(this)
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
             BiometricManager.BIOMETRIC_SUCCESS -> {
-                Toast.makeText(applicationContext, "App can authenticate using biometrics.", Toast.LENGTH_LONG).show()
+
             }
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> {
                 splashCode()
-                Toast.makeText(applicationContext, "No biometric features available on this device.", Toast.LENGTH_LONG).show()
+
             }
             BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> {
                 splashCode()
-                Toast.makeText(applicationContext, "Biometric features are currently unavailable.", Toast.LENGTH_LONG).show()
+
             }
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
                 // Prompts the user to create credentials that your app accepts.
                 assigend="1"
-                Toast.makeText(applicationContext, "Biometric features are currently available. want to enrol", Toast.LENGTH_LONG).show()
+
                 showdialogforSetup()
 
             }
             BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED -> {
-                Toast.makeText(applicationContext, "BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED", Toast.LENGTH_LONG).show()
+
             }
             BiometricManager.BIOMETRIC_ERROR_UNSUPPORTED -> {
-                Toast.makeText(applicationContext, "BIOMETRIC_ERROR_UNSUPPORTED", Toast.LENGTH_LONG).show()
+
             }
             BiometricManager.BIOMETRIC_STATUS_UNKNOWN -> {
-                Toast.makeText(applicationContext, "BIOMETRIC_STATUS_UNKNOWN", Toast.LENGTH_LONG).show()
+
             }
         }
 
@@ -117,18 +115,18 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
                     }
                 }
 
-                Toast.makeText(applicationContext, "Authentication error: $errString", Toast.LENGTH_LONG).show()
+
             }
 
             override fun onAuthenticationSucceeded(result: BiometricPrompt.AuthenticationResult, ) {
                 super.onAuthenticationSucceeded(result)
                 splashCode()
-                Toast.makeText(applicationContext, "Authentication succeeded!", Toast.LENGTH_LONG).show()
+
             }
 
             override fun onAuthenticationFailed() {
                 super.onAuthenticationFailed()
-                Toast.makeText(applicationContext, "Authentication failed", Toast.LENGTH_LONG).show()
+
             }
         })
 

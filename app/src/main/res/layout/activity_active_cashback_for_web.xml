@@ -56,7 +56,6 @@
                 android:layout_marginEnd="@dimen/dp25"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-                android:text="000"
                 app:fontFamily="@font/tt_demibold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/favouriteIv"

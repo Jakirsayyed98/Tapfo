@@ -311,7 +311,6 @@ class ActiveCashbackForWebActivity : BaseActivity<ActivityActiveCashbackForWebBi
                     Tcashdata(t!!, name)
                     binding.alltransaction.setOnClickListener { click ->
                         ContainerActivity.openContainer(this@ActiveCashbackForWebActivity,"CashbackOrderFragment",t,false,miniAppId,"")
-//                        ContainerActivity.openWebView(this@ActiveCashbackForWebActivity, it.url, miniAppId,it)
                     }
 
                 }
@@ -356,11 +355,9 @@ class ActiveCashbackForWebActivity : BaseActivity<ActivityActiveCashbackForWebBi
         addToRecent(miniAppId.toString())
         if (UrlType.equals("1")) {
             if (tCashType.equals("1")) {
-
                 WebViewActivity.openWebView(this, webViewUrl, miniAppId, iconUrl, tCashType, favourite, textCashback,res)
                 finish()
             } else {
-
                 WebViewActivity.openWebView(this, webViewUrl, miniAppId, iconUrl, tCashType, favourite, textCashback,res)
                 finish()
             }
@@ -380,55 +377,6 @@ class ActiveCashbackForWebActivity : BaseActivity<ActivityActiveCashbackForWebBi
                 }, 2000)
             }
         }
-
-        /*
-
-        if (UrlType.equals("1")){
-          //  loadingDialog = WebviewLoadingDialog.showDialog(supportFragmentManager, iconUrl, textCashback)
-            Log.d("MiniAppID",miniAppId!!)
-            if (miniAppId.isNullOrEmpty().not()){
-                WebViewActivity.openWebView(this, webViewUrl, miniAppId, iconUrl, tCashType, favourite, textCashback, miniAppId)
-                finish()
-            }else{
-                WebViewActivity.openwebView(this, webViewUrl)
-                finish()
-            }
-
-            /*
-            kotlin.runCatching {
-                Handler(Looper.getMainLooper()).postDelayed({
-//                    binding.mainLayout.visibility = View.GONE
-                    setOnCustomeCrome(webViewUrl!!)
-                    kotlin.runCatching {
-                        Handler(Looper.getMainLooper()).postDelayed({
-                            kotlin.runCatching {
-                                loadingDialog!!.dismiss()
-                                finish()
-                            }
-                        },500)
-                    }
-                },2000)
-            }
-
-             */
-        }else{
-            loadingDialog = WebviewLoadingDialog.showDialog(supportFragmentManager, iconUrl, textCashback)
-            kotlin.runCatching {
-                Handler(Looper.getMainLooper()).postDelayed({
-                    kotlin.runCatching {
-                        setOnCustomeCrome(webViewUrl!!)
-                        Handler(Looper.getMainLooper()).postDelayed({
-                            kotlin.runCatching {
-                                loadingDialog!!.dismiss()
-                                finish()
-                            }
-                        },500)
-                    }
-                },2000)
-            }
-        }
-
-         */
     }
 
     private fun addToRecent(id:String) {

@@ -12,7 +12,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.AppCompatButton
 import app.tapho.R
@@ -276,7 +275,6 @@ class TranscationProcessingPageFragment : BaseFragment<FragmentTranscationProces
         viewModel.rechargeprocess(getUserId(),servicetype,mobileNumber,operator_id,circle_id,Amount,user_transactionId,this,object : ApiListener<RechargeDoneOrNotRes,Any?>{
             override fun onSuccess(t: RechargeDoneOrNotRes?, mess: String?) {
                 requireView().showShortSnack(t!!.errorMsg)
-                Toast.makeText(requireContext(),t.data.ErrorMessage,Toast.LENGTH_LONG).show()
                 t.let {
                     it!!.data.let {
                         if (it.Status.equals("Success")){

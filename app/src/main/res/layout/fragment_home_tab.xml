@@ -625,7 +625,7 @@
                                 <androidx.viewpager2.widget.ViewPager2
                                     android:id="@+id/popularMinibanner"
                                     android:layout_width="match_parent"
-                                    android:layout_height="210dp"
+                                    android:layout_height="180dp"
                                     android:layout_marginTop="5dp"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -892,11 +892,6 @@
                 android:layout_centerInParent="true"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:src="@drawable/interneterror" />
-
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -935,7 +930,7 @@
             android:id="@+id/noconnection"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone">
+            android:visibility="visible">
 
 
             <LinearLayout
@@ -945,23 +940,13 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:src="@drawable/interneterror" />
-
-                <View
-                    android:layout_width="@dimen/dp100"
-                    android:layout_height="1dp"
-                    android:background="@color/grey_light3"
-                    android:elevation="@dimen/dp5" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp20"
                     android:gravity="center"
-                    android:text="No Internet Connections!"
+                    android:text="It looks like you're offline"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     app:fontFamily="@font/tt_demibold" />
@@ -974,9 +959,9 @@
                     android:layout_centerInParent="true"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="Please check your internet connection and try again"
+                    android:text="check your connection and try again"
                     android:textColor="#565656"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/tt_regular" />
 
 
@@ -986,7 +971,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp20"
                     android:background="@drawable/button_boarder_3"
-                    android:backgroundTint="@color/black"
+                    android:backgroundTint="@color/green_dark"
                     android:paddingStart="@dimen/dp15"
                     android:paddingTop="@dimen/dp10"
                     android:paddingEnd="@dimen/dp15"
@@ -997,7 +982,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="@dimen/dp15"
                         android:layout_marginEnd="@dimen/dp15"
-                        android:text="TRY again"
+                        android:text="Try again"
                         android:textColor="@color/white"
                         android:textSize="16sp"
                         app:fontFamily="@font/tt_medium" />

@@ -459,7 +459,7 @@ class webViewActivity2 : BaseActivity<ActivityWebView2Binding>(), ApiListener<We
         if (cashbackOnExit.toString().equals("null")) {
             cashback_on_Exit.visibility = View.GONE
             exit_tag_text.visibility = View.GONE
-            exit.text = "Leave"
+            exit.text = "Exit"
         } else {
             cashback_on_Exit.text = cashbackOnExit
         }

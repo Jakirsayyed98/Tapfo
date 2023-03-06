@@ -14,8 +14,8 @@ android {
         applicationId "app.tapho"
         minSdkVersion 26
         targetSdkVersion 33
-        versionCode 29
-        versionName "1.6.4" // 30-01-2023
+        versionCode 30
+        versionName "1.6.5" // 06-03-2023
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

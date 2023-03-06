@@ -39,8 +39,8 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>(){
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentEditProfileBinding.inflate(inflater, container, false)
-        statusBarTextWhite()
-        statusBarColor(R.color.white)
+        statusBarTextBlack()
+        statusBarColor(R.color.black)
         _binding!!.btnUpdateProfile.isSelected = true
         init()
         return _binding?.root
@@ -83,27 +83,26 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>(){
 
 
     private fun setImage(image: String?) {
-
 //        Glide.with(this).load(image).apply(
 //            RequestOptions().circleCrop().placeholder(R.drawable.loding_app_icon)
 //        ).into(binding.profileIv)
 
-        if (loginData!!.image.isNullOrEmpty()) {
-            _binding!!.profileName.visibility = View.VISIBLE
-            _binding!!.profileIv.visibility = View.GONE
-            _binding!!.profileName.text = loginData!!.name
-
-        } else {
-            _binding!!.profileName.visibility = View.GONE
-            Glide.with(this).load(loginData!!.image).apply(
-                RequestOptions().circleCrop().placeholder(R.drawable.loding_app_icon)
-            ).into(_binding!!.profileIv)
-        }
+//        if (loginData!!.image.isNullOrEmpty()) {
+//            _binding!!.profileName.visibility = View.VISIBLE
+//            _binding!!.profileIv.visibility = View.GONE
+//            _binding!!.profileName.text = loginData!!.name
+//
+//        } else {
+//            _binding!!.profileName.visibility = View.GONE
+//            Glide.with(this).load(loginData!!.image).apply(
+//                RequestOptions().circleCrop().placeholder(R.drawable.loding_app_icon)
+//            ).into(_binding!!.profileIv)
+//        }
     }
 
     private fun updateProfile() {
         if (binding.nameEt.text!!.isEmpty()) {
-            showMess("Please enter name")
+         //   showMess("Please enter name")
             Toast.makeText(requireContext(),"Please enter name",Toast.LENGTH_SHORT).show()
         } else if (binding.emailEt.text!!.isEmpty()) {
             Toast.makeText(requireContext(),"Please enter email address",Toast.LENGTH_SHORT).show()
@@ -113,7 +112,7 @@ class EditProfileFragment : BaseFragment<FragmentEditProfileBinding>(){
     }
 
     private fun UpdateProfile() {
-        viewModel.updateProfile2(loginData?.id.toString(), binding.emailEt.text.toString(), binding.nameEt.text.toString(), if (binding.rgGender.checkedRadioButtonId == R.id.maleRb) "1" else "2", binding.birthdayEt.text.toString(),  this, object : ApiListener<LoginRes,Any?>{
+        viewModel.updateProfile2(getUserId(), binding.emailEt.text.toString(), binding.nameEt.text.toString(), "1", "",  this, object : ApiListener<LoginRes,Any?>{
             override fun onSuccess(t: LoginRes?, mess: String?) {
                     t!!.data?.let {
                         getSharedPreference().saveString(LOGIN_DATA, Gson().toJson(it[0]))

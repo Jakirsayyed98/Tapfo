@@ -30,6 +30,7 @@ import app.tapho.ui.PaytmPaymentGateway.Adapter.PSPModelClass
 import app.tapho.ui.PaytmPaymentGateway.Adapter.SmartIntentPSPAdapter
 import app.tapho.ui.intro.IntroNewAdapter
 import app.tapho.ui.intro.sliderItem
+import app.tapho.utils.setOnCustomeCrome
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
 import com.google.android.gms.vision.barcode.Barcode
@@ -132,10 +133,11 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
                         cameras.stop()
                         val textData=barcodes.valueAt(0)!!.displayValue
                         if (textData.contains("http")) {
-                            showCopyDialog(textData)
+                            this@NewScannerActivity.setOnCustomeCrome(textData)
+//                            showCopyDialog(textData)
                         }else if (textData.contains("upi://pay?pa")){
-                            setUpiPayment(textData)
-
+//                            setUpiPayment(textData)
+                            showCopyDialog(textData)
                         } else {
                             showCopyDialog(textData)
                         }
