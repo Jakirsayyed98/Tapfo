@@ -2,11 +2,15 @@ package app.tapho.utils
 
 
 import android.annotation.SuppressLint
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.graphics.Typeface
 import android.location.LocationManager
 import android.net.ConnectivityManager
@@ -147,7 +151,6 @@ fun Context.getSystemDetail(): String {
 }
 
 
-
 @SuppressLint("HardwareIds")
 fun Context.getSystemDeviceID(): String {
     return Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID)
@@ -155,7 +158,7 @@ fun Context.getSystemDeviceID(): String {
 }
 
 
-fun getGreetingMessage():String{
+fun getGreetingMessage(): String {
     val c = Calendar.getInstance()
     val hours = c.get(Calendar.HOUR_OF_DAY)
 
@@ -168,7 +171,7 @@ fun getGreetingMessage():String{
     }
 }
 
-fun getGreetingForRestro():String{
+fun getGreetingForRestro(): String {
     val c = Calendar.getInstance()
     val hours = c.get(Calendar.HOUR_OF_DAY)
 
@@ -183,29 +186,32 @@ fun getGreetingForRestro():String{
     }
 }
 
-fun Context.getOpretordata(opretorID:String): String {
-    val data= AppSharedPreference.getInstance(this).getString("ServiceOpretor"+opretorID)
+fun Context.getOpretordata(opretorID: String): String {
+    val data = AppSharedPreference.getInstance(this).getString("ServiceOpretor" + opretorID)
     return data.toString()
 }
 
-fun Context.getCircleData(opretorID:String): String {
-    val data= AppSharedPreference.getInstance(this).getString("ServiceCircle"+opretorID)
+fun Context.getCircleData(opretorID: String): String {
+    val data = AppSharedPreference.getInstance(this).getString("ServiceCircle" + opretorID)
     return data.toString()
 }
 
 
-fun setGlideImageDataNormal(context:Context,icon: ImageView,imageURL:String) {
- Glide.with(context).load(imageURL).placeholder(R.drawable.loding_app_icon).into(icon)
-}
-fun setGlideImageDataCircleCrop(context:Context,icon: ImageView,imageURL:String) {
-    Glide.with(context).load(imageURL).circleCrop().placeholder(R.drawable.loding_app_icon).into(icon)
+fun setGlideImageDataNormal(context: Context, icon: ImageView, imageURL: String) {
+    Glide.with(context).load(imageURL).placeholder(R.drawable.loding_app_icon).into(icon)
 }
 
-fun setGlideImageDataCenterCrop(context:Context,icon: ImageView,imageURL:String) {
-    Glide.with(context).load(imageURL).centerCrop().placeholder(R.drawable.loding_app_icon).into(icon)
+fun setGlideImageDataCircleCrop(context: Context, icon: ImageView, imageURL: String) {
+    Glide.with(context).load(imageURL).circleCrop().placeholder(R.drawable.loding_app_icon)
+        .into(icon)
 }
 
-fun setGlidewithbitmap(context:Context,imageURL:String,icon: ImageView):Int {
+fun setGlideImageDataCenterCrop(context: Context, icon: ImageView, imageURL: String) {
+    Glide.with(context).load(imageURL).centerCrop().placeholder(R.drawable.loding_app_icon)
+        .into(icon)
+}
+
+fun setGlidewithbitmap(context: Context, imageURL: String, icon: ImageView): Int {
     var colorcode: Int = R.color.grey_dark
     Glide.with(context).asBitmap().load(imageURL).centerCrop().into(object :
         BitmapImageViewTarget(icon) {
@@ -228,13 +234,12 @@ fun creatPaletteSync(bitmap: Bitmap): Int {
 }
 
 
-
-
 fun Context.customToastForSupport(mess: String?, isError: Boolean) {
     try {
         Toast(this).apply {
             view =
-                LayoutInflater.from(this@customToastForSupport).inflate(R.layout.support_toast_layout, null).apply {
+                LayoutInflater.from(this@customToastForSupport)
+                    .inflate(R.layout.support_toast_layout, null).apply {
                     findViewById<TextView>(R.id.toastTv).text = mess
                     backgroundTintList = ContextCompat.getColorStateList(
                         this@customToastForSupport,
@@ -270,6 +275,7 @@ fun withSuffixAmount(amount: String?): String? {
     }
     return "₹$amount"
 }
+
 fun withSuffixAmount3(amount: String?): String? {
     try {
         amount?.let {
@@ -299,11 +305,11 @@ fun withSuffixAmount2(amount: String?): String? {
                  count / 1000.0.pow(exp.toDouble()),
                  "kMGTPE"[exp - 1])*/
         }
-        return "₹$amount".replaceAfter(".","").replace(".","")
+        return "₹$amount".replaceAfter(".", "").replace(".", "")
     } catch (e: Exception) {
         e.printStackTrace()
     }
-    return "₹$amount".replaceAfter(".","").replace(".","")
+    return "₹$amount".replaceAfter(".", "").replace(".", "")
 }
 
 fun withSuffixAmount4(amount: String?): String? {
@@ -317,11 +323,11 @@ fun withSuffixAmount4(amount: String?): String? {
                  count / 1000.0.pow(exp.toDouble()),
                  "kMGTPE"[exp - 1])*/
         }
-        return "₹$amount".replaceAfter(".","").replace(".","")
+        return "₹$amount".replaceAfter(".", "").replace(".", "")
     } catch (e: Exception) {
         e.printStackTrace()
     }
-    return "₹$amount".replaceAfter(".","").replace(".","")
+    return "₹$amount".replaceAfter(".", "").replace(".", "")
 }
 
 fun roundOff(amount: String?): String {
@@ -361,8 +367,6 @@ fun roundOffAmount(amount: String?): String {
 }
 
 
-
-
 fun getSpannableCashbackText(s: String, @ColorInt color: Int): SpannableString {
     var text = s
     try {
@@ -386,7 +390,6 @@ fun getSpannableCashbackText(s: String, @ColorInt color: Int): SpannableString {
         }
     return SpannableString(text)
 }
-
 
 
 fun getSpannableCashbackTextColor(s: String, @ColorInt color: Int): SpannableString {
@@ -477,6 +480,7 @@ fun parseDate(date: String?): String? {
     }
     return date
 }
+
 fun parseDateExpire(date: String?): String? {
     try {
         if (date.isNullOrEmpty().not())
@@ -488,6 +492,7 @@ fun parseDateExpire(date: String?): String? {
     }
     return date
 }
+
 fun parseyear(date: String?): String? {
     try {
         if (date.isNullOrEmpty().not())
@@ -532,7 +537,7 @@ fun parseDateWithFullFormate(date: String?): String? {
     try {
         if (date.isNullOrEmpty().not())
             SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(date)?.let {
-     //           return SimpleDateFormat("dd MMM yyyy | hh:mm a", Locale.ENGLISH).format(it)
+                //           return SimpleDateFormat("dd MMM yyyy | hh:mm a", Locale.ENGLISH).format(it)
                 return SimpleDateFormat("hh:mm a ,dd MMM yyyy", Locale.ENGLISH).format(it)
             }
     } catch (e: Exception) {
@@ -540,7 +545,6 @@ fun parseDateWithFullFormate(date: String?): String? {
     }
     return date
 }
-
 
 
 fun parseDate3(date: String?): String? {
@@ -578,6 +582,7 @@ fun onlyDatewithMonth(date: String?): String? {
     }
     return date
 }
+
 fun onlyDatewithMonth2(date: String?): String? {
     try {
         if (date.isNullOrEmpty().not())
@@ -649,6 +654,7 @@ fun parsetime3(date: String?): String? {
     }
     return date
 }
+
 fun parseDate6(date: String?): String? {
     try {
         if (date.isNullOrEmpty().not())
@@ -702,11 +708,11 @@ fun getDate(date: String): Date? {
     return SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).parse(date)
 }
 
-fun decodeCashback(cashback : String?) : String?{
-    return URLDecoder.decode(cashback,"UTF-8")
+fun decodeCashback(cashback: String?): String? {
+    return URLDecoder.decode(cashback, "UTF-8")
 }
 
-fun LogAppData(mess: String?){
+fun LogAppData(mess: String?) {
 
 }
 
@@ -722,7 +728,7 @@ fun Context.rateApp() {
 }
 
 fun getSecretKeyFromString(key: ByteArray): SecretKey {
-    return SecretKeySpec(key, 0,key.size,"AES")
+    return SecretKeySpec(key, 0, key.size, "AES")
 }
 
 /*
@@ -773,10 +779,10 @@ fun encrypt(strToEncrypt: String): String {
     System.loadLibrary("keys")
 
     val SECRET_KEY = SecretKey()!!.toByteArray()
-    val iv =IVKey()!!.toByteArray()
+    val iv = IVKey()!!.toByteArray()
     val ivspec = IvParameterSpec(iv)
     val tmp: SecretKey = getSecretKeyFromString(SECRET_KEY)
-    val secretKey = SecretKeySpec(tmp.encoded,0,32, "AES")
+    val secretKey = SecretKeySpec(tmp.encoded, 0, 32, "AES")
 
     val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
     cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec)
@@ -793,26 +799,25 @@ fun decrypt(strToDecrypt: String?): String? {
 
 
         val SECRET_KEY = SecretKey()!!.toByteArray()
-        val iv =IVKey()!!.toByteArray()
+        val iv = IVKey()!!.toByteArray()
         val ivspec = IvParameterSpec(iv)
 
 
         val tmp: SecretKey = getSecretKeyFromString(SECRET_KEY)
-        val secretKey = SecretKeySpec(tmp.encoded,0,32, "AES")
+        val secretKey = SecretKeySpec(tmp.encoded, 0, 32, "AES")
         val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
         cipher.init(Cipher.DECRYPT_MODE, secretKey, ivspec)
         return String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)))
 
     } catch (e: java.lang.Exception) {
         e.printStackTrace()
-        return e.toString()+"1"
+        return e.toString() + "1"
     }
     return null
 }
 
 
-
-fun encrypttest(strToEncrypt: String,SECRET_KEY:SecretKey,IV:ByteArray): String {
+fun encrypttest(strToEncrypt: String, SECRET_KEY: SecretKey, IV: ByteArray): String {
 
     val ivspec = IvParameterSpec(IV)
 
@@ -824,7 +829,7 @@ fun encrypttest(strToEncrypt: String,SECRET_KEY:SecretKey,IV:ByteArray): String 
     return encode
 }
 
-fun decrypttest(strToDecrypt: String?,SECRET_KEY:SecretKey,IV:ByteArray): String? {
+fun decrypttest(strToDecrypt: String?, SECRET_KEY: SecretKey, IV: ByteArray): String? {
     try {
 
         val ivspec = IvParameterSpec(IV)
@@ -851,7 +856,7 @@ fun bodyToString(request: RequestBody): String {
 }
 
 
- fun Context.setOnCustomeCrome(url: String) {
+fun Context.setOnCustomeCrome(url: String) {
     val customIntent = CustomTabsIntent.Builder()
     customIntent.setToolbarColor(ContextCompat.getColor(this, R.color.white))
     val backbtn = BitmapFactory.decodeResource(resources, R.drawable.ic_arrow_back_black_24dp)
@@ -869,11 +874,10 @@ private fun openCustomTab(context: Context, customTabsIntent: CustomTabsIntent, 
 }
 
 
-
-
 fun hasNetwork(context: Context): Boolean? {
     var isConnected: Boolean? = false // Initial Value
-    val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    val connectivityManager =
+        context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
     val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
     if (activeNetwork != null && activeNetwork.isConnected)
         isConnected = true
@@ -926,6 +930,9 @@ fun OfflineCacheInterceptor(): Interceptor {
         }
     }
 }
+
+
+
 
 
 

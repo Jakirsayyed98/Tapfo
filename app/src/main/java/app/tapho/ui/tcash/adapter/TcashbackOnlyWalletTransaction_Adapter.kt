@@ -110,14 +110,16 @@ class TcashbackOnlyWalletTransaction_Adapter(private val clickListener: Recycler
                             walletBindig.wallet.visibility = View.GONE
                         }
 
-                        if (it.payment_amount.isNullOrEmpty().not()){
-                            if (it.amount.toDouble()<=0){
-                                walletBindig.pspAppsicon.visibility = View.GONE
-                            } else{
-                                walletBindig.pspAppsicon.visibility = View.VISIBLE
-                            }
-                        }else{
+                        if (it.payment_amount.isNullOrEmpty()){
                             walletBindig.pspAppsicon.visibility = View.GONE
+                        }else{
+                            if (it.amount.isEmpty().not()) {
+                                if (it.amount.toDouble() <= 0) {
+                                    walletBindig.pspAppsicon.visibility = View.GONE
+                                } else {
+                                    walletBindig.pspAppsicon.visibility = View.VISIBLE
+                                }
+                            }
                         }
                     }
                     if (data.recharge_detail.isEmpty().not()){

@@ -1471,7 +1471,6 @@ loadLis?.showLoader()
         val req = JsonObject().apply {
             addProperty("user_id",userid)
         }
-
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext){
                 MyApiV2().checkRechargeStatus(encrypt(req.toString())).body()?.let {

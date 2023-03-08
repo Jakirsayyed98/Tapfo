@@ -70,7 +70,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
     }
 
-
     fun checkDeviceHasBiometric() {
         val biometricManager = BiometricManager.from(this)
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {

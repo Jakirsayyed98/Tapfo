@@ -65,17 +65,6 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
         statusBarColor(R.color.black)
         progressVisible()
 
-        val runnable = object : Runnable{
-            override fun run() {
-                synchronized(this@ProfileDetailFragment) {
-                    kotlin.runCatching {
-
-                    }
-                }
-            }
-        }
-        val thread = Thread(runnable)
-        thread.start()
 
         _binding!!.vname.text = "V"+BuildConfig.VERSION_NAME
         getAllViewmodelAndData()

@@ -45,9 +45,7 @@ class FCMNotification : FirebaseMessagingService() {
 
         kotlin.runCatching {
             notification.setStyle(NotificationCompat.BigPictureStyle().bigPicture(Glide.with(this).asBitmap().load(message.data["icon"]).submit().get()))
-            notification.setLargeIcon(
-                Glide.with(this).asBitmap().load(message.data["icon1"]).submit().get()
-            )
+            notification.setLargeIcon(Glide.with(this).asBitmap().load(message.data["icon1"]).submit().get())
         }
 
 

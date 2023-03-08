@@ -121,7 +121,9 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
         val walletPay = cash_available.split(".")[0].toInt()
 
         // full Amount Reddem Code
+
 /*
+
         if (walletPay.toInt()>=Amount.toInt()){
             val PaybleAmount = 0
             getSharedPreference().saveString("WalletAmount",Amount.toString())
@@ -149,6 +151,8 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
             }
         }
 */
+
+
         // full Amount Reddem Code
 
         // 70% start
@@ -182,6 +186,7 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
             }else{
                 onlyPspPay()
             }
+
         // 70% End
 
     }
