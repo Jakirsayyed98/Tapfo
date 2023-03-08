@@ -16,7 +16,7 @@
         android:id="@+id/paymentdetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/GreenWalletBackgroundDark"
+        android:background="@color/red"
         android:orientation="vertical"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"

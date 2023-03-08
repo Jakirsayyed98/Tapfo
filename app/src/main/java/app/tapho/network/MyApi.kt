@@ -42,7 +42,7 @@ interface  MyApi {
         @Field("token") token: String,
     ): Response<LoginRes>
 
-
+/**
 
 
 //    @Multipart
@@ -57,7 +57,7 @@ interface  MyApi {
 ////        @Part image: MultipartBody.Part?,
 //    ): Response<LoginRes>
 
-
+**/
 
     @FormUrlEncoded
     @POST("supportServiceList")

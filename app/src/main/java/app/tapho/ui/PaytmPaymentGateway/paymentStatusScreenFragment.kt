@@ -58,6 +58,8 @@ class paymentStatusScreenFragment : BaseFragment<FragmentPaymentStatusScreenBind
         val statusType = activity?.intent?.getStringExtra("statusType")
         val pspnamedata = activity?.intent?.getStringExtra("pspnamedata")
         result = activity?.intent?.getStringExtra("result").toString()
+
+
         _binding!!.PaymentMode.text = pspnamedata
         setData(status, errorcode, txn_Id, statusType)
 
@@ -162,12 +164,7 @@ class paymentStatusScreenFragment : BaseFragment<FragmentPaymentStatusScreenBind
                         popularList.addAll(it!!)
                     }
                     popularList.shuffle()
-                    PopularPartnerAdapter!!.addAllItem(
-                        if (popularList.size > 3) popularList.subList(
-                            0,
-                            3
-                        ) else popularList
-                    )
+                    PopularPartnerAdapter!!.addAllItem(if (popularList.size > 3) popularList.subList(0, 3) else popularList)
                 }
             }
         })

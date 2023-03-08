@@ -12,6 +12,7 @@ import android.os.Looper
 import android.provider.Settings
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.biometric.BiometricManager
 import androidx.biometric.BiometricPrompt
@@ -73,16 +74,14 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     fun checkDeviceHasBiometric() {
         val biometricManager = BiometricManager.from(this)
         when (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
-            BiometricManager.BIOMETRIC_SUCCESS -> {
-
-            }
+//            BiometricManager.BIOMETRIC_SUCCESS -> {
+//
+//            }
             BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE -> {
                 splashCode()
-
             }
             BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE -> {
                 splashCode()
-
             }
             BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED -> {
                 // Prompts the user to create credentials that your app accepts.
@@ -91,15 +90,15 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
                 showdialogforSetup()
 
             }
-            BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED -> {
-
-            }
-            BiometricManager.BIOMETRIC_ERROR_UNSUPPORTED -> {
-
-            }
-            BiometricManager.BIOMETRIC_STATUS_UNKNOWN -> {
-
-            }
+//            BiometricManager.BIOMETRIC_ERROR_SECURITY_UPDATE_REQUIRED -> {
+//
+//            }
+//            BiometricManager.BIOMETRIC_ERROR_UNSUPPORTED -> {
+//
+//            }
+//            BiometricManager.BIOMETRIC_STATUS_UNKNOWN -> {
+//
+//            }
         }
 
         executor = ContextCompat.getMainExecutor(this)
@@ -108,9 +107,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
                 super.onAuthenticationError(errorCode, errString)
                 if (errorCode!=BiometricPrompt.ERROR_CANCELED){
                     if (assigend.equals("1").not()){
-                        finish()
+//                        finish()
+                        showdialogforSetup()
                         LogAppData(errString.toString() + errorCode)
                     }else{
+                        showdialogforSetup()
+                        Toast.makeText(this@SplashActivity,errString.toString()+"1",Toast.LENGTH_LONG).show()
                         LogAppData(errString.toString() + errorCode)
                     }
                 }
@@ -124,10 +126,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
             }
 
-            override fun onAuthenticationFailed() {
-                super.onAuthenticationFailed()
-
-            }
+//            override fun onAuthenticationFailed() {
+//                super.onAuthenticationFailed()
+//
+//            }
         })
 
 
