@@ -96,7 +96,6 @@ class paymentStatusScreenFragment : BaseFragment<FragmentPaymentStatusScreenBind
             setAllData(txn, statusType, errorcode)
         } else {
             OpenTcashDashboard()
-
         }
 
 
@@ -410,7 +409,10 @@ class paymentStatusScreenFragment : BaseFragment<FragmentPaymentStatusScreenBind
 
 
         val recharge = it.recharge_detail.get(0).api_response
-        getData(recharge)
+        if (recharge.isNullOrEmpty().not()){
+            getData(recharge)
+        }
+
 
         if (it.cashback.isNullOrEmpty().not()) {
             if (it.cashback.equals("0")) {
@@ -654,7 +656,7 @@ class paymentStatusScreenFragment : BaseFragment<FragmentPaymentStatusScreenBind
                                 }
                                 "1" -> { //success
                                     result = "2"
-                                    setData(status, errorcode, txn_Id, "Recharge")
+                                    setData("Success", errorcode, txn_Id, "Recharge")
                                     setAllData(it, "Recharge", errorcode)
                                     it.recharge_detail.get(0).let {
                                         Notificationsend("Successfull",it.amount)

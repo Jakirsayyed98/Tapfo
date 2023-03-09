@@ -97,7 +97,8 @@ class SetUpProfileActivity : BaseActivity<ActivitySetUpProfileBinding>() {
             val code = refercode.text.toString()
             if (code.isNullOrEmpty()){
                 this@SetUpProfileActivity.showMess("Please enter a valid Refer code")
-            }else{
+            }
+            else{
                 viewModel.verifyReferralCode(getUserId(),code,this,object : ApiListener<referral_code_res,Any?>{
                     override fun onSuccess(t: referral_code_res?, mess: String?) {
                         t!!.let {
@@ -107,16 +108,15 @@ class SetUpProfileActivity : BaseActivity<ActivitySetUpProfileBinding>() {
                                 binding.havearefercode.visibility = View.GONE
                                 binding.errorcodeTV.visibility = View.VISIBLE
                                 binding.errorcodeTV.setTextColor(Color.parseColor("#008D3A"))
+                                binding.havearefercode.isClickable = false
                                 startNewModel()
                                 dialog.dismiss()
-//                                this@SetUpProfileActivity.showShort("Refer code applied sucessfully")
                             }else{
                                 binding.errorcodeTV.text ="Please enter the correct referral code! "
                                 binding.errorcodeTV.setTextColor(Color.parseColor("#EF5350"))
                                 binding.errorcodeTV.visibility = View.VISIBLE
                                 refercode.setError("Please enter the correct referral code! ")
                                 dialog.dismiss()
-//                                this@SetUpProfileActivity.showShort("Please enter a valid Refer code")
                             }
                         }
                     }
@@ -138,9 +138,6 @@ class SetUpProfileActivity : BaseActivity<ActivitySetUpProfileBinding>() {
                         }
                     }
                 })
-
-
-
             }
         }
         dialog.setContentView(view)

@@ -279,7 +279,7 @@
                         android:layout_marginBottom="-10dp"
                         android:layout_marginLeft="-10dp"
                         android:layout_marginRight="-10dp"
-                        android:src="@drawable/vouchers_below_banner" />
+                        android:src="@drawable/scanner_banner1" />
 
 
                 </LinearLayout>

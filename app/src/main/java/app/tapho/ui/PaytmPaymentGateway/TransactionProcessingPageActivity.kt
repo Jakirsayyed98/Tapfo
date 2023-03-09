@@ -12,6 +12,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.net.Uri
 import android.os.*
+import android.util.Log
 import android.view.View
 import android.widget.RemoteViews
 import androidx.appcompat.widget.AppCompatButton
@@ -311,8 +312,6 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                 }
             }
         })
-
-
     }
 
     private fun processForRecharge(user_transactionId : String) {
@@ -323,14 +322,15 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
             ApiListener<RechargeDoneOrNotRes, Any?> {
             override fun onSuccess(t: RechargeDoneOrNotRes?, mess: String?) {
                 t!!.data.let {
-
+                    Log.d("RechargeData",it.toString())
                     when(it.Status.uppercase()){
+
                         "SUCCESS"->{
                             binding.rechargeTime.text = finalDatewithAMPM(it.TransactionDate)
                             Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_done_icon).circleCrop().into(binding.rechargeStatus)
                             setToBlankData()
                             coundown1.cancel()
-                            Notificationsend(it.Status)
+                            Notificationsend("Successfull")
                             ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatus",t.errorCode,user_transactionId,it.Status,"Recharge",PspAppName,"2",null)
                             finish()
                         }
@@ -340,7 +340,7 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                             Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.new_failed_icon).circleCrop().into(binding.rechargeStatus)
                             setToBlankData()
                             coundown1.cancel()
-                            Notificationsend("under processing")
+                            Notificationsend("processing")
                             ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatus",t.errorCode,user_transactionId,it.Status,"Recharge",PspAppName,"0",null)
                             finish()
 //                            getTrasactionStatusLog(user_transactionId)
@@ -359,7 +359,6 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
                             Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_failed_icon).circleCrop().into(binding.rechargeStatus)
                             setToBlankData()
                             coundown1.cancel()
-
                             ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatus",t.errorCode,user_transactionId,it.Status,"Recharge",PspAppName,"1",null)
                             finish()
                         }
@@ -372,68 +371,8 @@ class TransactionProcessingPageActivity: BaseActivity<ActivityTransactionProcess
     }
 
 
-/*
 
-    private fun getTrasactionStatusLog(userTransactionid: String) {
-        viewModel.checkRechargeStatus(getUserId(),this,object : ApiListener<checkRechargeStatusRes,Any?>{
-            override fun onSuccess(t: checkRechargeStatusRes?, mess: String?) {
-             t.let {
-                 getTrasactiondata(userTransactionid)
-             }
-            }
-        })
-    }
-
-    private fun getTrasactiondata(userTransactionid: String){
-        viewModel.getTCashDashboard(getUserId(),TimePeriodDialog.addDays(-2),TimePeriodDialog.getCurrentDate(),"2",this,object : ApiListener<TCashDasboardRes,Any?>{
-            override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                t!!.let {
-                    it.txn.forEach {
-                        if (it.id.equals(userTransactionid)){
-
-                            when (it.recharge_detail.get(0).status) {
-                                "0" -> {
-
-                                    val objectd = JSONObject(it.recharge_detail.get(0).api_response)
-                                    val status = objectd.getString("Status")
-                                    binding.rechargeTime.text = finalDatewithAMPM(it.recharge_detail.get(0).created_at)
-                                    Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.new_failed_icon).circleCrop().into(binding.rechargeStatus)
-                                    setToBlankData()
-                                    Notificationsend(it.recharge_detail.get(0).status)
-                                    ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatus",it.recharge_detail.get(0).status,userTransactionid,status,"Recharge",PspAppName,"0",it)
-                                    finish()
-//                                    getTrasactionStatusLog(userTransactionid)
-                                }
-                                "1" -> {
-                                    val objectd = JSONObject(it.recharge_detail.get(0).api_response)
-                                    val status = objectd.getString("Status")
-                                    binding.rechargeTime.text = finalDatewithAMPM(it.recharge_detail.get(0).created_at)
-                                    Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_done_icon).circleCrop().into(binding.rechargeStatus)
-                                    setToBlankData()
-                                    Notificationsend(it.recharge_detail.get(0).status)
-                                    ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatus",it.recharge_detail.get(0).status,userTransactionid,status,"Recharge",PspAppName,"2",it)
-                                    finish()
-                                }
-                                "2" -> {
-                                    val objectd = JSONObject(it.recharge_detail.get(0).api_response)
-                                    val status = objectd.getString("Status")
-                                    Glide.with(this@TransactionProcessingPageActivity).load(R.drawable.payment_failed_icon).circleCrop().into(binding.rechargeStatus)
-                                    setToBlankData()
-                                    Notificationsend(it.recharge_detail.get(0).status)
-                                    ContainerActivity.openContainerforPaymentStatus(this@TransactionProcessingPageActivity,"TransactionStatus",it.recharge_detail.get(0).status,userTransactionid,status,"Recharge",PspAppName,"1",it)
-                                    finish()
-
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-        })
-    }
-*/
-
+//    Recharge for ₹10 is under processing
     fun Notificationsend(status:String) {
         val strtitle = "Recharge for ${withSuffixAmount(Amount)} is $status"
         val strtext = "No extra charges for mobile recharge"

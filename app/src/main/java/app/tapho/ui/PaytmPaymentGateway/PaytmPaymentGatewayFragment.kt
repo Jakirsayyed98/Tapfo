@@ -150,8 +150,8 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
                 onlyPspPay()
             }
         }
-*/
 
+*/
 
         // full Amount Reddem Code
 

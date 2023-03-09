@@ -105,38 +105,21 @@ class TcashrewardsFragment : BaseFragment<FragmentTcashrewardsBinding>(),Recycle
     }
 
     fun getData(startDate: String, enddate: String, tilldate: String) {
+
         _binding!!.progress.visibility = View.VISIBLE
         _binding!!.mainLayout.visibility = View.GONE
         _binding!!.title.text = title
         mAdapter!!.clear()
-
-        val data = activity?.intent?.getStringExtra(DATA)
-
-        if (!data.isNullOrEmpty()){
-
-            val tcash = Gson().fromJson(data,TCashDasboardRes::class.java)
-            tcash!!.let {
-                it.let {
+        viewModel.getTCashDashboard(getUserId(),startDate, enddate,screenpointType,this,object : ApiListener<TCashDasboardRes,Any?>{
+            override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
+                t.let {
                     lifetimeEaning=it!!.lifetime_earning.toString()
                     _binding!!.filterChip.text = tilldate
                     tcashdashboard = it
                     setAlltextData(it)
                 }
             }
-        }else{
-            viewModel.getTCashDashboard(getUserId(),startDate, enddate,screenpointType,this,object : ApiListener<TCashDasboardRes,Any?>{
-                override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                    t.let {
-                        lifetimeEaning=it!!.lifetime_earning.toString()
-                        _binding!!.filterChip.text = tilldate
-                        tcashdashboard = it
-                        setAlltextData(it)
-                    }
-                }
-            })
-        }
-
-
+        })
     }
 
 

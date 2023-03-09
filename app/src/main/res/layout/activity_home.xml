@@ -181,7 +181,7 @@
                 android:layout_width="@dimen/dp25"
                 android:layout_height="@dimen/dp25"
                 android:contentDescription="@string/offers"
-                android:src="@drawable/news_new_icon1" />
+                android:src="@drawable/news_menu" />
 
             <TextView
                 android:layout_width="wrap_content"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@color/white"
     tools:context=".ui.intro.IntroActivity">
 
     <ImageView
@@ -29,26 +29,8 @@
         android:layout_marginBottom="20dp"
         android:background="@color/transparent"
         app:tabBackground="@drawable/tabindicater3"
-        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorColor="@color/black"
         app:tabIndicatorHeight="0dp" />
-
-<!--    <com.google.android.material.tabs.TabLayout-->
-<!--        android:id="@+id/tabLayout"-->
-<!--        android:layout_width="30dp"-->
-<!--        android:layout_height="5dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:layout_marginTop="@dimen/dp10"-->
-<!--        android:layout_marginBottom="@dimen/dp10"-->
-<!--        android:background="@color/transparent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:tabBackground="@drawable/tabindicater4"-->
-<!--        app:tabGravity="fill"-->
-<!--        app:tabIndicator="@color/orange1"-->
-<!--        app:tabIndicatorHeight="0dp"-->
-<!--        app:tabMaxWidth="0dp"-->
-<!--        app:tabMode="fixed" />-->
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -56,13 +38,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="@dimen/dp10"
-        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginStart="@dimen/dp30"
+        android:layout_marginEnd="@dimen/dp30"
         android:layout_marginBottom="@dimen/dp20"
         android:background="@drawable/introbtn"
+        android:backgroundTint="@color/black"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:text="Get Started!"
         android:textAllCaps="false"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         app:fontFamily="@font/sans_medium"
         app:cornerRadius="@dimen/dp10" />
 

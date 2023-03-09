@@ -25,7 +25,6 @@ class Tcashbackwallettransaction_Adapter(private val clickListener: RecyclerClic
         RecyclerView.ViewHolder(walletBindig.root) {
 
         fun setData(data: Txn) {
-            Log.d("RechargeLog",data.toString())
             when (data.status){
                 "0"->{
 

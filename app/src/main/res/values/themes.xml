@@ -40,12 +40,6 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
-    <style name="TextViewBold1" parent="android:Widget.TextView">
-        <item name="fontFamily">@font/sans_medium</item>
-        <item name="android:fontFamily">@font/sans_medium</item>
-        <item name="android:textColor">@color/white</item>
-    </style>
-
     <style name="TextViewNormal" parent="android:Widget.TextView">
         <item name="fontFamily">@font/sans_medium</item>
         <item name="android:fontFamily">@font/sans_medium</item>

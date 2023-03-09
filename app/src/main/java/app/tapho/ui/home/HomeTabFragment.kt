@@ -124,7 +124,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
     ): View? {
         _binding = FragmentHomeTabBinding.inflate(inflater, container, false)
 
-        welcomebackscreenFragment.newInstance(appCategoryList).show(childFragmentManager, null)
+//        welcomebackscreenFragment.newInstance(appCategoryList).show(childFragmentManager, null)
 
         favViewModel = ViewModelProvider(this).get(FavouriteViewModel::class.java)
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())

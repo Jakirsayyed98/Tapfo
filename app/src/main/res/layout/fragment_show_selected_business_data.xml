@@ -601,7 +601,7 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:scaleType="centerCrop"
-                                            android:src="@drawable/new_map_image" />
+                                            android:src="@drawable/scanner_banner1" />
 
                                     </androidx.cardview.widget.CardView>
 

@@ -182,7 +182,6 @@
     <string name="cashback_pending_from">Cashback pending from %s</string>
     <string name="cashback_pending_from2">Cashback %s from %s</string>
     <string name="forgot_passcode_ntry_with_otp">Forgot passcode \n<b>TRY WITH OTP</b></string>
-    <string name="wallet_orders_earnings_more"><![CDATA[Wallet, orders, Earnings & more]]></string>
     <string name="popular_store">Popular Store</string>
     <string name="how_it_works">How it works?</string>
     <string name="help_and_support">Help and Support</string>
@@ -202,7 +201,6 @@
 
     <string name="cashback_applied"> Cashback Applied : %s Cashback</string>
     <string name="know_more"><u>know more</u></string>
-    <string name="load_instant_cash"><u>load instant cash</u></string>
     <string name="tapfominis">Tapfo<font color="#1f9d55">Minis</font></string>
     <string name="howitwork"><u>How it works</u></string>
     <string name="by_proceeding_to_freshtohome">By Proceeding to %s. you are agreeing to merchant Terms &amp; Condition</string>

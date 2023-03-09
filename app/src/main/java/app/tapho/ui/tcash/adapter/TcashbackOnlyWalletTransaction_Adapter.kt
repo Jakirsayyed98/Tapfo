@@ -147,7 +147,8 @@ class TcashbackOnlyWalletTransaction_Adapter(private val clickListener: Recycler
                     if (data.recharge_detail.isNullOrEmpty().not()){
                         val status = data.recharge_detail.get(0).status
                         var result = ""
-                        if (status.equals("1")) result="2" else result="1"
+
+                        if (status.equals("1")) result="2" else if (status.equals("0")) result="0" else result="1"
                         walletBindig.root.setOnClickListener {
                             ContainerActivity.openContainerforPaymentStatus(itemView.context,"TransactionStatus","",data.id,status,"Recharge",data.pay_option,result,data)
                         }

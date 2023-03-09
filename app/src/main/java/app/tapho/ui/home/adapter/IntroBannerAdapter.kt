@@ -30,7 +30,7 @@ class IntroBannerAdapter  internal constructor(sliderItem: MutableList<SliderMod
 
 
         fun SliderData(SliderImageItem: SliderModelIntro){
-            Glide.with(itemView.context).load(SliderImageItem.image).placeholder(R.drawable.loding_app_icon).centerCrop()
+            Glide.with(itemView.context).load(SliderImageItem.image).placeholder(R.drawable.loding_app_icon)//.centerCrop()
                 .into(sliderItem)
 
         }

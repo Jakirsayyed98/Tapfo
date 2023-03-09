@@ -210,8 +210,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
                                         finish()
                                     } else {
                                         if (getSharedPreference().getBoolean(REACHED_HOME)) {
-//                                            ContainerActivity.openContainer(this@SplashActivity, "WelcomeBackScreen", "")
-                                            startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
+                                            ContainerActivity.openContainer(this@SplashActivity, "WelcomeBackScreen", "")
+//                                            startActivity(Intent(this@SplashActivity, HomeActivity::class.java))
                                             finish()
                                         } else
                                             startActivity(Intent(this@SplashActivity, VerifyOtpActivity::class.java))

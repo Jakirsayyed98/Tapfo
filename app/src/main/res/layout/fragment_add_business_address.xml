@@ -141,7 +141,7 @@
                             android:layout_height="@dimen/dp150"
                             android:background="@drawable/button_boarder_minicash"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/new_map_image" />
+                            />
                     </androidx.cardview.widget.CardView>
 
                     <LinearLayout

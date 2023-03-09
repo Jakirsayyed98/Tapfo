@@ -66,13 +66,16 @@ class AllTransactionFragment : BaseFragment<FragmentAllTransactionBinding>(),Rec
 
         setRecycler()
         setRecyclerForMini()
-        activity?.intent?.getStringExtra(DATA).let {
-           val data  = Gson().fromJson(it,TCashDasboardRes::class.java)
-            lifetimeEaning = data.lifetime_earning.toString()
-           setLayoutData(data)
-       }
 
+        val data = activity?.intent?.getStringExtra(DATA)
 
+        if (data.isNullOrEmpty().not()){
+            val tcash  = Gson().fromJson(data,TCashDasboardRes::class.java)
+            lifetimeEaning = tcash.lifetime_earning.toString()
+            setLayoutData(tcash)
+        }else{
+            getData(TimePeriodDialog.getDate(1,-12),TimePeriodDialog.getCurrentDate(),"till date")
+        }
 
 
         return _binding?.root
@@ -241,6 +244,12 @@ class AllTransactionFragment : BaseFragment<FragmentAllTransactionBinding>(),Rec
 
         dialog.setContentView(view)
         dialog.show()
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        getData(TimePeriodDialog.getDate(1,-12),TimePeriodDialog.getCurrentDate(),"till date")
     }
 
 

@@ -1,17 +1,9 @@
 package app.tapho.ui.intro
 
 
-import android.Manifest
-import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.os.Handler
-import android.telephony.TelephonyManager
-import android.util.Log
 import android.view.View
-import android.widget.Toast
-import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.RecyclerView
 import app.tapho.R
 import app.tapho.databinding.ActivityIntroBinding
@@ -31,22 +23,19 @@ class IntroActivity : BaseActivity<ActivityIntroBinding>() {
         super.onCreate(savedInstanceState)
         binding = ActivityIntroBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        theme?.applyStyle(R.style.TextViewBold1, true)
-        statusBarColor(R.color.black)
+//        theme?.applyStyle(R.style.TextViewNormal, true)
+        statusBarTextWhite()
+        statusBarColor(R.color.white)
         val bannerdata: MutableList<sliderItem> = ArrayList()
 
 
-        bannerdata.add(sliderItem(R.drawable.firstintro1))
-        bannerdata.add(sliderItem(R.drawable.firstintro2))
         bannerdata.add(sliderItem(R.drawable.firstintro3))
+        bannerdata.add(sliderItem(R.drawable.firstintro2))
+        bannerdata.add(sliderItem(R.drawable.firstintro1))
         setBanner(bannerdata)
 
         binding.btnContinue.setOnClickListener { startLogin() }
     }
-
-
-
-
 
     private fun setBanner(banners: MutableList<sliderItem>) {
         if (banners.isNullOrEmpty()) {
