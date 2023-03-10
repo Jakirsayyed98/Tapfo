@@ -117,6 +117,7 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
     }
 
 
+    @SuppressLint("SuspiciousIndentation")
     private fun getAndSetAllData() {
         val walletPay = cash_available.split(".")[0].toInt()
 
@@ -158,7 +159,6 @@ class PaytmPaymentGatewayFragment : BottomSheetDialogFragment(), LoaderListener 
         // 70% start
 
             if(walletPay>=1){
-
                 if (walletPay.toInt()>=Amount.toInt()){
                     val walletPayAmount = roundOffAmount(( Amount.toDouble()/100*70).toString())
                     val PaybleAmount = Amount.toDouble() - walletPayAmount.toDouble()

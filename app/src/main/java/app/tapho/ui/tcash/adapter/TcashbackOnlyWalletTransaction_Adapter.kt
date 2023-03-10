@@ -123,7 +123,12 @@ class TcashbackOnlyWalletTransaction_Adapter(private val clickListener: Recycler
                         }
                     }
                     if (data.recharge_detail.isEmpty().not()){
-                        if (data.recharge_detail.get(0).status.equals("1")){
+                        if(data.recharge_detail.get(0).status.equals("0")){
+                            walletBindig.credited.text ="processing"
+                            walletBindig.failedIcon.visibility = View.VISIBLE
+                            walletBindig.pspAppsicon.visibility = View.GONE
+                            walletBindig.credited.setTextColor(Color.parseColor("#FF7C2B"))
+                        }else if (data.recharge_detail.get(0).status.equals("1")){
                             walletBindig.credited.visibility = View.GONE
 
                         } else{
