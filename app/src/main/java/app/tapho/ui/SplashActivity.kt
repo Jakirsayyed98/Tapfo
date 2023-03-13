@@ -52,23 +52,23 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
 
         today = TimePeriodDialog.getCurrentDate().toString()
-        if (getSharedPreference().getString("ScreenLock").toString().equals("1")){
+//        if (getSharedPreference().getString("ScreenLock").toString().equals("1")){
             splashCode()
-        }else{
-            val km = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                checkDeviceHasBiometric()
-            }else{
-                val i = km.createConfirmDeviceCredentialIntent("Use Fingerprint for login", "screen_lock_desc")
-
-                startActivityForResult(i, 100)
-            }
-
-
-        }
+//        }else{
+//            val km = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
+//
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+//                checkDeviceHasBiometric()
+//            }else{
+//                val i = km.createConfirmDeviceCredentialIntent("Use Fingerprint for login", "screen_lock_desc")
+//
+//                startActivityForResult(i, 100)
+//            }
+//        }
 
     }
+
+    /*
 
     fun checkDeviceHasBiometric() {
         val biometricManager = BiometricManager.from(this)
@@ -101,6 +101,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
         }
 
         executor = ContextCompat.getMainExecutor(this)
+
         biometricPrompt = BiometricPrompt(this, executor, object : BiometricPrompt.AuthenticationCallback() {
             override fun onAuthenticationError(errorCode: Int, errString: CharSequence, ) {
                 super.onAuthenticationError(errorCode, errString)
@@ -175,7 +176,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
             dialog.show()
         }
     }
-
+*/
     private fun splashCode() {
         val app_id  = intent?.getStringExtra("app_id")
         val tag  = intent?.getStringExtra("tag")

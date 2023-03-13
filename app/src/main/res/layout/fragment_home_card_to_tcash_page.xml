@@ -184,15 +184,22 @@
                                         android:paddingBottom="@dimen/dp5"
                                         android:orientation="horizontal">
 
+                                        <ImageView
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:layout_gravity="center_vertical"
+                                            android:src="@drawable/wallet_balance" />
+
                                         <TextView
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:layout_gravity="center_vertical"
+                                            android:layout_marginStart="@dimen/dp10"
                                             android:layout_weight="1"
                                             android:text="Available balance"
                                             android:textColor="@color/black"
                                             android:textSize="16sp"
-                                            app:fontFamily="@font/tt_demibold" />
+                                            app:fontFamily="@font/tt_regular" />
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
@@ -221,49 +228,6 @@
                                                 android:textSize="@dimen/sp12"
                                                 app:fontFamily="@font/tt_light" />
                                         </LinearLayout>
-                                    </LinearLayout>
-
-                                    <View
-                                        android:layout_width="match_parent"
-                                        android:layout_height="0.8dp"
-                                        android:layout_marginTop="@dimen/dp10"
-                                        android:layout_marginBottom="@dimen/dp10"
-                                        android:background="@color/grey_dark" />
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:paddingTop="@dimen/dp5"
-                                        android:paddingBottom="@dimen/dp5"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:layout_width="25dp"
-                                            android:layout_height="25dp"
-                                            android:src="@drawable/wallet_balance" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center_vertical"
-                                            android:layout_marginStart="@dimen/dp10"
-                                            android:layout_weight="1"
-                                            android:text="Wallet balance"
-                                            android:textColor="@color/black"
-                                            android:textSize="16sp"
-                                            app:fontFamily="@font/tt_regular" />
-
-
-                                        <TextView
-                                            android:id="@+id/wallet_balance"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_weight="1"
-                                            android:text=""
-                                            android:textSize="16sp"
-                                            android:textAlignment="textEnd"
-                                            android:textColor="@color/black"
-                                            app:fontFamily="@font/tt_demibold" />
 
 
                                     </LinearLayout>

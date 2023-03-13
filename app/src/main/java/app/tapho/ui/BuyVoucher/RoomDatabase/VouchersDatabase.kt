@@ -15,12 +15,12 @@ abstract class VouchersDatabase : RoomDatabase(){
         private var INSTANCE: VouchersDatabase? =null
 
         fun getDatabase(context: Context): VouchersDatabase{
-            if (INSTANCE == null){
-                synchronized(this){
-                    INSTANCE = Room.databaseBuilder(context.applicationContext,VouchersDatabase::class.java,"vouchersdata_db").build()
-                }
-
-            }
+//            if (INSTANCE == null){
+//                synchronized(this){
+//                    INSTANCE = Room.databaseBuilder(context.applicationContext,VouchersDatabase::class.java,"vouchersdata_db").build()
+//                }
+//
+//            }
             return INSTANCE!!
         }
     }

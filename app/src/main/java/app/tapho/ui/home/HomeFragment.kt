@@ -30,16 +30,14 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import app.tapho.BuildConfig
-import app.tapho.CamelCaseValue
+import app.tapho.*
 import app.tapho.Connection.ConnectionReceiver
 import app.tapho.Connection.ConnectivityListener
-import app.tapho.R
-import app.tapho.RechargeServiceActivity
 import app.tapho.databinding.FragmentHomeBinding
 import app.tapho.interfaces.ApiListener
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.network.BaseRes
+import app.tapho.network.Resource
 import app.tapho.network.Status
 import app.tapho.ui.ActiveCashbackForWebActivity
 import app.tapho.ui.BaseFragment
@@ -61,6 +59,7 @@ import app.tapho.ui.localbizzUI.LocalBizSplashActivity
 import app.tapho.ui.merchants.adapter.CategoryTabAdapter
 import app.tapho.ui.model.*
 import app.tapho.ui.model.AllNotification.AllNotificationRes
+import app.tapho.ui.model.RoomDB.getDatabase
 import app.tapho.ui.model.UserDetails.getUserDetailRes
 import app.tapho.ui.model.mini_app_data.MiniAppsDataRes
 import app.tapho.ui.scanner.NewScannerActivity
@@ -90,9 +89,6 @@ import java.text.SimpleDateFormat
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener, ConnectivityListener {
 
 
-
-    private val channelID = "BitinfozCoder"
-
     var checkfav: String? = ""
     private val LOCATION_PERMISSION_REQ_CODE = 1000
     private lateinit var fusedLocationClient: FusedLocationProviderClient
@@ -107,7 +103,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
     private var inappupdate: AppUpdateManager? = null
     private val inAppUpdateRequest_Code = 1010
     private var itemTypeAdapter: ItemTypeAdapter? = null
-    private var partnerCashbackAdapter: HomeCashbackPartnerAdapter<BannerList>? = null
+    private var partnerCashbackAdapter: HomeCashbackPartnerAdapter<BannerList9>? = null
     private var appCategoryList: java.util.ArrayList<AppCategory>? = null
     private var popularList: java.util.ArrayList<Popular>? = null
     private var service: java.util.ArrayList<Service>? = null
@@ -134,7 +130,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
         statusBarColor(R.color.grey_v_light)
         statusBarTextWhite()
         favViewModel = ViewModelProvider(this).get(FavouriteViewModel::class.java)
-        checkConnection()
+//        checkConnection()
+        callVideoModelClass()
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
         //In App Review Code
         reviewApp(5)
@@ -167,7 +164,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
     }
 
     private fun createShortCuts() {
-        val intent : Intent = Intent(requireContext(),scanner::class.java)
+        val intent : Intent = Intent(requireContext(),NewScannerActivity::class.java)
         intent.action = Intent.ACTION_VIEW
         val shortcut = ShortcutInfoCompat.Builder(requireContext(), "id1")
             .setShortLabel("Scanner")
@@ -235,15 +232,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
     private fun getIntoMiniApps(MiniAppId : String, type: String) {
         viewModel.searchMiniApp(getUserId(),MiniAppId,this,object : ApiListener<WebTCashRes,Any?>{
             override fun onSuccess(t: WebTCashRes?, mess: String?) {
-             t!!.let {
-                 it.data.get(0).let {
+                t!!.let {
+                    it.data.get(0).let {
 //                     if (type.equals("3")){
-                         ActiveCashbackForWebActivity.openWebView(requireContext(),it.url,it.id,it.image,it.tcash,it.is_favourite,it.cashback,it.app_category_id,it.url_type,it.name)
+                        ActiveCashbackForWebActivity.openWebView(requireContext(),it.url,it.id,it.image,it.tcash,it.is_favourite,it.cashback,it.app_category_id,it.url_type,it.name)
 //                     }else {
 //                         WebViewActivityForOffer.openWebView(requireContext(),it.url,it.id,it.image,it.tcash,it.is_favourite,it.cashback,it.app_category_id)
 //                     }
-                 }
-             }
+                    }
+                }
             }
         })
     }
@@ -275,7 +272,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
         thread.start()
 
         progressVISIBLE()
-        getData()
+
+
+//        viewModel.getHomeData().observe()
+
+        getDatabase(TapfoApplication.applicationContext()).appDao().getAllDataSet().observe(viewLifecycleOwner,{
+            if (it!=null){
+                try {
+                    setData(it.get(0))
+                }catch (e :Exception){
+                    getData()
+                }
+            }else{
+                getData()
+            }
+        })
+
+
         superlinks()
         setRecyclerCashbackPartner()
 //        observeData()
@@ -447,11 +460,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
     }
 
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
-        if (isConnected) {
-            callVideoModelClass()
-        } else{
-            noInternetConnection()
-        }
+//        if (isConnected) {
+//            callVideoModelClass()
+//        } else{
+//            noInternetConnection()
+//        }
     }
 
     private fun InAppUpdate() {
@@ -550,7 +563,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
 
         getSharedPreference().getUserId().let {
             viewModel.getTCashDashboard(getUserId(), TimePeriodDialog.getDate(1, -12), TimePeriodDialog.getCurrentDate(),"2", this, object : ApiListener<TCashDasboardRes, Any?> {
-                    override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
+                override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
                     _binding!!.pendingbalance.text = withSuffixAmount(t!!.pending.toString())
                     _binding!!.availbalance.text = withSuffixAmount(t.cash_available.toString())
                     _binding!!.lifetimeearning.text = withSuffixAmount(t.lifetime_earning.toString())
@@ -570,11 +583,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
                     for (x in TempList) {
                         transaction += x
                     }
-                    }
-                })
+                }
+            })
         }
 
-     //   viewModel.getTCashDashboard1(getUserId(),TimePeriodDialog.getDate(1, -12), TimePeriodDialog.getCurrentDate(),"2")
+        //   viewModel.getTCashDashboard1(getUserId(),TimePeriodDialog.getDate(1, -12), TimePeriodDialog.getCurrentDate(),"2")
 
     }
 
@@ -671,192 +684,177 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
 
     private fun getData() {
         getSharedPreference().saveString("StartLoading","0")
-        viewModel.getHomeData("home", getUserId(), this, object :ApiListener<HomeRes,Any?>{
-            override fun onSuccess(t: HomeRes?, mess: String?) {
-                t?.let {
-                    showHome()
-                    getSharedPreference().saveString("StartLoading","1")
-                    appCategoryList = it.app_category
-                    setAppCategory(getString(R.string.more))
-
-                    tcashhistoryDataViewModel1()
-
-                    it.popular?.let {
-                        popularList = it
-                    }
-
-
-
-                    it.services?.let {
-                        recommendedDatagett(it)
-                    }
-
-                    it.popular?.let { popular ->
-                        setPopularMerchants(popular)
-                    }
-                    it.profile_detail!!.get(0).let {
-                        if (it.status.equals("0")){
-                            blockUser()
-                        }
-                    }
-                    it.profile_detail!!.get(0).let {
-                        if (it.recharge_request_pending.toDouble()>0){
-                            updateRechargeStatus()
-                        }
-                    }
-
-                    it.banner_list1?.let { bannerList1 ->
-
-                        if (bannerList1.isNullOrEmpty()) {
-                            _binding!!.banner1.visibility = View.GONE
-                            _binding!!.tabLayout.visibility = View.GONE
-                        } else {
-                            val banners : java.util.ArrayList<BannerList> = java.util.ArrayList()
-                            bannerList1.forEach {
-                                if (it.image.isNullOrEmpty().not()){
-                                    if (it.expiry_date.toString().isNullOrEmpty().not()){
-                                        val sdf = SimpleDateFormat("MM/dd/yyyy")
-                                        val currentdate = TimePeriodDialog.getCurrentDate() //: Date = sdf.parse(Calendar.DAY_OF_MONTH.toString())
-                                        val expiredate =it.expiry_date // : Date = sdf.parse(it.expiry_date.toString())
-                                        if (expiredate != null) {
-                                            if (expiredate>currentdate){
-                                                banners.add(it)
-                                            }else{
-
-                                            }
-                                        }
-
-                                    }else{
-                                        banners.add(it)
-                                    }
-                                }
-                            }
-
-                            if (banners.isNullOrEmpty()){
-                                _binding!!.banner1.visibility = View.GONE
-                                _binding!!.tabLayout.visibility = View.GONE
-                            }else{
-                                setBanner1Auto(banners)
-                            }
-
-                        }
-
-                    }
-
-                    it.banner_list10.let {bannerList1->
-                        if (bannerList1.isNullOrEmpty()) {
-                            _binding!!.promotedBanner.visibility = View.GONE
-                        } else {
-                            val banners : java.util.ArrayList<BannerList> = java.util.ArrayList()
-                            bannerList1.forEach {
-                                if (it.image.isNullOrEmpty().not()){
-                                    if (it.expiry_date.toString().isNullOrEmpty().not()){
-                                        val sdf = SimpleDateFormat("MM/dd/yyyy")
-                                        val currentdate = TimePeriodDialog.getCurrentDate() //: Date = sdf.parse(Calendar.DAY_OF_MONTH.toString())
-                                        val expiredate =it.expiry_date // : Date = sdf.parse(it.expiry_date.toString())
-                                        if (expiredate != null) {
-                                            if (expiredate>currentdate){
-                                                banners.add(it)
-                                            }else{
-                                            }
-                                        }
-
-                                    }else{
-                                        banners.add(it)
-                                    }
-
-                                }
-                            }
-
-                            if (banners.isNullOrEmpty()){
-                                _binding!!.promotedBanner.visibility = View.GONE
-                            }else{
-                                setPromotedBanners(banners)
-                            }
-
-                        }
-                    }
-
-                    it.banner_list9?.let {
-                        if (it.isNullOrEmpty()){
-                            _binding!!.explorelayout.visibility = View.GONE
-                        }else{
-                            _binding!!.explorelayout.visibility = View.VISIBLE
-                        }
-                        partnerCashbackAdapter?.addAllItem(it)
-                    }
-
-                    it.popular?.let {
-                        val miniapps : java.util.ArrayList<Popular> = java.util.ArrayList()
-                        val miniapps2 : java.util.ArrayList<Popular> = java.util.ArrayList()
-
-                        it.forEach {
-                            if (it.image.isNullOrEmpty().not()){
-                                miniapps.add(it)
+        viewModel.getHomeData().observe(viewLifecycleOwner) {
+            when (it.status) {
+                Status.LOADING -> {
+                    Log.d("HomeScreenData", "StartLoading")
+                }
+                Status.ERROR -> {
+                    Log.d("HomeScreenData", "Error")
+                }
+                Status.SUCCESS -> {
+                    it.let { data ->
+                        data.data.let {
+                            //      Log.d("MyHomeData",it!!.games.toString())
+                            if (it != null) {
+                                viewModel.insertData(HomeRes(
+                                    0, it.data, it.app_category, it.banner_list1, it.banner_list10,
+                                    it.banner_list2, it.banner_list3, it.banner_list4, it.banner_list5,
+                                    it.banner_list6, it.banner_list7, it.banner_list8, it.banner_list9,
+                                    it.headlines, it.new_cashback, it.new_cashback_merchant, it.popular,
+                                    it.profile_detail, it.promoted_app, it.super_category, it.services
+                                )
+                                )
+                                setData(it)
                             }
                         }
-
-
-                        if (miniapps.size>=4){
-                            miniapps2.addAll(miniapps.subList(0,4))
-                            setpopularMiniBanner(miniapps2)
-                        }else{
-                            setpopularMiniBanner(miniapps)
-                        }
-
                     }
-//            showHome()
                 }
             }
 
-        })
-    }
-
-
-
-    private fun CustomNotification(popular: Popular) {
-        val name = getSharedPreference().getLoginData()!!.name!!.replaceAfter(" ","").replace(" ","")
-        //     val remoteViews = RemoteViews(requireContext().getPackageName(), R.layout.customnotification)
-        val titleForNotification = "Hii "+name+" shop on "+popular.mini_app!!.name
-        val discription = "You will get assured "+popular.cashback
-        val intent = Intent(requireContext(),ActiveCashbackForWebActivity::class.java)
-
-        intent.apply {
-            putExtra(WEB_VIEW_URL, popular.mini_app!!.url)
-            putExtra(MINI_APP_ID, popular.mini_app!!.id)
-            putExtra(ICON_URL, popular.mini_app!!.image)
-            putExtra(TCASH_TYPE,  popular.mini_app!!.tcash)
-            putExtra(IS_FAVOURITE, popular.mini_app!!.is_favourite)
-            putExtra(CASHBACK, popular.cashback)
-            putExtra(APPCATEGORYID, popular.mini_app!!.app_category_id)
-            putExtra("UrlType", popular.mini_app!!.url_type)
-            putExtra("Name", name)
         }
 
-        val pIntent = PendingIntent.getActivity(requireContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
-        val notification = NotificationCompat.Builder(requireContext(),channelID)
-            .setSmallIcon(R.drawable.app_icon)
-            .setAutoCancel(true)
-            .setContentIntent(pIntent)
-            .setContentTitle(titleForNotification)
-            .setContentText(discription)
-        kotlin.runCatching {
-            notification.setLargeIcon(Glide.with(requireContext()).asBitmap().load(popular.image).submit().get())
-            notification.setStyle(NotificationCompat.BigPictureStyle().bigPicture(Glide.with(requireContext()).asBitmap().load(popular.mini_app!!.image).submit().get()))
+        viewModel.getHomeData1(getUserId())
+
+    }
+
+    private fun setData(it: HomeRes) {
+        it.let {
+            showHome()
+            getSharedPreference().saveString("StartLoading","1")
+            appCategoryList = it.app_category
+            setAppCategory(getString(R.string.more))
+
+            tcashhistoryDataViewModel1()
+
+            it.popular?.let {
+                popularList = it
+            }
+
+
+
+            it.services?.let {
+                recommendedDatagett(it)
+            }
+
+            it.popular?.let { popular ->
+                setPopularMerchants(popular)
+            }
+            it.profile_detail!!.get(0).let {
+                if (it.status.equals("0")){
+                    blockUser()
+                }
+            }
+            it.profile_detail!!.get(0).let {
+                if (it.recharge_request_pending.toDouble()>0){
+                    updateRechargeStatus()
+                }
+            }
+
+            it.banner_list1?.let { bannerList1 ->
+
+                if (bannerList1.isNullOrEmpty()) {
+                    _binding!!.banner1.visibility = View.GONE
+                    _binding!!.tabLayout.visibility = View.GONE
+                } else {
+                    val banners : java.util.ArrayList<BannerList> = java.util.ArrayList()
+                    bannerList1.forEach {
+                        if (it.image.isNullOrEmpty().not()){
+                            if (it.expiry_date.toString().isNullOrEmpty().not()){
+                                val sdf = SimpleDateFormat("MM/dd/yyyy")
+                                val currentdate = TimePeriodDialog.getCurrentDate() //: Date = sdf.parse(Calendar.DAY_OF_MONTH.toString())
+                                val expiredate =it.expiry_date // : Date = sdf.parse(it.expiry_date.toString())
+                                if (expiredate != null) {
+                                    if (expiredate>currentdate){
+                                        banners.add(it)
+                                    }else{
+
+                                    }
+                                }
+
+                            }else{
+                                banners.add(it)
+                            }
+                        }
+                    }
+
+                    if (banners.isNullOrEmpty()){
+                        _binding!!.banner1.visibility = View.GONE
+                        _binding!!.tabLayout.visibility = View.GONE
+                    }else{
+                        setBanner1Auto(banners)
+                    }
+
+                }
+
+            }
+
+            it.banner_list10.let {bannerList1->
+                if (bannerList1.isNullOrEmpty()) {
+                    _binding!!.promotedBanner.visibility = View.GONE
+                } else {
+                    val banners : java.util.ArrayList<BannerList10> = java.util.ArrayList()
+                    bannerList1.forEach {
+                        if (it.image.isNullOrEmpty().not()){
+                            if (it.expiry_date.toString().isNullOrEmpty().not()){
+                                val sdf = SimpleDateFormat("MM/dd/yyyy")
+                                val currentdate = TimePeriodDialog.getCurrentDate() //: Date = sdf.parse(Calendar.DAY_OF_MONTH.toString())
+                                val expiredate =it.expiry_date // : Date = sdf.parse(it.expiry_date.toString())
+                                if (expiredate != null) {
+                                    if (expiredate>currentdate){
+                                        banners.add(it)
+                                    }else{
+                                    }
+                                }
+
+                            }else{
+                                banners.add(it)
+                            }
+
+                        }
+                    }
+
+                    if (banners.isNullOrEmpty()){
+                        _binding!!.promotedBanner.visibility = View.GONE
+                    }else{
+                        setPromotedBanners(banners)
+                    }
+
+                }
+            }
+
+            it.banner_list9?.let {
+                if (it.isNullOrEmpty()){
+                    _binding!!.explorelayout.visibility = View.GONE
+                }else{
+                    _binding!!.explorelayout.visibility = View.VISIBLE
+                }
+                partnerCashbackAdapter?.addAllItem(it)
+            }
+
+            it.popular?.let {
+                val miniapps : java.util.ArrayList<Popular> = java.util.ArrayList()
+                val miniapps2 : java.util.ArrayList<Popular> = java.util.ArrayList()
+
+                it.forEach {
+                    if (it.image.isNullOrEmpty().not()){
+                        miniapps.add(it)
+                    }
+                }
+
+
+                if (miniapps.size>=4){
+                    miniapps2.addAll(miniapps.subList(0,4))
+                    setpopularMiniBanner(miniapps2)
+                }else{
+                    setpopularMiniBanner(miniapps)
+                }
+
+            }
+            //            showHome()
         }
-
-        val notificationmanager = requireContext().getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager?
-        //   createnotificationMagnager(notificationmanager as NotificationManager)
-
-        notificationmanager!!.notify(0, notification.build())
     }
-    fun createnotificationMagnager(manager: NotificationManager){
-        val channel = NotificationChannel(channelID,"BitinfozCoder", NotificationManager.IMPORTANCE_HIGH)
 
-        channel.description = "Tapfo App"
-        channel.enableLights(true)
-        manager.createNotificationChannel(channel)
-    }
 
     private fun setpopularMiniBanner(banners: java.util.ArrayList<Popular>) {
 
@@ -879,23 +877,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
 
 
         _binding!!.popularMinibanner.adapter = PopularBannerDataAdapter(imageList, _binding!!.popularMinibanner, object : RecyclerClickListener {
-                override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
-                    if (data is SliderModelMain2){
-                        data.let {
-                            ActiveCashbackForWebActivity.openWebView(requireContext(),it.url,it.id,it.icon,it.tcash,it.fav,it.cashback,"","","")
-                        }
-
-                    }else{
-                        if(data.toString().contains("http")){
-                            setOnCustomeCrome(data.toString(), "")
-                        }else{
-                            getWebUrlData2(data.toString(),"2")
-                        }
+            override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
+                if (data is SliderModelMain2){
+                    data.let {
+                        ActiveCashbackForWebActivity.openWebView(requireContext(),it.url,it.id,it.icon,it.tcash,it.fav,it.cashback,"","","")
                     }
 
-
+                }else{
+                    if(data.toString().contains("http")){
+                        setOnCustomeCrome(data.toString(), "")
+                    }else{
+                        getWebUrlData2(data.toString(),"2")
+                    }
                 }
-            })
+
+
+            }
+        })
 
         _binding!!.popularMinibanner.clipToPadding = false
         _binding!!.popularMinibanner.clipChildren = false
@@ -1025,7 +1023,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
             "BillsAndRecharge" -> {
 //                getSharedPreference().saveString("servicetype","1")
 //                ContainerActivity.openContainer(requireContext(), "mobile_prepaid", "")
-                        RechargeServiceActivity.openRechargeService(requireContext())
+                RechargeServiceActivity.openRechargeService(requireContext())
             }
             "MobileRecharge" -> {
                 getSharedPreference().saveString("servicetype","1")
@@ -1124,7 +1122,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
         TabLayoutMediator(_binding!!.tabLayout, _binding!!.banner1,false) { _,_ -> }.attach()
     }
 
-    private fun setPromotedBanners(promotedbanners: java.util.ArrayList<BannerList>) {
+    private fun setPromotedBanners(promotedbanners: java.util.ArrayList<BannerList10>) {
         if (promotedbanners.isNullOrEmpty()) {
             _binding!!.promotedBanner.visibility = View.GONE
         } else {
@@ -1468,7 +1466,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
         tcashhistoryDataViewModel1()
 
         val loginData = getSharedPreference().getLoginData()
-     //   HomeFragment.UserId = loginData?.unique_user_id.toString()
+        //   HomeFragment.UserId = loginData?.unique_user_id.toString()
         if (loginData?.image.isNullOrEmpty()) {
             _binding!!.profileName.visibility = View.VISIBLE
             _binding!!.profileIv.visibility = View.GONE

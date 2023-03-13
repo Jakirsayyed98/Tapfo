@@ -29,6 +29,7 @@ import app.tapho.ui.localbizzUI.LocalbizContainerActivity
 import app.tapho.ui.localbizzUI.Model.BusinessCategories.BusinessCategory
 import app.tapho.ui.localbizzUI.Model.BusinessCategories.Data
 import app.tapho.ui.model.BannerList
+import app.tapho.ui.model.BannerList4
 import app.tapho.ui.model.HomeRes
 import app.tapho.utils.isLocationEnabled
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -183,7 +184,7 @@ class HomeScreenFragment  : BaseFragment<FragmentHomeScreenBinding>(), ApiListen
         })
     }
 
-    private fun setBannerAuto(banners: ArrayList<BannerList>) {
+    private fun setBannerAuto(banners: ArrayList<BannerList4>) {
 
         if (banners.isNullOrEmpty()) {
             _binding!!.bannerlay.visibility = View.GONE

@@ -702,7 +702,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
                     setAppCategory(getString(R.string.more))
 
                     it.banner_list2.let { bannerList ->
-                        val banners: java.util.ArrayList<BannerList> = java.util.ArrayList()
+                        val banners: java.util.ArrayList<BannerList2> = java.util.ArrayList()
                         bannerList!!.forEach {
                             if (it.image.isNullOrEmpty().not()) {
                                 if (it.expiry_date.toString().isNullOrEmpty().not()) {
@@ -1055,7 +1055,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         ) { _, _ -> }.attach()
     }
 
-    private fun setPromotedBannerAuto(banners: java.util.ArrayList<BannerList>) {
+    private fun setPromotedBannerAuto(banners: java.util.ArrayList<BannerList2>) {
 
         if (banners.isNullOrEmpty()) {
             _binding!!.bannerPromoted.visibility = View.GONE

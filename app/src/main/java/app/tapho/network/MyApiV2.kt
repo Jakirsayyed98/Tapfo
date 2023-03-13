@@ -320,6 +320,7 @@ interface MyApiV2 {
     ): Response<TransactionStatusRes>
 
     /**
+
         * amount use for wallet Amount
         * payment_amount use for PSP Amount
         * type 1 Top-Up
@@ -329,7 +330,8 @@ interface MyApiV2 {
         * type 5 Gift Voucher
         * type 6 Mobile Recharge Refund
         * type 7 Mobile Recharge Cashback
-    */
+
+    **/
 
     @FormUrlEncoded
     @POST("add_user_txn")

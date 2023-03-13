@@ -1,11 +1,13 @@
 package app.tapho.network
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.instagst.ui.interfaces.LoaderListener
+import app.tapho.TapfoApplication.Companion.applicationContext
 import app.tapho.interfaces.ApiListener
 import app.tapho.ui.BuyVoucher.BuyVoucherApimodel.VoucherBuyingApiRes
 import app.tapho.ui.BuyVoucher.CategoriesModel.VoucherCategoriesViewmodelRes
@@ -51,6 +53,7 @@ import app.tapho.ui.localbizzUI.Model.getBusinessListForBusinessPerson.getBusine
 import app.tapho.ui.login.referral_Model.referral_code_res
 import app.tapho.ui.model.AllNotification.AllNotificationRes
 import app.tapho.ui.model.MinisRecentsRes
+import app.tapho.ui.model.RoomDB.getDatabase
 import app.tapho.ui.model.UserDetails.getUserDetailRes
 import app.tapho.ui.model.WebTCashRes
 import app.tapho.ui.tcash.AddMoneyPopup.AddMoneyModel.AddMoneyRes
@@ -253,6 +256,7 @@ class RequestViewModel : ViewModel() {
 
 
 
+    @SuppressLint("SuspiciousIndentation")
     fun updateProfile(
         userId: String,
         email: String,
@@ -339,34 +343,52 @@ class RequestViewModel : ViewModel() {
 
 
 
-//    private val returnList = MutableLiveData<Resource<HomeRes>>()
-//    fun getHomeData1(
-//        userid: String?,
-//    ) {
-////        this.loadLis = loadLis
-//        returnList.postValue(Resource.loading(null))
-//        try {
-//            viewModelScope.launch(setErrorHandler(loadLis)) {
-//                withContext(Dispatchers.IO) {
-//                    val response = MyApi().getHomeData(userid)
-//                    if (response.isSuccessful){
-//                        returnList.postValue(Resource.success(response.body()))
-//                    }else{
-//                        returnList.postValue(Resource.error(response.errorBody().toString(), null))
-//                    }
-//
-//                }
-//            }
-//
-//        } catch (e: Exception) {
-//            returnList.postValue(Resource.error(e.message, null))
-//        }
-//    }
-//
-//    fun getHomeData(): LiveData<Resource<HomeRes>> {
-//        return returnList
-//    }
-// //
+    private val returnList = MutableLiveData<Resource<HomeRes>>()
+    fun getHomeData1(
+        userid: String?,
+    ) {
+//        this.loadLis = loadLis
+        val req = JsonObject().apply {
+            addProperty("user_id",userid)
+        }
+        returnList.postValue(Resource.loading(null))
+        try {
+            viewModelScope.launch(setErrorHandler(loadLis)) {
+                withContext(Dispatchers.IO) {
+                    val response = MyApiV2().getHomeData(encrypt(req.toString()))
+                    if (response.isSuccessful){
+                     //   insertData(response.body()!!)
+                        returnList.postValue(Resource.success(response.body()))
+                    }else{
+                        returnList.postValue(Resource.error(response.errorBody().toString(), null))
+                    }
+
+                }
+            }
+
+        } catch (e: Exception) {
+            returnList.postValue(Resource.error(e.message, null))
+        }
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    fun insertData(model:HomeRes){
+        GlobalScope.launch {
+            getDatabase(applicationContext()).appDao().insertItems(model)
+        }
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    fun updateData(model: HomeRes){
+        GlobalScope.launch {
+            getDatabase(applicationContext()).appDao().UpdateItems(model)
+        }
+    }
+
+    fun getHomeData(): LiveData<Resource<HomeRes>> {
+        return returnList
+    }
+ //
 
     fun getHomeData(
         type: String,

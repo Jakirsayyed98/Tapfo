@@ -75,13 +75,7 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
 
              getTcashdashboard()
 
-        viewModel.get_user_detail(getUserId(),this,object : ApiListener<getUserDetailRes,Any?>{
-            override fun onSuccess(t: getUserDetailRes?, mess: String?) {
-                t!!.data.get(0).let {
-                    _binding!!.walletBalance.text = withSuffixAmount(it.wallet_amount.toString())
-                }
-            }
-        })
+
 
         QuickRecharges()
         details()

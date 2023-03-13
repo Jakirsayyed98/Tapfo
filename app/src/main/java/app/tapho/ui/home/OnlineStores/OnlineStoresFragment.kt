@@ -322,7 +322,7 @@ class OnlineStoresFragment : BaseFragment<FragmentOnlineStoresBinding>(),ApiList
                     _binding!!.banner2.visibility = View.GONE
                     _binding!!.tabLayout1.visibility = View.GONE
                 }else{
-                    val banner : ArrayList<BannerList> = ArrayList()
+                    val banner : ArrayList<BannerList2> = ArrayList()
                     banner.addAll(bannerList.shuffled())
                     setBannerAuto(bannerList)
                 }
@@ -454,7 +454,7 @@ class OnlineStoresFragment : BaseFragment<FragmentOnlineStoresBinding>(),ApiList
         }
     }
 
-    private fun setBannerAuto(banners: ArrayList<BannerList>) {
+    private fun setBannerAuto(banners: ArrayList<BannerList2>) {
 
         if (banners.isNullOrEmpty()) {
             _binding!!.banner2.visibility = View.GONE
