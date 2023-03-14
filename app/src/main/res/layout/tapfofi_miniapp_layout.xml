@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@color/white"
+    android:id="@+id/layout"
+    android:layout_marginStart="@dimen/dp2"
+    android:layout_marginEnd="@dimen/dp2"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="2dp"
+    app:cardElevation="2dp"
+    app:cardCornerRadius="20dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="5dp"
+            app:cardCornerRadius="@dimen/dp10"
+            app:cardElevation="-5dp"
+            android:layout_weight="1">
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/game_bottom_banner" />
+
+        </androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_weight="1"
+            android:layout_marginStart="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="Flipkart Axis Bank Credit Card"
+                android:ellipsize="end"
+                android:textSize="14sp"
+                app:fontFamily="@font/tt_demibold"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/k1_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/tt_regular"
+                        android:textSize="12sp"
+                        android:text="Joining fees"/>
+
+                    <TextView
+                        android:id="@+id/k1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/tt_demibold"
+                        android:text="500"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/k2_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/tt_regular"
+                        android:textSize="12sp"
+                        android:text="Annual Fees"/>
+
+                    <TextView
+                        android:id="@+id/k2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:fontFamily="@font/tt_demibold"
+                        android:text="500"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/cashbacklayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/tcoin_icon"/>
+
+                <TextView
+                    android:id="@+id/cashback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/tt_demibold"
+                    android:layout_marginStart="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="500"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFamily="@font/tt_regular"
+                    android:layout_marginStart="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="12sp"
+                    android:textColor="@color/grey_dark"
+                    android:text="Cashback on Apply"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/notes"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/dp10"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

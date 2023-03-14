@@ -1,0 +1,31 @@
+package app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp
+
+data class FinMiniApp(
+    val add_macros_url: String,
+    val banner: String,
+    val card: String,
+    val coupon_count: String,
+    val cover: String,
+    val created_at: String,
+    val description: String,
+    val fin_category_id: String,
+    val fin_sub_category_id: String,
+    val id: String,
+    val image: String,
+    val is_favourite: String,
+    val k1: String,
+    val k2: String,
+    val k3: String,
+    val k4: String,
+    val logo: String,
+    val macro_publisher: String,
+    val name: String,
+    val offer_count: String,
+    val punchline: String,
+    val status: String,
+    val url: String,
+    val url_type: String,
+    val fin_mini_app_detail: List<finminiapp_detail>,
+    val fin_merchant_payout: List<fin_merchant_payout>,
+
+)

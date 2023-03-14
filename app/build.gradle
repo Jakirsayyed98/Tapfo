@@ -47,6 +47,7 @@ android {
     buildFeatures {
         viewBinding true
     }
+    namespace 'app.tapho'
 }
 
 dependencies {

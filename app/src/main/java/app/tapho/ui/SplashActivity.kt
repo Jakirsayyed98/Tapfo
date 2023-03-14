@@ -36,9 +36,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     var today=""
     var assigend = ""
     lateinit var info: String
-    private lateinit var executor: Executor
-    private lateinit var biometricPrompt: BiometricPrompt
-    private lateinit var promptInfo: BiometricPrompt.PromptInfo
+//    private lateinit var executor: Executor
+//    private lateinit var biometricPrompt: BiometricPrompt
+//    private lateinit var promptInfo: BiometricPrompt.PromptInfo
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

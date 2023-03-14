@@ -29,6 +29,9 @@ import app.tapho.ui.RechargeService.Electricity.FinalCheckForPaymentsFragment
 import app.tapho.ui.RechargeService.MobileRechcrge.*
 import app.tapho.ui.ScanAndPay.ScanAndPayIntroFragment
 import app.tapho.ui.Stories.TapfoStoriesFragment
+import app.tapho.ui.TapfoFi.TapfoFiHomeFragment
+import app.tapho.ui.TapfoFi.TapfoFiMiniAppDetailFragment
+import app.tapho.ui.TapfoFi.TapfoFicategoryMiniAppsFragment
 import app.tapho.ui.activecashback.ActiveCashbackScreenNew.CashbackOrderFragment
 import app.tapho.ui.games.GameContainerFragment
 import app.tapho.ui.help.NeedSupportFragment
@@ -361,6 +364,19 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
     private fun init() {
         val type = intent.getStringExtra(CONTAINER_TYPE_KEY)
         when (type) {
+
+            "TapfoFiHomeFragment"->{
+                addFragment(TapfoFiHomeFragment.newInstance())
+            }
+
+            "TapfoFiMiniAppDetailFragment"->{
+                addFragment(TapfoFiMiniAppDetailFragment.newInstance())
+            }
+
+
+            "TapfoFicategoryMiniAppsFragment"->{
+                addFragment(TapfoFicategoryMiniAppsFragment.newInstance())
+            }
 
             "InitiatePaymentForVoucher" -> {
                 addFragment(InitiatePaymentForVoucherFragment.newInstance())

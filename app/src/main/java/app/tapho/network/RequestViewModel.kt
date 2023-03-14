@@ -1,7 +1,6 @@
 package app.tapho.network
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -41,6 +40,8 @@ import app.tapho.ui.RechargeService.ModelData.RechargePlans.getRechargePlans
 import app.tapho.ui.RechargeService.ModelData.RechargeServices.RechargeServiceRes
 import app.tapho.ui.RechargeService.ModelData.RechargeStatus.checkRechargeStatusRes
 import app.tapho.ui.Stories.Model.StoriesResFile
+import app.tapho.ui.TapfoFi.Model.TapfoFiCategories.TapfoFiCategories_Res
+import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.FiCategoriesMiniAppsRes
 import app.tapho.ui.localbizzUI.Model.AddRating.AddBusinessRatingRes
 import app.tapho.ui.localbizzUI.Model.BusinessCategories.BusinessCategory
 import app.tapho.ui.localbizzUI.Model.BusinessSubCategory.BusinessSubCategory
@@ -1803,5 +1804,46 @@ loadLis?.showLoader()
         }
     }
 
+
+
+    fun TapfoFiCategories(
+        user_id:String,
+        loadLis: LoaderListener?,
+        listener: ApiListener<TapfoFiCategories_Res, Any?>
+    ){
+        this.loadLis = loadLis
+//        loadLis?.showLoader()
+        val req = JsonObject().apply {
+            addProperty("user_id",user_id)
+        }
+        viewModelScope.launch(setErrorHandler(loadLis)) {
+            withContext(coroutineContext){
+                MyApiV2().TapfoFicategories(encrypt(req.toString())).body()?.let {
+                    listener.onResponse(it,loadLis)
+                }
+            }
+        }
+    }
+
+    fun TapfoFiCategoriesMiniapps(
+        user_id:String,
+        fin_category_id:String,
+        loadLis: LoaderListener?,
+        listener: ApiListener<FiCategoriesMiniAppsRes, Any?>
+    ){
+        this.loadLis = loadLis
+//        loadLis?.showLoader()
+        val req = JsonObject().apply {
+            addProperty("user_id",user_id)
+            addProperty("fin_category_id",fin_category_id)
+        }
+        viewModelScope.launch(setErrorHandler(loadLis)) {
+            withContext(coroutineContext){
+                MyApiV2().TapfoFiCategoriesMiniapps(encrypt(req.toString())).body()?.let {
+                    listener.onResponse(it,loadLis)
+                }
+            }
+        }
+    }
 
 }

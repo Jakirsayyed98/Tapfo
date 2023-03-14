@@ -51,8 +51,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
         updateFirebaseToken()
 
-//        addFragment(HomeTabFragment.newInstance())
-        addFragment(HomeFragment.newInstance())
+        addFragment(HomeTabFragment.newInstance())
+//        addFragment(HomeFragment.newInstance())
 //        addFragment(NewHomeFragment.newInstance())
 
     }

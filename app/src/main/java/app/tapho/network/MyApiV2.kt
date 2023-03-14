@@ -14,6 +14,8 @@ import app.tapho.ui.RechargeService.ModelData.RechargeOpretor.ServiceOperatorRes
 import app.tapho.ui.RechargeService.ModelData.RechargePlans.getRechargePlans
 import app.tapho.ui.RechargeService.ModelData.RechargeServices.RechargeServiceRes
 import app.tapho.ui.RechargeService.ModelData.RechargeStatus.checkRechargeStatusRes
+import app.tapho.ui.TapfoFi.Model.TapfoFiCategories.TapfoFiCategories_Res
+import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.FiCategoriesMiniAppsRes
 import app.tapho.ui.games.models.GameAddToRecent.RecentPlayList.GameRecentPlayList
 import app.tapho.ui.games.models.GameAddToRecent.addGameToRecentList
 import app.tapho.ui.games.models.GameFavandUnFav.GameFavList.getGameFavList
@@ -370,30 +372,36 @@ interface MyApiV2 {
     ): Response<AddMoneyRes>
 
 
+//    TapfoFi
+
+    @FormUrlEncoded
+    @POST("get_finCatgeory")
+    suspend fun TapfoFicategories(
+        @Field("token") token:String?,
+    ):Response<TapfoFiCategories_Res>
+
+    @FormUrlEncoded
+    @POST("get_finCatgeory_miniApp")
+    suspend fun TapfoFiCategoriesMiniapps(
+        @Field("token") token:String?,
+    ):Response<FiCategoriesMiniAppsRes>
+
+
     companion object {
 
         external fun BaseURL(): String?
 
         operator fun invoke(): MyApiV2 {
-
             System.loadLibrary("keys")
-
-
             val cacheDir = applicationContext().cacheDir
             //   val httpCacheDirectory = File(cacheDir, "offlineCache")
             val cache = Cache(cacheDir, 10 * 1024 * 1024)
-
-
             val logging = HttpLoggingInterceptor()
             val DecryptionInterceptor = DecryptionInterceptor()
-
-            val cacheOnline = CacheInterceptor()
-            val cacheOffline = OfflineCacheInterceptor()
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
             val client = OkHttpClient.Builder().apply {
                 callTimeout(30, TimeUnit.SECONDS)
                 cache(cache)
-
                 addInterceptor { chain ->
                     var request = chain.request()
                     request = if (hasNetwork(applicationContext())!!) {
@@ -401,12 +409,8 @@ interface MyApiV2 {
                     } else{
                         request.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7).build()
                 }
-
                     chain.proceed(request)
                 }
-
-//                addNetworkInterceptor(cacheOnline)
-//                addInterceptor(cacheOffline)
                 addInterceptor(DecryptionInterceptor)
 
                 if (BuildConfig.DEBUG)

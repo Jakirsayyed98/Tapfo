@@ -227,7 +227,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         }
 
         _binding!!.TapfoFi.setOnClickListener {
-            ContainerActivity.openContainer(requireContext(), "BuyGiftCard", "")
+            ContainerActivity.openContainer(requireContext(), "TapfoFiHomeFragment", "")
         }
 
         _binding!!.pendingLayout.setOnClickListener {
