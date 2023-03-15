@@ -4,6 +4,6 @@ data class FiCategoriesMiniAppsRes(
     val `data`: List<Any>,
     val errorCode: String,
     val errorMsg: String,
-    val fin_mini_app: List<FinMiniApp>,
-    val fin_sub_category: List<Any>
+    val fin_mini_app: ArrayList<FinMiniApp>,
+    val fin_sub_category: ArrayList<FinSubCategory>
 )

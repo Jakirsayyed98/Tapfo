@@ -254,9 +254,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
 //            requireContext().rateApp()
 //        }
 
-        _binding!!.search.setOnClickListener {
-            openAllPopularCashbackMerchants("1")
-        }
+
 
         _binding!!.verifiedLayout.setOnClickListener {
             ContainerActivity.openContainerforPointScreen(
@@ -507,11 +505,11 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         thread.start()
         progressVISIBLE()
         getData()
-        setMoreClicks()
+
         setRecyclerBrand()
         setRecyclerForSuperLinks()
         setFavourites(getString(R.string.more))
-
+        setMoreClicks()
 //        _binding!!.Greeting.text ="Hey, "+ getGreetingMessage()
 
     }
@@ -691,6 +689,12 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
                     openNotification(app_id!!.toString(), tag.toString(), screen_url.toString())
 
                     popularList = it.popular
+
+                    _binding!!.search.setOnClickListener {click->
+                        openAllPopularCashbackMerchants("1",it.popular!!)
+                    }
+
+
                     Superlinks!!.addAllItem(it.super_category!!)
                     if (it.super_category.isNullOrEmpty().not()) {
                         _binding!!.superlinkLayout.visibility = View.VISIBLE
@@ -815,7 +819,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         val mAdapter = RecentMinisAdapter<MiniApp>(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
                 if (type == "MiniAppFragment")
-                    openAllPopularCashbackMerchants("2")
+                   // openAllPopularCashbackMerchants("2")
                 else if (type == OPEN_WEB_VIEW && data is MiniApp) {
                     data.let {
                         ActiveCashbackForWebActivity.openWebView(
@@ -855,22 +859,17 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         }
     }
 
-    private fun openAllPopularCashbackMerchants(type: String) {
-        val list = java.util.ArrayList<Popular>()
-        popularList?.let {
-            list.addAll(it)
-        }
+    fun openAllPopularCashbackMerchants(type: String,list : ArrayList<Popular>) {
+//        val list = java.util.ArrayList<Popular>()
+//        popularList?.let {
+//            list.addAll(it)
+//        }
         if (type == "1")
         //  openContainer("MiniAppSearch", list, false, "data.name")
             SearchDialogFragment.showSearch(childFragmentManager, list)
         //    SearchFragment.showSearch(childFragmentManager, list)
         else
-            openContainer(
-                getString(R.string.popular_merchants),
-                list,
-                true,
-                getString(R.string.popular_merchants)
-            )
+            openContainer(getString(R.string.popular_merchants), list, true, getString(R.string.popular_merchants))
     }
 
     private fun setPromotedApps(list: ArrayList<PromotedApp>) {
@@ -938,7 +937,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
 //
 //                }else{
                 if (type == "MiniAppFragment")
-                    openAllPopularCashbackMerchants("2")
+//                    openAllPopularCashbackMerchants("2")
                 else if (type == OPEN_WEB_VIEW && data is MiniApp) {
                     data.let {
                         ActiveCashbackForWebActivity.openWebView(

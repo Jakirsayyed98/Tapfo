@@ -202,6 +202,33 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
                     putExtra(DATA, Gson().toJson(data))
             })
         }
+
+        fun openContainer(
+            context: Context?,
+            type: String?,
+            data: Any?,
+            data1: Any?,
+            isOldData: Boolean,
+            title: String?,
+        ) {
+            context?.startActivity(Intent(context, ContainerActivity::class.java).apply {
+                putExtra(CONTAINER_TYPE_KEY, type)
+                putExtra(SET_OLD_DATA, isOldData)
+                putExtra(TITLE, title)
+
+                if (data is Bundle)
+                    putExtras(data)
+                else if (data != null)
+                    putExtra(DATA, Gson().toJson(data))
+
+
+                if (data1 is Bundle)
+                    putExtras(data1)
+                else if (data1 != null)
+                    putExtra(DATA1, Gson().toJson(data1))
+
+            })
+        }
         fun openContainerForTransaction(
             context: Context?,
             type: String?,

@@ -80,44 +80,48 @@
                 android:orientation="vertical"
                 android:padding="@dimen/dp10">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="250dp"
-                    app:cardCornerRadius="10dp">
 
-                    <ImageView
-                        android:id="@+id/card"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/scanner_banner1" />
-                </androidx.cardview.widget.CardView>
+                <ImageView
+                    android:id="@+id/card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/scanner_banner1" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/sub_category"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/button_boarder_2"
+                        android:backgroundTint="@color/black"
+                        android:padding="5dp"
+                        android:text="CREDITCARD"
+                        android:textColor="@color/white"
+                        android:textSize="13sp"
+                        app:fontFamily="@font/tt_regular" />
 
                     <TextView
                         android:id="@+id/popular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:background="@color/green_dark"
-                        android:padding="8dp"
-                        android:text="Popular CREDIT CARD"
+                        android:layout_marginStart="10dp"
+                        android:layout_toEndOf="@+id/sub_category"
+                        android:background="@drawable/button_boarder_2"
+                        android:backgroundTint="@color/green_dark"
+                        android:padding="5dp"
+                        android:text="Promoted"
                         android:textColor="@color/white"
+                        android:textSize="12sp"
                         app:fontFamily="@font/tt_regular" />
 
-
-                    <ImageView
-                        android:id="@+id/logo"
-                        android:layout_width="100dp"
-                        android:layout_height="40dp"
-                        android:layout_alignParentTop="true"
-                        android:layout_alignParentEnd="true"
-                        android:src="@drawable/ic_paytm_logo" />
 
 
                 </RelativeLayout>
@@ -128,39 +132,52 @@
                     android:layout_marginTop="20dp"
                     android:orientation="horizontal">
 
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true"
+                        android:src="@drawable/gmap_logo"/>
+
                     <TextView
                         android:id="@+id/nameTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
                         android:layout_alignParentTop="true"
-                        android:text="Popular CREDIT CARD"
+                        android:layout_toEndOf="@+id/image"
+                        android:layout_marginStart="15dp"
+                        android:text="Membership benefits"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="22sp"
                         app:fontFamily="@font/tt_demibold" />
-
 
 
                 </RelativeLayout>
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/button_boarder_2"
+                    android:backgroundTint="#1F09B73E"
+                    android:orientation="horizontal"
+                    android:padding="13dp">
 
                     <LinearLayout
                         android:id="@+id/k1_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:layout_marginStart="5dp"
                         android:orientation="vertical">
+
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Joining fees"
-                            android:textSize="14sp"
+                            android:text="Joining fees*"
+                            android:textSize="13sp"
                             app:fontFamily="@font/tt_regular" />
 
                         <TextView
@@ -168,7 +185,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="500"
-                            android:textSize="18sp"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/tt_demibold" />
                     </LinearLayout>
 
@@ -176,15 +194,14 @@
                         android:id="@+id/k2_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
                         android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Annual Fees"
-                            android:textSize="14sp"
+                            android:text="Annual Fees*"
+                            android:textSize="12sp"
                             app:fontFamily="@font/tt_regular" />
 
                         <TextView
@@ -192,63 +209,69 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="500"
-                            android:textSize="18sp"
+                            android:layout_marginTop="5dp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/tt_demibold" />
                     </LinearLayout>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center_vertical"
-                        android:src="@drawable/tcoin_icon"/>
-
-                    <TextView
-                        android:id="@+id/cashback"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/cashback_layout"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:fontFamily="@font/tt_demibold"
-                        android:layout_marginStart="5dp"
-                        android:textSize="18sp"
-                        android:layout_gravity="center_vertical"
-                        android:text="500"/>
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:fontFamily="@font/tt_regular"
-                        android:layout_marginStart="5dp"
-                        android:layout_gravity="center_vertical"
-                        android:textSize="16sp"
-                        android:textColor="@color/grey_dark"
-                        android:text="Cashback on Apply"/>
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/apply_earn_upto"
+                            android:textSize="12sp"
+                            app:fontFamily="@font/tt_regular" />
+
+                        <LinearLayout
+                            android:id="@+id/cashbacklayout"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/tcoin_icon" />
+
+                            <TextView
+                                android:id="@+id/cashback"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="5dp"
+                                android:textSize="16sp"
+                                android:text="500"
+                                app:fontFamily="@font/tt_demibold" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
-                    android:text="Benefits"
+                    android:layout_marginTop="20dp"
+                    android:text="Membership benefits"
                     android:textColor="@color/black"
-                    android:layout_marginTop="10dp"
                     android:textSize="20sp"
-                    app:fontFamily="@font/tt_demibold" />
-
+                    app:fontFamily="@font/tt_medium" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/notes"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="50dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingTop="@dimen/dp10"/>
+                    android:layout_marginBottom="80dp"
+                    android:paddingTop="@dimen/dp10" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
@@ -275,19 +298,17 @@
         android:id="@+id/Apply"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="@dimen/dp10"
         android:background="@drawable/login_btn1"
         android:backgroundTint="@color/black"
         android:text="Apply now"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="@dimen/dp10"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/mainlayout"
-         />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

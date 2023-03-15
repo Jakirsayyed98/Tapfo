@@ -19,9 +19,8 @@ class TapfoFiNotesAdapter<S>(private val clickListener: RecyclerClickListener) :
     inner class Holder(private val binding: PointNotesLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
         fun setData(s: S) {
             if (s is finminiapp_detail){
-               binding.nameTv.text = s.detail
+               binding.nameTv.text = s.detail.replace(" Rs."," ₹").replace(" rs"," ₹").replace(" INR"," ₹").replace(" Rs"," ₹")
             }
-
         }
 
     }

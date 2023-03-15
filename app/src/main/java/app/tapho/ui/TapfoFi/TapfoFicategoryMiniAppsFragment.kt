@@ -16,6 +16,7 @@ import app.tapho.ui.TapfoFi.Adapter.TapfoFiMiniAppsAdapter
 import app.tapho.ui.TapfoFi.Model.TapfoFiCategories.Data
 import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.FiCategoriesMiniAppsRes
 import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.FinMiniApp
+import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.FinSubCategory
 import app.tapho.utils.DATA
 import app.tapho.utils.setOnCustomeCrome
 import com.google.gson.Gson
@@ -24,6 +25,7 @@ import com.google.gson.Gson
 class TapfoFicategoryMiniAppsFragment : BaseFragment<FragmentTapfoFicategoryMiniAppsBinding>(){
 
     var title = ""
+    var subCategory : ArrayList<FinSubCategory>?=null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -63,24 +65,27 @@ class TapfoFicategoryMiniAppsFragment : BaseFragment<FragmentTapfoFicategoryMini
     private fun callViewModelForList(it: Data?) {
         viewModel.TapfoFiCategoriesMiniapps(getUserId(),it!!.id,this,object :ApiListener<FiCategoriesMiniAppsRes,Any?>{
             override fun onSuccess(t: FiCategoriesMiniAppsRes?, mess: String?) {
-                t!!.fin_mini_app.let {
+                t!!.let {
                     mainlayout()
-                    setLayoutData(it)
+                    subCategory = it.fin_sub_category
+                    setLayoutData(it.fin_mini_app)
                 }
             }
-
         })
-
-
     }
 
-    private fun setLayoutData(it: List<FinMiniApp>) {
+    private fun setLayoutData(it: ArrayList<FinMiniApp>) {
         val TapfoFiMiniAppsAdapter = TapfoFiMiniAppsAdapter<FinMiniApp>(object :RecyclerClickListener{
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
                 if (data is FinMiniApp){
+                    subCategory!!.forEach {
+                        if (data.fin_sub_category_id == it.id){
+                            ContainerActivity.openContainer(requireContext(),"TapfoFiMiniAppDetailFragment",data,it,false,title)
+                        }else{
+                            ContainerActivity.openContainer(requireContext(),"TapfoFiMiniAppDetailFragment",data,null,false,title)
+                        }
+                    }
 
-                    ContainerActivity.openContainer(requireContext(),"TapfoFiMiniAppDetailFragment",data,false,title)
-//                    requireContext().setOnCustomeCrome(data.url)
                 }
             }
         })
@@ -102,7 +107,6 @@ class TapfoFicategoryMiniAppsFragment : BaseFragment<FragmentTapfoFicategoryMini
     }
 
     companion object {
-
         @JvmStatic
         fun newInstance() =
             TapfoFicategoryMiniAppsFragment().apply {

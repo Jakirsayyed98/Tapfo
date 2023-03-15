@@ -13,17 +13,17 @@ import app.tapho.ui.BaseFragment
 import app.tapho.ui.TapfoFi.Adapter.TapfoFiNotesAdapter
 import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.FiCategoriesMiniAppsRes
 import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.FinMiniApp
+import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.FinSubCategory
 import app.tapho.ui.TapfoFi.Model.TapfoFiCategoriesMiniapp.finminiapp_detail
-import app.tapho.utils.DATA
-import app.tapho.utils.TITLE
-import app.tapho.utils.setOnCustomeCrome
-import app.tapho.utils.withSuffixAmount
+import app.tapho.utils.*
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 
 
 class TapfoFiMiniAppDetailFragment : BaseFragment<FragmentTapfoFiMiniAppDetailBinding>() {
 
+
+    var subCategory : ArrayList<FinSubCategory>? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,12 +39,25 @@ class TapfoFiMiniAppDetailFragment : BaseFragment<FragmentTapfoFiMiniAppDetailBi
         _binding = FragmentTapfoFiMiniAppDetailBinding.inflate(inflater,container,false)
         statusBarColor(R.color.black)
         statusBarTextBlack()
+
+
+
+
         val data = activity?.intent?.getStringExtra(DATA)
         _binding!!.title.text = activity?.intent?.getStringExtra(TITLE).toString()
         if (data.isNullOrEmpty().not()){
             Gson().fromJson(data, FinMiniApp::class.java).let {
                 setlayoutData(it)
             }
+        }
+
+        val data1 = activity?.intent?.getStringExtra(DATA1)
+        if (!data1.isNullOrEmpty()){
+            Gson().fromJson(data1,FinSubCategory::class.java).let {
+                _binding!!.subCategory.text = it.name
+            }
+        }else{
+            _binding!!.subCategory.visibility = View.GONE
         }
         _binding!!.backbtn.setOnClickListener {
             activity?.onBackPressedDispatcher?.onBackPressed()
@@ -58,11 +71,14 @@ class TapfoFiMiniAppDetailFragment : BaseFragment<FragmentTapfoFiMiniAppDetailBi
             progress.visibility = View.GONE
             if(it!!.card.isNullOrEmpty().not()){
                 Glide.with(requireContext()).load(it.card).into(card)
+            }else{
+                card.visibility = View.GONE
             }
-            if(it.logo.isNullOrEmpty().not()){
-                Glide.with(requireContext()).load(it.logo).into(logo)
+            if(it.image.isNullOrEmpty().not()){
+                Glide.with(requireContext()).load(it.image).circleCrop().into(image)
+            }else{
+                image.visibility = View.GONE
             }
-
 
             if (it.k1.isNullOrEmpty()){
                 k1Layout.visibility = View.GONE
@@ -76,12 +92,9 @@ class TapfoFiMiniAppDetailFragment : BaseFragment<FragmentTapfoFiMiniAppDetailBi
             k2.text = withSuffixAmount(it.k2)
             if (it.fin_merchant_payout.isNullOrEmpty().not()){
                 binding.cashback.text =withSuffixAmount(it.fin_merchant_payout.get(0).cashback)
+//                popular.visibility = if (it.fin_merchant_payout.get(0).popular_cashback.equals("1")) View.VISIBLE else View.GONE
             }
-            if (!it.fin_merchant_payout.get(0).popular_cashback.isNullOrEmpty()){
-                popular.visibility = if (it.fin_merchant_payout.get(0).popular_cashback.equals("1")) View.VISIBLE else View.GONE
-            }else{
-                popular.visibility = View.GONE
-            }
+
 
             Apply.setOnClickListener { click->
                 requireContext().setOnCustomeCrome(it.url)

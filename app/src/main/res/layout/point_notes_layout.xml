@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="15dp"
+    android:layout_marginTop="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
@@ -26,7 +26,7 @@
             android:layout_marginStart="10dp"
             android:text="@string/cashback_offer_is_active_for_a_limited_time"
             android:textSize="14sp"
-            android:textColor="@color/grey_dark"
+            android:textColor="#454545"
             app:fontFamily="@font/tt_regular" />
 
     </LinearLayout>
