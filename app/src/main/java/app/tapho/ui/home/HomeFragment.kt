@@ -2,9 +2,6 @@ package app.tapho.ui.home
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.*
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -20,7 +17,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.app.ActivityCompat
-import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.pm.ShortcutInfoCompat
 import androidx.core.content.pm.ShortcutManagerCompat
@@ -37,15 +33,12 @@ import app.tapho.databinding.FragmentHomeBinding
 import app.tapho.interfaces.ApiListener
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.network.BaseRes
-import app.tapho.network.Resource
 import app.tapho.network.Status
 import app.tapho.ui.ActiveCashbackForWebActivity
 import app.tapho.ui.BaseFragment
 import app.tapho.ui.BuyVoucher.VouchersActivity
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.MiniCash.Adapter.MerchantsDataAdapter
-import app.tapho.ui.RechargeService.ModelData.RechargeCircle.RechargeCircle
-import app.tapho.ui.RechargeService.ModelData.RechargeOpretor.ServiceOperatorRes
 import app.tapho.ui.RechargeService.ModelData.RechargeStatus.checkRechargeStatusRes
 import app.tapho.ui.Stories.Adapter.StoriesAdapter
 import app.tapho.ui.Stories.Model.StoriesResFile
@@ -59,11 +52,8 @@ import app.tapho.ui.localbizzUI.LocalBizSplashActivity
 import app.tapho.ui.merchants.adapter.CategoryTabAdapter
 import app.tapho.ui.model.*
 import app.tapho.ui.model.AllNotification.AllNotificationRes
-import app.tapho.ui.model.RoomDB.getDatabase
-import app.tapho.ui.model.UserDetails.getUserDetailRes
-import app.tapho.ui.model.mini_app_data.MiniAppsDataRes
+import app.tapho.RoomDB.getDatabase
 import app.tapho.ui.scanner.NewScannerActivity
-import app.tapho.ui.scanner.scanner
 import app.tapho.ui.tcash.TimePeriodDialog
 import app.tapho.ui.tcash.model.TCashDasboardRes
 import app.tapho.utils.*

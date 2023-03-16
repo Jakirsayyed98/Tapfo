@@ -2,11 +2,7 @@ package app.tapho.ui.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import androidx.room.TypeConverter
-import androidx.room.TypeConverters
 import app.tapho.network.BaseRes
-import app.tapho.ui.games.models.getGames.Data
-import app.tapho.ui.model.RoomDB.RoomConverters
 
 @Entity
 class HomeRes(

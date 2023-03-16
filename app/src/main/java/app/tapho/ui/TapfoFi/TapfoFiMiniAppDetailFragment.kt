@@ -84,6 +84,12 @@ class TapfoFiMiniAppDetailFragment : BaseFragment<FragmentTapfoFiMiniAppDetailBi
                 k1Layout.visibility = View.GONE
             }
 
+            if (it.fin_merchant_payout.isNullOrEmpty().not()) {
+                binding.cashback.text = withSuffixAmount(it.fin_merchant_payout.get(0).cashback)
+            } else {
+                binding.cashbacklayout.visibility = View.GONE
+            }
+
             if (it.k2.isNullOrEmpty()){
                 k2Layout.visibility = View.GONE
             }

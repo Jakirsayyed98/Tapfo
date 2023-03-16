@@ -2,11 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" tools:ignore="ProtectedPermissions" />
+    <uses-permission
+        android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -15,8 +16,12 @@
     <uses-permission android:name="android.permission.READ_PHONE_NUMBERS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
@@ -43,13 +48,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme_Tapfo"
-        android:usesCleartextTraffic="true" >
-
-   
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".ui.scanner.ScanCart.BarcodeScannerForProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.scanner.ScanCart.ContainerForProductActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.TapfoFood.TapfoFoodContainerActivity"
-            android:exported="false" >
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ui.ScanAndPay.ScanAndPayPaymentProcessingActivity"
             android:exported="false" /> <!-- android:theme="@style/Theme_Tapfo" -->
@@ -61,7 +69,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.SplashActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -114,7 +122,7 @@
             android:exported="false" />
         <activity
             android:name=".ui.MiniCash.UI.MiniCashSplashActivity"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.tapfo.MiniEarnActivitySplash" />
 
@@ -123,7 +131,7 @@
         </activity>
         <activity
             android:name=".ui.home.WebViewActivityForOffer"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.tapfo.ui.home.WebViewActivityForOffer" />
 
@@ -136,9 +144,9 @@
         <activity
             android:name=".ui.webViewActivity2"
             android:exported="false" />
-        <activity
-            android:name=".ui.activecashback.ActiveCashbackScreenNew.ActiveCashbackActivity"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".ui.activecashback.ActiveCashbackScreenNew.ActiveCashbackActivity"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".ui.News.NewsWebViewActivity"
             android:exported="false" />
@@ -154,7 +162,7 @@
         <activity
             android:name=".ui.home.OfferRedeemWebViewActivity"
             android:exported="false"
-            tools:ignore="Instantiatable" >
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="com.tapfo.OfferRedeemWebViewActivity" />
 
@@ -163,7 +171,7 @@
         </activity>
         <activity
             android:name=".ui.games.GameWebViewActivity"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.tapfo.redirectScreen.Games" />
 
@@ -172,7 +180,7 @@
         </activity>
         <activity
             android:name=".ui.scanner.scanner"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.tapfo.ScannerNotificationAction" />
 
@@ -182,7 +190,7 @@
         <activity android:name=".ui.PrivacyPolicyActivity" />
         <activity
             android:name=".ui.ContainerActivity"
-            android:exported="false" >
+            android:exported="false">
             <intent-filter>
                 <action android:name="com.tapfo.ui.ContainerActivity" />
 
@@ -192,7 +200,7 @@
         <!-- android:launchMode="singleTask" -->
         <activity
             android:name=".ui.WebViewActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.tapfo.ui.WebViewActivity" />
 
@@ -209,10 +217,16 @@
             android:authorities="${applicationId}.com.vansuita.pickimage.provider"
             android:exported="false"
             android:grantUriPermissions="true"
-            tools:replace="android:authorities" >
+            tools:replace="android:authorities">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/picker_provider_paths" />
+
+
+            <meta-data
+                android:name="com.google.android.gms.vision.DEPENDENCIES"
+                android:value="barcode" />
+
         </provider> <!-- [START firebase_service] -->
         <!-- <service -->
         <!-- android:name=".push.FCMService" -->
@@ -224,7 +238,7 @@
         <service
             android:name=".push.FCMNotification"
             android:exported="false"
-            android:permission="com.google.android.c2dm.permission.Send" >
+            android:permission="com.google.android.c2dm.permission.Send">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
                 <action android:name="com.google.android.c2dm.intent.Reciever" />
@@ -233,7 +247,7 @@
         <service
             android:name=".ServiceData.SmsBroadCastReciver"
             android:exported="false"
-            tools:ignore="Instantiatable" >
+            tools:ignore="Instantiatable">
             <intent-filter>
                 <action android:name="android.intent.action.RESPOND_VIA_MESSAGE" />
             </intent-filter>

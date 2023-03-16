@@ -215,7 +215,7 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:id="@+id/cashback_layout"
+                        android:id="@+id/cashbacklayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -229,7 +229,7 @@
                             app:fontFamily="@font/tt_regular" />
 
                         <LinearLayout
-                            android:id="@+id/cashbacklayout"
+
                             android:layout_width="match_parent"
                             android:layout_marginTop="5dp"
                             android:layout_height="wrap_content">

@@ -54,9 +54,10 @@ import app.tapho.ui.localbizzUI.Model.getBusinessListForBusinessPerson.getBusine
 import app.tapho.ui.login.referral_Model.referral_code_res
 import app.tapho.ui.model.AllNotification.AllNotificationRes
 import app.tapho.ui.model.MinisRecentsRes
-import app.tapho.ui.model.RoomDB.getDatabase
+import app.tapho.RoomDB.getDatabase
 import app.tapho.ui.model.UserDetails.getUserDetailRes
 import app.tapho.ui.model.WebTCashRes
+import app.tapho.ui.scanner.model.TapfoMartProductRes
 import app.tapho.ui.tcash.AddMoneyPopup.AddMoneyModel.AddMoneyRes
 import app.tapho.ui.tcash.model.AddMoneyVoucers.AddWalletVoucherRes
 import app.tapho.ui.walletTransactionData.addUserTransactionRes
@@ -1840,6 +1841,28 @@ loadLis?.showLoader()
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext){
                 MyApiV2().TapfoFiCategoriesMiniapps(encrypt(req.toString())).body()?.let {
+                    listener.onResponse(it,loadLis)
+                }
+            }
+        }
+    }
+
+
+ fun TapfoMartsearchBarcodeproduct(
+        user_id:String,
+        barcode:String,
+        loadLis: LoaderListener?,
+        listener: ApiListener<TapfoMartProductRes, Any?>
+    ){
+        this.loadLis = loadLis
+        loadLis?.showLoader()
+        val req = JsonObject().apply {
+            addProperty("user_id",user_id)
+            addProperty("barcode",barcode)
+        }
+        viewModelScope.launch(setErrorHandler(loadLis)) {
+            withContext(coroutineContext){
+                MyApiV2().TapfoMartsearchBarcodeproduct(encrypt(req.toString())).body()?.let {
                     listener.onResponse(it,loadLis)
                 }
             }

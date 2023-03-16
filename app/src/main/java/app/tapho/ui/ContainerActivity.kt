@@ -725,7 +725,6 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
 
     private fun addFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
-
     }
 
     fun setTitlec(title: String?) {

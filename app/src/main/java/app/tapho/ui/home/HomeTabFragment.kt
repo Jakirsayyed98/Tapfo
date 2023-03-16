@@ -64,6 +64,7 @@ import app.tapho.ui.localbizzUI.LocalBizSplashActivity
 import app.tapho.ui.model.*
 import app.tapho.ui.model.AllNotification.AllNotificationRes
 import app.tapho.ui.scanner.NewScannerActivity
+import app.tapho.ui.scanner.ScanCart.ContainerForProductActivity
 import app.tapho.ui.scanner.scanner
 import app.tapho.ui.tcash.TimePeriodDialog
 import app.tapho.ui.tcash.model.TCashDasboardRes
@@ -159,7 +160,8 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         _binding!!.Greeting.text = "Hey, " + getGreetingMessage()
 
         _binding!!.favouritesBtn.setOnClickListener {
-            ContainerActivity.openContainer(requireContext(), "favouritesBtn", "", false, "")
+            ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment",null,false,"")
+//            ContainerActivity.openContainer(requireContext(), "favouritesBtn", "", false, "")
         }
 
         _binding!!.reProfile.setOnClickListener {
@@ -173,7 +175,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
     }
 
     private fun createShortCuts() {
-        val intent: Intent = Intent(requireContext(), NewScannerActivity::class.java)
+        val intent: Intent = Intent(requireContext(), scanner::class.java)
         intent.action = Intent.ACTION_VIEW
         val shortcut = ShortcutInfoCompat.Builder(requireContext(), "id1")
             .setShortLabel("Scanner")

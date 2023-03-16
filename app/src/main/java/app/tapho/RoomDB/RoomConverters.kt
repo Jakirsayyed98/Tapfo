@@ -1,4 +1,4 @@
-package app.tapho.ui.model.RoomDB
+package app.tapho.RoomDB
 
 import androidx.room.TypeConverter
 import app.tapho.ui.games.models.getGames.Data
@@ -11,20 +11,11 @@ class RoomConverters {
     @TypeConverter
     fun listtojsonAppcategory(value:ArrayList<AppCategory>?) =Gson().toJson(value)
 
-//    @TypeConverter
-//    fun jsontolistAppCategory(value : String) = Gson().fromJson(value,AppCategory::class.java)
-
-
     @TypeConverter
     fun formString(listOfString: String?):ArrayList<AppCategory>?{
         return Gson().fromJson(listOfString, object : TypeToken<List<AppCategory?>?>() {}.type)
     }
 
-//    @TypeConverter
-//    fun fromArrayList(listdata:ArrayList<AppCategory>):String{
-//        return Gson().toJson(listdata)
-//    }
-//
     @TypeConverter
     fun formAnyString(listOfString: String?):ArrayList<Any>?{
         return Gson().fromJson(listOfString, object : TypeToken<List<Any?>?>() {}.type)
@@ -34,6 +25,7 @@ class RoomConverters {
     fun fromArrayAnyList(listdata:ArrayList<Any>):String{
         return Gson().toJson(listdata)
     }
+
 
     @TypeConverter
     fun formBanner1String(listOfString: String?):ArrayList<BannerList>?{
@@ -190,17 +182,6 @@ class RoomConverters {
         return Gson().toJson(listdata)
     }
 
-//    @TypeConverter
-//    fun formcCashbackMerchantString(listOfString: String?):ArrayList<CashbackMerchant>?{
-//        return Gson().fromJson(listOfString, object : TypeToken<List<String?>?>() {}.type)
-//    }
-//
-//
-//    @TypeConverter
-//    fun fromArrayCashbackMerchantList(listdata:ArrayList<CashbackMerchant>):String{
-//        return Gson().toJson(listdata)
-//    }
-
  @TypeConverter
     fun formcPopularString(listOfString: String?):ArrayList<Popular>?{
         return Gson().fromJson(listOfString, object : TypeToken<List<Popular?>?>() {}.type)
@@ -211,19 +192,6 @@ class RoomConverters {
     fun fromArrayPopularList(listdata:ArrayList<Popular>):String{
         return Gson().toJson(listdata)
     }
-
-
-//@TypeConverter
-//    fun formcMiniAppString(listOfString: String?):ArrayList<MiniApp>?{
-//        return Gson().fromJson(listOfString, object : TypeToken<List<String?>?>() {}.type)
-//    }
-//
-//
-//    @TypeConverter
-//    fun fromArrayMiniAppList(listdata:ArrayList<MiniApp>):String{
-//        return Gson().toJson(listdata)
-//    }
-
 
     @TypeConverter
     fun formcprofileString(listOfString: String?):ArrayList<app.tapho.ui.model.UserDetails.Data>?{

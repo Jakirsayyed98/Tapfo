@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.scanner.ScanCart.BarcodeScannerForProductActivity">
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/scanner_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:autoFocusButtonColor="@color/white"
+        app:flashButtonColor="@color/white"
+        app:frameColor="@color/screenGreen"
+        app:frameCornersRadius="50dp"
+        app:frameSize="0.75"
+        app:frameThickness="@dimen/dp10"
+        app:maskColor="#4F0A0A0A" />
+
+    <TextView
+        android:id="@+id/mycart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="end"
+        android:text="My Cart"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:fontFamily="@font/sans_medium" />
+
+
+
+</RelativeLayout>

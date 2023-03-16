@@ -1,35 +1,34 @@
 package app.tapho.ui.scanner
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.content.pm.ResolveInfo
 import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 import android.util.SparseArray
 import android.view.SurfaceHolder
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import app.tapho.R
+import app.tapho.RoomDB.getDatabase
 import app.tapho.databinding.ActivityNewScannerBinding
-import app.tapho.interfaces.RecyclerClickListener
+import app.tapho.interfaces.ApiListener
 import app.tapho.ui.BaseActivity
-import app.tapho.ui.PaytmPaymentGateway.Adapter.PSPModelClass
-import app.tapho.ui.PaytmPaymentGateway.Adapter.SmartIntentPSPAdapter
 import app.tapho.ui.intro.IntroNewAdapter
 import app.tapho.ui.intro.sliderItem
+import app.tapho.ui.scanner.ScanCart.BarcodeScannerForProductActivity
+import app.tapho.ui.scanner.ScanCart.ContainerForProductActivity
+import app.tapho.ui.scanner.model.Data
+import app.tapho.ui.scanner.model.TapfoMartProductRes
+import app.tapho.ui.tcash.DirectPaytmTransaction.StartPaymentprocessingActivity
 import app.tapho.utils.setOnCustomeCrome
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
@@ -37,23 +36,26 @@ import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.io.IOException
 
 
 class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
 
-    val BHIM_UPI = "in.org.npci.upiapp"
-    val GOOGLE_PAY = "com.google.android.apps.nbu.paisa.user"
-    val PHONE_PE = "com.phonepe.app"
-    val PAYTM = "net.one97.paytm"
-    val upiApps = listOf<String>(PAYTM, GOOGLE_PAY, PHONE_PE, BHIM_UPI)
-    private val REQUEST_CODE = 125
 
     val REQUEST_CAMERA_PERMISSION = 201
     val sliderHandler= Handler(Looper.getMainLooper())
-    companion object{
 
+    companion object{
+        fun openContainer(
+            context: Context
+        ){
+            context.startActivity(Intent(context,NewScannerActivity::class.java))
+        }
     }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +65,7 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         statusBarTextblack()
         initialiseDetectorsAndSources()
 
+
         val bannerdata: MutableList<sliderItem> = ArrayList()
         bannerdata.add(sliderItem(R.drawable.scanner_banner1))
         bannerdata.add(sliderItem(R.drawable.scanner_banner2))
@@ -70,6 +73,12 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         binding.cancel.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
+         binding.mycart.setOnClickListener {
+             ContainerForProductActivity.openContainer(this@NewScannerActivity,"ProductCartFragment","",false,"")
+
+         }
+
+
 
         Setbannerdata(bannerdata)
         setPager()
@@ -77,6 +86,7 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
 
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     fun initialiseDetectorsAndSources(){
         val barcodeDetector = BarcodeDetector.Builder(this)
             .setBarcodeFormats(Barcode.ALL_FORMATS)
@@ -131,109 +141,49 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
                 if (barcodes.size() != 0) {
                     runOnUiThread {
                         cameras.stop()
-                        val textData=barcodes.valueAt(0)!!.displayValue
+                        val textData=barcodes.valueAt(0)!!.displayValue.toString()
                         if (textData.contains("http")) {
                             this@NewScannerActivity.setOnCustomeCrome(textData)
-//                            showCopyDialog(textData)
-                        }else if (textData.contains("upi://pay?pa")){
-//                            setUpiPayment(textData)
-                            showCopyDialog(textData)
+                        }else if (textData.contains("tapfo")){
+                            startActivity(Intent(this@NewScannerActivity,BarcodeScannerForProductActivity::class.java))
+                         /*
+                         }else if (textData.contains("[0-9]".toRegex())){
+                            viewModel.TapfoMartsearchBarcodeproduct(getUserId(),textData,this@NewScannerActivity,object :ApiListener<TapfoMartProductRes,Any?>{
+                                override fun onSuccess(t: TapfoMartProductRes?, mess: String?) {
+                                    t!!.data.let {
+                                        if (it.isNullOrEmpty().not()){
+                                            GlobalScope.launch {
+                                                val Product = getDatabase(this@NewScannerActivity).appDao().ProductByBarcodeISExist(it.get(0).barcode)
+                                                if (Product){
+                                                    GlobalScope.launch {
+                                                        getDatabase(this@NewScannerActivity).appDao().getProductByBarcode(it.get(0).barcode).let {
+                                                            GlobalScope.launch {
+                                                                getDatabase(this@NewScannerActivity).appDao().UpdateProductToCart(it.buyingQty.toInt()+1,it.barcode)
+                                                            }
+                                                        }
+                                                    }
+                                                }else{
+                                                    GlobalScope.launch {
+                                                        getDatabase(this@NewScannerActivity).appDao().AddPRoductToCart(Data(it.get(0).id,1,it.get(0).barcode,it.get(0).created_at,it.get(0).description,it.get(0).image,it.get(0).mrp_price,it.get(0).name,it.get(0).qty,it.get(0).sale_price,it.get(0).sku,it.get(0).status,it.get(0).user_id))
+                                                    }
+                                                }
+                                            }
+                                        }else{
+                                            Toast.makeText(this@NewScannerActivity,"Product Not Fond"+textData,Toast.LENGTH_LONG).show()
+                                        }
+                                    }
+                                }
+
+                            })
+*/
                         } else {
                             showCopyDialog(textData)
                         }
-
                     }
-
                 }
             }
         })
 
-    }
-
-
-    @SuppressLint("MissingInflatedId")
-    private fun setUpiPayment(textData: String) {
-        val dialog  = BottomSheetDialog(this)
-        val view = layoutInflater.inflate(R.layout.upi_apps_list, null)
-        dialog.setCancelable(true)
-        val rv: RecyclerView = view.findViewById(R.id.PSPApps)
-        setRVforPSP(rv,textData)
-        dialog.setContentView(view)
-        dialog.show()
-    }
-
-    private fun setRVforPSP(PSPRv: RecyclerView,DeeplInkURI: String) {
-
-        val uri = Uri.Builder()
-            .scheme("upi")
-            .authority("pay")
-            .appendQueryParameter("pa", "9221065740-2@okbizaxis")
-            .appendQueryParameter("pn", "ASGAR HUSSAIN SAYYED")
-            .appendQueryParameter("mc", "4121")
-            .appendQueryParameter("tr", "BCR2DN6TZ6Z7LP2B")
-            .appendQueryParameter("tn", "Transaction Check")
-            .appendQueryParameter("am", "1")
-            .appendQueryParameter("cu", "INR")
-
-            .build()
-//            .appendQueryParameter("url", "your-transaction-url")
-
-        val SmartIntentPSPAdapterdaa = SmartIntentPSPAdapter(object : RecyclerClickListener {
-            override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
-                Log.d("DeepLink",DeeplInkURI)
-
-                val intent = Intent(Intent.ACTION_VIEW)
-                intent.data = uri
-                intent.setPackage(data.toString())
-                startActivityForResult(intent, REQUEST_CODE)
-
-            }
-
-        }).apply {
-            for (i in upiApps.indices) {
-                val p = upiApps[i]
-                if (isAppInstalled(p) == true &&isAppUpiReady(p)) {
-                    addItem(PSPModelClass(p, false))
-                }
-            }
-
-        }
-        PSPRv.apply {
-            layoutManager = GridLayoutManager(this@NewScannerActivity, 4)
-            adapter = SmartIntentPSPAdapterdaa
-        }
-    }
-    
-    fun isAppInstalled(packageName: String): Boolean {
-        val pm = this.getPackageManager()
-        try {
-            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-            return true;
-        } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace()
-        }
-        return false;
-    }
-
-    fun isAppUpiReady(packageName: String): Boolean {
-        var appUpiReady = false
-        val upiIntent = Intent(Intent.ACTION_VIEW, Uri.parse("upi://pay"))
-        val pm = this.getPackageManager()
-        val upiActivities: List<ResolveInfo> = pm.queryIntentActivities(upiIntent, 0)
-        for (a in upiActivities){
-            if (a.activityInfo.packageName == packageName) appUpiReady = true
-        }
-        return appUpiReady
-    }
-
-    @Deprecated("Deprecated in Java")
-    @SuppressLint("SetTextI18n")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == REQUEST_CODE) {
-            Log.d("Payment Request ", requestCode.toString())
-            Toast.makeText(this,"Payment Request"+requestCode,Toast.LENGTH_SHORT).show()
-        }
     }
 
     private fun showCopyDialog(textData: String) {
@@ -256,13 +206,17 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(generateLink))
             startActivity(browserIntent)
             initialiseDetectorsAndSources()
-
             dialog.dismiss()
         }
 
-        dialog.setCancelable(false)
+        dialog.setCancelable(true)
         dialog.setContentView(view)
         dialog.show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+//        initialiseDetectorsAndSources()
     }
 
     private fun Setbannerdata(bannerdata: MutableList<sliderItem>) {
@@ -291,6 +245,10 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
     private val sliderRunnable= Runnable {
         binding.banner1.currentItem=binding.banner1.currentItem+1
     }
+
+
+
+
 
 }
 

@@ -34,6 +34,7 @@ import app.tapho.ui.model.HomeRes
 import app.tapho.ui.model.MinisRecentsRes
 import app.tapho.ui.model.UserDetails.getUserDetailRes
 import app.tapho.ui.model.WebTCashRes
+import app.tapho.ui.scanner.model.TapfoMartProductRes
 import app.tapho.ui.tcash.AddMoneyPopup.AddMoneyModel.AddMoneyRes
 import app.tapho.ui.tcash.model.AddMoneyVoucers.AddWalletVoucherRes
 import app.tapho.ui.tcash.model.TCashDasboardRes
@@ -385,6 +386,12 @@ interface MyApiV2 {
     suspend fun TapfoFiCategoriesMiniapps(
         @Field("token") token:String?,
     ):Response<FiCategoriesMiniAppsRes>
+
+  @FormUrlEncoded
+    @POST("searchBarcodeproduct")
+    suspend fun TapfoMartsearchBarcodeproduct(
+        @Field("token") token:String?,
+    ):Response<TapfoMartProductRes>
 
 
     companion object {
