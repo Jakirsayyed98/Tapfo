@@ -37,7 +37,6 @@
     <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
     <string name="added_in_fev">Added in my favorite!</string>
     <string name="removed_from_fav">Removed from favourites</string>
-    <string name="balance">Balance</string>
     <string name="filter_by_earning_period">Filter By Earning Period</string>
     <string name="all">All</string>
     <string name="pending">Pending</string>
@@ -143,19 +142,7 @@
     <string name="from_phonepe_0_59">From %s <font color="#1F9D55"><b>%s</b></font></string>
     <string name="win_assured_100_cashback">Wallet Cashback</string>
     <string name="FLat_data">Flat %s cashback</string>
-    <string name="myntra_evoucher">Myntra eVoucher</string>
-    <string name="_2000">₹2000</string>
-    <string name="gift_card_voucher">Gift Card Voucher</string>
-    <string name="_14_may_2022">14 May 2022</string>
-    <string name="sucess">Success</string>
-    <string name="todo">TODO</string>
     <string name="tapfo">Tapfo</string>
-    <string name="voucher">Voucher</string>
-    <string name="voucher_code">Voucher Code</string>
-    <string name="validity">VALIDITY</string>
-    <string name="pin">PIN</string>
-    <string name="voucher_status">Voucher Status</string>
-    <string name="t_amp_c_apply"><![CDATA[T&C Apply]]></string>
 
     <string name="a">A</string>
 
@@ -174,7 +161,6 @@
     <string name="the_cashback_offer_will_be_calculated">The Cashback offer will be calculated on the total paid amount on %s ( excluding/including other fees ).</string>
     <string name="incase_of_partial_returns_refunds">InCase of Partial/returns/refunds/cancel payments, the cashback offer stands void and the customer will not be eligible for the cashback from Tapfo App.</string>
     <string name="all_purchases_made_by_the_customer"><![CDATA[All purchases made by the customer shall be governed by the standard Terms & Conditions ( Subjects to changes ), which include without limitation User Agreement, Privacy Policy, or the other product/service-related terms and conditions appearing on %s website.]]></string>
-    <string name="myntra_e_gift_card_worth_100">%s e-Gift Card worth </string>
     <string name="read_terms_conditions"><u>Read Terms &amp; Conditions </u></string>
     <string name="your_transcation_has_been">Your transcation has been verified from %s\nvia Tapfo app sucessfully.</string>
     <string name="cashback_has_been_released">Cashback has been released from %s.</string>

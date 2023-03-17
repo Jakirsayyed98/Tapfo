@@ -10,7 +10,6 @@ import app.tapho.R
 import app.tapho.databinding.RowWalletTransactionBinding
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseRecyclerAdapter
-import app.tapho.ui.BuyVoucher.VoucherPayments.VoucherPaymentBaseActivity
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.tcash.model.Txn
 import app.tapho.utils.getOpretordata
@@ -112,30 +111,6 @@ class Tcashbackwallettransaction_Adapter(private val clickListener: RecyclerClic
 
                         "5"->{
                             Glide.with(itemView.context).load(R.drawable.vouchers_icon).into(walletBindig.icon)
-//                    walletBindig.credited.text = if (data.payment_plus_minus.equals("2")) "Debited" else "Credited"
-
-                            walletBindig.type.text = "Gift Voucher"
-//                    if (data.payment_plus_minus.equals("1")){
-//                        walletBindig.Amount.setTextColor(Color.parseColor("#008D3A"))
-//                    } else {
-//                            walletBindig.cashback.setTextColor(Color.parseColor("#000000"))
-//                    }
-                            if (data.cashback.isNullOrEmpty().not()){
-                                walletBindig.cashback.text = withSuffixAmount(data.cashback)
-                            }
-//                            if (data.toString().contains("VoucherDetail(")){
-//                                if(data.voucher_detail.toString().isEmpty().not()){
-//                                    if (data.voucher_detail.total_price.isEmpty().not()){
-//                                        if (data.voucher_detail.response_json.vPullVouchersResult.PullVouchers.isEmpty().not()){
-//                                            walletBindig.brandNameTv.text ="Purchased for "+ data.voucher_detail.response_json.vPullVouchersResult.PullVouchers.get(0).ProductName
-//                                        }
-//                                    }
-//                                }
-//                            }
-                            walletBindig.dateTv.text = parseDate3(data.created_at)
-                            walletBindig.verified.setOnClickListener {
-                                VoucherPaymentBaseActivity.openContainerforPaymentStatus(itemView.context,"TransactionStatusForVoucher","0",data.id.toString(),"","Recharge",data.pay_option)
-                            }
                         }
                     }
 

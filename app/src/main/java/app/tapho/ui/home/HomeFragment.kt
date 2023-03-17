@@ -36,7 +36,6 @@ import app.tapho.network.BaseRes
 import app.tapho.network.Status
 import app.tapho.ui.ActiveCashbackForWebActivity
 import app.tapho.ui.BaseFragment
-import app.tapho.ui.BuyVoucher.VouchersActivity
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.MiniCash.Adapter.MerchantsDataAdapter
 import app.tapho.ui.RechargeService.ModelData.RechargeStatus.checkRechargeStatusRes
@@ -104,6 +103,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
     var Storiesdata: java.util.ArrayList<app.tapho.ui.Stories.Model.Data> = java.util.ArrayList()
     var StoriesCategoryID = 0
     var tcashdashboard : TCashDasboardRes? = null
+
+    var homeRes :HomeRes?=null
 
 //    var handler = Handler(Looper.getMainLooper())
 
@@ -266,17 +267,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
 
 //        viewModel.getHomeData().observe()
 
-        getDatabase(TapfoApplication.applicationContext()).appDao().getAllDataSet().observe(viewLifecycleOwner,{
+        getDatabase(TapfoApplication.applicationContext()).appDao().getAllDataSet().observe(viewLifecycleOwner){
             if (it!=null){
                 try {
                     setData(it.get(0))
+                    homeRes = it.get(0)
                 }catch (e :Exception){
                     getData()
                 }
             }else{
                 getData()
             }
-        })
+        }
 
 
         superlinks()
@@ -666,14 +668,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), 100)
         } else {
-//            ScanAndPayContainerActivity.openContainer(requireContext(),"EnterAmountForSend","textData","","")
             startActivity(Intent(requireContext(), NewScannerActivity::class.java))
         }
     }
 
-
     private fun getData() {
-        getSharedPreference().saveString("StartLoading","0")
+        getSharedPreference().saveString("StartLoading","1")
         viewModel.getHomeData().observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.LOADING -> {
@@ -685,18 +685,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
                 Status.SUCCESS -> {
                     it.let { data ->
                         data.data.let {
-                            //      Log.d("MyHomeData",it!!.games.toString())
-                            if (it != null) {
-                                viewModel.insertData(HomeRes(
-                                    0, it.data, it.app_category, it.banner_list1, it.banner_list10,
-                                    it.banner_list2, it.banner_list3, it.banner_list4, it.banner_list5,
-                                    it.banner_list6, it.banner_list7, it.banner_list8, it.banner_list9,
-                                    it.headlines, it.new_cashback, it.new_cashback_merchant, it.popular,
-                                    it.profile_detail, it.promoted_app, it.super_category, it.services
-                                )
-                                )
-                                setData(it)
-                            }
+                                if (it != null) {
+                                    viewModel.insertData(HomeRes(
+                                        0, it.data, it.app_category, it.banner_list1, it.banner_list10,
+                                        it.banner_list2, it.banner_list3, it.banner_list4, it.banner_list5,
+                                        it.banner_list6, it.banner_list7, it.banner_list8, it.banner_list9,
+                                        it.headlines, it.new_cashback, it.new_cashback_merchant, it.popular,
+                                        it.profile_detail, it.promoted_app, it.super_category, it.services
+                                    )
+                                    )
+                                    setData(it)
+                                }
                         }
                     }
                 }
@@ -844,7 +843,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
             //            showHome()
         }
     }
-
 
     private fun setpopularMiniBanner(banners: java.util.ArrayList<Popular>) {
 
@@ -1007,9 +1005,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
                 ContainerActivity.openContainer(requireContext(), "ScanAndPayIntroFragment", "")
             }
 
-            "Gift Voucher" -> {
-                startActivity(Intent(requireContext(), VouchersActivity::class.java))
-            }
             "BillsAndRecharge" -> {
 //                getSharedPreference().saveString("servicetype","1")
 //                ContainerActivity.openContainer(requireContext(), "mobile_prepaid", "")
@@ -1530,14 +1525,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
         _binding!!.lowconnection.visibility = View.GONE
         _binding!!.noconnection.visibility = View.GONE
         _binding!!.homeScreenLayout.visibility = View.VISIBLE
-
-
-//        val typenoty = getSharedPreference().getString("type")
-//        val datanoty =getSharedPreference().getString("TAGS")
-//        if (typenoty.toString().isNullOrEmpty().not()){
-//            openNotification(typenoty!!,datanoty!!)
-//        }
-
     }
 
     fun noInternetConnection() {

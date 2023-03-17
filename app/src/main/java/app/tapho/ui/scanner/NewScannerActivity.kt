@@ -75,7 +75,6 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         }
          binding.mycart.setOnClickListener {
              ContainerForProductActivity.openContainer(this@NewScannerActivity,"ProductCartFragment","",false,"")
-
          }
 
 
@@ -133,7 +132,7 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         })
         barcodeDetector.setProcessor(object : Detector.Processor<Barcode?> {
             override fun release() {
-                // Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
             }
 
             override fun receiveDetections(detections: Detector.Detections<Barcode?>) {
@@ -146,36 +145,7 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
                             this@NewScannerActivity.setOnCustomeCrome(textData)
                         }else if (textData.contains("tapfo")){
                             startActivity(Intent(this@NewScannerActivity,BarcodeScannerForProductActivity::class.java))
-                         /*
-                         }else if (textData.contains("[0-9]".toRegex())){
-                            viewModel.TapfoMartsearchBarcodeproduct(getUserId(),textData,this@NewScannerActivity,object :ApiListener<TapfoMartProductRes,Any?>{
-                                override fun onSuccess(t: TapfoMartProductRes?, mess: String?) {
-                                    t!!.data.let {
-                                        if (it.isNullOrEmpty().not()){
-                                            GlobalScope.launch {
-                                                val Product = getDatabase(this@NewScannerActivity).appDao().ProductByBarcodeISExist(it.get(0).barcode)
-                                                if (Product){
-                                                    GlobalScope.launch {
-                                                        getDatabase(this@NewScannerActivity).appDao().getProductByBarcode(it.get(0).barcode).let {
-                                                            GlobalScope.launch {
-                                                                getDatabase(this@NewScannerActivity).appDao().UpdateProductToCart(it.buyingQty.toInt()+1,it.barcode)
-                                                            }
-                                                        }
-                                                    }
-                                                }else{
-                                                    GlobalScope.launch {
-                                                        getDatabase(this@NewScannerActivity).appDao().AddPRoductToCart(Data(it.get(0).id,1,it.get(0).barcode,it.get(0).created_at,it.get(0).description,it.get(0).image,it.get(0).mrp_price,it.get(0).name,it.get(0).qty,it.get(0).sale_price,it.get(0).sku,it.get(0).status,it.get(0).user_id))
-                                                    }
-                                                }
-                                            }
-                                        }else{
-                                            Toast.makeText(this@NewScannerActivity,"Product Not Fond"+textData,Toast.LENGTH_LONG).show()
-                                        }
-                                    }
-                                }
-
-                            })
-*/
+                            finish()
                         } else {
                             showCopyDialog(textData)
                         }

@@ -16,14 +16,11 @@ import app.tapho.databinding.FragmentHomeCardToTcashPageBinding
 import app.tapho.interfaces.ApiListener
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseFragment
-import app.tapho.ui.BuyVoucher.VouchersActivity
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.TapfoFood.TapfoFoodContainerActivity
 import app.tapho.ui.home.adapter.*
 import app.tapho.ui.localbizzUI.LocalBizSplashActivity
-import app.tapho.ui.model.BannerList
-import app.tapho.ui.model.HomeRes
-import app.tapho.ui.model.UserDetails.getUserDetailRes
+
 import app.tapho.ui.tcash.adapter.*
 import app.tapho.ui.tcash.model.AddMoneyVoucers.Data
 import app.tapho.ui.tcash.model.TCashDasboardRes
@@ -199,9 +196,6 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
                         getSharedPreference().saveString("wallet_cashback", "0")
                         ContainerActivity.openContainerForVoucher(context, "addtopup", "200", "", "",tcashdashboard)
                     }
-                    "Buy Voucher" -> {
-                        startActivity(Intent(requireContext(), VouchersActivity::class.java))
-                    }
                     "Wallet Cashback" -> {
                         ContainerActivity.openContainer(requireContext(), "AddMoneyCardOffers", "")
                     }
@@ -267,9 +261,6 @@ class HomeCardToTcashPageFragment : BaseFragment<FragmentHomeCardToTcashPageBind
                 ContainerActivity.openContainer(requireContext(), "ScanAndPayIntroFragment", "")
             }
 
-            "Gift Voucher" -> {
-                startActivity(Intent(requireContext(), VouchersActivity::class.java))
-            }
             "BillsAndRecharge" -> {
                 RechargeServiceActivity.openRechargeService(requireContext())
             }

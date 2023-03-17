@@ -3,10 +3,6 @@ package app.tapho.network
 
 import androidx.databinding.library.BuildConfig
 import app.tapho.TapfoApplication.Companion.applicationContext
-import app.tapho.ui.BuyVoucher.BuyVoucherApimodel.VoucherBuyingApiRes
-import app.tapho.ui.BuyVoucher.CategoriesModel.VoucherCategoriesViewmodelRes
-import app.tapho.ui.BuyVoucher.VoucherDetails.voucherdatailRes
-import app.tapho.ui.BuyVoucher.VoucherListViewModel.VoucherListRes
 import app.tapho.ui.News.Model.AllCategories.getCategories
 import app.tapho.ui.News.Model.AllNews.getAllNewsdata
 import app.tapho.ui.PaytmPaymentGateway.TransactionProcess.TransactionProcessRes
@@ -84,30 +80,30 @@ interface  MyApi {
 
 
 
-    @FormUrlEncoded
-    @POST("getVoucherCategory")
-    suspend fun getVoucherCategory(
-        @Field("token") token: String?
-    ): Response<VoucherCategoriesViewmodelRes>
-
-    @FormUrlEncoded
-    @POST("getVoucherList")
-    suspend fun getVoucherList(
-        @Field("token") token: String?,
-    ): Response<VoucherListRes>
-
-    @FormUrlEncoded
-    @POST("getVoucherDetail")
-    suspend fun getVoucherDetails(
-        @Field("token") token: String?,
-    ): Response<voucherdatailRes>
-
-
-    @FormUrlEncoded
-    @POST("voucherPurchase")
-    suspend fun BuyVouchersApi(
-        @Field("token") token: String?,
-    ): Response<VoucherBuyingApiRes>
+//    @FormUrlEncoded
+//    @POST("getVoucherCategory")
+//    suspend fun getVoucherCategory(
+//        @Field("token") token: String?
+//    ): Response<VoucherCategoriesViewmodelRes>
+//
+//    @FormUrlEncoded
+//    @POST("getVoucherList")
+//    suspend fun getVoucherList(
+//        @Field("token") token: String?,
+//    ): Response<VoucherListRes>
+//
+//    @FormUrlEncoded
+//    @POST("getVoucherDetail")
+//    suspend fun getVoucherDetails(
+//        @Field("token") token: String?,
+//    ): Response<voucherdatailRes>
+//
+//
+//    @FormUrlEncoded
+//    @POST("voucherPurchase")
+//    suspend fun BuyVouchersApi(
+//        @Field("token") token: String?,
+//    ): Response<VoucherBuyingApiRes>
 
 
     @FormUrlEncoded

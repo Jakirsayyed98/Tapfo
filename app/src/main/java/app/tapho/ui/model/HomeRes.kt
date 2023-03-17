@@ -6,7 +6,7 @@ import app.tapho.network.BaseRes
 
 @Entity
 class HomeRes(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey // (autoGenerate = true)
     val id:Int,
 
     var data: ArrayList<Any>?,

@@ -8,8 +8,6 @@ import androidx.fragment.app.Fragment
 import app.tapho.NavSheet.Fragment_favorite_nav
 import app.tapho.R
 import app.tapho.databinding.ActivityContainerBinding
-import app.tapho.ui.BuyVoucher.*
-import app.tapho.ui.BuyVoucher.VoucherPayments.InitiatePaymentForVoucherFragment
 import app.tapho.ui.Cabs.CabsParentPageFragment
 import app.tapho.ui.Faqs.HelpAndSupportFragment
 import app.tapho.ui.NewNotificationService.AllNotificationUI.NotificationFragment
@@ -405,9 +403,7 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
                 addFragment(TapfoFicategoryMiniAppsFragment.newInstance())
             }
 
-            "InitiatePaymentForVoucher" -> {
-                addFragment(InitiatePaymentForVoucherFragment.newInstance())
-            }
+
             "CashbackOrderFragment" -> {
                 addFragment(CashbackOrderFragment.newInstance())
             }
@@ -445,12 +441,7 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
             "TcashrewardsFragment" -> {
                 addFragment(TcashrewardsFragment.newInstance())
             }
-            "PopularVoucherFragment" -> {
-                addFragment(PopularVoucherFragment.newInstance())
-            }
-            "FavouritesVoucherFragment" -> {
-                addFragment(FavouritesVoucherFragment.newInstance())
-            }
+
             "OpenGamesCategory" -> {
                 addFragment(GameCategoyFragment.newInstance())
             }
@@ -460,9 +451,7 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
             "HowOnlineCashbackWorksFragment" -> {
                 addFragment(HowOnlineCashbackWorksFragment.newInstance())
             }
-            "OpenVoucherDetails" -> {
-                addFragment(VoucherMoreDetailFragment.newInstance())
-            }
+
             "OnlineStores" -> {
                 addFragment(OnlineStoresFragment.newInstance())
             }
@@ -503,24 +492,15 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
            "referandearnscreen" -> {
                 addFragment(ReferAndEarnFragment.newInstance())
             }
-             "AllPurchasedVouchers" -> {
-                addFragment(PurchasedVouchersFragment.newInstance())
-            }
-            "VoucherPurchasedHistoryFragment" -> {
-                addFragment(VoucherPurchasedHistoryFragment.newInstance())
-            }
+
             "localbizOnBoarding" -> {
                 addFragment(localbizOnBoardingFragment.newInstance())
             }
-            "OpenVoucherList" -> {
-                addFragment(SelectedVouchersListFragment.newInstance())
-            }
+
             "ProceedForEnterAmount" -> {
                 addFragment(EnterAmountForBillFragment.newInstance())
             }
-            "OpenVoucherDetailForBuy" -> {
-                addFragment(VoucherDetailFragment.newInstance())
-            }
+
             "SelectRechargeOpretor" -> {
                 addFragment(SelectRechargeOpretorFragment.newInstance())
             }

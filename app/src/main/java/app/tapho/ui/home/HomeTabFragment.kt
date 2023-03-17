@@ -48,7 +48,6 @@ import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.network.BaseRes
 import app.tapho.network.Status
 import app.tapho.ui.*
-import app.tapho.ui.BuyVoucher.VouchersActivity
 import app.tapho.ui.Cabs.CabsParentPageFragment
 import app.tapho.ui.RechargeService.ModelData.RechargeCircle.RechargeCircle
 import app.tapho.ui.RechargeService.ModelData.RechargeOpretor.ServiceOperatorRes
@@ -1315,9 +1314,6 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
                 ContainerActivity.openContainer(requireContext(), "ScanAndPayIntroFragment", "")
             }
 
-            "Gift Voucher" -> {
-                startActivity(Intent(requireContext(), VouchersActivity::class.java))
-            }
             "BillsAndRecharge" -> {
 //                getSharedPreference().saveString("servicetype","1")
 //                ContainerActivity.openContainer(requireContext(), "mobile_prepaid", "")

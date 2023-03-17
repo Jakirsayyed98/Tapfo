@@ -1,6 +1,7 @@
 package app.tapho.network
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,10 +9,6 @@ import androidx.lifecycle.viewModelScope
 import app.instagst.ui.interfaces.LoaderListener
 import app.tapho.TapfoApplication.Companion.applicationContext
 import app.tapho.interfaces.ApiListener
-import app.tapho.ui.BuyVoucher.BuyVoucherApimodel.VoucherBuyingApiRes
-import app.tapho.ui.BuyVoucher.CategoriesModel.VoucherCategoriesViewmodelRes
-import app.tapho.ui.BuyVoucher.VoucherDetails.voucherdatailRes
-import app.tapho.ui.BuyVoucher.VoucherListViewModel.VoucherListRes
 import app.tapho.ui.Faqs.Model.Faqsmodel
 import app.tapho.ui.News.Model.AllCategories.getCategories
 import app.tapho.ui.News.Model.AllNews.getAllNewsdata
@@ -828,103 +825,6 @@ class RequestViewModel : ViewModel() {
             }
         }
     }
-
-    fun getVoucherCategory(
-        userid: String?,
-        loadLis: LoaderListener?,
-        listener: ApiListener<VoucherCategoriesViewmodelRes, Any?>,
-    ) {
-        this.loadLis = loadLis
-         loadLis?.showLoader()
-        val req = JsonObject().apply {
-            addProperty("user_id",userid)
-        }
-        viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext) {
-                MyApi().getVoucherCategory(encrypt(req.toString()))
-                    .body()
-                    ?.let {
-                        listener.onResponse(it, loadLis)
-                    }
-            }
-        }
-    }
-
-    fun getVoucherList(
-        userid: String?,
-        voucherCategoryId: String?,
-        voucherSubcategoryId: String?,
-        loadLis: LoaderListener?,
-        listener: ApiListener<VoucherListRes, Any?>,
-    ) {
-        this.loadLis = loadLis
-      loadLis?.showLoader()
-        val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("voucher_category_id",voucherCategoryId)
-            addProperty("voucher_sub_category_id",voucherSubcategoryId)
-        }
-        viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext) {
-                MyApi().getVoucherList(encrypt(req.toString()))
-                    .body()
-                    ?.let {
-                        listener.onResponse(it, loadLis)
-                    }
-            }
-        }
-    }
-    fun getVoucherDetail(
-        userid: String?,
-        voucher_id: String?,
-        loadLis: LoaderListener?,
-        listener: ApiListener<voucherdatailRes, Any?>,
-    ) {
-        this.loadLis = loadLis
-        loadLis?.showLoader()
-        val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("voucher_id",voucher_id)
-        }
-        viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext) {
-                MyApi().getVoucherDetails(encrypt(req.toString()))
-                    .body()
-                    ?.let {
-                        listener.onResponse(it, loadLis)
-                    }
-            }
-        }
-    }
-
-
-    fun BuyVouchersApi(
-        userid: String?,
-        user_txn_id: String?,
-        voucher_detail: String?,
-        total_price: String?,
-        loadLis: LoaderListener?,
-        listener: ApiListener<VoucherBuyingApiRes, Any?>,
-    ) {
-        this.loadLis = loadLis
-         loadLis?.showLoader()
-        val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("user_txn_id",user_txn_id)
-            addProperty("voucher_detail",voucher_detail)
-            addProperty("total_price",total_price)
-        }
-        viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext) {
-                MyApi().BuyVouchersApi(encrypt(req.toString()))
-                    .body()
-                    ?.let {
-                        listener.onResponse(it, loadLis)
-                    }
-            }
-        }
-    }
-
 
 
     fun getRechargeService(
@@ -1860,6 +1760,7 @@ loadLis?.showLoader()
             addProperty("user_id",user_id)
             addProperty("barcode",barcode)
         }
+     Log.d("MyEncryptData", encrypt(req.toString()))
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext){
                 MyApiV2().TapfoMartsearchBarcodeproduct(encrypt(req.toString())).body()?.let {
