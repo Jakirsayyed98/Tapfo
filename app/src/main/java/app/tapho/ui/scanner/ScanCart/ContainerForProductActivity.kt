@@ -58,6 +58,16 @@ class ContainerForProductActivity : BaseActivity<ActivityContainerForProductBind
             "ProductCartFragment"->{
                 addFragment(ProductCartFragment.newInstance())
             }
+
+            "StoreNameDialogFragment"->{
+                addFragment(StoreNameDialogFragment.newInstance())
+            }
+            "SelectPaymentmodeFragment"->{
+                addFragment(SelectPaymentmodeFragment.newInstance())
+            }
+            "TapMartCheckOutFragment"->{
+                addFragment(TapMartCheckOutFragment.newInstance())
+            }
             else->{
                 addFragment(BuyGiftCardFragment.newInstance())
             }

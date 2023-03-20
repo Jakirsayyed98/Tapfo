@@ -122,8 +122,6 @@ abstract class BaseFragment<t : ViewBinding> : Fragment(), LoaderListener {
     }
 
 
-
-
     fun getSharedPreference(): AppSharedPreference {
         return AppSharedPreference.getInstance(requireContext())
     }

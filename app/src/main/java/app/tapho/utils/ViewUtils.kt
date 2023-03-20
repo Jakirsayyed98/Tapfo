@@ -129,12 +129,7 @@ fun Context.customToast(mess: String?, isError: Boolean) {
 @SuppressLint("HardwareIds")
 fun Context.getSystemDetail(): String {
     return "Brand: ${Build.BRAND} \n" +
-            "DeviceID: ${
-                Settings.Secure.getString(
-                    this.contentResolver,
-                    Settings.Secure.ANDROID_ID
-                )
-            } \n" +
+            "DeviceID: ${Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID)} \n" +
             "Model: ${Build.MODEL} \n" +
             "ID: ${Build.ID} \n" +
             "SDK: ${Build.VERSION.SDK_INT} \n" +

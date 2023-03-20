@@ -26,24 +26,26 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         }
     }
 
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentProductCartBinding.inflate(inflater,container,false)
-        statusBarColor(R.color.black)
-        statusBarTextBlack()
+        statusBarColor(R.color.white)
+        statusBarTextWhite()
 
         _binding!!.addMore.setOnClickListener {
             startActivity(Intent(requireContext(),BarcodeScannerForProductActivity::class.java))
             activity?.finish()
-//            activity?.onBackPressedDispatcher?.onBackPressed()
         }
         _binding!!.backbtn.setOnClickListener {
             startActivity(Intent(requireContext(),BarcodeScannerForProductActivity::class.java))
             activity?.finish()
-//            activity?.onBackPressedDispatcher?.onBackPressed()
+        }
+
+        binding.PaymentModes.setOnClickListener {
+            ContainerForProductActivity.openContainer(requireContext(),"SelectPaymentmodeFragment","",false,"")
         }
 
         _binding!!.clear.setOnClickListener {
@@ -52,51 +54,16 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
             }
         }
 
-//        var data = activity?.intent?.getStringExtra(DATA)
-//        if (data.isNullOrEmpty().not()){
-//            Gson().fromJson(data,ProductData::class.java).let {
                 SaveToCart()
-//                data =null
-//            }
-//        }
-//        else{
-//            SaveToCart(null)
-//        }
 
         return _binding?.root
     }
 
 
-
-    @OptIn(DelicateCoroutinesApi::class)
     private fun SaveToCart() {
-
-
         getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
             setLayout(it)
         }
-
-
-
-//        GlobalScope.launch {
-//            val Product = getDatabase(requireContext()).appDao().ProductByBarcodeISExist(ProductData!!.QrCode)
-//            if (Product){
-//                GlobalScope.launch {
-//                    getDatabase(requireContext()).appDao().getProductByBarcode(ProductData.QrCode).let {
-//                        GlobalScope.launch {
-//                            getDatabase(requireContext()).appDao().UpdateProductToCart(it.Qty+1,it.QrCode)
-//                        }
-//                    }
-//                }
-//            }else{
-//                GlobalScope.launch {
-//                    getDatabase(requireContext()).appDao().AddPRoductToCart(ProductData)
-//                }
-//            }
-//        }
-
-
-
     }
 
     private fun setLayout(it: List<Data>?) {

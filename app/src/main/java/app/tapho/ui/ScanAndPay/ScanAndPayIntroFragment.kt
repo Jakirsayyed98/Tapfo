@@ -70,13 +70,10 @@ class ScanAndPayIntroFragment :BaseFragment<FragmentScanAndPayIntroBinding>() {
     }
 
     private fun GenrateQRCode(loginData: LoginData?): Bitmap? {
-
         val AddDataToQRCode = "tapfo0"+getUserId()
         val bitMatrix : BitMatrix = MultiFormatWriter().encode(AddDataToQRCode, BarcodeFormat.QR_CODE, 660, 660)
         val width = bitMatrix.width
         val height = bitMatrix.height
-
-
         val pixels = IntArray(width * height)
         for (i in 0 until height) {
             for (j in 0 until width) {
@@ -90,7 +87,6 @@ class ScanAndPayIntroFragment :BaseFragment<FragmentScanAndPayIntroBinding>() {
         val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
         bitmap.setPixels(pixels, 0, width, 0, 0, width, height)
         return bitmap
-
     }
 
 

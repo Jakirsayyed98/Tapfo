@@ -10,16 +10,12 @@ import app.tapho.ui.scanner.model.Data
 import app.tapho.utils.withSuffixAmount
 import com.bumptech.glide.Glide
 
-class TapfoCartAdapter<S>(private val clickListener: RecyclerClickListener) :
-    BaseRecyclerAdapter<S, TapfoCartAdapter<S>.Holder>() {
+class TapfoCartAdapter2<S>(private val clickListener: RecyclerClickListener) :
+    BaseRecyclerAdapter<S, TapfoCartAdapter2<S>.Holder>() {
 
-    inner class Holder(private val binding: TapfocartLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(private val binding: TapfocartLayout2Binding) : RecyclerView.ViewHolder(binding.root) {
         fun setData(s: S) {
             if (s is Data){
-               binding.nameTv.text = s.name
-               binding.qty.text = withSuffixAmount((s.buyingQty.toDouble()*s.sale_price.toDouble()).toString()).toString()
-               binding.price.text = withSuffixAmount(s.mrp_price)
-                binding.disprice.text = withSuffixAmount(s.sale_price) +" ( "+s.buyingQty.toString() + " ) "
                 Glide.with(itemView.context).load(s.image).into(binding.image)
             }
         }
@@ -30,7 +26,7 @@ class TapfoCartAdapter<S>(private val clickListener: RecyclerClickListener) :
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
 
         return Holder(
-            TapfocartLayoutBinding.inflate(
+            TapfocartLayout2Binding.inflate(
                 LayoutInflater.from(parent.context), parent, false
             )
         )

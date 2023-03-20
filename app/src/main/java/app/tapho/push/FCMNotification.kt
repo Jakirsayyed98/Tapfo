@@ -64,12 +64,6 @@ class FCMNotification : FirebaseMessagingService() {
 
                     val Pintent = PendingIntent.getActivities(applicationContext, Random.nextInt(), arrayOf(inten), PendingIntent.FLAG_IMMUTABLE)
                     notification.setContentIntent(Pintent)
-
-
-
-//                    getSharedPreference().saveString("app_id", message.data["app_id"].toString())
-//                    getSharedPreference().saveString("tag", message.data["tag"].toString())
-//                    getSharedPreference().saveString("screen_url", message.data["screen_url"].toString())
                 }
                 "com.tapfo.ui.WebviewActivity"->{
 

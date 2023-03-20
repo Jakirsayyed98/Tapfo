@@ -184,10 +184,6 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         dialog.show()
     }
 
-    override fun onResume() {
-        super.onResume()
-//        initialiseDetectorsAndSources()
-    }
 
     private fun Setbannerdata(bannerdata: MutableList<sliderItem>) {
         binding.banner1.adapter= IntroNewAdapter(bannerdata,binding.banner1)

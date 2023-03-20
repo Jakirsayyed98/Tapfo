@@ -159,8 +159,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         _binding!!.Greeting.text = "Hey, " + getGreetingMessage()
 
         _binding!!.favouritesBtn.setOnClickListener {
-            ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment",null,false,"")
-//            ContainerActivity.openContainer(requireContext(), "favouritesBtn", "", false, "")
+            ContainerActivity.openContainer(requireContext(), "favouritesBtn", "", false, "")
         }
 
         _binding!!.reProfile.setOnClickListener {
@@ -245,17 +244,6 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
             openContainer("EndToEndEncriptionFragment", "", false, "")
         }
 
-//        _binding!!.AddBalance.setOnClickListener {
-//            getSharedPreference().saveString("wallet_cashback", "0")
-//            ContainerActivity.openContainerForVoucher(context, "addtopup", "", "", "")
-//        }
-
-
-//        _binding!!.leaveFeedback.setOnClickListener {
-//            requireContext().rateApp()
-//        }
-
-
 
         _binding!!.verifiedLayout.setOnClickListener {
             ContainerActivity.openContainerforPointScreen(
@@ -267,21 +255,6 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
             )
         }
 
-//        _binding!!.recommendedAll.setOnClickListener {
-////            startActivity(Intent(requireContext(), MiniCashSplashActivity::class.java))
-//            ContainerActivity.openContainer(requireContext(), "OnlineStores", "")
-//        }
-
-
-        _binding!!.AddMoreFavTV.setOnClickListener {
-            FavouriteDialogFragment.newInstance(appCategoryList).show(childFragmentManager, null)
-        }
-        /*
-        _binding!!.scanner.setOnClickListener {
-//            startActivity(Intent(requireContext(), scanner::class.java))
-            permissionTaking()
-        }
-*/
         _binding!!.mic.setOnClickListener {
             val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
             intent.putExtra(
@@ -365,7 +338,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
             )
         } else {
 //            ScanAndPayContainerActivity.openContainer(requireContext(),"EnterAmountForSend","textData","","")
-            startActivity(Intent(requireContext(), NewScannerActivity::class.java))
+            startActivity(Intent(requireContext(), scanner::class.java))
         }
     }
 
@@ -693,6 +666,10 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
 
                     _binding!!.search.setOnClickListener {click->
                         openAllPopularCashbackMerchants("1",it.popular!!)
+                    }
+
+                    _binding!!.AddMoreFavTV.setOnClickListener {click->
+                        FavouriteDialogFragment.newInstance(it.app_category).show(childFragmentManager, null)
                     }
 
 

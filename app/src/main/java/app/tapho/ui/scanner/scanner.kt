@@ -24,7 +24,10 @@ import app.tapho.ui.BaseActivity
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.intro.IntroNewAdapter
 import app.tapho.ui.intro.sliderItem
+import app.tapho.ui.scanner.ScanCart.BarcodeScannerForProductActivity
+import app.tapho.ui.scanner.ScanCart.ContainerForProductActivity
 import app.tapho.utils.decodeCashback
+import app.tapho.utils.setOnCustomeCrome
 import com.budiyev.android.codescanner.*
 import com.google.android.material.tabs.TabLayoutMediator
 import org.json.JSONArray
@@ -118,13 +121,12 @@ class scanner : BaseActivity<ActivityScannerBinding>() {
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
                 val textData=it.text
-                if (it.text.contains("http")) {
-                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(it.text.toString()))
-                    startActivity(browserIntent)
-                }else if (it.text.contains("upi://pay?pa")){
-//                    showCopyDialog(textData)
-                    upiIdPayment(textData)
-
+                if (textData.contains("http")) {
+                   this.setOnCustomeCrome(textData)
+                }else if (textData.contains("@tapfostore")){
+                    ContainerForProductActivity.openContainer(this,"StoreNameDialogFragment","",false,"")
+//                    startActivity(Intent(this, BarcodeScannerForProductActivity::class.java))
+                    finish()
                 } else {
                     showCopyDialog(textData)
                 }

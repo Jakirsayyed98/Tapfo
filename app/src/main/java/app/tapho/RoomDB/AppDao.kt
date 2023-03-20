@@ -2,6 +2,7 @@ package app.tapho.RoomDB
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -12,8 +13,11 @@ import app.tapho.ui.scanner.model.Data
 @Dao
 interface AppDao {
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert
     fun insertItems(HomeResRoomDB: HomeRes)
+
+    @Query("SELECT * FROM HomeRes WHERE id=:id")
+    fun HomeresByIdISExist(id: String):Boolean
 
 
     @Query("SELECT * FROM HomeRes")
@@ -21,6 +25,9 @@ interface AppDao {
 
     @Update
     fun UpdateItems(HomeResRoomDB: HomeRes)
+
+    @Delete
+    fun DeleteHomeRes(HomeResRoomDB: HomeRes)
 
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)

@@ -27,6 +27,8 @@ import app.tapho.interfaces.ApiListener
 import app.tapho.ui.BaseActivity
 import app.tapho.ui.scanner.model.Data
 import app.tapho.ui.scanner.model.TapfoMartProductRes
+import app.tapho.utils.customToast
+import app.tapho.utils.withSuffixAmount
 import com.budiyev.android.codescanner.AutoFocusMode
 import com.budiyev.android.codescanner.CodeScanner
 import com.budiyev.android.codescanner.DecodeCallback
@@ -45,6 +47,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
 
 
     private lateinit var codeScanner: CodeScanner
+    var backPressedTime: Long = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,6 +57,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         binding.mycart.setOnClickListener {
             ContainerForProductActivity.openContainer(this@BarcodeScannerForProductActivity,"ProductCartFragment","",false,"")
         }
+
         permissionTaking()
     }
     private fun permissionTaking() {
@@ -112,7 +116,6 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
                 ApiListener<TapfoMartProductRes, Any?> {
                 override fun onSuccess(t: TapfoMartProductRes?, mess: String?) {
                    t!!.let {
-                       Log.d("Targeted Data",it.toString())
                        if (it.data.isNullOrEmpty().not()){
                            t.data.get(0).let {
                                OpenCartBottomSheet(it)
@@ -144,6 +147,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         val image = view.findViewById<ImageView>(R.id.image)
         val name = view.findViewById<TextView>(R.id.name)
         val price = view.findViewById<TextView>(R.id.price)
+        val disprice = view.findViewById<TextView>(R.id.disprice)
         val QtyData = view.findViewById<TextView>(R.id.QtyData)
         val add = view.findViewById<ImageView>(R.id.add)
         val less = view.findViewById<ImageView>(R.id.less)
@@ -151,7 +155,8 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
 
         Glide.with(this).load(it.image).placeholder(R.drawable.loading_progress).into(image)
         name.text = it.name
-        price.text = it.mrp_price
+        price.text = withSuffixAmount(it.mrp_price)
+        disprice.text = withSuffixAmount(it.sale_price)
         var qtyd = 1
         GlobalScope.launch {
             val Product = getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByBarcodeISExist(it.barcode)
@@ -202,7 +207,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
                    }else{
                        GlobalScope.launch {
                            getDatabase(this@BarcodeScannerForProductActivity).appDao().AddPRoductToCart(
-                               Data(it.id,qtyd,it.barcode,it.created_at,it.description,it.image,it.mrp_price,it.name,it.qty,it.sale_price,it.sku,it.status,it.user_id)
+                               Data(it.id,qtyd,it.barcode,it.created_at,if(it.description.isNullOrEmpty()) " Description" else it.description,it.image,it.mrp_price,it.name,it.qty,it.sale_price,it.sku,it.status,it.user_id)
                            )
                        }
                    }
@@ -234,12 +239,21 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
             codeScanner.startPreview()
         }
     }
-
     override fun onPause() {
         if (::codeScanner.isInitialized) {
             codeScanner.releaseResources()
         }
         super.onPause()
+    }
+
+    override fun onBackPressed() {
+        if (backPressedTime + 5000 > System.currentTimeMillis()) {
+            super.getOnBackPressedDispatcher().onBackPressed()
+            finish()
+        } else {
+            this.customToast("After leveing this page your Cart will be empty! are you sure you want to exit press back again to leave",true)
+        }
+        backPressedTime = System.currentTimeMillis()
     }
 
 }

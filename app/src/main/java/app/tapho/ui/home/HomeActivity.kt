@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
 import app.tapho.BuildConfig
 import app.tapho.R
@@ -24,6 +25,7 @@ import app.tapho.ui.model.HomeRes
 import app.tapho.utils.CONTAINER_TYPE_KEY
 import app.tapho.utils.DATA
 import app.tapho.utils.REACHED_HOME
+import app.tapho.utils.getSystemDetail
 import com.google.android.gms.tasks.OnCompleteListener
 //import com.google.firebase.messaging.ktx.messaging
 
@@ -32,9 +34,6 @@ import com.google.gson.Gson
 
 
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
-
-    var CHANNEL_ID = "Example_01"
-    var notificationID = 101
     var backPressedTime: Long = 0
 
 
@@ -48,11 +47,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         getSharedPreference().saveBoolean(REACHED_HOME, true)
         setTab()
         tabClicked(binding.homeTab)
+        Log.d("Systeminformation",this.getSystemDetail())
 
         updateFirebaseToken()
 
-//        addFragment(HomeTabFragment.newInstance())
-        addFragment(HomeFragment.newInstance())
+        addFragment(HomeTabFragment.newInstance())
+//        addFragment(HomeFragment.newInstance())
 //        addFragment(NewHomeFragment.newInstance())
 
     }

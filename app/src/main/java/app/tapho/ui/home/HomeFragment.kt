@@ -72,8 +72,8 @@ import com.kakyiretechnologies.appreview.reviewApp
 import omari.hamza.storyview.StoryView
 import omari.hamza.storyview.callback.StoryClickListeners
 import omari.hamza.storyview.model.MyStory
-import java.text.SimpleDateFormat
 
+import java.text.SimpleDateFormat
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener, ConnectivityListener {
 
@@ -103,8 +103,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
     var Storiesdata: java.util.ArrayList<app.tapho.ui.Stories.Model.Data> = java.util.ArrayList()
     var StoriesCategoryID = 0
     var tcashdashboard : TCashDasboardRes? = null
-
-    var homeRes :HomeRes?=null
 
 //    var handler = Handler(Looper.getMainLooper())
 
@@ -271,7 +269,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
             if (it!=null){
                 try {
                     setData(it.get(0))
-                    homeRes = it.get(0)
                 }catch (e :Exception){
                     getData()
                 }
@@ -668,12 +665,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
             ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), 100)
         } else {
+//            ScanAndPayContainerActivity.openContainer(requireContext(),"EnterAmountForSend","textData","","")
             startActivity(Intent(requireContext(), NewScannerActivity::class.java))
         }
     }
 
+
     private fun getData() {
-        getSharedPreference().saveString("StartLoading","1")
+        getSharedPreference().saveString("StartLoading","0")
         viewModel.getHomeData().observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.LOADING -> {
@@ -685,17 +684,18 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
                 Status.SUCCESS -> {
                     it.let { data ->
                         data.data.let {
-                                if (it != null) {
-                                    viewModel.insertData(HomeRes(
-                                        0, it.data, it.app_category, it.banner_list1, it.banner_list10,
-                                        it.banner_list2, it.banner_list3, it.banner_list4, it.banner_list5,
-                                        it.banner_list6, it.banner_list7, it.banner_list8, it.banner_list9,
-                                        it.headlines, it.new_cashback, it.new_cashback_merchant, it.popular,
-                                        it.profile_detail, it.promoted_app, it.super_category, it.services
-                                    )
-                                    )
-                                    setData(it)
-                                }
+                            //      Log.d("MyHomeData",it!!.games.toString())
+                            if (it != null) {
+                                viewModel.insertData(HomeRes(
+                                    0, it.data, it.app_category, it.banner_list1, it.banner_list10,
+                                    it.banner_list2, it.banner_list3, it.banner_list4, it.banner_list5,
+                                    it.banner_list6, it.banner_list7, it.banner_list8, it.banner_list9,
+                                    it.headlines, it.new_cashback, it.new_cashback_merchant, it.popular,
+                                    it.profile_detail, it.promoted_app, it.super_category, it.services
+                                )
+                                )
+                                setData(it)
+                            }
                         }
                     }
                 }
@@ -843,6 +843,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), RecyclerClickListener,
             //            showHome()
         }
     }
+
 
     private fun setpopularMiniBanner(banners: java.util.ArrayList<Popular>) {
 

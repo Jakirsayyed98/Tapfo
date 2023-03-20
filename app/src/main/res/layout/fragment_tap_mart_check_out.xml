@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.scanner.ScanCart.ProductCartFragment">
-
+    tools:context=".ui.scanner.ScanCart.TapMartCheckOutFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout8"
@@ -37,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/dp10"
-            android:text="Shopping Cart"
+            android:text="Checkout"
             android:textColor="@color/black"
             android:textSize="18sp"
             app:fontFamily="@font/tt_medium"
@@ -59,16 +58,24 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:text="Shopping at"
-                android:textColor="@color/black"
-                android:textSize="25sp"
-                app:fontFamily="@font/sans_bold" />
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:padding="10dp"
+                    android:text="Billing at"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    app:fontFamily="@font/sans_bold" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
@@ -76,6 +83,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
+                android:padding="5dp"
                 android:text="Born Supermart"
                 android:textColor="@color/grey_dark"
                 android:textSize="18sp"
@@ -87,6 +95,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
                 android:layout_weight="1"
+                android:paddingStart="10dp"
                 android:paddingEnd="30dp"
                 android:text="SURYA command canteen - usman marg, neil lines 226002 - Mumbai"
                 android:textColor="@color/grey_dark"
@@ -99,146 +108,158 @@
                 android:layout_height="match_parent"
                 android:layout_marginTop="15dp"
                 android:background="@color/grey_background"
-                android:orientation="vertical"
-                android:padding="10dp">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="10dp"
+                    android:background="@color/white"
+                    android:orientation="vertical">
 
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
                         android:layout_weight="1"
-                        android:text="CART ID: TFBRD67890701"
-                        android:textColor="@color/grey_dark"
+                        android:text="Show this QR code at billing counter to\nconfirm order and payment."
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         app:fontFamily="@font/tt_medium" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
-                        android:layout_marginEnd="10dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
-                        android:text="23 May 20231"
-                        android:textColor="@color/grey_dark"
+                        android:text="TFC890"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/tt_bold" />
+
+                    <ImageView
+                        android:id="@+id/qrcode"
+                        android:layout_width="220dp"
+                        android:layout_height="220dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:src="@drawable/my_qr_code" />
+
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_weight="1"
+                        android:text="Payable amaount"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
                         app:fontFamily="@font/tt_medium" />
 
+                    <TextView
+                        android:id="@+id/paybleAmount"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_weight="1"
+                        android:text="100"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/sans_bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="1"
+                        android:text="Pay this amount at Billing counter or exit gate\nto self checkout"
+                        android:textAlignment="center"
+                        android:textColor="@color/black"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>
-
-
-                <TextView
-                    android:id="@+id/clear"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="10dp"
-                    android:padding="10dp"
-                    android:text="clear"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
                     android:background="@drawable/button_boarder_2"
                     android:backgroundTint="@color/white"
                     android:orientation="vertical"
                     android:padding="10dp">
 
+
                     <TextView
+                        android:id="@+id/cartcount"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:text="Cart"
+                        android:text="Cart Summary"
                         android:textColor="@color/black"
                         android:textSize="20sp"
                         app:fontFamily="@font/sans_bold" />
 
+
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rrvData"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp" />
+
+
                 </LinearLayout>
 
+
                 <LinearLayout
-                    android:id="@+id/addMore"
+                    android:id="@+id/PaymentModes"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="20dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="20dp"
                     android:background="@drawable/button_boarder_2"
-                    android:backgroundTint="#42A3E8A3"
+                    android:backgroundTint="@color/black"
                     android:gravity="center_horizontal"
                     android:orientation="horizontal"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
 
-                    <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/ic_qr_code_scanner"
-                        app:tint="@color/black" />
-
 
                     <TextView
+                        android:id="@+id/PaymentModesText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:text="Scan product to add"
-                        android:textColor="@color/black"
-                        android:textSize="18sp" />
+                        android:text="Proceed to Counter"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/tt_medium" />
                 </LinearLayout>
-
-
 
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-
-    <LinearLayout
-        android:id="@+id/PaymentModes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginBottom="20dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/button_boarder_2"
-        android:backgroundTint="@color/black"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal"
-        android:padding="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:text="Checkout to Pay"
-            android:textColor="@color/white"
-            app:fontFamily="@font/sans_medium"
-            android:textSize="18sp" />
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

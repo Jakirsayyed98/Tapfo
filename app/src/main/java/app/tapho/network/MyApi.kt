@@ -230,38 +230,10 @@ interface  MyApi {
         operator fun invoke(): MyApi {
 
             System.loadLibrary("keys")
-
-
-            val cacheDir = applicationContext().cacheDir
-            //   val httpCacheDirectory = File(cacheDir, "offlineCache")
-            val cache = Cache(cacheDir, 10 * 1024 * 1024)
-
-
             val logging = HttpLoggingInterceptor()
-            val DecryptionInterceptor = DecryptionInterceptor()
-
-            val cacheOnline = CacheInterceptor()
-            val cacheOffline = OfflineCacheInterceptor()
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
             val client = OkHttpClient.Builder().apply {
                 callTimeout(30, TimeUnit.SECONDS)
-                cache(cache)
-
-                addInterceptor { chain ->
-                    var request = chain.request()
-                    request = if (hasNetwork(applicationContext())!!) {
-                        request.newBuilder().header("Cache-Control", "public, max-age=" + 5).build()
-                    } else{
-                        request.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7).build()
-                }
-
-                    chain.proceed(request)
-                }
-
-//                addNetworkInterceptor(cacheOnline)
-//                addInterceptor(cacheOffline)
-//                addInterceptor(DecryptionInterceptor)
-
                 if (BuildConfig.DEBUG)
                     addInterceptor(logging)
             }.build()
