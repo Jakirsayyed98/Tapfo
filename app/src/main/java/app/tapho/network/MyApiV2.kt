@@ -2,7 +2,6 @@ package app.tapho.network
 
 
 import androidx.databinding.library.BuildConfig
-import app.tapho.TapfoApplication.Companion.applicationContext
 import app.tapho.ui.Faqs.Model.Faqsmodel
 import app.tapho.ui.PaytmPaymentGateway.InitiateTransactionModel.InitiateTransactionRes2
 import app.tapho.ui.PaytmPaymentGateway.TransactionProcess.TransactionProcessRes
@@ -34,6 +33,7 @@ import app.tapho.ui.model.HomeRes
 import app.tapho.ui.model.MinisRecentsRes
 import app.tapho.ui.model.UserDetails.getUserDetailRes
 import app.tapho.ui.model.WebTCashRes
+import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
 import app.tapho.ui.scanner.model.TapfoMartProductRes
 import app.tapho.ui.tcash.AddMoneyPopup.AddMoneyModel.AddMoneyRes
 import app.tapho.ui.tcash.model.AddMoneyVoucers.AddWalletVoucherRes
@@ -393,6 +393,12 @@ interface MyApiV2 {
         @Field("token") token:String?,
     ):Response<TapfoMartProductRes>
 
+ @FormUrlEncoded
+    @POST("searchBusiness")
+    suspend fun searchBusiness(
+        @Field("token") token:String?,
+    ):Response<searchBusinessRes>
+
 
     companion object {
 
@@ -400,26 +406,12 @@ interface MyApiV2 {
 
         operator fun invoke(): MyApiV2 {
             System.loadLibrary("keys")
-            val cacheDir = applicationContext().cacheDir
-            //   val httpCacheDirectory = File(cacheDir, "offlineCache")
-            val cache = Cache(cacheDir, 10 * 1024 * 1024)
             val logging = HttpLoggingInterceptor()
             val DecryptionInterceptor = DecryptionInterceptor()
             logging.setLevel(HttpLoggingInterceptor.Level.BODY)
             val client = OkHttpClient.Builder().apply {
                 callTimeout(30, TimeUnit.SECONDS)
-                cache(cache)
-                addInterceptor { chain ->
-                    var request = chain.request()
-                    request = if (hasNetwork(applicationContext())!!) {
-                        request.newBuilder().header("Cache-Control", "public, max-age=" + 5).build()
-                    } else{
-                        request.newBuilder().header("Cache-Control", "public, only-if-cached, max-stale=" + 60 * 60 * 24 * 7).build()
-                }
-                    chain.proceed(request)
-                }
                 addInterceptor(DecryptionInterceptor)
-
                 if (BuildConfig.DEBUG)
                     addInterceptor(logging)
             }.build()

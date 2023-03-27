@@ -70,29 +70,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), LoaderListener, ApiL
         setTerms()
     }
 
-    private fun alreadyInstalledOrNot() {
 
-        val path = this.filesDir.absolutePath
-        val count = getDotCount(path)
-        if (count > packegeCount) {
 
-//            throw new RuntimeException("This app does not work in a cloning environment");
-        }
-
-    }
-
-    private fun getDotCount(path: String): Int {
-        var count = 0
-        for (i in 0 until path.length) {
-            if (count > packegeCount) {
-                break
-            }
-            if (path[i] == '.') {
-                count++
-            }
-        }
-        return count
-    }
 
     private fun getPhoneNumber() {
         //mobile Number Hint Code start
@@ -124,9 +103,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), LoaderListener, ApiL
             {
                 binding.MobileNumber.setText(data1)
             }
-        }else{
-//            View(this).showShortSnack("Enter mobile number")
-//            View(this).showShortSnack("Enter mobile number")
         }
     }
 

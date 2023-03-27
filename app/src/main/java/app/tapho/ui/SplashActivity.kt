@@ -53,7 +53,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
 
         today = TimePeriodDialog.getCurrentDate().toString()
 //        if (getSharedPreference().getString("ScreenLock").toString().equals("1")){
-            splashCode()
+        splashCode()
 //        }else{
 //            val km = getSystemService(Context.KEYGUARD_SERVICE) as KeyguardManager
 //

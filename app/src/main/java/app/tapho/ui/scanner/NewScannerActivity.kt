@@ -26,9 +26,11 @@ import app.tapho.ui.intro.IntroNewAdapter
 import app.tapho.ui.intro.sliderItem
 import app.tapho.ui.scanner.ScanCart.BarcodeScannerForProductActivity
 import app.tapho.ui.scanner.ScanCart.ContainerForProductActivity
+import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
 import app.tapho.ui.scanner.model.Data
 import app.tapho.ui.scanner.model.TapfoMartProductRes
 import app.tapho.ui.tcash.DirectPaytmTransaction.StartPaymentprocessingActivity
+import app.tapho.utils.DATA
 import app.tapho.utils.setOnCustomeCrome
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
@@ -36,6 +38,7 @@ import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.gson.Gson
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -141,14 +144,40 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
                     runOnUiThread {
                         cameras.stop()
                         val textData=barcodes.valueAt(0)!!.displayValue.toString()
+
                         if (textData.contains("http")) {
                             this@NewScannerActivity.setOnCustomeCrome(textData)
-                        }else if (textData.contains("tapfo")){
+                        } else {
+                            viewModel.searchBusiness(getUserId(), textData, this@NewScannerActivity,
+                                object : ApiListener<searchBusinessRes, Any?> {
+                                    override fun onSuccess(t: searchBusinessRes?, mess: String?) {
+                                        t!!.let {
+                                            if (it.data.isNullOrEmpty().not()) {
+                                                ContainerForProductActivity.openContainer(this@NewScannerActivity,"StoreNameDialogFragment",it.data.get(0),false,"")
+
+//                                                startActivity(Intent(this@NewScannerActivity, BarcodeScannerForProductActivity::class.java).apply {
+//                                                        putExtra(DATA, Gson().toJson(it.data.get(0)))
+//                                                    })
+                                                finish()
+                                            } else {
+                                                showCopyDialog(textData)
+                                            }
+                                        }
+                                    }
+                                })
+                        }
+
+
+/*
+                        if (textData.contains("http")) {
+                            this@NewScannerActivity.setOnCustomeCrome(textData)
+                        }else if (textData.contains("SHOP1200212@tapfomart")){
                             startActivity(Intent(this@NewScannerActivity,BarcodeScannerForProductActivity::class.java))
                             finish()
                         } else {
                             showCopyDialog(textData)
                         }
+                        */
                     }
                 }
             }
@@ -183,7 +212,6 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         dialog.setContentView(view)
         dialog.show()
     }
-
 
     private fun Setbannerdata(bannerdata: MutableList<sliderItem>) {
         binding.banner1.adapter= IntroNewAdapter(bannerdata,binding.banner1)

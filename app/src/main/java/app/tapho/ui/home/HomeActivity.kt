@@ -36,8 +36,6 @@ import com.google.gson.Gson
 class HomeActivity : BaseActivity<ActivityHomeBinding>() {
     var backPressedTime: Long = 0
 
-
-
     @RequiresApi(Build.VERSION_CODES.N_MR1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +45,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         getSharedPreference().saveBoolean(REACHED_HOME, true)
         setTab()
         tabClicked(binding.homeTab)
-        Log.d("Systeminformation",this.getSystemDetail())
-
         updateFirebaseToken()
-
         addFragment(HomeTabFragment.newInstance())
 //        addFragment(HomeFragment.newInstance())
 //        addFragment(NewHomeFragment.newInstance())

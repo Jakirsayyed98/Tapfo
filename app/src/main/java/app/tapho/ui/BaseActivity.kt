@@ -41,6 +41,8 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity(), LoaderListen
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
     }
+
+
     fun statusBarTextWhite() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR

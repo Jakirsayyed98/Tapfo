@@ -22,6 +22,9 @@ class VerifyOtpActivity : BaseActivity<ActivityVerifyOtpBinding>() {
         val isPassCode = getSharedPreference().getBoolean(PASSCODE_SET)
         val verifyOtp = getSharedPreference().getBoolean(VERIFY_OTP)
 
+
+
+
         if (verifyOtp) {
             addFragment(VerifyOtpFragment.newInstance())
         } else {

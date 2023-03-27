@@ -726,47 +726,6 @@ fun getSecretKeyFromString(key: ByteArray): SecretKey {
     return SecretKeySpec(key, 0, key.size, "AES")
 }
 
-/*
-fun encrypt(strToEncrypt: String): String {
-    val SECRET_KEY = "6d66fb7debfd15bf716bb14752b9603b".toByteArray()
-    val iv ="1234567890123456".toByteArray()
-    val ivspec = IvParameterSpec(iv)
-    val tmp: SecretKey = getSecretKeyFromString(SECRET_KEY)
-    val secretKey = SecretKeySpec(tmp.encoded,0,32, "AES")
-
-    val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
-    cipher.init(Cipher.ENCRYPT_MODE, secretKey, ivspec)
-    val encodeddata = cipher.doFinal(strToEncrypt.toString().toByteArray())
-    val encode = android.util.Base64.encodeToString(encodeddata, android.util.Base64.NO_WRAP)
-
-    return encode
-}
-
-
-fun decrypt(strToDecrypt: String?): String? {
-    try {
-        val SECRET_KEY = "6d66fb7debfd15bf716bb14752b9603b".toByteArray()
-//        val iv =")Q+{b@&<*%#@%$%^".toByteArray()
-        val iv ="1234567890123456".toByteArray()
-        val ivspec = IvParameterSpec(iv)
-
-
-        val tmp: SecretKey = getSecretKeyFromString(SECRET_KEY)
-        val secretKey = SecretKeySpec(tmp.encoded,0,32, "AES")
-        val cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING")
-        cipher.init(Cipher.DECRYPT_MODE, secretKey, ivspec)
-        return String(cipher.doFinal(Base64.getDecoder().decode(strToDecrypt)))
-
-    } catch (e: java.lang.Exception) {
-        e.printStackTrace()
-        return e.toString()+"1"
-    }
-    return null
-}
-
-*/
-
-
 external fun SecretKey(): String?
 external fun IVKey(): String?
 fun encrypt(strToEncrypt: String): String {

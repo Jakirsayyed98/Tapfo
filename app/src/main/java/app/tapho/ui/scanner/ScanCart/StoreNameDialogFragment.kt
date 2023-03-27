@@ -16,8 +16,11 @@ import app.tapho.databinding.DialogFavouriteFragmentBinding
 import app.tapho.databinding.FragmentStoreNameDialogBinding
 import app.tapho.network.RequestViewModel
 import app.tapho.ui.BaseFragment
+import app.tapho.ui.scanner.model.BusinessDetail.Data
 import app.tapho.utils.AppSharedPreference
+import app.tapho.utils.DATA
 import app.tapho.viewmodels.CategoriesDataViewModel
+import com.google.gson.Gson
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -40,6 +43,15 @@ class StoreNameDialogFragment : BaseFragment<FragmentStoreNameDialogBinding>() {
 
         statusBarColor(R.color.white)
         statusBarTextWhite()
+        val data = activity?.intent?.getStringExtra(DATA)
+        if (data.isNullOrEmpty().not()){
+            Gson().fromJson(data, Data::class.java).let {
+                _binding!!.storename.text = it.business_name
+                _binding!!.storearea.text = it.area
+            }
+        }
+
+
         _binding!!.startShopping.setOnClickListener {
             GlobalScope.launch {
                 getDatabase(requireContext()).appDao().DeleteAllProduct()

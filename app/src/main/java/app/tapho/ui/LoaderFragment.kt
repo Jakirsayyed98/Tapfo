@@ -10,11 +10,6 @@ import androidx.fragment.app.FragmentManager
 import app.tapho.R
 
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LoaderFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoaderFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +28,7 @@ class LoaderFragment : DialogFragment() {
     companion object {
         private const val TAG = "LoaderFragment"
         fun showLoader(fragmentManager: FragmentManager) {
-            //Jakir
+
             try {
                 newInstance().show(fragmentManager, TAG)
             } catch (e: Exception) {
@@ -53,11 +48,6 @@ class LoaderFragment : DialogFragment() {
 
         @JvmStatic
         fun newInstance() =
-            LoaderFragment()/*.apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }*/
+            LoaderFragment()
     }
 }

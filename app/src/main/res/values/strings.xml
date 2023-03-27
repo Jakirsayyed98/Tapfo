@@ -7,8 +7,8 @@
     <string name="next_time">set 4 digit 2FA passcode \nfor login</string>
     <string name="next_time1">Set Passcode</string>
     <string name="re_enter_passcode">Re-enter Passcode</string>
-    <string name="email_id">Email Id</string>
 
+    <string name="email_id">Email Id</string>
     <string name="more">More</string>
     <string name="ShopCompair">Shop&amp;Compair</string>
     <string name="service_more"><![CDATA[Service & More]]></string>

@@ -20,16 +20,20 @@ import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import app.tapho.R
 import app.tapho.databinding.ActivityScannerBinding
+import app.tapho.interfaces.ApiListener
 import app.tapho.ui.BaseActivity
 import app.tapho.ui.ContainerActivity
 import app.tapho.ui.intro.IntroNewAdapter
 import app.tapho.ui.intro.sliderItem
 import app.tapho.ui.scanner.ScanCart.BarcodeScannerForProductActivity
 import app.tapho.ui.scanner.ScanCart.ContainerForProductActivity
+import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
+import app.tapho.utils.DATA
 import app.tapho.utils.decodeCashback
 import app.tapho.utils.setOnCustomeCrome
 import com.budiyev.android.codescanner.*
 import com.google.android.material.tabs.TabLayoutMediator
+import com.google.gson.Gson
 import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URLDecoder
@@ -111,16 +115,41 @@ class scanner : BaseActivity<ActivityScannerBinding>() {
         codeScanner = CodeScanner(this, binding.scannerView)
         codeScanner.camera = CodeScanner.CAMERA_BACK
         codeScanner.formats = CodeScanner.ALL_FORMATS
-
         codeScanner.autoFocusMode = AutoFocusMode.SAFE
         codeScanner.scanMode = ScanMode.SINGLE
-
         codeScanner.isAutoFocusEnabled = true
         codeScanner.isFlashEnabled = false
-
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
                 val textData=it.text
+                if (textData.contains("http")) {
+                    this.setOnCustomeCrome(textData)
+                } else {
+                    viewModel.searchBusiness(getUserId(), textData, this,
+                        object : ApiListener<searchBusinessRes, Any?> {
+                            override fun onSuccess(t: searchBusinessRes?, mess: String?) {
+                                t!!.let {
+                                    if (it.data.isNullOrEmpty().not()) {
+
+                                        ContainerForProductActivity.openContainer(this@scanner,"StoreNameDialogFragment",it.data.get(0),false,"")
+
+//                                                startActivity(Intent(this@NewScannerActivity, BarcodeScannerForProductActivity::class.java).apply {
+//                                                        putExtra(DATA, Gson().toJson(it.data.get(0)))
+//                                                    })
+                                        finish()
+//                                        startActivity(
+//                                            Intent(this@scanner, BarcodeScannerForProductActivity::class.java).apply {
+//                                                putExtra(DATA, Gson().toJson(it.data.get(0)))
+//                                            })
+//                                        finish()
+                                    } else {
+                                        showCopyDialog(textData)
+                                    }
+                                }
+                            }
+                        })
+                }
+                /*
                 if (textData.contains("http")) {
                    this.setOnCustomeCrome(textData)
                 }else if (textData.contains("@tapfostore")){
@@ -130,7 +159,7 @@ class scanner : BaseActivity<ActivityScannerBinding>() {
                 } else {
                     showCopyDialog(textData)
                 }
-
+*/
             }
         }
         codeScanner.errorCallback = ErrorCallback {

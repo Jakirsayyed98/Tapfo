@@ -54,6 +54,7 @@ import app.tapho.ui.model.MinisRecentsRes
 import app.tapho.RoomDB.getDatabase
 import app.tapho.ui.model.UserDetails.getUserDetailRes
 import app.tapho.ui.model.WebTCashRes
+import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
 import app.tapho.ui.scanner.model.TapfoMartProductRes
 import app.tapho.ui.tcash.AddMoneyPopup.AddMoneyModel.AddMoneyRes
 import app.tapho.ui.tcash.model.AddMoneyVoucers.AddWalletVoucherRes
@@ -123,9 +124,9 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
         loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("mobile_no",mobile)
-            addProperty("device_id",device_id)
-            addProperty("country_code","91")
+            addProperty("mobile_no", mobile)
+            addProperty("device_id", device_id)
+            addProperty("country_code", "91")
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -149,10 +150,10 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
         loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("country_code","91")
-            addProperty("mobile_no",mobile)
-            addProperty("device_id",device_id)
-            addProperty("otp",otp)
+            addProperty("country_code", "91")
+            addProperty("mobile_no", mobile)
+            addProperty("device_id", device_id)
+            addProperty("otp", otp)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -174,8 +175,8 @@ class RequestViewModel : ViewModel() {
 
         loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("referral_code",referral_code)
+            addProperty("user_id", userid)
+            addProperty("referral_code", referral_code)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -195,8 +196,8 @@ class RequestViewModel : ViewModel() {
     ) {
         this.loadLis = loadLis
         val req = JsonObject().apply {
-            addProperty("mobile_no",mobile)
-            addProperty("country_code","91")
+            addProperty("mobile_no", mobile)
+            addProperty("country_code", "91")
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -215,10 +216,10 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<LoginRes, Any?>,
     ) {
         this.loadLis = loadLis
-             loadLis.showLoader()
+        loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userId)
-            addProperty("passcode",passcode)
+            addProperty("user_id", userId)
+            addProperty("passcode", passcode)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -239,7 +240,7 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
 //             loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userId)
+            addProperty("user_id", userId)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -250,9 +251,6 @@ class RequestViewModel : ViewModel() {
             }
         }
     }
-
-
-
 
 
     @SuppressLint("SuspiciousIndentation")
@@ -267,14 +265,14 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<LoginRes, Any?>,
     ) {
         this.loadLis = loadLis
-            loadLis.showLoader()
+        loadLis.showLoader()
 
         val req = JsonObject().apply {
-            addProperty("user_id",userId)
-            addProperty("email",email)
-            addProperty("name",name)
-            addProperty("gender",gender)
-            addProperty("dob",dob)
+            addProperty("user_id", userId)
+            addProperty("email", email)
+            addProperty("name", name)
+            addProperty("gender", gender)
+            addProperty("dob", dob)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -296,11 +294,11 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<LoginRes, Any?>,
     ) {
         this.loadLis = loadLis
-           loadLis.showLoader()
+        loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("passcode",passCode)
-            addProperty("country_code",countryCode)
-            addProperty("mobile_no",mobile)
+            addProperty("passcode", passCode)
+            addProperty("country_code", countryCode)
+            addProperty("mobile_no", mobile)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -324,9 +322,9 @@ class RequestViewModel : ViewModel() {
         loadLis.showLoader()
 
         val req = JsonObject().apply {
-            addProperty("device_id",device_id)
-            addProperty("country_code","91")
-            addProperty("mobile_no",mobile)
+            addProperty("device_id", device_id)
+            addProperty("country_code", "91")
+            addProperty("mobile_no", mobile)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -341,24 +339,23 @@ class RequestViewModel : ViewModel() {
     }
 
 
-
     private val returnList = MutableLiveData<Resource<HomeRes>>()
     fun getHomeData1(
         userid: String?,
     ) {
 //        this.loadLis = loadLis
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         returnList.postValue(Resource.loading(null))
         try {
             viewModelScope.launch(setErrorHandler(loadLis)) {
                 withContext(Dispatchers.IO) {
                     val response = MyApiV2().getHomeData(encrypt(req.toString()))
-                    if (response.isSuccessful){
-                     //   insertData(response.body()!!)
+                    if (response.isSuccessful) {
+                        //   insertData(response.body()!!)
                         returnList.postValue(Resource.success(response.body()))
-                    }else{
+                    } else {
                         returnList.postValue(Resource.error(response.errorBody().toString(), null))
                     }
 
@@ -371,14 +368,14 @@ class RequestViewModel : ViewModel() {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    fun insertData(model:HomeRes){
+    fun insertData(model: HomeRes) {
         GlobalScope.launch {
             getDatabase(applicationContext()).appDao().insertItems(model)
         }
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    fun updateData(model: HomeRes){
+    fun updateData(model: HomeRes) {
         GlobalScope.launch {
             getDatabase(applicationContext()).appDao().UpdateItems(model)
         }
@@ -387,7 +384,7 @@ class RequestViewModel : ViewModel() {
     fun getHomeData(): LiveData<Resource<HomeRes>> {
         return returnList
     }
- //
+    //
 
     fun getHomeData(
         type: String,
@@ -398,7 +395,7 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
 //        loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -422,11 +419,11 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<MiniAppRes, Any?>,
     ) {
         this.loadLis = loadLis
-           loadLis.showLoader()
+        loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("app_category_id",app_category_id)
-            addProperty("app_sub_category_id",app_sub_category_id)
+            addProperty("user_id", userid)
+            addProperty("app_category_id", app_category_id)
+            addProperty("app_sub_category_id", app_sub_category_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -439,7 +436,6 @@ class RequestViewModel : ViewModel() {
     }
 
 
-
     fun getMiniAppTCash(
         userid: String?,
         mini_app_id: String?,
@@ -449,8 +445,8 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("mini_app_id",mini_app_id)
+            addProperty("user_id", userid)
+            addProperty("mini_app_id", mini_app_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -463,7 +459,6 @@ class RequestViewModel : ViewModel() {
     }
 
 
-
     fun AddMoneyToWallet(
         userid: String?,
         amount: String?,
@@ -474,13 +469,13 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<AddMoneyRes, Any?>,
     ) {
         this.loadLis = loadLis
-           loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("amount",amount)
-            addProperty("cashback",cashback)
-            addProperty("txn_id",txn_id)
-            addProperty("pay_option",pay_option)
+            addProperty("user_id", userid)
+            addProperty("amount", amount)
+            addProperty("cashback", cashback)
+            addProperty("txn_id", txn_id)
+            addProperty("pay_option", pay_option)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -500,10 +495,10 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<BaseRes, Any?>,
     ) {
         this.loadLis = loadLis
-           loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("mini_app_id",mini_app_id)
+            addProperty("user_id", userid)
+            addProperty("mini_app_id", mini_app_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -522,10 +517,10 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<BaseRes, Any?>,
     ) {
         this.loadLis = loadLis
-          loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("mini_app_id",mini_app_id)
+            addProperty("user_id", userid)
+            addProperty("mini_app_id", mini_app_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -539,20 +534,20 @@ class RequestViewModel : ViewModel() {
 
 
     fun addMiniAppToRecent(
-        user_id:String,
+        user_id: String,
         mini_app_id: String?,
         loadLis: LoaderListener?,
         listener: ApiListener<BaseRes, Any?>
-    ){
-        val req= JsonObject().apply {
-            addProperty("user_id",user_id)
-            addProperty("app_category_mini_app_id",mini_app_id)
+    ) {
+        val req = JsonObject().apply {
+            addProperty("user_id", user_id)
+            addProperty("app_category_mini_app_id", mini_app_id)
         }
 
-        viewModelScope.launch(setErrorHandler(loadLis)){
-            withContext(coroutineContext){
+        viewModelScope.launch(setErrorHandler(loadLis)) {
+            withContext(coroutineContext) {
                 MyApiV2().addMiniappRecently(encrypt(req.toString())).body()?.let {
-                    listener.onResponse(it,loadLis)
+                    listener.onResponse(it, loadLis)
                 }
             }
         }
@@ -564,17 +559,22 @@ class RequestViewModel : ViewModel() {
         userid: String?,
     ) {
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         returnMiniRecents.postValue(Resource.loading(null))
         try {
             viewModelScope.launch(setErrorHandler(loadLis)) {
                 withContext(Dispatchers.IO) {
                     val response = MyApiV2().getMiniappRecentlyList(encrypt(req.toString()))
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         returnMiniRecents.postValue(Resource.success(response.body()))
-                    }else{
-                        returnMiniRecents.postValue(Resource.error(response.errorBody().toString(), null))
+                    } else {
+                        returnMiniRecents.postValue(
+                            Resource.error(
+                                response.errorBody().toString(),
+                                null
+                            )
+                        )
                     }
                 }
             }
@@ -601,10 +601,10 @@ class RequestViewModel : ViewModel() {
 //            loadLis?.showLoader()
 
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("start_date",startDate)
-            addProperty("end_date",endDate)
-            addProperty("type",type)
+            addProperty("user_id", userid)
+            addProperty("start_date", startDate)
+            addProperty("end_date", endDate)
+            addProperty("type", type)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -625,11 +625,11 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<MerchantOfferRes, Any?>,
     ) {
         this.loadLis = loadLis
-          loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("offer_type",offer_type)
-            addProperty("search","")
+            addProperty("user_id", userid)
+            addProperty("offer_type", offer_type)
+            addProperty("search", "")
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -653,11 +653,11 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("offer_type",offer_type)
-            addProperty("app_category_id",app_category_id)
-            addProperty("category_id",category_id)
-            addProperty("type",type)
+            addProperty("user_id", userid)
+            addProperty("offer_type", offer_type)
+            addProperty("app_category_id", app_category_id)
+            addProperty("category_id", category_id)
+            addProperty("type", type)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -678,7 +678,7 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -701,13 +701,13 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<BaseRes, Any?>,
     ) {
         this.loadLis = loadLis
-         loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("subject",subject)
-            addProperty("message",message)
-            addProperty("service",service)
-            addProperty("type",type)
+            addProperty("user_id", userid)
+            addProperty("subject", subject)
+            addProperty("message", message)
+            addProperty("service", service)
+            addProperty("type", type)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -740,11 +740,11 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid!!.toString())
-            addProperty("email",email)
-            addProperty("name",name)
-            addProperty("gender",gender)
-            addProperty("dob",dob)
+            addProperty("user_id", userid!!.toString())
+            addProperty("email", email)
+            addProperty("name", name)
+            addProperty("gender", gender)
+            addProperty("dob", dob)
 
         }
 
@@ -768,9 +768,9 @@ class RequestViewModel : ViewModel() {
     ) {
         this.loadLis = loadLis
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("device_type","2")
-            addProperty("device_token",deviceToken)
+            addProperty("user_id", userid)
+            addProperty("device_type", "2")
+            addProperty("device_token", deviceToken)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -794,8 +794,8 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
 //        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("search",search)
+            addProperty("user_id", userid)
+            addProperty("search", search)
         }
         return viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -815,7 +815,7 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -835,7 +835,7 @@ class RequestViewModel : ViewModel() {
         this.loadLis = loadLis
 //       loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -853,9 +853,9 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<RechargeCircle, Any?>,
     ) {
         this.loadLis = loadLis
-loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -876,10 +876,10 @@ loadLis?.showLoader()
         listener: ApiListener<ServiceOperatorRes, Any?>,
     ) {
         this.loadLis = loadLis
-          loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("rechargeservicestype_id",rechargeservicestype_id)
+            addProperty("user_id", userid)
+            addProperty("rechargeservicestype_id", rechargeservicestype_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -896,9 +896,9 @@ loadLis?.showLoader()
         listener: ApiListener<StoriesResFile, Any?>,
     ) {
         this.loadLis = loadLis
-                loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -923,10 +923,10 @@ loadLis?.showLoader()
         this.loadLis = loadLis
 //            loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("category_id",category_id)
-            addProperty("tag_id",tag_id)
-            addProperty("popular_trending",popular_trending)
+            addProperty("user_id", userid)
+            addProperty("category_id", category_id)
+            addProperty("tag_id", tag_id)
+            addProperty("popular_trending", popular_trending)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -946,9 +946,9 @@ loadLis?.showLoader()
         listener: ApiListener<GamezopCategoryData, Games>,
     ) {
         this.loadLis = loadLis
-           loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -964,9 +964,9 @@ loadLis?.showLoader()
         listener: ApiListener<GamezopTag, Any?>,
     ) {
         this.loadLis = loadLis
-              loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -986,9 +986,9 @@ loadLis?.showLoader()
         listener: ApiListener<getGameFavList, Any?>,
     ) {
         this.loadLis = loadLis
-            loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1006,17 +1006,22 @@ loadLis?.showLoader()
         userid: String?,
     ) {
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         returnFavList.postValue(Resource.loading(null))
         try {
             viewModelScope.launch(setErrorHandler(loadLis)) {
                 withContext(Dispatchers.IO) {
                     val response = MyApiV2().getGameFavList(encrypt(req.toString()))
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         returnFavList.postValue(Resource.success(response.body()))
-                    }else{
-                        returnFavList.postValue(Resource.error(response.errorBody().toString(), null))
+                    } else {
+                        returnFavList.postValue(
+                            Resource.error(
+                                response.errorBody().toString(),
+                                null
+                            )
+                        )
                     }
                 }
             }
@@ -1036,9 +1041,9 @@ loadLis?.showLoader()
         listener: ApiListener<Faqsmodel, Any?>,
     ) {
         this.loadLis = loadLis
-          loadLis?.showLoader()
+        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1060,11 +1065,11 @@ loadLis?.showLoader()
     ) {
         this.loadLis = loadLis
 
-           loadLis.showLoader()
+        loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userId)
-            addProperty("game_id",game_id)
-            addProperty("favUnfav",favUnfav)
+            addProperty("user_id", userId)
+            addProperty("game_id", game_id)
+            addProperty("favUnfav", favUnfav)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1084,10 +1089,10 @@ loadLis?.showLoader()
     ) {
         this.loadLis = loadLis
 
-           loadLis.showLoader()
+        loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userId)
-            addProperty("game_id",game_id)
+            addProperty("user_id", userId)
+            addProperty("game_id", game_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1100,24 +1105,27 @@ loadLis?.showLoader()
     }
 
 
-
-
     private val returnRecentList = MutableLiveData<Resource<GameRecentPlayList>>()
     fun getRecentDataList(
         userid: String?,
     ) {
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         returnRecentList.postValue(Resource.loading(null))
         try {
             viewModelScope.launch(setErrorHandler(loadLis)) {
                 withContext(Dispatchers.IO) {
                     val response = MyApiV2().getGameRecentList(encrypt(req.toString()))
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         returnRecentList.postValue(Resource.success(response.body()))
-                    }else{
-                        returnRecentList.postValue(Resource.error(response.errorBody().toString(), null))
+                    } else {
+                        returnRecentList.postValue(
+                            Resource.error(
+                                response.errorBody().toString(),
+                                null
+                            )
+                        )
                     }
                 }
             }
@@ -1140,11 +1148,11 @@ loadLis?.showLoader()
         listener: ApiListener<getAllNewsdata, Any?>,
     ) {
         this.loadLis = loadLis
-           loadLis.showLoader()
+        loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userId)
-            addProperty("id",id)
-            addProperty("page",page)
+            addProperty("user_id", userId)
+            addProperty("id", id)
+            addProperty("page", page)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1164,7 +1172,7 @@ loadLis?.showLoader()
         this.loadLis = loadLis
 //            loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userId)
+            addProperty("user_id", userId)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1185,8 +1193,8 @@ loadLis?.showLoader()
         this.loadLis = loadLis
 //          loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
-            addProperty("number",number)
+            addProperty("user_id", user_id)
+            addProperty("number", number)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -1210,10 +1218,10 @@ loadLis?.showLoader()
         this.loadLis = loadLis
 //         loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
-            addProperty("number",number)
-            addProperty("operator_id",operator_id)
-            addProperty("circle_id",circle_id)
+            addProperty("user_id", user_id)
+            addProperty("number", number)
+            addProperty("operator_id", operator_id)
+            addProperty("circle_id", circle_id)
         }
 
 
@@ -1241,13 +1249,13 @@ loadLis?.showLoader()
         this.loadLis = loadLis
 //           loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
-            addProperty("recharge_type",recharge_type)
-            addProperty("number",number)
-            addProperty("operator_id",operator_id)
-            addProperty("circle_id",circle_id)
-            addProperty("amount",amount)
-            addProperty("user_txn_id",user_txn_id)
+            addProperty("user_id", user_id)
+            addProperty("recharge_type", recharge_type)
+            addProperty("number", number)
+            addProperty("operator_id", operator_id)
+            addProperty("circle_id", circle_id)
+            addProperty("amount", amount)
+            addProperty("user_txn_id", user_txn_id)
         }
 
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -1261,7 +1269,6 @@ loadLis?.showLoader()
     }
 
 
-
     fun getAllNotification(
         user_id: String,
         loadLis: LoaderListener,
@@ -1270,7 +1277,7 @@ loadLis?.showLoader()
         this.loadLis = loadLis
 //          loadLis.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
+            addProperty("user_id", user_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1293,9 +1300,9 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("amount",amount.toString())
-            addProperty("order_id",orderId)
+            addProperty("user_id", userid)
+            addProperty("amount", amount.toString())
+            addProperty("order_id", orderId)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1319,11 +1326,11 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
-            addProperty("order_id",order_id)
-            addProperty("payment_mode",payment_mode)
-            addProperty("card_info",card_info)
-            addProperty("txnToken",txnToken)
+            addProperty("user_id", user_id)
+            addProperty("order_id", order_id)
+            addProperty("payment_mode", payment_mode)
+            addProperty("card_info", card_info)
+            addProperty("txnToken", txnToken)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1343,8 +1350,8 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
-            addProperty("order_id",order_id)
+            addProperty("user_id", user_id)
+            addProperty("order_id", order_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1366,20 +1373,20 @@ loadLis?.showLoader()
         type: String,
         loadLis: LoaderListener?,
         listener: ApiListener<addUserTransactionRes, Any?>,
-    ){
-        this.loadLis =loadLis
+    ) {
+        this.loadLis = loadLis
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("amount",amount)
-            addProperty("payment_amount",payment_amount)
-            addProperty("txn_id",txn_id)
-            addProperty("pay_option",pay_option)
-            addProperty("type",type)
+            addProperty("user_id", userid)
+            addProperty("amount", amount)
+            addProperty("payment_amount", payment_amount)
+            addProperty("txn_id", txn_id)
+            addProperty("pay_option", pay_option)
+            addProperty("type", type)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext){
+            withContext(coroutineContext) {
                 MyApiV2().addUserTransaction(encrypt(req.toString())).body()?.let {
-                    listener.onResponse(it,loadLis)
+                    listener.onResponse(it, loadLis)
                 }
             }
 
@@ -1390,15 +1397,15 @@ loadLis?.showLoader()
         userid: String?,
         loadLis: LoaderListener?,
         listener: ApiListener<checkRechargeStatusRes, Any?>,
-    ){
-        this.loadLis =loadLis
+    ) {
+        this.loadLis = loadLis
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext){
+            withContext(coroutineContext) {
                 MyApiV2().checkRechargeStatus(encrypt(req.toString())).body()?.let {
-                    listener.onResponse(it,loadLis)
+                    listener.onResponse(it, loadLis)
                 }
             }
 
@@ -1413,7 +1420,7 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         //     loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1432,7 +1439,7 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         //     loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1452,8 +1459,8 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         //       loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("category_id",categoryid)
+            addProperty("user_id", userid)
+            addProperty("category_id", categoryid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1588,9 +1595,9 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("business_category_id",business_category_id)
-            addProperty("business_subcategory_id",business_subcategory_id)
+            addProperty("user_id", userid)
+            addProperty("business_category_id", business_category_id)
+            addProperty("business_subcategory_id", business_subcategory_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1611,8 +1618,8 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("business_id",business_id)
+            addProperty("user_id", userid)
+            addProperty("business_id", business_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1632,7 +1639,7 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
+            addProperty("user_id", userid)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1655,10 +1662,10 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("business_id",business_id)
-            addProperty("rating",rating)
-            addProperty("review",review)
+            addProperty("user_id", userid)
+            addProperty("business_id", business_id)
+            addProperty("rating", rating)
+            addProperty("review", review)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
             withContext(coroutineContext) {
@@ -1685,14 +1692,14 @@ loadLis?.showLoader()
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",userid)
-            addProperty("business_category_id",business_category_id)
-            addProperty("business_subcategory_id",business_subcategory_id)
-            addProperty("business_name",business_name)
-            addProperty("latitude",latitude)
-            addProperty("longitude",longitude)
-            addProperty("distance",distance)
-            addProperty("business_tag_id",business_tag_id)
+            addProperty("user_id", userid)
+            addProperty("business_category_id", business_category_id)
+            addProperty("business_subcategory_id", business_subcategory_id)
+            addProperty("business_name", business_name)
+            addProperty("latitude", latitude)
+            addProperty("longitude", longitude)
+            addProperty("distance", distance)
+            addProperty("business_tag_id", business_tag_id)
 
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
@@ -1706,65 +1713,86 @@ loadLis?.showLoader()
     }
 
 
-
     fun TapfoFiCategories(
-        user_id:String,
+        user_id: String,
         loadLis: LoaderListener?,
         listener: ApiListener<TapfoFiCategories_Res, Any?>
-    ){
+    ) {
         this.loadLis = loadLis
 //        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
+            addProperty("user_id", user_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext){
+            withContext(coroutineContext) {
                 MyApiV2().TapfoFicategories(encrypt(req.toString())).body()?.let {
-                    listener.onResponse(it,loadLis)
+                    listener.onResponse(it, loadLis)
                 }
             }
         }
     }
 
     fun TapfoFiCategoriesMiniapps(
-        user_id:String,
-        fin_category_id:String,
+        user_id: String,
+        fin_category_id: String,
         loadLis: LoaderListener?,
         listener: ApiListener<FiCategoriesMiniAppsRes, Any?>
-    ){
+    ) {
         this.loadLis = loadLis
 //        loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
-            addProperty("fin_category_id",fin_category_id)
+            addProperty("user_id", user_id)
+            addProperty("fin_category_id", fin_category_id)
         }
         viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext){
+            withContext(coroutineContext) {
                 MyApiV2().TapfoFiCategoriesMiniapps(encrypt(req.toString())).body()?.let {
-                    listener.onResponse(it,loadLis)
+                    listener.onResponse(it, loadLis)
                 }
             }
         }
     }
 
 
- fun TapfoMartsearchBarcodeproduct(
-        user_id:String,
-        barcode:String,
+    fun TapfoMartsearchBarcodeproduct(
+        user_id: String,
+        barcode: String,
         loadLis: LoaderListener?,
         listener: ApiListener<TapfoMartProductRes, Any?>
-    ){
+    ) {
         this.loadLis = loadLis
         loadLis?.showLoader()
         val req = JsonObject().apply {
-            addProperty("user_id",user_id)
-            addProperty("barcode",barcode)
+            addProperty("user_id", user_id)
+            addProperty("barcode", barcode)
         }
-     Log.d("MyEncryptData", encrypt(req.toString()))
+        Log.d("MyEncryptData", encrypt(req.toString()))
         viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext){
+            withContext(coroutineContext) {
                 MyApiV2().TapfoMartsearchBarcodeproduct(encrypt(req.toString())).body()?.let {
-                    listener.onResponse(it,loadLis)
+                    listener.onResponse(it, loadLis)
+                }
+            }
+        }
+    }
+
+
+    fun searchBusiness(
+        user_id: String,
+        business_code: String,
+        loadLis: LoaderListener?,
+        listener: ApiListener<searchBusinessRes, Any?>
+    ) {
+        this.loadLis = loadLis
+        loadLis?.showLoader()
+        val req = JsonObject().apply {
+            addProperty("user_id", user_id)
+            addProperty("business_code", business_code)
+        }
+        viewModelScope.launch(setErrorHandler(loadLis)) {
+            withContext(coroutineContext) {
+                MyApiV2().searchBusiness(encrypt(req.toString())).body()?.let {
+                    listener.onResponse(it, loadLis)
                 }
             }
         }

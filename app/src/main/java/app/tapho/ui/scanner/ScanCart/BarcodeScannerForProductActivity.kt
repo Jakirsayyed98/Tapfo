@@ -59,6 +59,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         }
 
         permissionTaking()
+
     }
     private fun permissionTaking() {
         if (ContextCompat.checkSelfPermission(
@@ -108,8 +109,6 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         }
     }
 
-
-
     private fun showCopyDialog(textData: String?) {
         if (textData != null) {
             viewModel.TapfoMartsearchBarcodeproduct(getUserId(),textData,this,object :
@@ -124,11 +123,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
                            Toast.makeText(this@BarcodeScannerForProductActivity,"Product Not Fond"+textData,Toast.LENGTH_LONG).show()
                        }
                    }
-
-
-
                 }
-
                 override fun onError(mess: String?) {
                     super.onError(mess)
                     Toast.makeText(this@BarcodeScannerForProductActivity,"Product Not Fond "+mess,Toast.LENGTH_LONG).show()
@@ -215,12 +210,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
        }
     }
 
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 100) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -245,7 +235,6 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         }
         super.onPause()
     }
-
     override fun onBackPressed() {
         if (backPressedTime + 5000 > System.currentTimeMillis()) {
             super.getOnBackPressedDispatcher().onBackPressed()
