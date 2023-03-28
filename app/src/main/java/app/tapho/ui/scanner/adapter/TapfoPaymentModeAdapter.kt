@@ -7,10 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import app.tapho.databinding.*
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseRecyclerAdapter
-import app.tapho.ui.scanner.model.Data
 import app.tapho.ui.scanner.model.customePaymentMode
-import app.tapho.utils.withSuffixAmount
-import com.bumptech.glide.Glide
 
 class TapfoPaymentModeAdapter<S>(private val clickListener: RecyclerClickListener) :
     BaseRecyclerAdapter<S, TapfoPaymentModeAdapter<S>.Holder>() {

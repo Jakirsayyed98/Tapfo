@@ -6,10 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import app.tapho.ui.model.HomeRes
-import app.tapho.ui.scanner.model.Data
+import app.tapho.ui.scanner.model.AllProducts.Data
+import app.tapho.ui.scanner.model.CartData.Cart
 
 
-@Database(entities = [HomeRes::class,Data::class], version = 1, exportSchema = false)
+@Database(entities = [HomeRes::class,Data::class,Cart::class], version = 1, exportSchema = false)
 @TypeConverters(RoomConverters::class)
 abstract class AppDatabase :RoomDatabase() {
     abstract fun appDao() : AppDao

@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.RecyclerView
 import app.tapho.databinding.*
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseRecyclerAdapter
-import app.tapho.ui.scanner.model.Data
-import app.tapho.utils.withSuffixAmount
+import app.tapho.ui.scanner.model.AllProducts.Data
+import app.tapho.ui.scanner.model.CartData.Cart
 import com.bumptech.glide.Glide
 
 class TapfoCartAdapter2<S>(private val clickListener: RecyclerClickListener) :
@@ -15,7 +15,7 @@ class TapfoCartAdapter2<S>(private val clickListener: RecyclerClickListener) :
 
     inner class Holder(private val binding: TapfocartLayout2Binding) : RecyclerView.ViewHolder(binding.root) {
         fun setData(s: S) {
-            if (s is Data){
+            if (s is Cart){
                 Glide.with(itemView.context).load(s.image).into(binding.image)
             }
         }

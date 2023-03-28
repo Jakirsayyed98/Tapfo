@@ -28,9 +28,7 @@ import app.tapho.ui.intro.sliderItem
 import app.tapho.ui.scanner.ScanCart.BarcodeScannerForProductActivity
 import app.tapho.ui.scanner.ScanCart.ContainerForProductActivity
 import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
-import app.tapho.utils.DATA
-import app.tapho.utils.decodeCashback
-import app.tapho.utils.setOnCustomeCrome
+import app.tapho.utils.*
 import com.budiyev.android.codescanner.*
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
@@ -41,7 +39,7 @@ import java.util.ArrayList
 
 
 class scanner : BaseActivity<ActivityScannerBinding>() {
-    private lateinit var codeScanner: CodeScanner
+private lateinit var codeScanner: CodeScanner
     val sliderHandler=Handler()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,9 +89,6 @@ class scanner : BaseActivity<ActivityScannerBinding>() {
                 super.onPageSelected(position)
                 if (position<2){
                     sliderHandler.removeCallbacks(sliderRunnable)
-
-                }else{
-
                 }
             }
         })
@@ -111,7 +106,6 @@ class scanner : BaseActivity<ActivityScannerBinding>() {
 
 
     private fun startScanning() {
-
         codeScanner = CodeScanner(this, binding.scannerView)
         codeScanner.camera = CodeScanner.CAMERA_BACK
         codeScanner.formats = CodeScanner.ALL_FORMATS
@@ -130,18 +124,11 @@ class scanner : BaseActivity<ActivityScannerBinding>() {
                             override fun onSuccess(t: searchBusinessRes?, mess: String?) {
                                 t!!.let {
                                     if (it.data.isNullOrEmpty().not()) {
-
+                                        getSharedPreference().saveString(BUSINESS_DATA,Gson().toJson(it.data.get(0)))
+                                        getSharedPreference().saveString(CART_ID, getCartIdRandom())
+                                        viewModel.DeleteBusinessProductList()
                                         ContainerForProductActivity.openContainer(this@scanner,"StoreNameDialogFragment",it.data.get(0),false,"")
-
-//                                                startActivity(Intent(this@NewScannerActivity, BarcodeScannerForProductActivity::class.java).apply {
-//                                                        putExtra(DATA, Gson().toJson(it.data.get(0)))
-//                                                    })
                                         finish()
-//                                        startActivity(
-//                                            Intent(this@scanner, BarcodeScannerForProductActivity::class.java).apply {
-//                                                putExtra(DATA, Gson().toJson(it.data.get(0)))
-//                                            })
-//                                        finish()
                                     } else {
                                         showCopyDialog(textData)
                                     }
@@ -149,17 +136,6 @@ class scanner : BaseActivity<ActivityScannerBinding>() {
                             }
                         })
                 }
-                /*
-                if (textData.contains("http")) {
-                   this.setOnCustomeCrome(textData)
-                }else if (textData.contains("@tapfostore")){
-                    ContainerForProductActivity.openContainer(this,"StoreNameDialogFragment","",false,"")
-//                    startActivity(Intent(this, BarcodeScannerForProductActivity::class.java))
-                    finish()
-                } else {
-                    showCopyDialog(textData)
-                }
-*/
             }
         }
         codeScanner.errorCallback = ErrorCallback {
@@ -174,28 +150,12 @@ class scanner : BaseActivity<ActivityScannerBinding>() {
         }
     }
 
-    private fun upiIdPayment(textData: String?) {
-   //     startActivity(Intent(applicationContext,Upi_Redirecting::class.java))
-        val upidata=textData?.substringAfter("=")
-        main_upi_id=upidata?.substringBefore("&")//main UPI created here
-
-        val UPI_Name_start=upidata?.substringAfter("=")
-        val UPI_Name_end_cut=UPI_Name_start?.substringBefore("&")
-        val re = "[^A-Za-z ]".toRegex()
-        UPI_paying_name = re.replace(UPI_Name_end_cut.toString(), "")//to paying name
-    }
-
     private fun showCopyDialog(textData: String?) {
         if (textData!!.contains("userid")){
             val data = URLDecoder.decode(textData)
             val obj : JSONObject = JSONObject(data)
             val jsonOBJ: JSONArray = obj.getJSONArray("userdata")
             val json = jsonOBJ.get(0)
-
-
-
-
-
         }else{
             val dialog: Dialog = Dialog(this)
             val view = layoutInflater.inflate(R.layout.upi_dialog, null)

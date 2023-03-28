@@ -1,7 +1,6 @@
 package app.tapho.network
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -54,8 +53,9 @@ import app.tapho.ui.model.MinisRecentsRes
 import app.tapho.RoomDB.getDatabase
 import app.tapho.ui.model.UserDetails.getUserDetailRes
 import app.tapho.ui.model.WebTCashRes
+import app.tapho.ui.scanner.model.AllProducts.Data
+import app.tapho.ui.scanner.model.AllProducts.ProductListRes
 import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
-import app.tapho.ui.scanner.model.TapfoMartProductRes
 import app.tapho.ui.tcash.AddMoneyPopup.AddMoneyModel.AddMoneyRes
 import app.tapho.ui.tcash.model.AddMoneyVoucers.AddWalletVoucherRes
 import app.tapho.ui.walletTransactionData.addUserTransactionRes
@@ -1753,30 +1753,6 @@ class RequestViewModel : ViewModel() {
         }
     }
 
-
-    fun TapfoMartsearchBarcodeproduct(
-        user_id: String,
-        barcode: String,
-        loadLis: LoaderListener?,
-        listener: ApiListener<TapfoMartProductRes, Any?>
-    ) {
-        this.loadLis = loadLis
-        loadLis?.showLoader()
-        val req = JsonObject().apply {
-            addProperty("user_id", user_id)
-            addProperty("barcode", barcode)
-        }
-        Log.d("MyEncryptData", encrypt(req.toString()))
-        viewModelScope.launch(setErrorHandler(loadLis)) {
-            withContext(coroutineContext) {
-                MyApiV2().TapfoMartsearchBarcodeproduct(encrypt(req.toString())).body()?.let {
-                    listener.onResponse(it, loadLis)
-                }
-            }
-        }
-    }
-
-
     fun searchBusiness(
         user_id: String,
         business_code: String,
@@ -1797,5 +1773,56 @@ class RequestViewModel : ViewModel() {
             }
         }
     }
+
+
+
+    private val returnProductList = MutableLiveData<Resource<ProductListRes>>()
+    fun getBusinessProductList(
+        userid: String?,
+        business_id: String?,
+    ) {
+        val req = JsonObject().apply {
+            addProperty("user_id", userid)
+            addProperty("business_id", business_id)
+        }
+        returnProductList.postValue(Resource.loading(null))
+        try {
+            viewModelScope.launch(setErrorHandler(loadLis)) {
+                withContext(Dispatchers.IO) {
+                    val response = MyApiV2().getBusinessProductList(encrypt(req.toString()))
+                    if (response.isSuccessful) {
+                        //   insertData(response.body()!!)
+                        returnProductList.postValue(Resource.success(response.body()))
+                    } else {
+                        returnProductList.postValue(Resource.error(response.errorBody().toString(), null))
+                    }
+
+                }
+            }
+
+        } catch (e: Exception) {
+            returnProductList.postValue(Resource.error(e.message, null))
+        }
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    fun insertBusinessProductList(model: Data) {
+        GlobalScope.launch {
+            getDatabase(applicationContext()).appDao().insertAllProducts(model)
+        }
+    }
+
+    @OptIn(DelicateCoroutinesApi::class)
+    fun DeleteBusinessProductList() {
+        GlobalScope.launch {
+            getDatabase(applicationContext()).appDao().DeleteAllBusinessProduct()
+        }
+    }
+
+
+    fun getBusinessProductList(): LiveData<Resource<ProductListRes>> {
+        return returnProductList
+    }
+    //
 
 }

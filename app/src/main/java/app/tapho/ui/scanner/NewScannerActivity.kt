@@ -18,19 +18,13 @@ import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.viewpager2.widget.ViewPager2
 import app.tapho.R
-import app.tapho.RoomDB.getDatabase
 import app.tapho.databinding.ActivityNewScannerBinding
 import app.tapho.interfaces.ApiListener
 import app.tapho.ui.BaseActivity
 import app.tapho.ui.intro.IntroNewAdapter
 import app.tapho.ui.intro.sliderItem
-import app.tapho.ui.scanner.ScanCart.BarcodeScannerForProductActivity
 import app.tapho.ui.scanner.ScanCart.ContainerForProductActivity
 import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
-import app.tapho.ui.scanner.model.Data
-import app.tapho.ui.scanner.model.TapfoMartProductRes
-import app.tapho.ui.tcash.DirectPaytmTransaction.StartPaymentprocessingActivity
-import app.tapho.utils.DATA
 import app.tapho.utils.setOnCustomeCrome
 import com.google.android.gms.vision.CameraSource
 import com.google.android.gms.vision.Detector
@@ -38,10 +32,7 @@ import com.google.android.gms.vision.barcode.Barcode
 import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.tabs.TabLayoutMediator
-import com.google.gson.Gson
 import kotlinx.coroutines.DelicateCoroutinesApi
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import java.io.IOException
 
 
@@ -154,10 +145,6 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
                                         t!!.let {
                                             if (it.data.isNullOrEmpty().not()) {
                                                 ContainerForProductActivity.openContainer(this@NewScannerActivity,"StoreNameDialogFragment",it.data.get(0),false,"")
-
-//                                                startActivity(Intent(this@NewScannerActivity, BarcodeScannerForProductActivity::class.java).apply {
-//                                                        putExtra(DATA, Gson().toJson(it.data.get(0)))
-//                                                    })
                                                 finish()
                                             } else {
                                                 showCopyDialog(textData)

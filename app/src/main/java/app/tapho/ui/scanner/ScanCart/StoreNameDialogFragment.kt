@@ -15,6 +15,7 @@ import app.tapho.RoomDB.getDatabase
 import app.tapho.databinding.DialogFavouriteFragmentBinding
 import app.tapho.databinding.FragmentStoreNameDialogBinding
 import app.tapho.network.RequestViewModel
+import app.tapho.network.Status
 import app.tapho.ui.BaseFragment
 import app.tapho.ui.scanner.model.BusinessDetail.Data
 import app.tapho.utils.AppSharedPreference
@@ -44,10 +45,11 @@ class StoreNameDialogFragment : BaseFragment<FragmentStoreNameDialogBinding>() {
         statusBarColor(R.color.white)
         statusBarTextWhite()
         val data = activity?.intent?.getStringExtra(DATA)
-        if (data.isNullOrEmpty().not()){
+        if (data.isNullOrEmpty().not()) {
             Gson().fromJson(data, Data::class.java).let {
                 _binding!!.storename.text = it.business_name
                 _binding!!.storearea.text = it.area
+                setLayoutData(it)
             }
         }
 
@@ -62,6 +64,29 @@ class StoreNameDialogFragment : BaseFragment<FragmentStoreNameDialogBinding>() {
 
 
         return _binding?.root
+    }
+
+    private fun setLayoutData(it: Data?) {
+
+        viewModel.getBusinessProductList().observe(viewLifecycleOwner) {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    it.data!!.data.let {
+                        it.forEach {
+                            viewModel.insertBusinessProductList(it)
+                        }
+
+                    }
+                }
+                Status.LOADING -> {
+
+                }
+                Status.ERROR -> {
+
+                }
+            }
+        }
+        viewModel.getBusinessProductList(getUserId(), it!!.id)
     }
 
 

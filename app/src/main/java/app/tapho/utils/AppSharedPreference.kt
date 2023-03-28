@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import app.tapho.ui.login.model.LoginData
+import app.tapho.ui.scanner.model.BusinessDetail.Data
 import com.google.gson.Gson
 
 class AppSharedPreference {
@@ -40,6 +41,10 @@ class AppSharedPreference {
 
     fun getLoginData(): LoginData? {
         return Gson().fromJson(getString(LOGIN_DATA), LoginData::class.java)
+    }
+
+    fun getBusinessData(): Data? {
+        return Gson().fromJson(getString(BUSINESS_DATA), Data::class.java)
     }
 
     fun getUserId():String{

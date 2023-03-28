@@ -320,7 +320,6 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
                             })
                     }
                 }
-//                binding!!.searchEt.setText(Objects.requireNonNull(result)!!.get(0))
             }
         }
     }
@@ -338,6 +337,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
             )
         } else {
 //            ScanAndPayContainerActivity.openContainer(requireContext(),"EnterAmountForSend","textData","","")
+//            startActivity(Intent(requireContext(), NewScannerActivity::class.java))
             startActivity(Intent(requireContext(), scanner::class.java))
         }
     }

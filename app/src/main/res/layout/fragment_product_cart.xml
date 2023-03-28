@@ -71,25 +71,29 @@
                 app:fontFamily="@font/sans_bold" />
 
             <TextView
+                android:id="@+id/storename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:text="Born Supermart"
-                android:textColor="@color/grey_dark"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 app:fontFamily="@font/tt_medium" />
 
             <TextView
+                android:id="@+id/storeaddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
                 android:layout_weight="1"
                 android:paddingEnd="30dp"
                 android:text="SURYA command canteen - usman marg, neil lines 226002 - Mumbai"
-                android:textColor="@color/grey_dark"
+                android:textColor="@color/black"
                 android:textSize="14sp"
                 app:fontFamily="@font/tt_regular" />
 
@@ -110,25 +114,27 @@
 
 
                     <TextView
+                        android:id="@+id/cartid"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
                         android:text="CART ID: TFBRD67890701"
-                        android:textColor="@color/grey_dark"
-                        android:textSize="16sp"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
                         app:fontFamily="@font/tt_medium" />
 
                     <TextView
+                        android:id="@+id/time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         android:text="23 May 20231"
-                        android:textColor="@color/grey_dark"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
+                        android:textAlignment="center"
                         app:fontFamily="@font/tt_medium" />
 
 

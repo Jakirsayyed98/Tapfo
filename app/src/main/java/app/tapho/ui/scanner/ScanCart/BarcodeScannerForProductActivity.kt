@@ -13,6 +13,7 @@ import android.media.ToneGenerator
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -20,13 +21,14 @@ import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
 import app.tapho.R
 import app.tapho.RoomDB.getDatabase
 import app.tapho.databinding.ActivityBarcodeScannerForProductBinding
 import app.tapho.interfaces.ApiListener
 import app.tapho.ui.BaseActivity
-import app.tapho.ui.scanner.model.Data
-import app.tapho.ui.scanner.model.TapfoMartProductRes
+import app.tapho.ui.scanner.model.AllProducts.Data
+import app.tapho.ui.scanner.model.CartData.Cart
 import app.tapho.utils.customToast
 import app.tapho.utils.withSuffixAmount
 import com.budiyev.android.codescanner.AutoFocusMode
@@ -38,9 +40,6 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import org.json.JSONArray
-import org.json.JSONObject
-import java.net.URLDecoder
 
 
 class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForProductBinding>() {
@@ -57,6 +56,23 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         binding.mycart.setOnClickListener {
             ContainerForProductActivity.openContainer(this@BarcodeScannerForProductActivity,"ProductCartFragment","",false,"")
         }
+
+        SaveToCart()
+
+
+        binding.searchET.addTextChangedListener {
+            if (it!!.length==13){
+                binding.search.visibility = View.VISIBLE
+            }else{
+                binding.search.visibility = View.GONE
+            }
+        }
+
+        binding.search.setOnClickListener {
+            showCopyDialog(binding.searchET.text.toString())
+        }
+
+        binding.storename.text = getSharedPreference().getBusinessData()!!.business_name
 
         permissionTaking()
 
@@ -109,35 +125,53 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         }
     }
 
-    private fun showCopyDialog(textData: String?) {
-        if (textData != null) {
-            viewModel.TapfoMartsearchBarcodeproduct(getUserId(),textData,this,object :
-                ApiListener<TapfoMartProductRes, Any?> {
-                override fun onSuccess(t: TapfoMartProductRes?, mess: String?) {
-                   t!!.let {
-                       if (it.data.isNullOrEmpty().not()){
-                           t.data.get(0).let {
-                               OpenCartBottomSheet(it)
-                           }
-                       }else{
-                           Toast.makeText(this@BarcodeScannerForProductActivity,"Product Not Fond"+textData,Toast.LENGTH_LONG).show()
-                       }
-                   }
+    private fun SaveToCart() {
+        getDatabase(this).appDao().getAllProductSet().observe(this){
+            var Amount = 0.0
+            var Qty = 0
+            it.forEach {
+                for(i in 1..it.qty.toInt()){
+                    Amount+=it.price.toDouble()
                 }
-                override fun onError(mess: String?) {
-                    super.onError(mess)
-                    Toast.makeText(this@BarcodeScannerForProductActivity,"Product Not Fond "+mess,Toast.LENGTH_LONG).show()
-                }
+            }
+            it.forEach {
+               Qty+=it.qty
+            }
 
-            })
+            binding.itemCountAndPrice.text = Qty.toString() + " Items | "+ withSuffixAmount(Amount.toString())
         }
     }
+
+    private fun showCopyDialog(textData: String?) {
+        if (textData != null) {
+            GlobalScope.launch {
+                getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByEANisExist(textData).let {
+                    if(it){
+                        GlobalScope.launch {
+                            getDatabase(this@BarcodeScannerForProductActivity).appDao().searchProduct(textData).let {
+                                this@BarcodeScannerForProductActivity.runOnUiThread(Runnable {
+                                    OpenCartBottomSheet(it)
+                                })
+
+                            }
+                        }
+                    }else{
+                        this@BarcodeScannerForProductActivity.runOnUiThread(Runnable {
+                            Toast.makeText(this@BarcodeScannerForProductActivity,"Product Not Fond "+textData,Toast.LENGTH_SHORT).show()
+                        })
+
+                    }
+                }
+            }
+        }
+    }
+
 
     private fun OpenCartBottomSheet(it: Data) {
         val dialog = BottomSheetDialog(this)
         val view = layoutInflater.inflate(R.layout.tapfomart_cart_layout,null)
         dialog.setContentView(view)
-        dialog.setCancelable(false)
+        dialog.setCancelable(true)
         dialog.show()
         val image = view.findViewById<ImageView>(R.id.image)
         val name = view.findViewById<TextView>(R.id.name)
@@ -150,16 +184,16 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
 
         Glide.with(this).load(it.image).placeholder(R.drawable.loading_progress).into(image)
         name.text = it.name
-        price.text = withSuffixAmount(it.mrp_price)
-        disprice.text = withSuffixAmount(it.sale_price)
+        price.text = withSuffixAmount(it.mrp)
+        disprice.text = withSuffixAmount(it.price)
         var qtyd = 1
         GlobalScope.launch {
-            val Product = getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByBarcodeISExist(it.barcode)
+            val Product = getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByBarcodeISExist(it.ean)
             if (Product){
                 GlobalScope.launch {
-                    getDatabase(this@BarcodeScannerForProductActivity).appDao().getProductByBarcode(it.barcode).let {
-                        QtyData.text = it.buyingQty.toString()
-                        qtyd = it.buyingQty
+                    getDatabase(this@BarcodeScannerForProductActivity).appDao().getProductByBarcode(it.ean).let {
+                        QtyData.text = it.qty.toString()
+                        qtyd = it.qty
                     }
                 }
             }else{
@@ -180,34 +214,37 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         }
 
         addToCheckOut.setOnClickListener{click->
-           addToCart(qtyd,it)
+            addToCart(qtyd,it)
             dialog.dismiss()
         }
 
     }
 
     private fun addToCart(qtyd: Int, data : Data) {
-       data.let {
-
-               GlobalScope.launch {
-                   val Product = getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByBarcodeISExist(it.barcode)
-                   if (Product){
-                       GlobalScope.launch {
-                           getDatabase(this@BarcodeScannerForProductActivity).appDao().getProductByBarcode(it.barcode).let {
-                               GlobalScope.launch {
-                                   getDatabase(this@BarcodeScannerForProductActivity).appDao().UpdateProductToCart(qtyd,it.barcode)
-                               }
-                           }
-                       }
-                   }else{
-                       GlobalScope.launch {
-                           getDatabase(this@BarcodeScannerForProductActivity).appDao().AddPRoductToCart(
-                               Data(it.id,qtyd,it.barcode,it.created_at,if(it.description.isNullOrEmpty()) " Description" else it.description,it.image,it.mrp_price,it.name,it.qty,it.sale_price,it.sku,it.status,it.user_id)
-                           )
-                       }
-                   }
-               }
-       }
+        data.let {
+            binding.searchET.setText("")
+            binding.scannerView.performClick()
+            GlobalScope.launch {
+                val Product = getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByBarcodeISExist(it.ean)
+                if (Product){
+                    GlobalScope.launch {
+                        getDatabase(this@BarcodeScannerForProductActivity).appDao().getProductByBarcode(it.ean).let {
+                            GlobalScope.launch {
+                                getDatabase(this@BarcodeScannerForProductActivity).appDao().UpdateProductToCart(qtyd,it.ean,(qtyd * it.price.toDouble()))
+                            }
+                        }
+                    }
+                }else{
+                    GlobalScope.launch {
+                        getDatabase(this@BarcodeScannerForProductActivity).appDao().AddPRoductToCart(
+                            Cart(it.id,it.business_id,it.business_user_category_id,it.business_user_sub_category_id,it.created_at,it.description,
+                                it.ean,it.food_type,it.image,it.mrp,it.name,it.price,it.qty,it.status,it.user_id,qtyd,
+                                (qtyd * it.price.toDouble()))
+                        )
+                    }
+                }
+            }
+        }
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
@@ -217,8 +254,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
                 Toast.makeText(applicationContext, "permission granted", Toast.LENGTH_SHORT).show()
                 startScanning()
             } else {
-                Toast.makeText(applicationContext, "Camera permission denied", Toast.LENGTH_SHORT)
-                    .show()
+                Toast.makeText(applicationContext, "Camera permission denied", Toast.LENGTH_SHORT).show()
             }
         }
     }

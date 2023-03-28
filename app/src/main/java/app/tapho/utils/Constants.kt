@@ -4,6 +4,8 @@ import app.tapho.ui.model.MiniApp
 import app.tapho.ui.model.WebTCashRes
 
 const val LOGIN_DATA = "login_data"
+const val BUSINESS_DATA = "business_data"
+const val CART_ID = "cart_id"
 const val PASSCODE_SET = "passcode_set"
 const val FORGOT_PASSCODE="forgot_passcode"
 const val REACHED_HOME="reached_home"

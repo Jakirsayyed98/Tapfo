@@ -193,6 +193,7 @@
     <string name="click_here_to_see_history_amp_transaction"><u>Click here to see history &amp; transaction</u></string>
     <string name="we_simplify_and_demystify_the_world">We simplify and demystify the world of personal\nfinance, so you don’t have to. As a Tapfo\nmember, you get personalised financial product\nrecommendations and unlimited access to you.</string>
     <string name="apply_earn_upto"><![CDATA[Apply & Earn Upto]]></string>
+    <string name="eg_23456789123">eg . 23456789123</string>
     <!--    <string name="title_activity_maps">MapsActivity</string>-->
 
 </resources>

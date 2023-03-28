@@ -1,28 +1,27 @@
 package app.tapho.ui.scanner.ScanCart
 
-import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
 import app.tapho.RoomDB.getDatabase
 import app.tapho.databinding.FragmentTapMartCheckOutBinding
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseFragment
-import app.tapho.ui.login.model.LoginData
 import app.tapho.ui.scanner.adapter.TapfoCartAdapter
-import app.tapho.ui.scanner.adapter.TapfoCartAdapter2
-import app.tapho.ui.scanner.model.Data
+import app.tapho.ui.scanner.model.AllProducts.Data
+import app.tapho.ui.scanner.model.CartData.Cart
+import app.tapho.utils.CART_ID
 import app.tapho.utils.withSuffixAmount
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
 import com.google.zxing.common.BitMatrix
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
@@ -45,6 +44,7 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         statusBarColor(R.color.white)
         statusBarTextWhite()
         getcartItems()
+        setTextData()
         _binding!!.backbtn.setOnClickListener {
            activity?.onBackPressedDispatcher?.onBackPressed()
         }
@@ -59,21 +59,30 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         }
     }
 
+    private fun setTextData() {
+        getSharedPreference().getBusinessData().let {
+            _binding!!.apply {
+                storename.text = it!!.business_name
+                storeaddress.text = it.address
+            }
+        }
+    }
 
-    private fun setLayout(it: List<Data>?) {
+
+    private fun setLayout(it: List<Cart>?) {
         var total = 0.0
         var BuyQty = 0
         it!!.forEach {
-            for (i  in 1..it.buyingQty.toInt()){
-                total+=it.sale_price.toDouble()
+            for (i  in 1..it.qty.toInt()){
+                total+=it.price.toDouble()
             }
         }
         it.forEach {
-            BuyQty+=it.buyingQty.toInt()
+            BuyQty+=it.qty.toInt()
         }
         _binding!!.paybleAmount.text = withSuffixAmount(total.toString())
        _binding!!.cartcount.text = "Cart summary : "+it!!.size+" items"
-        val tapfoCartAdapter  = TapfoCartAdapter<Data>(object : RecyclerClickListener {
+        val tapfoCartAdapter  = TapfoCartAdapter<Cart>(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
             }
@@ -88,7 +97,7 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
 
     }
 
-    private fun SeDataForQR(it: List<Data>?) {
+    private fun SeDataForQR(it: List<Cart>?) {
         var bitmap: Bitmap? = null
         try {
             bitmap = GenrateQRCode(it)
@@ -104,7 +113,7 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
     }
 
 
-    private fun GenrateQRCode(it: List<Data>?): Bitmap? {
+    private fun GenrateQRCode(it: List<Cart>?): Bitmap? {
         val AddDataToQRCode = it.toString()
         val bitMatrix : BitMatrix = MultiFormatWriter().encode(AddDataToQRCode, BarcodeFormat.QR_CODE, 660, 660)
         val width = bitMatrix.width
