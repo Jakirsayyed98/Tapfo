@@ -1,6 +1,7 @@
 package app.tapho.ui.scanner.ScanCart
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,7 +53,13 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
             activity?.onBackPressedDispatcher?.onBackPressed()
         }
         _binding!!.PaymentModes.setOnClickListener {
-            ContainerForProductActivity.openContainer(requireContext(),"TapMartCheckOutFragment","",false,"")
+
+            getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
+                print("MyLog "+it.toString())
+                Log.d("MyLog",it.toString())
+            }
+
+//            ContainerForProductActivity.openContainer(requireContext(),"TapMartCheckOutFragment","",false,"")
         }
 
         return _binding?.root
@@ -110,7 +117,7 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
             }
         }).apply {
             addItem(customePaymentMode("1","Pay at Counter ","Skip the line & pay at bill counter","","2",false))
-            addItem(customePaymentMode("2","Online Payment","Pay Via UPI, Netbanking, Card or more","","2",false))
+            addItem(customePaymentMode("2","Online Payment","Pay Via UPI, Netbanking, Card or more","","1",false))
         }
 
         _binding!!.paymentmodes.apply {

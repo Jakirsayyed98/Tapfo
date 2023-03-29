@@ -16,6 +16,7 @@ import app.tapho.ui.scanner.model.AllProducts.Data
 import app.tapho.ui.scanner.model.CartData.Cart
 import app.tapho.utils.CART_ID
 import app.tapho.utils.withSuffixAmount
+import com.bumptech.glide.Glide
 import com.google.zxing.BarcodeFormat
 import com.google.zxing.MultiFormatWriter
 import com.google.zxing.WriterException
@@ -48,6 +49,11 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         _binding!!.backbtn.setOnClickListener {
            activity?.onBackPressedDispatcher?.onBackPressed()
         }
+
+
+//        fun setImage() {
+//            Glide.with(requireContext()).load(setBusinessQR("")).into(_binding!!.qrcode)
+//        }
 
         return _binding?.root
     }

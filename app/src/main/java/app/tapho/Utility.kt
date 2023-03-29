@@ -130,7 +130,7 @@ infix fun <T: AbsListView>T.scrollchange(statechange: (View, Int) -> Unit) {
 }
 
 infix fun Context.showShort(message: String) {
-//    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 }
 
 infix fun Context.showLong(message: String) {

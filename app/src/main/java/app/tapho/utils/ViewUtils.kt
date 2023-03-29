@@ -893,6 +893,15 @@ fun getCartIdRandom():String{
 }
 
 
+fun setBusinessQR(image:String):Bitmap?{
+    val base64String = image
+    val base64Image = base64String.split(",".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()[1]
+    val decodedString: ByteArray = android.util.Base64.decode(base64Image, android.util.Base64.DEFAULT)
+    val decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+    return decodedByte
+}
+
+
 
 
 

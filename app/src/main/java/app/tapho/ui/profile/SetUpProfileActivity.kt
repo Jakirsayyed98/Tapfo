@@ -179,10 +179,10 @@ class SetUpProfileActivity : BaseActivity<ActivitySetUpProfileBinding>() {
             binding.nicknameEt.setError("Please enter your name.")
         } else if (binding.emailEt.text!!.isBlank()) {
                 binding.emailEt.setError("Please enter your Email id!.")
-            this.showShort("Enter Your Email ID")
+
             } else  if (binding.emailEt.text.toString().isValidEmail().not()) {
                 binding.emailEt.setError("Please enter your correct Email id!.")
-            this.showShort("Please enter valid email address.")
+
             } else {
                 //server work
                 // binding.animationView.visibility=View.VISIBLE

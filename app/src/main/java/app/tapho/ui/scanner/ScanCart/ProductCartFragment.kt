@@ -18,6 +18,7 @@ import app.tapho.ui.tcash.TimePeriodDialog
 import app.tapho.utils.CART_ID
 import app.tapho.utils.getCartIdRandom
 import app.tapho.utils.getUniqueCode
+import app.tapho.utils.withSuffixAmount
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -87,6 +88,14 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
     }
 
     private fun setLayout(it: List<Cart>) {
+        var Amount = 0.0
+        it.forEach {
+            Amount+=it.totalPrice
+        }
+
+        _binding!!.totalCartValue.text = withSuffixAmount(Amount.toString())
+
+
         val tapfoCartAdapter  = TapfoCartAdapter<Cart>(object : RecyclerClickListener{
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 

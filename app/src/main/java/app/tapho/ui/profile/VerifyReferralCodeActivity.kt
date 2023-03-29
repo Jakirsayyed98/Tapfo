@@ -31,7 +31,7 @@ class VerifyReferralCodeActivity : BaseActivity<ActivityVerifyReferralCodeBindin
         binding.getStarted.isSelected = true
         binding.getStarted.setOnClickListener {
             if (binding.referralCode.text.toString().isNullOrEmpty()){
-              this.showShort("please enter referral code")
+
             }else{
                 binding.progress.visibility = View.VISIBLE
                 getReffrelData(binding.referralCode.text.toString())

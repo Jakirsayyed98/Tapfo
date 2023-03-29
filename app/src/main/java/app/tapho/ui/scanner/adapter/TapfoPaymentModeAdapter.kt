@@ -2,6 +2,7 @@ package app.tapho.ui.scanner.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import app.tapho.databinding.*
@@ -21,11 +22,21 @@ class TapfoPaymentModeAdapter<S>(private val clickListener: RecyclerClickListene
                binding.discription.text = s.discription
                binding.checked.isChecked =isChecked
                val data = s as customePaymentMode
+
+                if (s.status.equals("1")){
+                    binding.view.visibility = View.VISIBLE
+                }else{
+                    binding.view.visibility = View.GONE
+                }
+
                binding.checkbox.setOnClickListener {
-                   unCheckeddAll(data)
-                   isChecked = true
-                   clickListener.onRecyclerItemClick(0, data, "")
-                   notifyDataSetChanged()
+                   if (s.status.equals("2")){
+                       unCheckeddAll(data)
+                       isChecked = true
+                       clickListener.onRecyclerItemClick(0, data, "")
+                       notifyDataSetChanged()
+                   }
+
                 }
             }
         }

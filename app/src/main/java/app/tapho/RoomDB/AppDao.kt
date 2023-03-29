@@ -55,6 +55,9 @@ interface AppDao {
     @Query("Delete FROM Cart")
     fun DeleteAllProduct();
 
+    @Query("Delete From Cart WHERE ean=:barcode")
+    fun DeleteProduct(barcode: String)
+
     // Cart Product End
 
 
