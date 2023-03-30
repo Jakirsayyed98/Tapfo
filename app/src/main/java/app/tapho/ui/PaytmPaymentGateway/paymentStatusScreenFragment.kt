@@ -652,7 +652,24 @@ class paymentStatusScreenFragment : BaseFragment<FragmentPaymentStatusScreenBind
 
                             when (it.recharge_detail.get(0).status) {
                                 "0" -> {  // pending
-                                    getTrasactionStatusLog()
+                                    val handler = Handler(Looper.getMainLooper())
+                                    val runnable = object : Runnable {
+                                        override fun run() {
+                                            synchronized(this@paymentStatusScreenFragment) {
+                                                handler.postDelayed(object : Runnable {
+                                                    override fun run() {
+                                                        kotlin.runCatching {
+                                                            getTrasactionStatusLog()
+                                                        }
+                                                    }
+                                                }, 10000)
+
+                                            }
+
+                                        }
+                                    }
+                                    val thread = Thread(runnable)
+                                    thread.start()
                                 }
                                 "1" -> { //success
                                     result = "2"

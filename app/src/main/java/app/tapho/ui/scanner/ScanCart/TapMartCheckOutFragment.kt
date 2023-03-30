@@ -1,27 +1,34 @@
 package app.tapho.ui.scanner.ScanCart
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
-import app.tapho.RoomDB.getDatabase
+
 import app.tapho.databinding.FragmentTapMartCheckOutBinding
 import app.tapho.interfaces.RecyclerClickListener
+import app.tapho.network.Status
+import app.tapho.showShortSnack
 import app.tapho.ui.BaseFragment
-import app.tapho.ui.scanner.adapter.TapfoCartAdapter
-import app.tapho.ui.scanner.model.AllProducts.Data
-import app.tapho.ui.scanner.model.CartData.Cart
-import app.tapho.utils.CART_ID
+import app.tapho.ui.ContainerActivity
+import app.tapho.ui.intro.IntroActivity
+import app.tapho.ui.login.VerifyOtpActivity
+import app.tapho.ui.scanner.adapter.TapfoCartAdapter3
+import app.tapho.ui.scanner.model.PlaceOrder.Data
+import app.tapho.ui.scanner.model.PlaceOrder.ScanPlaceOrderRes
+import app.tapho.ui.scanner.model.SearchCurrentOrder.Item
+import app.tapho.utils.DATA
+import app.tapho.utils.REACHED_HOME
+import app.tapho.utils.setBusinessQR
 import app.tapho.utils.withSuffixAmount
 import com.bumptech.glide.Glide
-import com.google.zxing.BarcodeFormat
-import com.google.zxing.MultiFormatWriter
-import com.google.zxing.WriterException
-import com.google.zxing.common.BitMatrix
-import java.text.SimpleDateFormat
+import com.google.gson.Gson
 import java.util.*
 
 
@@ -44,26 +51,98 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         _binding= FragmentTapMartCheckOutBinding.inflate(inflater,container,false)
         statusBarColor(R.color.white)
         statusBarTextWhite()
-        getcartItems()
+        _binding!!.MainLayout.visibility = View.GONE
+        _binding!!.Progress.visibility = View.VISIBLE
         setTextData()
         _binding!!.backbtn.setOnClickListener {
            activity?.onBackPressedDispatcher?.onBackPressed()
         }
 
-
-//        fun setImage() {
-//            Glide.with(requireContext()).load(setBusinessQR("")).into(_binding!!.qrcode)
-//        }
+        val data = activity?.intent?.getStringExtra(DATA)
+        if (!data.isNullOrEmpty()){
+            Gson().fromJson(data,ScanPlaceOrderRes::class.java).let {
+                it.data.let {
+                    setLayoutData(it)
+                }
+            }
+        }
 
         return _binding?.root
     }
 
-    private fun getcartItems() {
-        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
-            setLayout(it)
-            SeDataForQR(it)
+
+    private fun setLayoutData(it: Data) {
+
+        viewModel.getsearchBusinessOrders().observe(viewLifecycleOwner) {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    _binding!!.MainLayout.visibility = View.VISIBLE
+                    _binding!!.Progress.visibility = View.GONE
+                    setData(it.data!!.data.get(0))
+                }
+                Status.LOADING -> {
+
+                }
+                Status.ERROR -> {
+
+                }
+            }
         }
+
+        callVmData(it.code)
+
     }
+
+    private fun callVmData(code:String) {
+        viewModel.getsearchBusinessOrders(getUserId(), code)
+    }
+
+    private fun setData(data: app.tapho.ui.scanner.model.SearchCurrentOrder.Data) {
+      data.let {
+          Glide.with(requireContext()).load(setBusinessQR(it.qr_code)).into(_binding!!.qrcode)
+          _binding!!.paybleAmount.text = withSuffixAmount(it.total_amount.toString())
+          _binding!!.cartcount.text = "Cart summary : "+it!!.items.size+" items"
+          _binding!!.qrcodedata.text = it.code
+          setLayout(it.items)
+
+          when(it.status){
+              "0"->{
+                    InPendingMethod(it)
+              }
+              "1"->{
+                  requireView().showShortSnack("Your Order Has been verified")
+              }
+              else->{
+                  requireView().showShortSnack("Your Order Has been Rejected")
+              }
+
+
+          }
+
+      }
+    }
+
+    private fun InPendingMethod(it: app.tapho.ui.scanner.model.SearchCurrentOrder.Data) {
+        val handler = Handler(Looper.getMainLooper())
+        val runnable = object : Runnable{
+            override fun run() {
+                synchronized(this@TapMartCheckOutFragment) {
+                    kotlin.runCatching {
+                        handler.postDelayed(object : Runnable {
+                            override fun run() {
+                                kotlin.runCatching {
+                                    callVmData(it.code)
+                                }
+                            }
+                        }, 10000)
+                    }
+                }
+            }
+        }
+        val thread = Thread(runnable)
+        thread.start()
+    }
+
 
     private fun setTextData() {
         getSharedPreference().getBusinessData().let {
@@ -75,20 +154,8 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
     }
 
 
-    private fun setLayout(it: List<Cart>?) {
-        var total = 0.0
-        var BuyQty = 0
-        it!!.forEach {
-            for (i  in 1..it.qty.toInt()){
-                total+=it.price.toDouble()
-            }
-        }
-        it.forEach {
-            BuyQty+=it.qty.toInt()
-        }
-        _binding!!.paybleAmount.text = withSuffixAmount(total.toString())
-       _binding!!.cartcount.text = "Cart summary : "+it!!.size+" items"
-        val tapfoCartAdapter  = TapfoCartAdapter<Cart>(object : RecyclerClickListener {
+    private fun setLayout(it: List<Item>?) {
+        val tapfoCartAdapter  = TapfoCartAdapter3<Item>(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
             }
@@ -99,46 +166,10 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
             adapter = tapfoCartAdapter
         }
 
-        tapfoCartAdapter.addAllItem(it)
+        tapfoCartAdapter.addAllItem(it!!)
 
     }
 
-    private fun SeDataForQR(it: List<Cart>?) {
-        var bitmap: Bitmap? = null
-        try {
-            bitmap = GenrateQRCode(it)
-            myBitmap = bitmap
-        } catch (we: WriterException) {
-            we.printStackTrace()
-
-        }
-        if (bitmap != null) {
-            _binding!!.qrcode.setImageBitmap(bitmap)
-        }
-
-    }
-
-
-    private fun GenrateQRCode(it: List<Cart>?): Bitmap? {
-        val AddDataToQRCode = it.toString()
-        val bitMatrix : BitMatrix = MultiFormatWriter().encode(AddDataToQRCode, BarcodeFormat.QR_CODE, 660, 660)
-        val width = bitMatrix.width
-        val height = bitMatrix.height
-        val pixels = IntArray(width * height)
-        for (i in 0 until height) {
-            for (j in 0 until width) {
-                if (bitMatrix[j, i]) {
-                    pixels[i * width + j] = -0x1000000
-                } else {
-                    pixels[i * width + j] = -0x1
-                }
-            }
-        }
-        val bitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888)
-        bitmap.setPixels(pixels, 0, width, 0, 0, width, height)
-        return bitmap
-
-    }
 
     companion object {
 

@@ -10,23 +10,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
 import app.tapho.RoomDB.getDatabase
 import app.tapho.databinding.FragmentSelectPaymentmodeBinding
+import app.tapho.interfaces.ApiListener
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseFragment
 import app.tapho.ui.scanner.adapter.TapfoCartAdapter2
 import app.tapho.ui.scanner.adapter.TapfoPaymentModeAdapter
-import app.tapho.ui.scanner.model.AllProducts.Data
 import app.tapho.ui.scanner.model.CartData.Cart
+import app.tapho.ui.scanner.model.PlaceOrder.ScanPlaceOrderRes
 import app.tapho.ui.scanner.model.customePaymentMode
 import app.tapho.utils.CART_ID
-import app.tapho.utils.getCartIdRandom
 import app.tapho.utils.withSuffixAmount
+import com.google.gson.JsonObject
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
 
 
 class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>() {
 
-
+    val Orderitems = JSONArray()
+    var TotalAmount = 0.0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -49,20 +54,54 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
             activity?.onBackPressedDispatcher?.onBackPressed()
         }
 
+        var obj: JSONObject? = null
+
+
+        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
+            it.forEach {
+                it.let {
+                    TotalAmount += it.totalPrice.toDouble()
+                    obj = JSONObject()
+                    try {
+                        obj!!.put("business_user_item_id",it.id)
+                        obj!!.put("qty",it.qty)
+                        obj!!.put("price",if (it.price.isNullOrEmpty()) it.mrp else it.price)
+                        obj!!.put("total_price",it.totalPrice)
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                    Orderitems.put(obj)
+                }
+
+
+            }
+        }
+
         _binding!!.viewall.setOnClickListener {
             activity?.onBackPressedDispatcher?.onBackPressed()
         }
         _binding!!.PaymentModes.setOnClickListener {
-
-            getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
-                print("MyLog "+it.toString())
-                Log.d("MyLog",it.toString())
-            }
-
-//            ContainerForProductActivity.openContainer(requireContext(),"TapMartCheckOutFragment","",false,"")
+            PlaceOrder()
         }
 
         return _binding?.root
+    }
+
+    private fun PlaceOrder() {
+        viewModel.businessPlaceOrder(getUserId(),getSharedPreference().getBusinessData()!!.id,TotalAmount.toString(),Orderitems.toString(),this,object : ApiListener<ScanPlaceOrderRes,Any?>{
+            override fun onSuccess(t: ScanPlaceOrderRes?, mess: String?) {
+                t!!.let {
+                    ContainerForProductActivity.openContainer(requireContext(),"TapMartCheckOutFragment",it,false,"")
+                    activity?.finish()
+                }
+            }
+
+            override fun onError(mess: String?) {
+                super.onError(mess)
+
+            }
+        })
+
     }
 
     private fun setTextData() {

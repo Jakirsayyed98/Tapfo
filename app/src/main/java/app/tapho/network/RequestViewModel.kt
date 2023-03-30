@@ -56,6 +56,8 @@ import app.tapho.ui.model.WebTCashRes
 import app.tapho.ui.scanner.model.AllProducts.Data
 import app.tapho.ui.scanner.model.AllProducts.ProductListRes
 import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
+import app.tapho.ui.scanner.model.PlaceOrder.ScanPlaceOrderRes
+import app.tapho.ui.scanner.model.SearchCurrentOrder.SearchBusinessOrdersRes
 import app.tapho.ui.tcash.AddMoneyPopup.AddMoneyModel.AddMoneyRes
 import app.tapho.ui.tcash.model.AddMoneyVoucers.AddWalletVoucherRes
 import app.tapho.ui.walletTransactionData.addUserTransactionRes
@@ -68,6 +70,7 @@ import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONArray
 import java.io.File
 
 
@@ -1805,6 +1808,10 @@ class RequestViewModel : ViewModel() {
         }
     }
 
+    fun getBusinessProductList(): LiveData<Resource<ProductListRes>> {
+        return returnProductList
+    }
+
     @OptIn(DelicateCoroutinesApi::class)
     fun insertBusinessProductList(model: Data) {
         GlobalScope.launch {
@@ -1819,10 +1826,68 @@ class RequestViewModel : ViewModel() {
         }
     }
 
+    // Business All Product
 
-    fun getBusinessProductList(): LiveData<Resource<ProductListRes>> {
-        return returnProductList
+
+    fun businessPlaceOrder(
+        user_id: String,
+        business_id: String,
+        total_amount: String,
+        items: String,
+        loadLis: LoaderListener?,
+        listener: ApiListener<ScanPlaceOrderRes, Any?>
+    ) {
+        this.loadLis = loadLis
+        loadLis?.showLoader()
+        val req = JsonObject().apply {
+            addProperty("user_id", user_id)
+            addProperty("business_id", business_id)
+            addProperty("total_amount", total_amount)
+            addProperty("items", items)
+        }
+        viewModelScope.launch(setErrorHandler(loadLis)) {
+            withContext(coroutineContext) {
+                MyApiV2().businessPlaceOrder(encrypt(req.toString())).body()?.let {
+                    listener.onResponse(it, loadLis)
+                }
+            }
+        }
     }
-    //
+
+
+
+    private val returnSearchBusinessOrderList = MutableLiveData<Resource<SearchBusinessOrdersRes>>()
+    fun getsearchBusinessOrders(
+        userid: String?,
+        order_qr_code: String?,
+    ) {
+        val req = JsonObject().apply {
+            addProperty("user_id", userid)
+            addProperty("order_qr_code", order_qr_code)
+        }
+        returnSearchBusinessOrderList.postValue(Resource.loading(null))
+        try {
+            viewModelScope.launch(setErrorHandler(loadLis)) {
+                withContext(Dispatchers.IO) {
+                    val response = MyApiV2().searchBusinessOrders(encrypt(req.toString()))
+                    if (response.isSuccessful) {
+                        //   insertData(response.body()!!)
+                        returnSearchBusinessOrderList.postValue(Resource.success(response.body()))
+                    } else {
+                        returnSearchBusinessOrderList.postValue(Resource.error(response.errorBody().toString(), null))
+                    }
+
+                }
+            }
+
+        } catch (e: Exception) {
+            returnSearchBusinessOrderList.postValue(Resource.error(e.message, null))
+        }
+    }
+
+    fun getsearchBusinessOrders(): LiveData<Resource<SearchBusinessOrdersRes>> {
+        return returnSearchBusinessOrderList
+    }
+
 
 }

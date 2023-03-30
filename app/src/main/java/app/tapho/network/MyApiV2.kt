@@ -35,6 +35,8 @@ import app.tapho.ui.model.UserDetails.getUserDetailRes
 import app.tapho.ui.model.WebTCashRes
 import app.tapho.ui.scanner.model.AllProducts.ProductListRes
 import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
+import app.tapho.ui.scanner.model.PlaceOrder.ScanPlaceOrderRes
+import app.tapho.ui.scanner.model.SearchCurrentOrder.SearchBusinessOrdersRes
 import app.tapho.ui.tcash.AddMoneyPopup.AddMoneyModel.AddMoneyRes
 import app.tapho.ui.tcash.model.AddMoneyVoucers.AddWalletVoucherRes
 import app.tapho.ui.tcash.model.TCashDasboardRes
@@ -400,6 +402,25 @@ interface MyApiV2 {
     suspend fun getBusinessProductList(
         @Field("token") token:String?,
     ):Response<ProductListRes>
+  @FormUrlEncoded
+    @POST("businessPlaceOrder")
+    suspend fun businessPlaceOrder(
+        @Field("token") token:String?,
+    ):Response<ScanPlaceOrderRes>
+
+
+    /**
+        0 Pending
+        1 verified
+        2 Failed
+    */
+    @FormUrlEncoded
+    @POST("searchBusinessOrders")
+    suspend fun searchBusinessOrders(
+        @Field("token") token:String?,
+    ):Response<SearchBusinessOrdersRes>
+
+
 
 
     companion object {
