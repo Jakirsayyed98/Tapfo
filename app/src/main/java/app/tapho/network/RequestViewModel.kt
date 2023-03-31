@@ -1854,39 +1854,25 @@ class RequestViewModel : ViewModel() {
         }
     }
 
-
-
-    private val returnSearchBusinessOrderList = MutableLiveData<Resource<SearchBusinessOrdersRes>>()
-    fun getsearchBusinessOrders(
-        userid: String?,
-        order_qr_code: String?,
+ fun getsearchBusinessOrders(
+     userid: String?,
+     order_qr_code: String?,
+        loadLis: LoaderListener?,
+        listener: ApiListener<SearchBusinessOrdersRes, Any?>
     ) {
-        val req = JsonObject().apply {
-            addProperty("user_id", userid)
-            addProperty("order_qr_code", order_qr_code)
-        }
-        returnSearchBusinessOrderList.postValue(Resource.loading(null))
-        try {
-            viewModelScope.launch(setErrorHandler(loadLis)) {
-                withContext(Dispatchers.IO) {
-                    val response = MyApiV2().searchBusinessOrders(encrypt(req.toString()))
-                    if (response.isSuccessful) {
-                        //   insertData(response.body()!!)
-                        returnSearchBusinessOrderList.postValue(Resource.success(response.body()))
-                    } else {
-                        returnSearchBusinessOrderList.postValue(Resource.error(response.errorBody().toString(), null))
-                    }
-
+        this.loadLis = loadLis
+//        loadLis?.showLoader()
+     val req = JsonObject().apply {
+         addProperty("user_id", userid)
+         addProperty("order_qr_code", order_qr_code)
+     }
+        viewModelScope.launch(setErrorHandler(loadLis)) {
+            withContext(coroutineContext) {
+                MyApiV2().searchBusinessOrders(encrypt(req.toString())).body()?.let {
+                    listener.onResponse(it, loadLis)
                 }
             }
-
-        } catch (e: Exception) {
-            returnSearchBusinessOrderList.postValue(Resource.error(e.message, null))
         }
-    }
-
-    fun getsearchBusinessOrders(): LiveData<Resource<SearchBusinessOrdersRes>> {
-        return returnSearchBusinessOrderList
     }
 
 

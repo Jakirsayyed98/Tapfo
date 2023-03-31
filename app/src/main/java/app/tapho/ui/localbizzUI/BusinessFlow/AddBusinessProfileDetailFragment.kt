@@ -124,7 +124,6 @@ class AddBusinessProfileDetailFragment : BaseFragment<FragmentAddBusinessProfile
             PickImageDialog.build(PickSetup(), object : IPickResult{
                 override fun onPickResult(r: PickResult?) {
                     if (r?.error == null) {
-//            getImageView().setImageBitmap(r.getBitmap());
                         image = RealPathUtil.getRealPath(context, r?.uri)
                         setImage1(image)
                     } else {
@@ -146,7 +145,6 @@ class AddBusinessProfileDetailFragment : BaseFragment<FragmentAddBusinessProfile
                     LocalbizContainerActivity.openContainer(requireContext(),"AddBusinessAddressFragment")
                 }
             }
-
             businessPhoneNumber.setOnClickListener{
                 LocalbizContainerActivity.openContainer(requireContext(),"AddBusinessPhone_Number","0")
             }

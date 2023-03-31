@@ -68,6 +68,12 @@ class ContainerForProductActivity : BaseActivity<ActivityContainerForProductBind
             "TapMartCheckOutFragment"->{
                 addFragment(TapMartCheckOutFragment.newInstance())
             }
+            "TapMartStatusFragment"->{
+                addFragment(TapMartStatusFragment.newInstance())
+            }
+            "TapMartOrderConformationFragment"->{
+                addFragment(TapMartOrderConformationFragment.newInstance())
+            }
             else->{
                 addFragment(BuyGiftCardFragment.newInstance())
             }

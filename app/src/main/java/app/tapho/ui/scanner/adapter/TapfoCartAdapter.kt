@@ -13,6 +13,8 @@ import app.tapho.showShort
 import app.tapho.ui.BaseRecyclerAdapter
 import app.tapho.ui.scanner.model.AllProducts.Data
 import app.tapho.ui.scanner.model.CartData.Cart
+import app.tapho.utils.roundOff
+import app.tapho.utils.roundOffAmount
 import app.tapho.utils.withSuffixAmount
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.GlobalScope
@@ -41,7 +43,8 @@ class TapfoCartAdapter<S>(private val clickListener: RecyclerClickListener) :
                     binding.disprice.text = withSuffixAmount((s.price.toDouble()*s.qty.toDouble()).toString())
                     binding.disprice1.text =itemView.context.getString(R.string.price_4_unit,withSuffixAmount(s.price))
                     binding.savepercent.visibility = View.VISIBLE
-                    binding.savepercent.text = ((s.mrp.toDouble()-s.price.toDouble())/s.mrp.toDouble()).toString()+" OFF"
+                 //   binding.savepercent.text = ((s.mrp.toDouble()-s.price.toDouble())/s.mrp.toDouble()).toString()+" OFF"
+                    binding.savepercent.text = roundOffAmount((((s.mrp.toDouble()-s.price.toDouble())/s.mrp.toDouble())*100).toString())+"% OFF"
                 }
 
 

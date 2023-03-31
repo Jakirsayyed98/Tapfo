@@ -195,6 +195,8 @@
     <string name="apply_earn_upto"><![CDATA[Apply & Earn Upto]]></string>
     <string name="eg_23456789123">eg . 23456789123</string>
     <string name="price_4_unit">Price: %s/unit</string>
+    <string name="thank_you_for_shopping_with_bon_bon_supermart">Thank you for shopping with %s,</string>
+    <string name="your_bill_amount_1529_00_a">Your Bill amount <font color="#1f9d55">%s</font> at %s for %s items.</string>
     <!--    <string name="title_activity_maps">MapsActivity</string>-->
 
 </resources>

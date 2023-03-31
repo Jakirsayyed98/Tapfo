@@ -72,8 +72,8 @@
                     android:layout_weight="1"
                     android:text="Billing at"
                     android:textColor="@color/black"
-                    android:textSize="25sp"
-                    app:fontFamily="@font/sans_bold" />
+                    android:textSize="18sp"
+                    app:fontFamily="@font/tt_medium" />
 
 
             </LinearLayout>
@@ -88,7 +88,7 @@
                 android:layout_weight="1"
                 android:text="Born Supermart"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:fontFamily="@font/tt_medium" />
 
             <TextView
@@ -101,7 +101,7 @@
                 android:layout_weight="1"
                 android:paddingEnd="30dp"
                 android:text="SURYA command canteen - usman marg, neil lines 226002 - Mumbai"
-                android:textColor="@color/black"
+                android:textColor="@color/grey_dark"
                 android:textSize="14sp"
                 app:fontFamily="@font/tt_regular" />
 
@@ -142,7 +142,7 @@
                         android:layout_weight="1"
                         android:text="23 May 20231"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         android:textAlignment="center"
                         app:fontFamily="@font/tt_medium" />
 
@@ -171,8 +171,8 @@
                             android:layout_weight="1"
                             android:text="Cart Summary"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
-                            app:fontFamily="@font/sans_bold" />
+                            android:textSize="17sp"
+                            app:fontFamily="@font/tt_medium" />
                         <TextView
                             android:id="@+id/paybleAmount"
                             android:layout_width="match_parent"
@@ -182,8 +182,8 @@
                             android:textAlignment="textEnd"
                             android:text="100"
                             android:textColor="@color/black"
-                            android:textSize="18sp"
-                            app:fontFamily="@font/sans_bold" />
+                            android:textSize="17sp"
+                            app:fontFamily="@font/tt_medium" />
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -230,8 +230,8 @@
                         android:layout_weight="1"
                         android:text="Select Payment mode"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
-                        app:fontFamily="@font/sans_bold" />
+                        android:textSize="16sp"
+                        app:fontFamily="@font/tt_medium" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/paymentmodes"

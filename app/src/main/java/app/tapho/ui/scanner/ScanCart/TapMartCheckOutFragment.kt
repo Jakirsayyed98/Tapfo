@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
 
 import app.tapho.databinding.FragmentTapMartCheckOutBinding
+import app.tapho.interfaces.ApiListener
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.network.Status
 import app.tapho.showShortSnack
@@ -23,6 +24,7 @@ import app.tapho.ui.scanner.adapter.TapfoCartAdapter3
 import app.tapho.ui.scanner.model.PlaceOrder.Data
 import app.tapho.ui.scanner.model.PlaceOrder.ScanPlaceOrderRes
 import app.tapho.ui.scanner.model.SearchCurrentOrder.Item
+import app.tapho.ui.scanner.model.SearchCurrentOrder.SearchBusinessOrdersRes
 import app.tapho.utils.DATA
 import app.tapho.utils.REACHED_HOME
 import app.tapho.utils.setBusinessQR
@@ -33,8 +35,6 @@ import java.util.*
 
 
 class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
-
-    private var myBitmap: Bitmap? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,30 +72,16 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
 
 
     private fun setLayoutData(it: Data) {
-
-        viewModel.getsearchBusinessOrders().observe(viewLifecycleOwner) {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    _binding!!.MainLayout.visibility = View.VISIBLE
-                    _binding!!.Progress.visibility = View.GONE
-                    setData(it.data!!.data.get(0))
-                }
-                Status.LOADING -> {
-
-                }
-                Status.ERROR -> {
-
-                }
+        viewModel.getsearchBusinessOrders(getUserId(),it.code,this,object :ApiListener<SearchBusinessOrdersRes,Any?>{
+            override fun onSuccess(t: SearchBusinessOrdersRes?, mess: String?) {
+                _binding!!.MainLayout.visibility = View.VISIBLE
+                _binding!!.Progress.visibility = View.GONE
+                setData(t!!.data.get(0))
             }
-        }
-
-        callVmData(it.code)
-
+        })
     }
 
-    private fun callVmData(code:String) {
-        viewModel.getsearchBusinessOrders(getUserId(), code)
-    }
+
 
     private fun setData(data: app.tapho.ui.scanner.model.SearchCurrentOrder.Data) {
       data.let {
@@ -104,22 +90,27 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
           _binding!!.cartcount.text = "Cart summary : "+it!!.items.size+" items"
           _binding!!.qrcodedata.text = it.code
           setLayout(it.items)
-
-          when(it.status){
-              "0"->{
-                    InPendingMethod(it)
-              }
-              "1"->{
-                  requireView().showShortSnack("Your Order Has been verified")
-              }
-              else->{
-                  requireView().showShortSnack("Your Order Has been Rejected")
-              }
-
-
-          }
-
+          callVmData(it)
       }
+    }
+
+
+    private fun callVmData(data: app.tapho.ui.scanner.model.SearchCurrentOrder.Data) {
+        viewModel.getsearchBusinessOrders(getUserId(),data.code,this,object :ApiListener<SearchBusinessOrdersRes,Any?>{
+            override fun onSuccess(t: SearchBusinessOrdersRes?, mess: String?) {
+                t!!.data.get(0).let {
+                    when(it.status){
+                        "0"->{
+                            InPendingMethod(it)
+                        }
+                        else->{
+                            ContainerForProductActivity.openContainer(requireContext(),"TapMartStatusFragment",it,false,"")
+                            activity?.finish()
+                        }
+                    }
+                }
+            }
+        })
     }
 
     private fun InPendingMethod(it: app.tapho.ui.scanner.model.SearchCurrentOrder.Data) {
@@ -131,10 +122,10 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
                         handler.postDelayed(object : Runnable {
                             override fun run() {
                                 kotlin.runCatching {
-                                    callVmData(it.code)
+                                    callVmData(it)
                                 }
                             }
-                        }, 10000)
+                        }, 1000)
                     }
                 }
             }
@@ -172,7 +163,6 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
 
 
     companion object {
-
         @JvmStatic
         fun newInstance() =
             TapMartCheckOutFragment().apply {

@@ -175,8 +175,6 @@ dependencies {
     // show case view
     implementation 'com.github.erkutaras:ShowcaseView:1.5.0'
 
-
-
     // UPI librery
     implementation 'com.shreyaspatil:EasyUpiPayment:2.0'
 

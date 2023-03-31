@@ -54,6 +54,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
 
         binding.PaymentModes.setOnClickListener {
             ContainerForProductActivity.openContainer(requireContext(),"SelectPaymentmodeFragment","",false,"")
+            activity?.finish()
         }
 
         setTextData()

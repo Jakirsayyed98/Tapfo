@@ -159,8 +159,8 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         _binding!!.Greeting.text = "Hey, " + getGreetingMessage()
 
         _binding!!.favouritesBtn.setOnClickListener {
-//            ContainerActivity.openContainer(requireContext(), "favouritesBtn", "", false, "")
-            ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
+            ContainerActivity.openContainer(requireContext(), "favouritesBtn", "", false, "")
+//            ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
         }
 
         _binding!!.reProfile.setOnClickListener {

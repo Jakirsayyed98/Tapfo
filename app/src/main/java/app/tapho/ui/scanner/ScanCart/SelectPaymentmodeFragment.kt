@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
@@ -13,6 +14,7 @@ import app.tapho.databinding.FragmentSelectPaymentmodeBinding
 import app.tapho.interfaces.ApiListener
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseFragment
+import app.tapho.ui.ContainerActivity
 import app.tapho.ui.scanner.adapter.TapfoCartAdapter2
 import app.tapho.ui.scanner.adapter.TapfoPaymentModeAdapter
 import app.tapho.ui.scanner.model.CartData.Cart
@@ -50,6 +52,7 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
         getcartItems()
         setPaymentModeLayout()
         setTextData()
+        backpressedbtn()
         _binding!!.backbtn.setOnClickListener {
             activity?.onBackPressedDispatcher?.onBackPressed()
         }
@@ -85,6 +88,16 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
         }
 
         return _binding?.root
+    }
+
+    private fun backpressedbtn() {
+        val  OnBackPressedCallback = object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
+                activity?.finish()
+            }
+        }
+        requireActivity().getOnBackPressedDispatcher().addCallback(requireActivity(), OnBackPressedCallback)
     }
 
     private fun PlaceOrder() {

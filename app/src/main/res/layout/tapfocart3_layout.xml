@@ -46,57 +46,53 @@
                 app:fontFamily="@font/sans_bold" />
 
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
 
-
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                        <TextView
-                            android:id="@+id/price"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_gravity="center"
-                            android:text="re15045"
-                            android:textAlignment="center"
-                            android:textColor="@color/grey_light"
-                            android:textSize="16sp" />
-
-                        <View
-                            android:layout_width="10dp"
-                            android:layout_height="0.8dp"
-                            android:layout_alignParentStart="true"
-                            android:layout_alignParentEnd="true"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="20dp"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginEnd="20dp"
-                            android:background="@color/grey_dark"
-                            android:gravity="center_vertical" />
-                    </RelativeLayout>
+                    android:layout_weight="1">
 
                     <TextView
-                        android:id="@+id/disprice"
+                        android:id="@+id/price"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:fontFamily="@font/sans_bold"
-                        android:text="Cococola " />
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="center"
+                        android:text="re15045"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey_light"
+                        android:textSize="16sp" />
 
-                </LinearLayout>
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="0.8dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@color/grey_dark"
+                        android:gravity="center_vertical" />
+                </RelativeLayout>
 
+                <TextView
+                    android:id="@+id/disprice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/sans_bold"
+                    android:text="Cococola " />
 
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -105,13 +101,12 @@
             android:id="@+id/totalPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:textAlignment="textEnd"
             android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp"
             android:fontFamily="@font/sans_bold"
+            android:text="200"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:text="200" />
+            android:textSize="20sp" />
 
     </LinearLayout>
 
