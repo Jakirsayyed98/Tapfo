@@ -13,6 +13,7 @@ import android.media.ToneGenerator
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.SurfaceHolder
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
@@ -37,248 +38,105 @@ import com.budiyev.android.codescanner.DecodeCallback
 import com.budiyev.android.codescanner.ErrorCallback
 import com.budiyev.android.codescanner.ScanMode
 import com.bumptech.glide.Glide
+import com.google.android.gms.vision.CameraSource
+import com.google.android.gms.vision.Detector
+import com.google.android.gms.vision.barcode.Barcode
+import com.google.android.gms.vision.barcode.BarcodeDetector
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 
 class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForProductBinding>() {
 
 
-    private lateinit var codeScanner: CodeScanner
-    var backPressedTime: Long = 0
+    lateinit var barcodeDetector: BarcodeDetector//? = null
+    lateinit var cameraSource: CameraSource//? = null
+    private val REQUEST_CAMERA_PERMISSION = 201
+
+    //This class provides methods to play DTMF tones
+    private var toneGen1: ToneGenerator? = null
+    private var barcodeData: String? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBarcodeScannerForProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window.statusBarColor= Color.BLACK
-        binding.mycart.setOnClickListener {
-            ContainerForProductActivity.openContainer(this@BarcodeScannerForProductActivity,"ProductCartFragment","",false,"")
-        }
-
-        SaveToCart()
-
-
-        binding.searchET.addTextChangedListener {
-            if (it!!.length==13){
-                binding.search.visibility = View.VISIBLE
-            }else{
-                binding.search.visibility = View.GONE
-            }
-        }
-
-        binding.search.setOnClickListener {
-            showCopyDialog(binding.searchET.text.toString())
-        }
-
-        binding.storename.text = getSharedPreference().getBusinessData()!!.business_name
-
-        permissionTaking()
-
+        toneGen1 = ToneGenerator(AudioManager.STREAM_MUSIC, 100)
+        initialiseDetectorsAndSources();
     }
-    private fun permissionTaking() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.CAMERA
-            ) == PackageManager.PERMISSION_DENIED
-        ) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.CAMERA), 100)
-        } else {
-            startScanning()
-        }
-    }
-
-    fun startScanning() {
-
-        codeScanner = CodeScanner(this, binding.scannerView)
-        codeScanner.camera = CodeScanner.CAMERA_BACK
-        codeScanner.formats = CodeScanner.ALL_FORMATS
-
-        codeScanner.autoFocusMode = AutoFocusMode.SAFE
-        codeScanner.scanMode = ScanMode.SINGLE
-
-        codeScanner.isAutoFocusEnabled = true
-        codeScanner.isFlashEnabled = false
-
-        codeScanner.decodeCallback = DecodeCallback {
-            runOnUiThread {
-                val textData=it.text
-                if (it.text.contains("http")) {
-                    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(it.text.toString()))
-                    startActivity(browserIntent)
-                } else {
-                    showCopyDialog(textData)
-                }
-
-            }
-        }
-        codeScanner.errorCallback = ErrorCallback {
-            Toast.makeText(
-                applicationContext,
-                "Camera initialization error: ${it.message}",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-        binding.scannerView.setOnClickListener {
-            codeScanner.startPreview()
-        }
-    }
-
-    private fun SaveToCart() {
-        getDatabase(this).appDao().getAllProductSet().observe(this){
-            var Amount = 0.0
-            var Qty = 0
-            it.forEach {
-                for(i in 1..it.qty.toInt()){
-                    Amount+=it.price.toDouble()
-                }
-            }
-            it.forEach {
-               Qty+=it.qty
-            }
-
-            binding.itemCountAndPrice.text = Qty.toString() + " Items | "+ withSuffixAmount(Amount.toString())
-        }
-    }
-
-    private fun showCopyDialog(textData: String?) {
-        if (textData != null) {
-            GlobalScope.launch {
-                getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByEANisExist(textData).let {
-                    if(it){
-                        GlobalScope.launch {
-                            getDatabase(this@BarcodeScannerForProductActivity).appDao().searchProduct(textData).let {
-                                this@BarcodeScannerForProductActivity.runOnUiThread(Runnable {
-                                    OpenCartBottomSheet(it)
-                                })
-
-                            }
-                        }
-                    }else{
-                        this@BarcodeScannerForProductActivity.runOnUiThread(Runnable {
-                            Toast.makeText(this@BarcodeScannerForProductActivity,"Product Not Fond "+textData,Toast.LENGTH_SHORT).show()
-                        })
-
-                    }
-                }
-            }
-        }
-    }
-
-
-    private fun OpenCartBottomSheet(it: Data) {
-        val dialog = BottomSheetDialog(this)
-        val view = layoutInflater.inflate(R.layout.tapfomart_cart_layout,null)
-        dialog.setContentView(view)
-        dialog.setCancelable(true)
-        dialog.show()
-        val image = view.findViewById<ImageView>(R.id.image)
-        val name = view.findViewById<TextView>(R.id.name)
-        val price = view.findViewById<TextView>(R.id.price)
-        val disprice = view.findViewById<TextView>(R.id.disprice)
-        val QtyData = view.findViewById<TextView>(R.id.QtyData)
-        val add = view.findViewById<ImageView>(R.id.add)
-        val less = view.findViewById<ImageView>(R.id.less)
-        val addToCheckOut = view.findViewById<AppCompatButton>(R.id.addToCheckOut)
-
-        Glide.with(this).load(it.image).placeholder(R.drawable.loading_progress).into(image)
-        name.text = it.name
-        price.text = withSuffixAmount(it.mrp)
-        disprice.text = withSuffixAmount(it.price)
-        var qtyd = 1
-        GlobalScope.launch {
-            val Product = getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByBarcodeISExist(it.ean)
-            if (Product){
-                GlobalScope.launch {
-                    getDatabase(this@BarcodeScannerForProductActivity).appDao().getProductByBarcode(it.ean).let {
-                        QtyData.text = it.qty.toString()
-                        qtyd = it.qty
-                    }
-                }
-            }else{
-                qtyd =1
-            }
-        }
-
-
-        QtyData.text = qtyd.toString()
-        add.setOnClickListener{
-            qtyd += 1
-            QtyData.text = qtyd.toString()
-        }
-
-        less.setOnClickListener{
-            qtyd -= 1
-            QtyData.text = qtyd.toString()
-        }
-
-        addToCheckOut.setOnClickListener{click->
-            addToCart(qtyd,it)
-            dialog.dismiss()
-        }
-
-    }
-
-    private fun addToCart(qtyd: Int, data : Data) {
-        data.let {
-            binding.searchET.setText("")
-            binding.scannerView.performClick()
-            GlobalScope.launch {
-                val Product = getDatabase(this@BarcodeScannerForProductActivity).appDao().ProductByBarcodeISExist(it.ean)
-                if (Product){
-                    GlobalScope.launch {
-                        getDatabase(this@BarcodeScannerForProductActivity).appDao().getProductByBarcode(it.ean).let {
-                            GlobalScope.launch {
-                                getDatabase(this@BarcodeScannerForProductActivity).appDao().UpdateProductToCart(qtyd,it.ean,(qtyd * it.price.toDouble()))
-                            }
-                        }
-                    }
-                }else{
-                    GlobalScope.launch {
-                        getDatabase(this@BarcodeScannerForProductActivity).appDao().AddPRoductToCart(
-                            Cart(it.id,it.business_id,it.business_user_category_id,it.business_user_sub_category_id,it.created_at,it.description,
-                                it.ean,it.food_type,it.image,it.mrp,it.name,it.price,it.qty,it.status,it.user_id,qtyd,
-                                (qtyd * it.price.toDouble()))
+    private fun initialiseDetectorsAndSources() {
+        barcodeDetector = BarcodeDetector.Builder(this)
+            .setBarcodeFormats(Barcode.EAN_13)
+            .build()
+        cameraSource = CameraSource.Builder(this, barcodeDetector)
+            .setRequestedPreviewSize(1920, 1080)
+            .setAutoFocusEnabled(true) //you should add this feature
+            .build()
+        binding.surfaceView.holder.addCallback(object : SurfaceHolder.Callback {
+            override fun surfaceCreated(holder: SurfaceHolder) {
+                try {
+                    if (ActivityCompat.checkSelfPermission(
+                            this@BarcodeScannerForProductActivity,
+                            Manifest.permission.CAMERA
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
+                        cameraSource.start(binding.surfaceView.holder)
+                    } else {
+                        ActivityCompat.requestPermissions(
+                            this@BarcodeScannerForProductActivity,
+                            arrayOf<String>(Manifest.permission.CAMERA),
+                            REQUEST_CAMERA_PERMISSION
                         )
                     }
+                } catch (e: IOException) {
+                    e.printStackTrace()
                 }
             }
-        }
-    }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == 100) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(applicationContext, "permission granted", Toast.LENGTH_SHORT).show()
-                startScanning()
-            } else {
-                Toast.makeText(applicationContext, "Camera permission denied", Toast.LENGTH_SHORT).show()
+            override fun surfaceChanged(
+                holder: SurfaceHolder,
+                format: Int,
+                width: Int,
+                height: Int
+            ) {
             }
-        }
+
+            override fun surfaceDestroyed(holder: SurfaceHolder) {
+                cameraSource.stop()
+            }
+        })
+        barcodeDetector.setProcessor(object : Detector.Processor<Barcode> {
+            override fun release() {
+                // Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
+            }
+
+            override fun receiveDetections(detections: Detector.Detections<Barcode>) {
+                val barcodes = detections.detectedItems
+                if (barcodes.size() != 0) {
+
+                    barcodeData = barcodes.valueAt(0).displayValue
+                    val intent = Intent()
+                    intent.putExtra("ENCodeData", barcodeData)
+                    setResult(RESULT_OK, intent)
+                    finish()
+                    toneGen1!!.startTone(ToneGenerator.TONE_CDMA_PIP, 150)
+
+                }
+            }
+        })
+    }
+    override fun onPause() {
+        super.onPause()
+        cameraSource.release()
     }
 
     override fun onResume() {
         super.onResume()
-        if (::codeScanner.isInitialized) {
-            codeScanner.startPreview()
-        }
-    }
-    override fun onPause() {
-        if (::codeScanner.isInitialized) {
-            codeScanner.releaseResources()
-        }
-        super.onPause()
-    }
-    override fun onBackPressed() {
-        if (backPressedTime + 5000 > System.currentTimeMillis()) {
-            super.getOnBackPressedDispatcher().onBackPressed()
-            finish()
-        } else {
-            this.customToast("After leveing this page your Cart will be empty! are you sure you want to exit press back again to leave",true)
-        }
-        backPressedTime = System.currentTimeMillis()
+        initialiseDetectorsAndSources()
     }
 
 }

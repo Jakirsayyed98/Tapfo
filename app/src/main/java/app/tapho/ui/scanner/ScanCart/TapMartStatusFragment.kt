@@ -76,7 +76,7 @@ class TapMartStatusFragment : BaseFragment<FragmentTapMartStatusBinding>() {
                                     activity?.finish()
                                 }
                             }
-                        }, 5000)
+                        }, 1500)
                     }
                 }
             }

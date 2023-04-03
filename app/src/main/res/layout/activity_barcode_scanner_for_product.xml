@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,152 +7,38 @@
     android:background="@color/grey_dark"
     tools:context=".ui.scanner.ScanCart.BarcodeScannerForProductActivity">
 
-    <com.budiyev.android.codescanner.CodeScannerView
-        android:id="@+id/scanner_view"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:autoFocusButtonColor="@color/white"
-        app:flashButtonColor="@color/white"
-        app:frameColor="@color/screenGreen"
-        app:frameCornersRadius="50dp"
-        app:frameSize="0.75"
-        app:frameThickness="@dimen/dp10"
-        app:maskColor="#4F0A0A0A"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="100dp"/>
+        android:background="@color/black"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-    <TextView
-        android:id="@+id/headline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp15"
-        android:gravity="center"
-        android:text="Shopping At"
-        android:textColor="#CDCDCD"
-        android:textSize="20sp"
-        app:fontFamily="@font/sans_medium" />
+    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/storename"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/headline"
-        android:layout_marginTop="@dimen/dp5"
-        android:gravity="center"
-        android:text="Born SuperMarket"
-        android:textColor="#CDCDCD"
-        android:textSize="22sp"
-        app:fontFamily="@font/sans_medium" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="350dp"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/dp150"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/button_border_20dp"
+        app:cardCornerRadius="15dp">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/storename"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="Scan items to add to your basket"
-        android:textColor="@color/white"
-        android:textSize="15sp"
-        app:fontFamily="@font/sans_medium" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="30dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="120dp"
-        android:background="@drawable/button_boarder_2"
-        android:backgroundTint="@color/white"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <EditText
-            android:id="@+id/searchET"
+        <SurfaceView
+            android:id="@+id/surface_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/eg_23456789123"
-            android:textColorHint="@color/grey_light" />
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/button_border_20dp"/>
 
+    </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/search"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:src="@drawable/ic_search"
-            android:visibility="gone"
-            app:tint="@color/black" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/mycart"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/white_border_10dp_round"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:padding="10dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center_vertical"
-            android:src="@drawable/logo_circle"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="15dp"
-            android:layout_gravity="center_vertical"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cart"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                app:fontFamily="@font/tt_demibold"/>
-
-            <TextView
-                android:id="@+id/itemCountAndPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cart"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                app:fontFamily="@font/tt_demibold"/>
-
-
-        </LinearLayout>
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ViewCart"
-            android:textSize="16sp"
-            android:layout_marginEnd="15dp"
-            android:textColor="@color/white"
-            android:layout_gravity="center_vertical"
-            app:fontFamily="@font/tt_demibold"/>
-
-    </LinearLayout>
-
-
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

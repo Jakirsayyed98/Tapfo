@@ -58,7 +58,9 @@ class StoreNameDialogFragment : BaseFragment<FragmentStoreNameDialogBinding>() {
             GlobalScope.launch {
                 getDatabase(requireContext()).appDao().DeleteAllProduct()
             }
-            startActivity(Intent(requireContext(), BarcodeScannerForProductActivity::class.java))
+
+            ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
+//            startActivity(Intent(requireContext(), BarcodeScannerForProductActivity::class.java))
             activity?.finish()
         }
 

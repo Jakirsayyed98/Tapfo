@@ -117,24 +117,13 @@ private lateinit var codeScanner: CodeScanner
             runOnUiThread {
                 val textData=it.text
                 if (textData.contains("http")) {
-                    this.setOnCustomeCrome(textData)
+                    if (textData.contains("https://tapfo.onelink.me/k6rU/MID:")){
+                        getStoreDetail(textData.replace("https://tapfo.onelink.me/k6rU/MID:",""))
+                    }else{
+                        this.setOnCustomeCrome(textData)
+                    }
                 } else {
-                    viewModel.searchBusiness(getUserId(), textData, this,
-                        object : ApiListener<searchBusinessRes, Any?> {
-                            override fun onSuccess(t: searchBusinessRes?, mess: String?) {
-                                t!!.let {
-                                    if (it.data.isNullOrEmpty().not()) {
-                                        getSharedPreference().saveString(BUSINESS_DATA,Gson().toJson(it.data.get(0)))
-                                        getSharedPreference().saveString(CART_ID, getCartIdRandom())
-                                        viewModel.DeleteBusinessProductList()
-                                        ContainerForProductActivity.openContainer(this@scanner,"StoreNameDialogFragment",it.data.get(0),false,"")
-                                        finish()
-                                    } else {
-                                        showCopyDialog(textData)
-                                    }
-                                }
-                            }
-                        })
+                    getStoreDetail(textData)
                 }
             }
         }
@@ -148,6 +137,26 @@ private lateinit var codeScanner: CodeScanner
         binding.scannerView.setOnClickListener {
             codeScanner.startPreview()
         }
+    }
+
+    private fun getStoreDetail(textData: String?) {
+        Log.d("@@@@@@","J"+textData+"A")
+        viewModel.searchBusiness(getUserId(), textData!!, this,
+            object : ApiListener<searchBusinessRes, Any?> {
+                override fun onSuccess(t: searchBusinessRes?, mess: String?) {
+                    t!!.let {
+                        if (it.data.isNullOrEmpty().not()) {
+                            getSharedPreference().saveString(BUSINESS_DATA,Gson().toJson(it.data.get(0)))
+                            getSharedPreference().saveString(CART_ID, getCartIdRandom())
+                            viewModel.DeleteBusinessProductList()
+                            ContainerForProductActivity.openContainer(this@scanner,"StoreNameDialogFragment",it.data.get(0),false,"")
+                            finish()
+                        } else {
+                            showCopyDialog(textData)
+                        }
+                    }
+                }
+            })
     }
 
     private fun showCopyDialog(textData: String?) {

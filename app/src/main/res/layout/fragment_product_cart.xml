@@ -193,7 +193,8 @@
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rrvData"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/tapfocart_layout"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -202,6 +203,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="100dp"
                     android:background="@drawable/button_boarder_2"
                     android:backgroundTint="#42A3E8A3"
                     android:gravity="center_horizontal"
