@@ -41,6 +41,7 @@ import app.tapho.Connection.ConnectionReceiver
 import app.tapho.Connection.ConnectivityListener
 import app.tapho.R
 import app.tapho.RechargeServiceActivity
+import app.tapho.RoomDB.getDatabase
 import app.tapho.databinding.FragmentHomeTabBinding
 import app.tapho.databinding.FragmentWelcomebackscreenBinding
 import app.tapho.interfaces.ApiListener
@@ -162,6 +163,9 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
             ContainerActivity.openContainer(requireContext(), "favouritesBtn", "", false, "")
 //            ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
         }
+        _binding!!.productCart.setOnClickListener {
+           ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
+        }
 
         _binding!!.reProfile.setOnClickListener {
             ContainerActivity.openContainer(context, "ProfileDetailFragment", tcashdashboard)
@@ -189,6 +193,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
 
     fun progressVISIBLE() {
         _binding!!.homeScreenLayout.visibility = View.GONE
+        _binding!!.productCart.visibility = View.GONE
         _binding!!.shimmerViewContainer.visibility = View.VISIBLE
         _binding!!.lowconnection.visibility = View.GONE
         _binding!!.noconnection.visibility = View.GONE
@@ -197,6 +202,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
     fun lowConnection() {
         _binding!!.lowconnection.visibility = View.VISIBLE
         _binding!!.homeScreenLayout.visibility = View.GONE
+        _binding!!.productCart.visibility = View.GONE
         _binding!!.shimmerViewContainer.visibility = View.GONE
         _binding!!.noconnection.visibility = View.GONE
     }
@@ -206,14 +212,23 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
         _binding!!.lowconnection.visibility = View.GONE
         _binding!!.noconnection.visibility = View.GONE
         _binding!!.homeScreenLayout.visibility = View.VISIBLE
+        _binding!!.productCart.visibility = View.VISIBLE
 
-
+        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
+           if (!it.isNullOrEmpty()){
+               _binding!!.productCart.visibility = View.VISIBLE
+               _binding!!.productCarttext.text = " You are shopping at "+getSharedPreference().getBusinessData()!!.business_name
+           } else{
+               _binding!!.productCart.visibility =  View.GONE
+           }
+        }
     }
 
     fun noInternetConnection() {
         _binding!!.shimmerViewContainer.visibility = View.GONE
         _binding!!.lowconnection.visibility = View.GONE
         _binding!!.homeScreenLayout.visibility = View.GONE
+        _binding!!.productCart.visibility = View.GONE
         _binding!!.noconnection.visibility = View.VISIBLE
     }
 

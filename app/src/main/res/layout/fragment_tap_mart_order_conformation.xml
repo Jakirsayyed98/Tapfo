@@ -45,8 +45,8 @@
                 android:gravity="center"
                 android:text="Billing at"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                app:fontFamily="@font/tt_demibold" />
+                android:textSize="17sp"
+                app:fontFamily="@font/tt_medium" />
 
 
             <TextView
@@ -59,8 +59,8 @@
                 android:gravity="center"
                 android:text="TMFC001"
                 android:textColor="@color/white"
-                android:textSize="20sp"
-                app:fontFamily="@font/tt_demibold" />
+                android:textSize="16sp"
+                app:fontFamily="@font/tt_medium" />
 
             <TextView
                 android:id="@+id/Date"
@@ -86,7 +86,7 @@
                 android:gravity="center"
                 android:text="@string/thank_you_for_shopping_with_bon_bon_supermart"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/tt_regular" />
 
             <TextView
@@ -98,7 +98,7 @@
                 android:text="Show this reciept when you leave the store"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                app:fontFamily="@font/tt_demibold" />
+                app:fontFamily="@font/tt_medium" />
 
 
         </LinearLayout>
@@ -133,8 +133,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:text="@string/your_bill_amount_1529_00_a"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/tt_medium" />
+                    android:textSize="16sp"
+                    app:fontFamily="@font/tt_regular" />
 
 
             </LinearLayout>
@@ -158,8 +158,8 @@
                     android:layout_weight="1"
                     android:text="9 Items"
                     android:textColor="@color/black"
-                    android:textSize="20sp"
-                    app:fontFamily="@font/sans_bold" />
+                    android:textSize="16sp"
+                    app:fontFamily="@font/tt_medium" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -200,7 +200,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Any issues with bill or order ?"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
                         app:fontFamily="@font/tt_medium" />
 
                     <TextView
@@ -209,7 +209,7 @@
                         android:text="Contact to bill counter or store manager"
                         android:textColor="@color/grey_dark"
                         android:textSize="13sp"
-                        app:fontFamily="@font/tt_medium" />
+                        app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
 
                 <ImageView
@@ -248,7 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Rate us on Play Store"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
                         app:fontFamily="@font/tt_medium" />
 
                     <TextView
@@ -257,7 +257,7 @@
                         android:text="Please give us rating on play store to helps in next update."
                         android:textColor="@color/grey_dark"
                         android:textSize="13sp"
-                        app:fontFamily="@font/tt_medium" />
+                        app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -287,7 +287,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="Done"
                     android:textColor="@color/white"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     app:fontFamily="@font/tt_medium" />
             </LinearLayout>
         </LinearLayout>

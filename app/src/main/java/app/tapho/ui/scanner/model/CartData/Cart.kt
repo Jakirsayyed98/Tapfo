@@ -23,7 +23,8 @@ data class Cart(
     val user_id: String,
 
     val qty:Int,
-    val totalPrice:Double
+    val totalPrice:Double,
+    val totalActualPrice:Double,
 
     //    [{"business_user_item_id":"1","qty":"2","price":"100","total_price":"200"}]
 )

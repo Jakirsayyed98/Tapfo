@@ -902,8 +902,10 @@ fun setBusinessQR(image:String):Bitmap?{
 }
 
 
-
-
+fun removeSomeWordFromMiniApp(name:String?):String{
+    val name2= name!!.replace("CPL","").replace("CPS","")
+    return name2
+}
 
 
 

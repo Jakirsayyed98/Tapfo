@@ -18,7 +18,7 @@ class TapfoCartAdapter3<S>(private val clickListener: RecyclerClickListener) :
             if (s is Item){
                 s.business_user_item_detail.let{
                     Glide.with(itemView.context).load(it.image).into(binding.image)
-                    binding.nameTv.text = it.name + " ( "+it.qty+" )"
+                    binding.nameTv.text = it.name + " ( "+s.qty+" )"
                     binding.price.text = withSuffixAmount(it.mrp)
                     binding.disprice.text = withSuffixAmount(it.price)
                     binding.totalPrice.text = withSuffixAmount(s.total_price)

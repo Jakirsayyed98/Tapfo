@@ -87,8 +87,14 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
       data.let {
           Glide.with(requireContext()).load(setBusinessQR(it.qr_code)).into(_binding!!.qrcode)
           _binding!!.paybleAmount.text = withSuffixAmount(it.total_amount.toString())
-          _binding!!.cartcount.text = "Cart summary : "+it!!.items.size+" items"
+
           _binding!!.qrcodedata.text = it.code
+          var count = 0
+          it.items.forEach {
+             count+=  it.qty.toInt()
+          }
+          _binding!!.cartcount.text = "Cart summary : "+count+" items"
+
           setLayout(it.items)
           callVmData(it)
       }

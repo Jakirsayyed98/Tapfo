@@ -17,6 +17,7 @@
         android:paddingTop="@dimen/dp20"
         android:paddingEnd="@dimen/dp10"
         android:paddingBottom="@dimen/dp20"
+        android:backgroundTint="@color/green_dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -29,7 +30,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black" />
+            app:tint="@color/white" />
 
 
         <TextView
@@ -38,12 +39,26 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/dp10"
             android:text="Shopping Cart"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="18sp"
             app:fontFamily="@font/tt_regular"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/backbtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dp10"
+            android:text="Delete Cart"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:fontFamily="@font/tt_regular"
+            android:layout_marginEnd="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -57,6 +72,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
             <TextView
@@ -140,23 +156,51 @@
 
                 </LinearLayout>
 
-
-                <TextView
-                    android:id="@+id/clear"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:id="@+id/savinglayout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="10dp"
-                    android:padding="10dp"
-                    android:text="clear"
-                    android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:orientation="horizontal"
+                    android:layout_marginTop="15dp"
+                    android:padding="15dp"
+                    android:background="@drawable/button_boarder_2"
+                    android:backgroundTint="@color/light_orange1">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/offer_icon"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:text="Congrats, your total saving "
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/tt_medium" />
+
+                    <TextView
+                        android:id="@+id/savingAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="5dp"
+                        android:text="5000rs"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/tt_medium" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/button_boarder_2"
                     android:backgroundTint="@color/white"
+                    android:layout_marginTop="15dp"
                     android:orientation="vertical"
                     android:padding="10dp">
 

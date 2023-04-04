@@ -1,6 +1,7 @@
 package app.tapho.ui.model
 
 
+import app.tapho.utils.removeSomeWordFromMiniApp
 import java.net.URLDecoder
 
 open class MiniApp {
@@ -18,7 +19,8 @@ open class MiniApp {
     var is_favourite: String? = null
     var total_favourite_count: String? = ""
     var merchant_payout: MerchantPayout? = null
-    var name: String? = null
+    var name : String? = null
+
     var punchline: String? = null
     var status: String? = null
     var tcash: String? = null
@@ -43,6 +45,16 @@ open class MiniApp {
         }
         return "0"
     }
+
+
+    fun name():String{
+        kotlin.runCatching {
+            return name!!.replace("CPL","").replace("CPS","")
+        }
+        return name?:""
+    }
+
+
 
     @JvmName("getCashback1")
     fun getCashback():String{

@@ -7,23 +7,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
 import app.tapho.databinding.FragmentProductCartBinding
 import app.tapho.ui.BaseFragment
 import app.tapho.RoomDB.getDatabase
 import app.tapho.interfaces.RecyclerClickListener
+import app.tapho.ui.ContainerActivity
 import app.tapho.ui.scanner.adapter.TapfoCartAdapter
 import app.tapho.ui.scanner.model.AllProducts.Data
 import app.tapho.ui.scanner.model.CartData.Cart
 import app.tapho.ui.tcash.TimePeriodDialog
-import app.tapho.utils.CART_ID
-import app.tapho.utils.getCartIdRandom
-import app.tapho.utils.getUniqueCode
-import app.tapho.utils.withSuffixAmount
+import app.tapho.utils.*
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlinx.coroutines.DelicateCoroutinesApi
@@ -48,18 +50,19 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProductCartBinding.inflate(inflater,container,false)
-        statusBarColor(R.color.white)
+        statusBarColor(R.color.green_dark)
         statusBarTextWhite()
 
         _binding!!.addMore.setOnClickListener {
             val intent = Intent(requireContext(), BarcodeScannerForProductActivity::class.java)
             startActivityForResult(intent, mRequestCode)
-//            startActivity(Intent(requireContext(),BarcodeScannerForProductActivity::class.java))
-//            activity?.finish()
         }
         _binding!!.backbtn.setOnClickListener {
-            activity?.onBackPressedDispatcher?.onBackPressed()
+            OpenExitBottomSheet()
+//            activity?.onBackPressedDispatcher?.onBackPressed()
         }
+
+        backpressedbtn()
 
         binding.PaymentModes.setOnClickListener {
             ContainerForProductActivity.openContainer(requireContext(),"SelectPaymentmodeFragment","",false,"")
@@ -74,9 +77,47 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
             }
         }
 
+
                 SaveToCart()
 
         return _binding?.root
+    }
+
+    private fun backpressedbtn() {
+        val  OnBackPressedCallback = object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                OpenExitBottomSheet()
+            }
+        }
+        requireActivity().getOnBackPressedDispatcher().addCallback(requireActivity(), OnBackPressedCallback)
+    }
+
+
+    private fun OpenExitBottomSheet() {
+        val dialog = BottomSheetDialog(requireContext())
+        val view = layoutInflater.inflate(R.layout.store_exit_bottomsheet, null)
+
+        dialog.setCancelable(true)
+        val exit: AppCompatButton = view.findViewById(R.id.exit)
+
+        val continuebtn: AppCompatButton = view.findViewById(R.id.continuebtn)
+
+        exit.setOnClickListener {
+            GlobalScope.launch {
+                getDatabase(requireContext()).appDao().DeleteAllProduct()
+            }
+            activity?.finish()
+            dialog.dismiss()
+        }
+
+
+        continuebtn.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.setContentView(view)
+        dialog.show()
+
+
     }
 
     private fun setTextData() {
@@ -99,9 +140,18 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
 
     private fun setLayout(it: List<Cart>) {
         var Amount = 0.0
+        var ActualAmount = 0.0
         it.forEach {
             Amount+=it.totalPrice
         }
+
+        it.forEach {
+            ActualAmount+=it.totalActualPrice
+        }
+
+        val Amt = ActualAmount - Amount
+        _binding!!.savingAmount.text = withSuffixAmount(Amt.toString())
+        _binding!!.savinglayout.visibility = if (Amt>1) View.VISIBLE else View.GONE
 
         _binding!!.totalCartValue.text = withSuffixAmount(Amount.toString())
 
@@ -228,8 +278,8 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
                     GlobalScope.launch {
                         getDatabase(requireContext()).appDao().AddPRoductToCart(
                             Cart(it.id,it.business_id,it.business_user_category_id,it.business_user_sub_category_id,it.created_at,it.description,
-                                it.ean,it.food_type,it.image,it.mrp,it.name,it.price,it.qty,it.status,it.user_id,qtyd,
-                                (qtyd * it.price.toDouble()))
+                                it.ean,it.food_type!!,it.image,it.mrp,it.name,it.price!!,it.qty,it.status,it.user_id,qtyd,
+                                (qtyd * it.price.toDouble()),(qtyd * it.mrp.toDouble()))
                         )
                     }
                 }

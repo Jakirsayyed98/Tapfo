@@ -3,7 +3,7 @@ package app.tapho.ui.scanner.model.AllProducts
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity//(tableName = "AllProduct")
+@Entity
 data class Data(
     @PrimaryKey
     val id: String,
@@ -13,11 +13,11 @@ data class Data(
     val created_at: String,
     val description: String?=null,
     val ean: String,
-    val food_type: String,
+    val food_type: String?=null,
     val image: String?=null,
     val mrp: String,
     val name: String,
-    val price: String,
+    val price: String?=null,
     val qty: String,
     val status: String,
     val user_id: String,

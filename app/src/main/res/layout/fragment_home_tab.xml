@@ -990,5 +990,33 @@
 
             </LinearLayout>
         </RelativeLayout>
+
+
+        <LinearLayout
+            android:id="@+id/productCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/green_dark"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/productCarttext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/tt_regular"
+                android:text="You are shopping at BonBon "
+                android:textColor="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/tt_regular"
+                android:text="View Cart"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
     </RelativeLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

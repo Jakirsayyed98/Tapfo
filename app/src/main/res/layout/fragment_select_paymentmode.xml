@@ -39,7 +39,7 @@
             android:paddingStart="@dimen/dp10"
             android:text="Pay bill"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/tt_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +132,7 @@
                         android:text="CART ID: TFBRD67890701"
                         android:textColor="@color/black"
                         android:textSize="15sp"
-                        app:fontFamily="@font/tt_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                     <TextView
                         android:id="@+id/time"
@@ -144,7 +144,7 @@
                         android:textColor="@color/black"
                         android:textSize="15sp"
                         android:textAlignment="center"
-                        app:fontFamily="@font/tt_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
 
                 </LinearLayout>
@@ -171,8 +171,9 @@
                             android:layout_weight="1"
                             android:text="Cart Summary"
                             android:textColor="@color/black"
-                            android:textSize="17sp"
-                            app:fontFamily="@font/tt_medium" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/tt_regular" />
+
                         <TextView
                             android:id="@+id/paybleAmount"
                             android:layout_width="match_parent"
@@ -182,8 +183,8 @@
                             android:textAlignment="textEnd"
                             android:text="100"
                             android:textColor="@color/black"
-                            android:textSize="17sp"
-                            app:fontFamily="@font/tt_medium" />
+                            android:textSize="15sp"
+                            app:fontFamily="@font/tt_regular" />
                     </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -271,7 +272,7 @@
                         android:layout_gravity="center_vertical"
                         android:text="Proceed to Counter"
                         android:textColor="@color/white"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         app:fontFamily="@font/tt_medium" />
                 </LinearLayout>
 

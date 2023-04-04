@@ -45,7 +45,8 @@ private lateinit var codeScanner: CodeScanner
         super.onCreate(savedInstanceState)
         binding = ActivityScannerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        window.statusBarColor=Color.BLACK
+        statusBarColor(R.color.green_dark)
+        window.statusBarColor=Color.WHITE
         permissionTaking()
 
         val bannerdata: MutableList<sliderItem> = ArrayList()
