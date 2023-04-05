@@ -1,5 +1,6 @@
 package app.tapho.ui.scanner.ScanCart
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
@@ -7,24 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatButton
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
 import app.tapho.databinding.FragmentProductCartBinding
 import app.tapho.ui.BaseFragment
 import app.tapho.RoomDB.getDatabase
 import app.tapho.interfaces.RecyclerClickListener
-import app.tapho.ui.ContainerActivity
 import app.tapho.ui.scanner.adapter.TapfoCartAdapter
 import app.tapho.ui.scanner.model.AllProducts.Data
 import app.tapho.ui.scanner.model.CartData.Cart
-import app.tapho.ui.tcash.TimePeriodDialog
 import app.tapho.utils.*
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -51,7 +47,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
     ): View? {
         _binding = FragmentProductCartBinding.inflate(inflater,container,false)
         statusBarColor(R.color.green_dark)
-        statusBarTextWhite()
+        statusBarTextBlack()
 
         _binding!!.addMore.setOnClickListener {
             val intent = Intent(requireContext(), BarcodeScannerForProductActivity::class.java)
@@ -59,7 +55,6 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         }
         _binding!!.backbtn.setOnClickListener {
             OpenExitBottomSheet()
-//            activity?.onBackPressedDispatcher?.onBackPressed()
         }
 
         backpressedbtn()
@@ -72,9 +67,8 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         setTextData()
 
         _binding!!.clear.setOnClickListener {
-            GlobalScope.launch {
-                getDatabase(requireContext()).appDao().DeleteAllProduct()
-            }
+            OpenClearCartBottomSheet()
+
         }
 
 
@@ -92,7 +86,6 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         requireActivity().getOnBackPressedDispatcher().addCallback(requireActivity(), OnBackPressedCallback)
     }
 
-
     private fun OpenExitBottomSheet() {
         val dialog = BottomSheetDialog(requireContext())
         val view = layoutInflater.inflate(R.layout.store_exit_bottomsheet, null)
@@ -107,6 +100,29 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
                 getDatabase(requireContext()).appDao().DeleteAllProduct()
             }
             activity?.finish()
+            dialog.dismiss()
+        }
+
+
+        continuebtn.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.setContentView(view)
+        dialog.show()
+    }
+  private fun OpenClearCartBottomSheet() {
+        val dialog = BottomSheetDialog(requireContext())
+        val view = layoutInflater.inflate(R.layout.store_clearcart_bottomsheet, null)
+
+        dialog.setCancelable(true)
+        val exit: AppCompatButton = view.findViewById(R.id.exit)
+
+        val continuebtn: AppCompatButton = view.findViewById(R.id.continuebtn)
+
+        exit.setOnClickListener {
+            GlobalScope.launch {
+                getDatabase(requireContext()).appDao().DeleteAllProduct()
+            }
             dialog.dismiss()
         }
 
@@ -134,26 +150,43 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
 
     private fun SaveToCart() {
         getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
+            _binding!!.cartEmpty.visibility = if (it.isNullOrEmpty()) View.VISIBLE else View.GONE
+            _binding!!.PaymentModes.isSelected = if (it.isNullOrEmpty()) false else true
+            _binding!!.PaymentModes.isClickable = if (it.isNullOrEmpty()) false else true
+
             setLayout(it)
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setLayout(it: List<Cart>) {
         var Amount = 0.0
-        var ActualAmount = 0.0
+        var MRP = 0.0
+        var disprice = 0.0
+        var count = 0
+        it.forEach {
+            count += it.qty.toInt()
+        }
+
+        _binding!!.cartCount.text = count.toString()+" Items"
+
         it.forEach {
             Amount+=it.totalPrice
         }
 
         it.forEach {
-            ActualAmount+=it.totalActualPrice
+            MRP+= (it.qty.toDouble() * it.mrp.toDouble())
+        }
+        it.forEach {
+            disprice+=(it.qty.toDouble() * it.price.toDouble())
         }
 
-        val Amt = ActualAmount - Amount
-        _binding!!.savingAmount.text = withSuffixAmount(Amt.toString())
+        val Amt = MRP - disprice
+
+        _binding!!.savingAmount.text = withSuffixAmount(Amt.toString())!!.dropLast(3)
         _binding!!.savinglayout.visibility = if (Amt>1) View.VISIBLE else View.GONE
 
-        _binding!!.totalCartValue.text = withSuffixAmount(Amount.toString())
+        _binding!!.totalCartValue.text ="Total cart: "+ withSuffixAmount(Amount.toString())!!.dropLast(3)
 
 
         val tapfoCartAdapter  = TapfoCartAdapter<Cart>(object : RecyclerClickListener{
@@ -193,7 +226,12 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
                         GlobalScope.launch {
                             getDatabase(requireContext()).appDao().searchProduct(textData).let {
                                 requireActivity().runOnUiThread(Runnable {
-                                    OpenCartBottomSheet(it)
+                                    if (it.qty.toInt()>=1){
+                                        OpenCartBottomSheet(it)
+                                    }else{
+                                        Toast.makeText(requireContext(),"Product is not available",Toast.LENGTH_SHORT).show()
+                                    }
+
                                 })
                             }
                         }
@@ -209,6 +247,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
     }
 
 
+    @SuppressLint("SetTextI18n")
     private fun OpenCartBottomSheet(it: Data) {
         val dialog = BottomSheetDialog(requireContext())
         val view = layoutInflater.inflate(R.layout.tapfomart_cart_layout,null)
@@ -217,17 +256,23 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         dialog.show()
         val image = view.findViewById<ImageView>(R.id.image)
         val name = view.findViewById<TextView>(R.id.name)
+        val eanNumber = view.findViewById<TextView>(R.id.eanNumber)
         val price = view.findViewById<TextView>(R.id.price)
         val disprice = view.findViewById<TextView>(R.id.disprice)
         val QtyData = view.findViewById<TextView>(R.id.QtyData)
+        val savepercent = view.findViewById<TextView>(R.id.savepercent)
         val add = view.findViewById<ImageView>(R.id.add)
         val less = view.findViewById<ImageView>(R.id.less)
         val addToCheckOut = view.findViewById<AppCompatButton>(R.id.addToCheckOut)
 
+
+       savepercent.text = roundOffAmount((((it.mrp.toDouble()-it.price!!.toDouble())/it.mrp.toDouble())*100).toString()).dropLast(3)+"% OFF"
+
         Glide.with(this).load(it.image).placeholder(R.drawable.loading_progress).into(image)
         name.text = it.name
-        price.text = withSuffixAmount(it.mrp)
-        disprice.text = withSuffixAmount(it.price)
+        eanNumber.text ="EAN : "+ it.ean
+        price.text = withSuffixAmount(it.mrp)!!.dropLast(3)
+        disprice.text = withSuffixAmount(it.price)!!.dropLast(3)
         var qtyd = 1
         GlobalScope.launch {
             val Product = getDatabase(requireContext()).appDao().ProductByBarcodeISExist(it.ean)
@@ -245,14 +290,20 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
 
 
         QtyData.text = qtyd.toString()
-        add.setOnClickListener{
-            qtyd += 1
-            QtyData.text = qtyd.toString()
+        add.setOnClickListener{click->
+            if (qtyd<it.qty.toInt()){
+                qtyd += 1
+                QtyData.text = qtyd.toString()
+            }
+
         }
 
         less.setOnClickListener{
-            qtyd -= 1
-            QtyData.text = qtyd.toString()
+            if (qtyd>1){
+                qtyd -= 1
+                QtyData.text = qtyd.toString()
+            }
+
         }
 
         addToCheckOut.setOnClickListener{click->

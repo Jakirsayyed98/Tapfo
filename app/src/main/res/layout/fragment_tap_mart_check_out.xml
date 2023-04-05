@@ -68,68 +68,74 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
+                android:background="@color/grey_background"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1"
+                            android:text="Billing at"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:fontFamily="@font/tt_medium" />
+
+                    </LinearLayout>
 
                     <TextView
+                        android:id="@+id/storename"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
                         android:layout_weight="1"
-                        android:text="Billing at"
+                        android:text="Born Supermart"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:fontFamily="@font/sans_bold" />
+                        android:textSize="15sp"
+                        app:fontFamily="@font/tt_medium" />
 
+                    <TextView
+                        android:id="@+id/storeaddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:paddingEnd="30dp"
+                        android:text="SURYA command canteen - usman marg, neil lines 226002 - Mumbai"
+                        android:textColor="@color/black"
+                        android:textSize="14sp"
+                        app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
-
-                <TextView
-                    android:id="@+id/storename"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:text="Born Supermart"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    app:fontFamily="@font/tt_medium" />
-
-                <TextView
-                    android:id="@+id/storeaddress"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_weight="1"
-                    android:paddingEnd="30dp"
-                    android:text="SURYA command canteen - usman marg, neil lines 226002 - Mumbai"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    app:fontFamily="@font/tt_regular" />
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="15dp"
-                    android:background="@color/grey_background"
                     android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="10dp"
                         android:background="@color/white"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:paddingTop="15dp">
 
 
                         <TextView
@@ -142,6 +148,31 @@
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="14sp"
+                            app:fontFamily="@font/tt_regular" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_weight="1"
+                            android:text="This Checkout QR Code is valid for "
+                            android:textAlignment="center"
+                            android:textColor="@color/black"
+                            android:textSize="14sp"
+                            app:fontFamily="@font/tt_regular" />
+
+                        <TextView
+                            android:id="@+id/timercount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_weight="1"
+                            android:text="30:20"
+                            android:textAlignment="center"
+                            android:textColor="@color/green_dark"
+                            android:textSize="16sp"
                             app:fontFamily="@font/tt_regular" />
 
                         <TextView
@@ -241,37 +272,64 @@
                     </LinearLayout>
 
 
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/top_cornor_forminis"
+                    android:orientation="vertical"
+                    android:padding="25dp">
+
                     <LinearLayout
-                        android:id="@+id/PaymentModes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginBottom="20dp"
-                        android:background="@drawable/button_boarder_2"
-                        android:backgroundTint="@color/black"
-                        android:gravity="center_horizontal"
-                        android:orientation="horizontal"
-                        android:padding="15dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:orientation="horizontal">
 
+                        <ImageView
+                            android:layout_width="55dp"
+                            android:layout_height="55dp"
+                            android:src="@drawable/order_verification_icon" />
 
-                        <TextView
-                            android:id="@+id/PaymentModesText"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center_vertical"
-                            android:text="Proceed to Counter"
-                            android:textColor="@color/white"
-                            android:textSize="14sp"
-                            app:fontFamily="@font/tt_medium" />
+                            android:layout_marginStart="20dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/tt_medium"
+                                android:text="Order Verification"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/tt_regular"
+                                android:text="@string/to_confirm_order_items_payments"
+                                android:textColor="@color/green_dark"
+                                android:textSize="16sp" />
+
+
+                        </LinearLayout>
+
                     </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/tt_regular"
+                        android:text="@string/please_show_generated_checkout_qr_code_to_staff_members_please_wait_while_the_staff_processes_your_checkout_for_items_payment_verification"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="15sp" />
+
 
                 </LinearLayout>
             </LinearLayout>

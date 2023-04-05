@@ -7,6 +7,7 @@ import app.tapho.databinding.*
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseRecyclerAdapter
 import app.tapho.ui.scanner.model.SearchCurrentOrder.Item
+import app.tapho.utils.roundOffAmount
 import app.tapho.utils.withSuffixAmount
 import com.bumptech.glide.Glide
 
@@ -19,9 +20,12 @@ class TapfoCartAdapter3<S>(private val clickListener: RecyclerClickListener) :
                 s.business_user_item_detail.let{
                     Glide.with(itemView.context).load(it.image).into(binding.image)
                     binding.nameTv.text = it.name + " ( "+s.qty+" )"
-                    binding.price.text = withSuffixAmount(it.mrp)
-                    binding.disprice.text = withSuffixAmount(it.price)
-                    binding.totalPrice.text = withSuffixAmount(s.total_price)
+                    binding.price.text = withSuffixAmount(it.mrp)!!.dropLast(3)
+                    binding.disprice.text = withSuffixAmount(it.price)!!.dropLast(3)
+                    binding.totalPrice.text = withSuffixAmount(s.total_price)!!.dropLast(3)
+
+
+                    binding.savepercent.text = roundOffAmount((((it.mrp.toDouble()-it.price.toDouble())/it.mrp.toDouble())*100).toString()).dropLast(3)+"% OFF"
                 }
 
             }

@@ -65,6 +65,22 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         binding = ActivityBarcodeScannerForProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window.statusBarColor= Color.BLACK
+        binding.name.text = getSharedPreference().getBusinessData()!!.business_name
+        binding.address.text = getSharedPreference().getBusinessData()!!.address
+        binding.eannumber.addTextChangedListener {
+            if (it!!.length==13){
+                binding.search.visibility = View.VISIBLE
+            }else{
+                binding.search.visibility = View.GONE
+            }
+        }
+
+        binding.search.setOnClickListener {
+            val intent = Intent()
+            intent.putExtra("ENCodeData", binding.eannumber.text.toString())
+            setResult(RESULT_OK, intent)
+            finish()
+        }
         toneGen1 = ToneGenerator(AudioManager.STREAM_MUSIC, 100)
         initialiseDetectorsAndSources();
     }

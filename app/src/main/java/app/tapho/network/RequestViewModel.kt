@@ -1838,7 +1838,7 @@ class RequestViewModel : ViewModel() {
         listener: ApiListener<ScanPlaceOrderRes, Any?>
     ) {
         this.loadLis = loadLis
-        loadLis?.showLoader()
+//        loadLis?.showLoader()
         val req = JsonObject().apply {
             addProperty("user_id", user_id)
             addProperty("business_id", business_id)

@@ -33,18 +33,18 @@ class TapfoCartAdapter<S>(private val clickListener: RecyclerClickListener) :
          //      binding.qty.text = withSuffixAmount((s.qty.toDouble()*s.price.toDouble()).toString()).toString()
 
                 if (s.price.isNullOrEmpty()){
-                    binding.price.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString())
+                    binding.price.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString())!!.dropLast(3)
                     binding.price.visibility = View.GONE
-                    binding.disprice.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString()) //+" ( "+s.qty.toString() + " ) "
-                    binding.disprice1.text =itemView.context.getString(R.string.price_4_unit,withSuffixAmount(s.mrp))
+                    binding.disprice.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString())!!.dropLast(3) //+" ( "+s.qty.toString() + " ) "
+                    binding.disprice1.text = itemView.context.getString(R.string.price_4_unit, withSuffixAmount(s.mrp)!!.dropLast(3))
                     binding.savepercent.visibility = View.GONE
                 }else{
-                    binding.price.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString())
-                    binding.disprice.text = withSuffixAmount((s.price.toDouble()*s.qty.toDouble()).toString())
-                    binding.disprice1.text =itemView.context.getString(R.string.price_4_unit,withSuffixAmount(s.price))
+                    binding.price.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString())!!.dropLast(3)
+                    binding.disprice.text = withSuffixAmount((s.price.toDouble()*s.qty.toDouble()).toString())!!.dropLast(3)
+                    binding.disprice1.text =itemView.context.getString(R.string.price_4_unit,withSuffixAmount(s.price)!!.dropLast(3))
                     binding.savepercent.visibility = View.VISIBLE
                  //   binding.savepercent.text = ((s.mrp.toDouble()-s.price.toDouble())/s.mrp.toDouble()).toString()+" OFF"
-                    binding.savepercent.text = roundOffAmount((((s.mrp.toDouble()-s.price.toDouble())/s.mrp.toDouble())*100).toString())+"% OFF"
+                    binding.savepercent.text = roundOffAmount((((s.mrp.toDouble()-s.price.toDouble())/s.mrp.toDouble())*100).toString()).dropLast(3)+"% OFF"
                 }
 
 
@@ -74,6 +74,7 @@ class TapfoCartAdapter<S>(private val clickListener: RecyclerClickListener) :
                                     getDatabase(itemView.context).appDao().UpdateProductToCart((it.qty+1),it.ean,((it.qty+1) * it.price.toDouble()))
                                 }
                             }else{
+
 //                                this@TapfoCartAdapter.runOnUiThread(Runnable {
 //                                    Toast.makeText(this,"Product Not Fond "+textData,
 //                                        Toast.LENGTH_SHORT).show()

@@ -5,7 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
@@ -22,7 +24,10 @@ import app.tapho.ui.scanner.model.PlaceOrder.ScanPlaceOrderRes
 import app.tapho.ui.scanner.model.customePaymentMode
 import app.tapho.utils.CART_ID
 import app.tapho.utils.withSuffixAmount
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.JsonObject
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
@@ -84,7 +89,7 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
             activity?.onBackPressedDispatcher?.onBackPressed()
         }
         _binding!!.PaymentModes.setOnClickListener {
-            PlaceOrder()
+            OpenExitBottomSheet()
         }
 
         return _binding?.root
@@ -143,7 +148,7 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
                 total+=it.price.toDouble()
             }
         }
-        _binding!!.paybleAmount.text = withSuffixAmount(total.toString())
+        _binding!!.paybleAmount.text = withSuffixAmount(total.toString())!!.dropLast(3)
         val tapfoCartAdapter  = TapfoCartAdapter2<Cart>(object : RecyclerClickListener{
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
@@ -178,6 +183,34 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
         }
 
     }
+
+
+    private fun OpenExitBottomSheet() {
+        val dialog = BottomSheetDialog(requireContext())
+        val view = layoutInflater.inflate(R.layout.store_checkout_bottomsheet, null)
+
+        dialog.setCancelable(true)
+        val exit: TextView = view.findViewById(R.id.exit)
+
+        val continuebtn: AppCompatButton = view.findViewById(R.id.continuebtn)
+
+        exit.setOnClickListener {
+            ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
+            activity?.finish()
+            dialog.dismiss()
+        }
+
+
+        continuebtn.setOnClickListener {
+            PlaceOrder()
+            dialog.dismiss()
+        }
+        dialog.setContentView(view)
+        dialog.show()
+
+
+    }
+
 
     companion object {
         @JvmStatic

@@ -71,7 +71,7 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
                     _binding!!.apply {
                         nameTV.text = it.business_name
                         tankyouStorename.text = getString(R.string.thank_you_for_shopping_with_bon_bon_supermart,it.business_name)
-                        yourbill.text = getString(R.string.your_bill_amount_1529_00_a, withSuffixAmount(data.total_amount),it.business_name,totalCount.toString())
+                        yourbill.text = getString(R.string.your_bill_amount_1529_00_a, withSuffixAmount(data.total_amount)!!.dropLast(3),it.business_name,totalCount.toString())
                     }
                  }
              }

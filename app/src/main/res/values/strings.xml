@@ -197,6 +197,8 @@
     <string name="price_4_unit">Price: %s/unit</string>
     <string name="thank_you_for_shopping_with_bon_bon_supermart">Thank you for shopping with %s,</string>
     <string name="your_bill_amount_1529_00_a">Your Bill amount <font color="#1f9d55">%s</font> at %s for %s items.</string>
+    <string name="to_confirm_order_items_payments"><![CDATA[to confirm order items & Payments]]></string>
+    <string name="please_show_generated_checkout_qr_code_to_staff_members_please_wait_while_the_staff_processes_your_checkout_for_items_payment_verification"><![CDATA[Please show generated checkout QR code to staff members. Please wait while the staff processes your checkout for Items & Payment verification.]]></string>
     <!--    <string name="title_activity_maps">MapsActivity</string>-->
 
 </resources>
