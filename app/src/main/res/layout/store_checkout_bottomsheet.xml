@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:src="@drawable/bell_icon" />
+            android:src="@drawable/qr_icon" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,15 +28,15 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/tt_medium"
-                android:text="Checkout order"
+                app:fontFamily="@font/tt_demibold"
+                android:text="Generate QR code"
                 android:textSize="20sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/tt_regular"
-                android:text="Please contact to any store member"
+                app:fontFamily="@font/tt_medium"
+                android:text="@string/to_verify_cart_items_payment"
                 android:textColor="@color/green_dark"
                 android:textSize="16sp" />
 
@@ -48,10 +48,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/tt_regular"
+        android:layout_marginTop="15dp"
+        app:fontFamily="@font/tt_regular"
         android:text="Please contact the staff member or store counter before generating the Checkout QR Code. "
-        android:textColor="@color/grey_dark"
+        android:textColor="#363636"
         android:textAlignment="center"
         android:textSize="15sp" />
 
@@ -64,30 +64,33 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/continuebtn"
+
+            android:text="Generate Checkout QR code"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2.5dp"
-            android:layout_weight="1"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/login_btn1"
-            android:backgroundTint="@color/green_dark"
-            android:text="Generate Checkout QR code"
+            android:backgroundTint="@color/GreenWalletBackgroundDark"
             android:textAllCaps="false"
-            app:fontFamily="@font/tt_regular"
-            android:textColor="@color/white" />
-
+            android:textColor="@color/white"
+            android:padding="15dp"
+            android:textSize="18sp"
+            android:elevation="-10dp"
+            app:fontFamily="@font/tt_regular" />
         <TextView
             android:id="@+id/exit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:backgroundTint="@color/white"
             android:text="Back to Cart"
             android:textAllCaps="false"
             android:padding="10dp"
+            android:textSize="18sp"
             android:gravity="center"
             android:textColor="@color/black"
-            app:fontFamily="@font/tt_medium"/>
+            app:fontFamily="@font/tt_regular"/>
 
 
     </LinearLayout>

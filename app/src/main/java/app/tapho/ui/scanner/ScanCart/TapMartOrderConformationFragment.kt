@@ -18,14 +18,20 @@ import app.tapho.ui.scanner.adapter.TapfoCartAdapter3
 import app.tapho.ui.scanner.model.BusinessDetail.searchBusinessRes
 import app.tapho.ui.scanner.model.SearchCurrentOrder.Data
 import app.tapho.ui.scanner.model.SearchCurrentOrder.Item
+import app.tapho.ui.tcash.model.BusinessOrderDetail
+import app.tapho.ui.tcash.model.Txn
 import app.tapho.utils.DATA
 import app.tapho.utils.parseDate
+import app.tapho.utils.setOnCustomeCrome
 import app.tapho.utils.withSuffixAmount
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 
 class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConformationBinding>() {
-
+    var totalCount = 0
+    var bill_receipt = ""
+    var total_amount = ""
+    var business_id = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -41,14 +47,40 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
         _binding = FragmentTapMartOrderConformationBinding.inflate(inflater,container,false)
         val data = activity?.intent?.getStringExtra(DATA)
         if (!data.isNullOrEmpty()){
-            Gson().fromJson(data, Data::class.java).let {
-                _binding!!.billID.text = it.code
-                _binding!!.Date.text = parseDate(it.created_at)
+                val value =  Gson().fromJson(data, Data::class.java)
+                if (value!=null){
+                    _binding!!.billID.text = value.code
+                    _binding!!.Date.text = parseDate(value.created_at)
+                    setData(value)
+                    setLayout(value.items)
 
-                setData(it)
-                setLayout(it.items)
-                getStoreDetail(it)
-            }
+                    bill_receipt = value.bill_receipt
+                    total_amount = value.total_amount
+                    business_id = value.business_id
+                    value.items.forEach {
+                        totalCount+=it.qty.toInt()
+                    }
+                    getStoreDetail()
+                }else{
+                    Gson().fromJson(data,BusinessOrderDetail::class.java).let {value->
+                        _binding!!.billID.text = value.code
+                        _binding!!.Date.text = parseDate(value.created_at)
+                        setData1(value)
+                        setLayout1(value.items)
+
+                        total_amount = value.total_amount
+                        bill_receipt = value.bill_receipt
+                        business_id = value.business_id
+
+                        value!!.items.forEach {
+                            totalCount+=it.qty.toInt()
+                        }
+                        getStoreDetail()
+                    }
+                }
+
+        }else{
+
         }
 
         _binding!!.done.setOnClickListener {
@@ -59,19 +91,23 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
 
     }
 
-    private fun getStoreDetail(data: Data?) {
-        var totalCount = 0
-        data!!.items.forEach {
-            totalCount+=it.qty.toInt()
+
+
+
+    private fun getStoreDetail() {
+
+
+        _binding!!.Invoice.setOnClickListener {click->
+            requireContext().setOnCustomeCrome(bill_receipt)
         }
-        viewModel.searchBusiness(getUserId(), data.business_id,this,object : ApiListener<searchBusinessRes,Any?>{
+        viewModel.searchBusiness(getUserId(), business_id,this,object : ApiListener<searchBusinessRes,Any?>{
             override fun onSuccess(t: searchBusinessRes?, mess: String?) {
              t!!.let {
                  it.data.get(0).let {
                     _binding!!.apply {
                         nameTV.text = it.business_name
                         tankyouStorename.text = getString(R.string.thank_you_for_shopping_with_bon_bon_supermart,it.business_name)
-                        yourbill.text = getString(R.string.your_bill_amount_1529_00_a, withSuffixAmount(data.total_amount)!!.dropLast(3),it.business_name,totalCount.toString())
+                        yourbill.text = getString(R.string.your_bill_amount_1529_00_a, withSuffixAmount(total_amount)!!.dropLast(3),it.business_name,totalCount.toString())
                     }
                  }
              }
@@ -104,13 +140,49 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
     }
 
 
-    private fun setLayout(it: List<Item>?) {
-        var totalCount = 0
-        it!!.forEach {
-            totalCount+=it.qty.toInt()
+    private fun setData1(data: BusinessOrderDetail?) {
+        when(data!!.status){
+            "0"->{ //Pending
+                statusBarColor(R.color.orange)
+                statusBarTextBlack()
+                _binding!!.orderstatus.text = "Order in Pending"
+                _binding!!.mainlayout.setBackgroundColor(Color.parseColor("#EE8300"))
+            }
+            "1"->{  //Paid
+                statusBarColor(R.color.green_dark)
+                statusBarTextBlack()
+                _binding!!.orderstatus.text = "Order Confirmed"
+                _binding!!.mainlayout.setBackgroundColor(Color.parseColor("#008D3A"))
+            }
+            else->{  //Cancelled
+                statusBarColor(R.color.red)
+                statusBarTextBlack()
+                _binding!!.orderstatus.text = "Order Rejected"
+                _binding!!.mainlayout.setBackgroundColor(Color.parseColor("#EF5350"))
+            }
+        }
+    }
+
+
+    private fun setLayout1(items: List<app.tapho.ui.tcash.model.Item>) {
+        _binding!!.cartcount.text =  if (items.size<=1) items.size.toString()+" Item" else items.size.toString()+" Items"
+        val tapfoCartAdapter  = TapfoCartAdapter3<app.tapho.ui.tcash.model.Item>(object : RecyclerClickListener {
+            override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
+
+            }
+        })
+
+        _binding!!.rrvData.apply {
+            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+            adapter = tapfoCartAdapter
         }
 
-        _binding!!.cartcount.text = totalCount.toString()+" Items"
+        tapfoCartAdapter.addAllItem(items)
+
+    }
+
+    private fun setLayout(it: List<Item>?) {
+        _binding!!.cartcount.text =  if (it!!.size==1) it.size.toString()+" Item" else it.size.toString()+" Items"
         val tapfoCartAdapter  = TapfoCartAdapter3<Item>(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 

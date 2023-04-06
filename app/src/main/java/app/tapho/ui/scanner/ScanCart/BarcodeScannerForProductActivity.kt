@@ -66,7 +66,6 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         setContentView(binding.root)
         window.statusBarColor= Color.BLACK
         binding.name.text = getSharedPreference().getBusinessData()!!.business_name
-        binding.address.text = getSharedPreference().getBusinessData()!!.address
         binding.eannumber.addTextChangedListener {
             if (it!!.length==13){
                 binding.search.visibility = View.VISIBLE

@@ -192,6 +192,7 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
             addItem(ProfileOptionsModel(R.drawable.online_fav_icon, "My Favourites", "","","My Favourites","0"))
             addItem(ProfileOptionsModel(R.drawable.refer_and_earn, "Refer & Earn", "Refer & Earn","","Share The App","0"))
             addItem(ProfileOptionsModel(R.drawable.how_doseit_works, "How it works", "How it work","","How it work","0"))
+            addItem(ProfileOptionsModel(R.drawable.how_doseit_works, "ShopGo", "ShopGo","","ShopGoHistoryFragment","0"))
             addItem(ProfileOptionsModel(R.drawable.pratnearwithus_icon, "Become Partner with us", "Become Partner with us","","Become Partner with us","0"))
             addItem(ProfileOptionsModel(R.drawable.ret_us_onplay, "Rate Us on the Play Store", "Spread Love, drop ratings on play store","","Rate Us","0"))
             addItem(ProfileOptionsModel(R.drawable.helpandsupport, "Help & Support", "FAQ's ","","Help & Support","0"))
@@ -259,6 +260,9 @@ class ProfileDetailFragment : BaseFragment<FragmentProfileDetailBinding>(), Recy
             }
             "Share The App" -> {
                 shareApp()
+            }
+            "ShopGoHistoryFragment" -> {
+                ContainerActivity.openContainerForTransaction(requireContext(),"ShopGoHistoryFragment","ShopGo",tcashdashboard,false,"Cashback & Rewards")
             }
             "Feedback" -> {
                 ContainerActivity.openContainer(requireContext(),"OpenServiceList","")

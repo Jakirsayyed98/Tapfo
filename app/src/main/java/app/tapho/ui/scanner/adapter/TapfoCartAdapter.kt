@@ -33,22 +33,20 @@ class TapfoCartAdapter<S>(private val clickListener: RecyclerClickListener) :
          //      binding.qty.text = withSuffixAmount((s.qty.toDouble()*s.price.toDouble()).toString()).toString()
 
                 if (s.price.isNullOrEmpty()){
-                    binding.price.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString())!!.dropLast(3)
+                    binding.price.text = withSuffixAmount(s.mrp)
                     binding.price.visibility = View.GONE
-                    binding.disprice.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString())!!.dropLast(3) //+" ( "+s.qty.toString() + " ) "
-                    binding.disprice1.text = itemView.context.getString(R.string.price_4_unit, withSuffixAmount(s.mrp)!!.dropLast(3))
+                    binding.disprice.text = withSuffixAmount(s.mrp)
                     binding.savepercent.visibility = View.GONE
                 }else{
-                    binding.price.text = withSuffixAmount((s.mrp.toDouble()*s.qty.toDouble()).toString())!!.dropLast(3)
-                    binding.disprice.text = withSuffixAmount((s.price.toDouble()*s.qty.toDouble()).toString())!!.dropLast(3)
-                    binding.disprice1.text =itemView.context.getString(R.string.price_4_unit,withSuffixAmount(s.price)!!.dropLast(3))
+                    binding.price.text = withSuffixAmount(s.mrp)
+                    binding.disprice.text = withSuffixAmount(s.price)
                     binding.savepercent.visibility = View.VISIBLE
                  //   binding.savepercent.text = ((s.mrp.toDouble()-s.price.toDouble())/s.mrp.toDouble()).toString()+" OFF"
                     binding.savepercent.text = roundOffAmount((((s.mrp.toDouble()-s.price.toDouble())/s.mrp.toDouble())*100).toString()).dropLast(3)+"% OFF"
                 }
 
 
-               Glide.with(itemView.context).load(s.image).into(binding.image)
+               Glide.with(itemView.context).load(s.image).placeholder(R.drawable.loding_app_icon).centerCrop().into(binding.image)
 
                 binding.less.setOnClickListener {
                     GlobalScope.launch {
@@ -75,11 +73,6 @@ class TapfoCartAdapter<S>(private val clickListener: RecyclerClickListener) :
                                 }
                             }else{
 
-//                                this@TapfoCartAdapter.runOnUiThread(Runnable {
-//                                    Toast.makeText(this,"Product Not Fond "+textData,
-//                                        Toast.LENGTH_SHORT).show()
-//                                })
-//                                itemView.context.showShort("Only ${it.AvailQty} units available for this item ")
                             }
 
                         }

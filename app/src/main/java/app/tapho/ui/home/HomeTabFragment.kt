@@ -539,8 +539,7 @@ class HomeTabFragment : BaseFragment<FragmentHomeTabBinding>(), RecyclerClickLis
                 override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
                     t!!.let {
                         _binding!!.pendingbalance.text = withSuffixAmount(it.pending.toString())
-                        _binding!!.availbalance.text =
-                            withSuffixAmount(it.cash_available.toString())
+                        _binding!!.availbalance.text = withSuffixAmount(it.cash_available.toString())
                         _binding!!.lifetimeearning.text =
                             withSuffixAmount(it.lifetime_earning.toString())
                         tcashdashboard = it

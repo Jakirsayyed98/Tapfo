@@ -12,10 +12,11 @@
         android:id="@+id/constraintLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
+        android:background="@color/GreenWalletBackgroundDark"
         android:paddingStart="@dimen/dp10"
         android:paddingTop="@dimen/dp20"
         android:paddingEnd="@dimen/dp10"
+        android:elevation="20dp"
         android:paddingBottom="@dimen/dp20"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -29,7 +30,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:tint="@color/black" />
+            app:tint="@color/white" />
 
 
         <TextView
@@ -38,12 +39,11 @@
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/dp10"
             android:text="Pay bill"
-            android:textColor="@color/black"
-            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             app:fontFamily="@font/tt_medium"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/backbtn"
             app:layout_constraintTop_toTopOf="parent" />
 
 
@@ -62,7 +62,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingTop="15dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -70,10 +71,12 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
                     android:text="Billing at"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:fontFamily="@font/tt_medium" />
+                    android:textSize="14sp"
+                    app:fontFamily="@font/tt_regular" />
 
 
             </LinearLayout>
@@ -86,10 +89,12 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:paddingStart="10dp"
+                android:paddingEnd="10dp"
                 android:text="Born Supermart"
                 android:textColor="@color/black"
-                android:textSize="15sp"
-                app:fontFamily="@font/tt_medium" />
+                android:textSize="18sp"
+                app:fontFamily="@font/sans_medium" />
 
             <TextView
                 android:id="@+id/storeaddress"
@@ -99,13 +104,68 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_weight="1"
+                android:paddingStart="10dp"
                 android:paddingEnd="30dp"
                 android:text="SURYA command canteen - usman marg, neil lines 226002 - Mumbai"
                 android:textColor="@color/grey_dark"
                 android:textSize="14sp"
                 app:fontFamily="@font/tt_regular" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:text="Payble amount"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/tt_medium" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="30dp"
+                        android:text="( Incl. of all taxes )"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="14sp"
+                        app:fontFamily="@font/tt_regular" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/paybleAmount1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="15dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:fontFamily="@font/sans_bold" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -113,7 +173,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@color/grey_background"
                 android:orientation="vertical"
-                android:padding="15dp">
+                android:padding="10dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -141,9 +201,9 @@
                         android:layout_marginEnd="10dp"
                         android:layout_weight="1"
                         android:text="23 May 20231"
+                        android:textAlignment="textEnd"
                         android:textColor="@color/black"
                         android:textSize="15sp"
-                        android:textAlignment="center"
                         app:fontFamily="@font/tt_regular" />
 
 
@@ -158,34 +218,6 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="10dp"
-                            android:layout_weight="1"
-                            android:text="Cart Summary"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            app:fontFamily="@font/tt_regular" />
-
-                        <TextView
-                            android:id="@+id/paybleAmount"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_weight="1"
-                            android:textAlignment="textEnd"
-                            android:text="100"
-                            android:textColor="@color/black"
-                            android:textSize="15sp"
-                            app:fontFamily="@font/tt_regular" />
-                    </LinearLayout>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/rrvData"
@@ -196,8 +228,8 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="0.8dp"
-                        android:layout_marginTop="10dp"
-                        android:background="@color/grey_dark" />
+                        android:layout_marginTop="15dp"
+                        android:background="@color/grey_light" />
 
 
                     <TextView
@@ -229,52 +261,193 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="10dp"
                         android:layout_weight="1"
-                        android:text="Select Payment mode"
+                        android:text="Pay for cart items"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
-                        app:fontFamily="@font/tt_medium" />
+                        android:textSize="18sp"
+                        app:fontFamily="@font/sans_medium" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/paymentmodes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/tapfomart_payment_methods" />
+                        android:layout_marginTop="5dp" />
+
+                    <LinearLayout
+                        android:id="@+id/PaymentModes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/login_btn1"
+                        android:backgroundTint="@color/GreenWalletBackgroundDark"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="25dp"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+
+                        <TextView
+                            android:id="@+id/PaymentModesText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:text="Proceed to Counter"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            app:fontFamily="@font/tt_regular" />
+                    </LinearLayout>
                 </LinearLayout>
+
 
                 <LinearLayout
-                    android:id="@+id/PaymentModes"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="30dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="25dp"
                     android:background="@drawable/button_boarder_2"
-                    android:backgroundTint="@color/black"
-                    android:gravity="center_horizontal"
-                    android:orientation="horizontal"
-                    android:padding="15dp"
-                    android:visibility="gone"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
+                    android:backgroundTint="@color/white"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
                     <TextView
-                        android:id="@+id/PaymentModesText"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="Proceed to Counter"
-                        android:textColor="@color/white"
-                        android:textSize="16sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="1"
+                        android:text="Next Steps"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
                         app:fontFamily="@font/tt_medium" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="30dp"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_dot"
+                                app:tint="@color/green_dark" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Show genrated Qr Code "
+                                    android:textSize="18sp"
+                                    app:fontFamily="@font/tt_medium" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="for instant cart checkout of your items"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/tt_regular" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_dot"
+                                app:tint="@color/green_dark" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Show checkout QR code "
+                                    android:textSize="18sp"
+                                    app:fontFamily="@font/tt_medium" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="to confirm the cart items &amp; pay the bill amount"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/tt_regular" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:orientation="horizontal">
+
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:layout_gravity="center_vertical"
+                                android:src="@drawable/ic_dot"
+                                app:tint="@color/green_dark" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Order Status"
+                                    android:textSize="18sp"
+                                    app:fontFamily="@font/tt_medium" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/store_confirm_the_bill_payment_and_get_on_e_receipt"
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/tt_regular" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
                 </LinearLayout>
+
 
             </LinearLayout>
         </LinearLayout>

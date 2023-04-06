@@ -7,6 +7,8 @@ data class Data(
     val id: String,
     val items: List<Item>,
     val qr_code: String,
+    val invoice_url: String,
+    val bill_receipt: String,
     val status: String,
     val total_amount: String,
     val user_id: String

@@ -434,6 +434,9 @@ class ContainerActivity : BaseActivity<ActivityContainerBinding>() {
             "AllTransactionFragment" -> {
                 addFragment(AllTransactionFragment.newInstance())
             }
+            "ShopGoHistoryFragment" -> {
+                addFragment(ShopGoHistoryFragment.newInstance())
+            }
             "EndToEndEncriptionFragment" -> {
                 addFragment(EndToEndEncriptionFragment.newInstance())
             }

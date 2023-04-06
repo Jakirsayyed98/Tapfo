@@ -326,6 +326,13 @@ interface MyApiV2 {
 
     /**
 
+     request type {
+        type 1 = pending
+        type 2 = verified
+        type 3 = all
+     }
+
+
         * amount use for wallet Amount
         * payment_amount use for PSP Amount
         * type 1 Top-Up
@@ -335,6 +342,7 @@ interface MyApiV2 {
         * type 5 Gift Voucher
         * type 6 Mobile Recharge Refund
         * type 7 Mobile Recharge Cashback
+        * type 8 Shop Go Transaction History
 
     **/
 

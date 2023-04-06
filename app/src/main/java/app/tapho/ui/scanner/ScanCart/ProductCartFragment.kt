@@ -46,7 +46,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentProductCartBinding.inflate(inflater,container,false)
-        statusBarColor(R.color.green_dark)
+        statusBarColor(R.color.GreenWalletBackgroundDark)
         statusBarTextBlack()
 
         _binding!!.addMore.setOnClickListener {
@@ -151,6 +151,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
     private fun SaveToCart() {
         getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
             _binding!!.cartEmpty.visibility = if (it.isNullOrEmpty()) View.VISIBLE else View.GONE
+            _binding!!.clear.visibility = if (it.isNullOrEmpty()) View.GONE else View.VISIBLE
             _binding!!.PaymentModes.isSelected = if (it.isNullOrEmpty()) false else true
             _binding!!.PaymentModes.isClickable = if (it.isNullOrEmpty()) false else true
 
@@ -163,12 +164,9 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         var Amount = 0.0
         var MRP = 0.0
         var disprice = 0.0
-        var count = 0
-        it.forEach {
-            count += it.qty.toInt()
-        }
 
-        _binding!!.cartCount.text = count.toString()+" Items"
+
+        _binding!!.cartCount.text =  if (it.size==1) it.size.toString()+" Item" else it.size.toString()+" Items"
 
         it.forEach {
             Amount+=it.totalPrice
@@ -186,7 +184,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         _binding!!.savingAmount.text = withSuffixAmount(Amt.toString())!!.dropLast(3)
         _binding!!.savinglayout.visibility = if (Amt>1) View.VISIBLE else View.GONE
 
-        _binding!!.totalCartValue.text ="Total cart: "+ withSuffixAmount(Amount.toString())!!.dropLast(3)
+        _binding!!.totalCartValue.text =withSuffixAmount(Amount.toString())!!.dropLast(3)
 
 
         val tapfoCartAdapter  = TapfoCartAdapter<Cart>(object : RecyclerClickListener{
@@ -268,7 +266,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
 
        savepercent.text = roundOffAmount((((it.mrp.toDouble()-it.price!!.toDouble())/it.mrp.toDouble())*100).toString()).dropLast(3)+"% OFF"
 
-        Glide.with(this).load(it.image).placeholder(R.drawable.loading_progress).into(image)
+        Glide.with(this).load(it.image).placeholder(R.drawable.loding_app_icon).into(image)
         name.text = it.name
         eanNumber.text ="EAN : "+ it.ean
         price.text = withSuffixAmount(it.mrp)!!.dropLast(3)

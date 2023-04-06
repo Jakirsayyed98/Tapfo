@@ -52,8 +52,8 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentSelectPaymentmodeBinding.inflate(inflater,container,false)
-        statusBarColor(R.color.white)
-        statusBarTextWhite()
+        statusBarColor(R.color.GreenWalletBackgroundDark)
+        statusBarTextBlack()
         getcartItems()
         setPaymentModeLayout()
         setTextData()
@@ -148,7 +148,7 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
                 total+=it.price.toDouble()
             }
         }
-        _binding!!.paybleAmount.text = withSuffixAmount(total.toString())!!.dropLast(3)
+        _binding!!.paybleAmount1.text = withSuffixAmount(total.toString())!!.dropLast(3)
         val tapfoCartAdapter  = TapfoCartAdapter2<Cart>(object : RecyclerClickListener{
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
@@ -169,11 +169,11 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
                 if (data is customePaymentMode){
                     _binding!!.PaymentModes.visibility = View.VISIBLE
-                    _binding!!.PaymentModesText.text = "Proceed to "+data.name
+                    _binding!!.PaymentModesText.text = "Proceed to Counter"//+data.name
                 }
             }
         }).apply {
-            addItem(customePaymentMode("1","Pay at Counter ","Skip the line & pay at bill counter","","2",false))
+            addItem(customePaymentMode("1","Pay Offline ","Skip the line & pay at bill counter","","2",false))
             addItem(customePaymentMode("2","Online Payment","Pay Via UPI, Netbanking, Card or more","","1",false))
         }
 

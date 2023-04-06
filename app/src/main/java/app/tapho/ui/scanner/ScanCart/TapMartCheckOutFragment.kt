@@ -45,8 +45,8 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
     ): View? {
         // Inflate the layout for this fragment
         _binding= FragmentTapMartCheckOutBinding.inflate(inflater,container,false)
-        statusBarColor(R.color.white)
-        statusBarTextWhite()
+        statusBarColor(R.color.GreenWalletBackgroundDark)
+        statusBarTextBlack()
         _binding!!.MainLayout.visibility = View.GONE
         _binding!!.Progress.visibility = View.VISIBLE
         setTextData()
@@ -86,13 +86,12 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
       data.let {
           Glide.with(requireContext()).load(setBusinessQR(it.qr_code)).into(_binding!!.qrcode)
           _binding!!.paybleAmount.text = withSuffixAmount(it.total_amount.toString())!!.dropLast(3)
+          _binding!!.paybleAmount1.text = withSuffixAmount(it.total_amount.toString())!!.dropLast(3)
 
           _binding!!.qrcodedata.text ="CHECKOUT CODE : "+ it.code
-          var count = 0
-          it.items.forEach {
-             count+=  it.qty.toInt()
-          }
-          _binding!!.cartcount.text = "Cart summary : "+count+" items"
+          val count = it.items.size
+
+          _binding!!.cartcount.text =  if (count<=1) "Cart summary : "+count+" item" else "Cart summary : "+count+" items"
 
           setLayout(it.items)
           callVmData(it)

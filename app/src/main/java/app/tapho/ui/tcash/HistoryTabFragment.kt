@@ -57,17 +57,6 @@ class HistoryTabFragment : BaseFragment<FragmentHistoryTabBinding>() {
             setCategoryeslayout(it)
         }
 
-        /*
-        viewModel.getTCashDashboard(getUserId(),TimePeriodDialog.getDate(1,0),TimePeriodDialog.getCurrentDate(),"1",this,object : ApiListener<TCashDasboardRes,Any?>{
-            override fun onSuccess(t: TCashDasboardRes?, mess: String?) {
-                t!!.let {
-                    _binding!!.progress.visibility = View.GONE
-                    setCategoryeslayout(it)
-                }
-            }
-        })
-
-         */
     }
 
     private fun setCategoryeslayout(tcash: TCashDasboardRes) {
@@ -86,6 +75,13 @@ class HistoryTabFragment : BaseFragment<FragmentHistoryTabBinding>() {
                     "Cashback & Rewards" -> {
                         ContainerActivity.openContainerForTransaction(requireContext(),"AllTransactionFragment","Cashback",tcash,false,"Cashback & Rewards")
                     }
+
+                    "ShopGoHistoryFragment" -> {
+                        ContainerActivity.openContainerForTransaction(requireContext(),"ShopGoHistoryFragment","ShopGo",tcash,false,"Cashback & Rewards")
+                    }
+                    else->{
+                        ContainerActivity.openContainerForTransaction(requireContext(),"BuyGiftCard","Cashback",tcash,false,"Cashback & Rewards")
+                    }
                 }
             }
 
@@ -94,6 +90,7 @@ class HistoryTabFragment : BaseFragment<FragmentHistoryTabBinding>() {
                 addItem(CustomeTcashCategoryModel(R.drawable.cashback_rewards_icon,"Cashback & Rewards","Includes Wallet top up, referral bonus, Recharge, Bill Payments, Merchants or more","Cashback & Rewards"))
                 addItem(CustomeTcashCategoryModel(R.drawable.merchant_icons,"Merchants ( Mini Save )","includes Cashback from merchants store like flipkart, myntra, Ajio or more","Merchants ( Mini Save )"))
                 addItem(CustomeTcashCategoryModel(R.drawable.wallet_balance_icon,"Wallet balance","Includes Wallet top up, refunds, payments history, cashback or more","Wallet balance"))
+                addItem(CustomeTcashCategoryModel(R.drawable.wallet_balance_icon,"ShopGo","Get quick check-out with ShopGo","ShopGoHistoryFragment"))
         }
         _binding!!.categories.apply {
             layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)

@@ -3,6 +3,7 @@ package app.tapho.ui.scanner.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import app.tapho.R
 import app.tapho.databinding.*
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseRecyclerAdapter
@@ -16,7 +17,7 @@ class TapfoCartAdapter2<S>(private val clickListener: RecyclerClickListener) :
     inner class Holder(private val binding: TapfocartLayout2Binding) : RecyclerView.ViewHolder(binding.root) {
         fun setData(s: S) {
             if (s is Cart){
-                Glide.with(itemView.context).load(s.image).into(binding.image)
+                Glide.with(itemView.context).load(s.image).placeholder(R.drawable.loding_app_icon).centerCrop().into(binding.image)
             }
         }
 

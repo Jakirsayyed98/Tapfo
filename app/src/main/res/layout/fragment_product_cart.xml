@@ -13,11 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:backgroundTint="@color/green_dark"
+        android:backgroundTint="@color/GreenWalletBackgroundDark"
         android:paddingStart="@dimen/dp10"
         android:paddingTop="@dimen/dp20"
         android:paddingEnd="@dimen/dp10"
-        android:paddingBottom="@dimen/dp20"
+        android:elevation="20dp"
+        android:paddingBottom="@dimen/dp10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -52,13 +53,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="15dp"
+            android:background="@drawable/border_line"
+            android:padding="5dp"
             android:paddingStart="@dimen/dp10"
             android:text="Delete Cart"
             android:textColor="@color/white"
             android:textSize="18sp"
             app:fontFamily="@font/tt_regular"
-            android:background="@drawable/border_line"
-            android:padding="5dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -69,52 +70,65 @@
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/constraintLayout8">
+        android:layout_below="@+id/constraintLayout8"
+        android:background="@color/grey_background">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="10dp"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_weight="1"
-                android:text="Shopping at"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:fontFamily="@font/tt_medium" />
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingTop="15dp"
+                android:paddingBottom="10dp">
 
-            <TextView
-                android:id="@+id/storename"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:text="Born Supermart"
-                android:textColor="@color/black"
-                android:textSize="15sp"
-                app:fontFamily="@font/tt_medium" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="Shopping at"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    app:fontFamily="@font/tt_regular" />
 
-            <TextView
-                android:id="@+id/storeaddress"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_weight="1"
-                android:paddingEnd="30dp"
-                android:text="SURYA command canteen - usman marg, neil lines 226002 - Mumbai"
-                android:textColor="@color/grey_dark"
-                android:textSize="14sp"
-                app:fontFamily="@font/tt_regular" />
+                <TextView
+                    android:id="@+id/storename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="Born Supermart"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:fontFamily="@font/sans_medium" />
 
+                <TextView
+                    android:id="@+id/storeaddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="30dp"
+                    android:text="SURYA command canteen - usman marg, neil lines 226002 - Mumbai"
+                    android:textColor="@color/grey_dark"
+                    android:textSize="14sp"
+                    app:fontFamily="@font/tt_regular" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -171,7 +185,7 @@
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/mart_offer_icon" />
+                        android:src="@drawable/offer_mrt_icon" />
 
                     <TextView
                         android:layout_width="match_parent"
@@ -182,7 +196,7 @@
                         android:text="Congrats, your total saving "
                         android:textColor="@color/black"
                         android:textSize="15sp"
-                        app:fontFamily="@font/tt_regular" />
+                        app:fontFamily="@font/tt_medium" />
 
                     <TextView
                         android:id="@+id/savingAmount"
@@ -193,17 +207,18 @@
                         android:text="5000rs"
                         android:textColor="@color/black"
                         android:textSize="16sp"
-                        app:fontFamily="@font/tt_demibold" />
+                        app:fontFamily="@font/sans_bold" />
 
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
+                    android:layout_marginBottom="120dp"
                     android:background="@drawable/button_boarder_2"
                     android:backgroundTint="@color/white"
-                    android:layout_marginBottom="120dp"
                     android:orientation="vertical"
                     android:padding="10dp">
 
@@ -223,19 +238,36 @@
                             android:text="Cart"
                             android:textColor="@color/black"
                             android:textSize="16sp"
-                            app:fontFamily="@font/tt_regular" />
+                            app:fontFamily="@font/tt_medium" />
 
-                        <TextView
-                            android:id="@+id/totalCartValue"
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
                             android:layout_weight="1"
-                            android:text="Cart"
-                            android:textAlignment="textEnd"
-                            android:textColor="@color/black"
-                            android:textSize="16sp"
-                            app:fontFamily="@font/tt_regular" />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Total cart : "
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/tt_medium" />
+
+                            <TextView
+                                android:id="@+id/totalCartValue"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="100"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/black"
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_bold" />
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
@@ -253,14 +285,14 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/shopping_cart" />
+                            android:src="@drawable/cart_image" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:paddingEnd="30dp"
-                            android:text="Your cart is Empty"
+                            android:text="Your cart is empty!"
                             android:textAlignment="center"
                             android:textColor="@color/black"
                             android:textSize="18sp"
@@ -273,8 +305,8 @@
                             android:paddingEnd="30dp"
                             android:text="Scan product you like to add to cart"
                             android:textAlignment="center"
-                            android:textColor="@color/grey_dark"
-                            android:textSize="15sp"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
                             app:fontFamily="@font/tt_regular" />
                     </LinearLayout>
 
@@ -282,9 +314,9 @@
                         android:id="@+id/rrvData"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                         />
+                        tools:itemCount="2"
+                        tools:listitem="@layout/tapfocart_layout" />
                 </LinearLayout>
-
 
             </LinearLayout>
         </LinearLayout>
@@ -313,15 +345,13 @@
             android:background="@drawable/button_boarder_3"
             android:backgroundTint="#D8D8FF"
             android:gravity="center_horizontal"
-            android:layout_marginBottom="20dp"
             android:orientation="horizontal"
             android:padding="15dp">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/barcode_image"
-                />
+                android:src="@drawable/barcode_sc_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -341,7 +371,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
-            android:layout_marginBottom="20dp"
+
             android:layout_weight="1"
             android:background="@drawable/login_btn1"
             android:gravity="center_horizontal"
@@ -355,7 +385,7 @@
             app:fontFamily="@font/tt_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
 </RelativeLayout>

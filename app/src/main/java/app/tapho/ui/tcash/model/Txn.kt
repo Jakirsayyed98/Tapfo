@@ -1,7 +1,9 @@
 package app.tapho.ui.tcash.model
 
-data class Txn(
 
+data class Txn(
+    val business_order_detail: BusinessOrderDetail,
+    val business_order_id: String,
     val referral_user_detail: List<ReferralUserDetail>,
     val referral_user_id: String,
 //    val voucher_detail: VoucherDetail,
