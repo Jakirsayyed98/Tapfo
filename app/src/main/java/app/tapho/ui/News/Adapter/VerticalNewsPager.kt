@@ -52,12 +52,12 @@ class VerticalNewsPager(val context: Context, val news: List<Data>,private val c
     @SuppressLint("LogConditional")
     override fun onBindViewHolder(holder: ViewHolder, position1: Int) {
 
-        var tem=position1
+        val tem=position1
         if (tem==0){
             tep=position12+tem
         }
         tep=position12+tem
-        var position=tep
+            val position=tep
         if(news.size-2==position){
             clickListener.onRecyclerItemClick(position,news,"")
         }

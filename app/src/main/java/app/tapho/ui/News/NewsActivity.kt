@@ -123,7 +123,8 @@ class NewsActivity : BaseActivity<ActivityNewsBinding>(), ApiListener<getAllNews
     }
 
       fun viewmodeldata() {
-          viewModel.getNews(AppSharedPreference.getInstance(this).getUserId(), CategorieID.toString(), page.toString(), this, this
+          viewModel.getNews(AppSharedPreference.getInstance(this).getUserId(),
+              CategorieID.toString(), page.toString(), this, this
           )
       }
 
@@ -131,7 +132,6 @@ class NewsActivity : BaseActivity<ActivityNewsBinding>(), ApiListener<getAllNews
         listnews.addAll(it)
         ShortsViewPager = VerticalNewsPager(this, listnews, this)
         binding.ShotsViewPager.adapter = ShortsViewPager
-        var data = binding.ShotsViewPager.adapter!!.itemCount
 
         //      binding.ShotsViewPager.setPageTransformer(pageTransformation)
     }

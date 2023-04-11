@@ -14,7 +14,8 @@ import app.tapho.R
  * A simple [Fragment] subclass.
  * Use the [InternetErrorFragment.newInstance] factory method to
  * create an instance of this fragment.
- */
+*/
+
 class InternetErrorFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,11 +54,6 @@ class InternetErrorFragment : DialogFragment() {
 
         @JvmStatic
         fun newInstance() =
-            InternetErrorFragment()/*.apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }*/
+            InternetErrorFragment()
     }
 }

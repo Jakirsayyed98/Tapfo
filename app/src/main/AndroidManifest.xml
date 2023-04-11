@@ -94,27 +94,21 @@
         <activity
             android:name=".ui.ActiveCashbackForWebActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.BuyVoucher.VoucherPayments.VoucherTransactionProcessActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.PaytmPaymentGateway.TransactionProcessingPageActivity"
             android:exported="false" />
         <activity
             android:name=".ui.tcash.DirectPaytmTransaction.StartPaymentprocessingActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.BuyVoucher.VoucherPayments.VoucherPaymentBaseActivity"
-            android:exported="false" />
+
         <activity
             android:name=".ui.profile.VerifyReferralCodeActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MiniCash.Fragments.MiniCashActivity"
             android:exported="false" />
-        <activity
-            android:name=".ui.BuyVoucher.VouchersActivity"
-            android:exported="false" />
+
         <activity android:name=".ui.localbizzUI.LocalBizSplashActivity" />
         <activity android:name=".ui.localbizzUI.LocalbizContainerActivity" />
         <activity
