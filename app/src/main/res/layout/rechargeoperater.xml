@@ -44,8 +44,8 @@
                 android:paddingLeft="@dimen/dp10"
                 android:text="Jio"
                 android:textColor="#222222"
-                android:textSize="20sp"
-                app:fontFamily="@font/tt_medium" />
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

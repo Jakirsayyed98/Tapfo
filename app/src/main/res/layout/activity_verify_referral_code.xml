@@ -13,7 +13,7 @@
         android:text="Skip"
         android:textColor="@color/orange1"
         android:textSize="14sp"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/referalpage" />
@@ -37,7 +37,7 @@
             android:layout_gravity="center"
             android:text="Referral Code"
             android:textColor="#003910"
-            android:textSize="25sp"
+            android:textSize="18sp"
             app:fontFamily="@font/sans_medium"
             android:textStyle="bold"/>
 
@@ -48,7 +48,7 @@
             android:text="will customize super app expirence for you "
             android:textColor="#333739"
             android:textSize="12sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
 
         <com.google.android.material.textfield.TextInputLayout

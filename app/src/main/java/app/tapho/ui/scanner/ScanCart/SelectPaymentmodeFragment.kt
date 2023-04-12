@@ -51,7 +51,7 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding = FragmentSelectPaymentmodeBinding.inflate(inflater,container,false)
+        _binding = FragmentSelectPaymentmodeBinding.inflate(inflater, container, false)
         statusBarColor(R.color.GreenWalletBackgroundDark)
         statusBarTextBlack()
         getcartItems()
@@ -65,16 +65,16 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
         var obj: JSONObject? = null
 
 
-        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
+        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner) {
             it.forEach {
                 it.let {
                     TotalAmount += it.totalPrice.toDouble()
                     obj = JSONObject()
                     try {
-                        obj!!.put("business_user_item_id",it.id)
-                        obj!!.put("qty",it.qty)
-                        obj!!.put("price",if (it.price.isNullOrEmpty()) it.mrp else it.price)
-                        obj!!.put("total_price",it.totalPrice)
+                        obj!!.put("business_user_item_id", it.id)
+                        obj!!.put("qty", it.qty)
+                        obj!!.put("price", if (it.price.isNullOrEmpty()) it.mrp else it.price)
+                        obj!!.put("total_price", it.totalPrice)
                     } catch (e: JSONException) {
                         e.printStackTrace()
                     }
@@ -96,29 +96,48 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
     }
 
     private fun backpressedbtn() {
-        val  OnBackPressedCallback = object : OnBackPressedCallback(true){
+        val OnBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
+                ContainerForProductActivity.openContainer(
+                    requireContext(),
+                    "ProductCartFragment",
+                    "",
+                    false,
+                    ""
+                )
                 activity?.finish()
             }
         }
-        requireActivity().getOnBackPressedDispatcher().addCallback(requireActivity(), OnBackPressedCallback)
+        requireActivity().getOnBackPressedDispatcher()
+            .addCallback(requireActivity(), OnBackPressedCallback)
     }
 
     private fun PlaceOrder() {
-        viewModel.businessPlaceOrder(getUserId(),getSharedPreference().getBusinessData()!!.id,TotalAmount.toString(),Orderitems.toString(),this,object : ApiListener<ScanPlaceOrderRes,Any?>{
-            override fun onSuccess(t: ScanPlaceOrderRes?, mess: String?) {
-                t!!.let {
-                    ContainerForProductActivity.openContainer(requireContext(),"TapMartCheckOutFragment",it,false,"")
-                    activity?.finish()
+        viewModel.businessPlaceOrder(
+            getUserId(),
+            getSharedPreference().getBusinessData()!!.id,
+            TotalAmount.toString(),
+            Orderitems.toString(),
+            this,
+            object : ApiListener<ScanPlaceOrderRes, Any?> {
+                override fun onSuccess(t: ScanPlaceOrderRes?, mess: String?) {
+                    t!!.let {
+                        ContainerForProductActivity.openContainer(
+                            requireContext(),
+                            "TapMartCheckOutFragment",
+                            it,
+                            false,
+                            ""
+                        )
+                        activity?.finish()
+                    }
                 }
-            }
 
-            override fun onError(mess: String?) {
-                super.onError(mess)
+                override fun onError(mess: String?) {
+                    super.onError(mess)
 
-            }
-        })
+                }
+            })
 
     }
 
@@ -126,16 +145,19 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
         getSharedPreference().getBusinessData().let {
             _binding!!.apply {
                 storename.text = it!!.business_name
-                storeaddress.text = it.address
-                cartid.text = "CART ID: "+ getSharedPreference().getString(CART_ID).toString()
-                time.text = SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH).format(Calendar.getInstance().time)
+                storeaddress.text = it.area
+                cartid.text = "CART ID: " + getSharedPreference().getString(CART_ID).toString()
+                time.text = SimpleDateFormat(
+                    "dd-MMM-yyyy",
+                    Locale.ENGLISH
+                ).format(Calendar.getInstance().time)
             }
         }
     }
 
 
     private fun getcartItems() {
-        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
+        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner) {
             setLayout(it)
 
         }
@@ -144,41 +166,61 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
     private fun setLayout(it: List<Cart>?) {
         var total = 0.0
         it!!.forEach {
-            for (i  in 1..it.qty.toInt()){
-                total+=it.price.toDouble()
+            for (i in 1..it.qty.toInt()) {
+                total += it.price.toDouble()
             }
         }
         _binding!!.paybleAmount1.text = withSuffixAmount(total.toString())!!.dropLast(3)
-        val tapfoCartAdapter  = TapfoCartAdapter2<Cart>(object : RecyclerClickListener{
+        val tapfoCartAdapter = TapfoCartAdapter2<Cart>(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
             }
         })
 
         _binding!!.rrvData.apply {
-            layoutManager =GridLayoutManager(requireContext(),4)
+            layoutManager = GridLayoutManager(requireContext(), 4)
             adapter = tapfoCartAdapter
         }
 
-        tapfoCartAdapter.addAllItem(if (it.size>=4) it.subList(0,4) else it)
+        tapfoCartAdapter.addAllItem(if (it.size >= 4) it.subList(0, 4) else it)
 
     }
 
     private fun setPaymentModeLayout() {
-        val paymentModeadapter  = TapfoPaymentModeAdapter<customePaymentMode>(object :RecyclerClickListener{
-            override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
-                if (data is customePaymentMode){
-                    _binding!!.PaymentModes.visibility = View.VISIBLE
-                    _binding!!.PaymentModesText.text = "Proceed to Counter"//+data.name
+        val paymentModeadapter =
+            TapfoPaymentModeAdapter<customePaymentMode>(object : RecyclerClickListener {
+                override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
+                    if (data is customePaymentMode) {
+                        _binding!!.PaymentModes.visibility = View.VISIBLE
+                        _binding!!.PaymentModesText.text = "Proceed to Counter"//+data.name
+                    }
                 }
+            }).apply {
+                addItem(
+                    customePaymentMode(
+                        "1",
+                        "Pay Offline ",
+                        "Skip the line & pay at bill counter",
+                        "",
+                        "2",
+                        false
+                    )
+                )
+                addItem(
+                    customePaymentMode(
+                        "2",
+                        "Online Payment",
+                        "Pay Via UPI, Netbanking, Card or more",
+                        "",
+                        "1",
+                        false
+                    )
+                )
             }
-        }).apply {
-            addItem(customePaymentMode("1","Pay Offline ","Skip the line & pay at bill counter","","2",false))
-            addItem(customePaymentMode("2","Online Payment","Pay Via UPI, Netbanking, Card or more","","1",false))
-        }
 
         _binding!!.paymentmodes.apply {
-            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = paymentModeadapter
         }
 
@@ -195,7 +237,13 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
         val continuebtn: AppCompatButton = view.findViewById(R.id.continuebtn)
 
         exit.setOnClickListener {
-            ContainerForProductActivity.openContainer(requireContext(),"ProductCartFragment","",false,"")
+            ContainerForProductActivity.openContainer(
+                requireContext(),
+                "ProductCartFragment",
+                "",
+                false,
+                ""
+            )
             activity?.finish()
             dialog.dismiss()
         }

@@ -44,42 +44,42 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentTapMartOrderConformationBinding.inflate(inflater,container,false)
+        _binding = FragmentTapMartOrderConformationBinding.inflate(inflater, container, false)
         val data = activity?.intent?.getStringExtra(DATA)
-        if (!data.isNullOrEmpty()){
-                val value =  Gson().fromJson(data, Data::class.java)
-                if (value!=null){
+        if (!data.isNullOrEmpty()) {
+            val value = Gson().fromJson(data, Data::class.java)
+            if (value != null) {
+                _binding!!.billID.text = value.code
+                _binding!!.Date.text = parseDate(value.created_at)
+                setData(value)
+                setLayout(value.items)
+
+                bill_receipt = value.bill_receipt
+                total_amount = value.total_amount
+                business_id = value.business_id
+                value.items.forEach {
+                    totalCount += it.qty.toInt()
+                }
+                getStoreDetail()
+            } else {
+                Gson().fromJson(data, BusinessOrderDetail::class.java).let { value ->
                     _binding!!.billID.text = value.code
                     _binding!!.Date.text = parseDate(value.created_at)
-                    setData(value)
-                    setLayout(value.items)
+                    setData1(value)
+                    setLayout1(value.items)
 
-                    bill_receipt = value.bill_receipt
                     total_amount = value.total_amount
+                    bill_receipt = value.bill_receipt
                     business_id = value.business_id
-                    value.items.forEach {
-                        totalCount+=it.qty.toInt()
+
+                    value!!.items.forEach {
+                        totalCount += it.qty.toInt()
                     }
                     getStoreDetail()
-                }else{
-                    Gson().fromJson(data,BusinessOrderDetail::class.java).let {value->
-                        _binding!!.billID.text = value.code
-                        _binding!!.Date.text = parseDate(value.created_at)
-                        setData1(value)
-                        setLayout1(value.items)
-
-                        total_amount = value.total_amount
-                        bill_receipt = value.bill_receipt
-                        business_id = value.business_id
-
-                        value!!.items.forEach {
-                            totalCount+=it.qty.toInt()
-                        }
-                        getStoreDetail()
-                    }
                 }
+            }
 
-        }else{
+        } else {
 
         }
 
@@ -92,45 +92,55 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
     }
 
 
-
-
     private fun getStoreDetail() {
 
 
-        _binding!!.Invoice.setOnClickListener {click->
+        _binding!!.Invoice.setOnClickListener { click ->
             requireContext().setOnCustomeCrome(bill_receipt)
         }
-        viewModel.searchBusiness(getUserId(), business_id,this,object : ApiListener<searchBusinessRes,Any?>{
-            override fun onSuccess(t: searchBusinessRes?, mess: String?) {
-             t!!.let {
-                 it.data.get(0).let {
-                    _binding!!.apply {
-                        nameTV.text = it.business_name
-                        tankyouStorename.text = getString(R.string.thank_you_for_shopping_with_bon_bon_supermart,it.business_name)
-                        yourbill.text = getString(R.string.your_bill_amount_1529_00_a, withSuffixAmount(total_amount)!!.dropLast(3),it.business_name,totalCount.toString())
+        viewModel.searchBusiness(
+            getUserId(),
+            business_id,
+            this,
+            object : ApiListener<searchBusinessRes, Any?> {
+                override fun onSuccess(t: searchBusinessRes?, mess: String?) {
+                    t!!.let {
+                        it.data.get(0).let {
+                            _binding!!.apply {
+                                nameTV.text = it.business_name
+                                tankyouStorename.text = getString(
+                                    R.string.thank_you_for_shopping_with_bon_bon_supermart,
+                                    it.business_name
+                                )
+                                yourbill.text = getString(
+                                    R.string.your_bill_amount_1529_00_a,
+                                    withSuffixAmount(total_amount)!!.dropLast(3),
+                                    it.business_name,
+                                    totalCount.toString()
+                                )
+                            }
+                        }
                     }
-                 }
-             }
-            }
-        })
+                }
+            })
     }
 
 
     private fun setData(data: Data) {
-        when(data.status){
-            "0"->{ //Pending
+        when (data.status) {
+            "0" -> { //Pending
                 statusBarColor(R.color.orange)
                 statusBarTextBlack()
                 _binding!!.orderstatus.text = "Order in Pending"
                 _binding!!.mainlayout.setBackgroundColor(Color.parseColor("#EE8300"))
             }
-            "1"->{  //Paid
+            "1" -> {  //Paid
                 statusBarColor(R.color.green_dark)
                 statusBarTextBlack()
                 _binding!!.orderstatus.text = "Order Confirmed"
                 _binding!!.mainlayout.setBackgroundColor(Color.parseColor("#008D3A"))
             }
-            else->{  //Cancelled
+            else -> {  //Cancelled
                 statusBarColor(R.color.red)
                 statusBarTextBlack()
                 _binding!!.orderstatus.text = "Order Rejected"
@@ -141,20 +151,20 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
 
 
     private fun setData1(data: BusinessOrderDetail?) {
-        when(data!!.status){
-            "0"->{ //Pending
+        when (data!!.status) {
+            "0" -> { //Pending
                 statusBarColor(R.color.orange)
                 statusBarTextBlack()
                 _binding!!.orderstatus.text = "Order in Pending"
                 _binding!!.mainlayout.setBackgroundColor(Color.parseColor("#EE8300"))
             }
-            "1"->{  //Paid
+            "1" -> {  //Paid
                 statusBarColor(R.color.green_dark)
                 statusBarTextBlack()
                 _binding!!.orderstatus.text = "Order Confirmed"
                 _binding!!.mainlayout.setBackgroundColor(Color.parseColor("#008D3A"))
             }
-            else->{  //Cancelled
+            else -> {  //Cancelled
                 statusBarColor(R.color.red)
                 statusBarTextBlack()
                 _binding!!.orderstatus.text = "Order Rejected"
@@ -165,15 +175,18 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
 
 
     private fun setLayout1(items: List<app.tapho.ui.tcash.model.Item>) {
-        _binding!!.cartcount.text =  if (items.size<=1) items.size.toString()+" Item" else items.size.toString()+" Items"
-        val tapfoCartAdapter  = TapfoCartAdapter3<app.tapho.ui.tcash.model.Item>(object : RecyclerClickListener {
-            override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
+        _binding!!.cartcount.text =
+            if (items.size <= 1) items.size.toString() + " Item" else items.size.toString() + " Items"
+        val tapfoCartAdapter =
+            TapfoCartAdapter3<app.tapho.ui.tcash.model.Item>(object : RecyclerClickListener {
+                override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
-            }
-        })
+                }
+            })
 
         _binding!!.rrvData.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = tapfoCartAdapter
         }
 
@@ -182,22 +195,23 @@ class TapMartOrderConformationFragment : BaseFragment<FragmentTapMartOrderConfor
     }
 
     private fun setLayout(it: List<Item>?) {
-        _binding!!.cartcount.text =  if (it!!.size==1) it.size.toString()+" Item" else it.size.toString()+" Items"
-        val tapfoCartAdapter  = TapfoCartAdapter3<Item>(object : RecyclerClickListener {
+        _binding!!.cartcount.text =
+            if (it!!.size == 1) it.size.toString() + " Item" else it.size.toString() + " Items"
+        val tapfoCartAdapter = TapfoCartAdapter3<Item>(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
             }
         })
 
         _binding!!.rrvData.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = tapfoCartAdapter
         }
 
         tapfoCartAdapter.addAllItem(it)
 
     }
-
 
 
     companion object {

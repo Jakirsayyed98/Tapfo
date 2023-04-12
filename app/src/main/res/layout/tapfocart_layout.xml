@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_vertical"
             android:layout_margin="10dp"
             android:background="@drawable/button_boarder_2"
@@ -46,7 +46,7 @@
                     android:layout_weight="1"
                     android:text="Cococola data "
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/sans_medium" />
 
 
@@ -72,7 +72,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentStart="true"
-                                android:fontFamily="@font/tt_regular"
+                                android:fontFamily="@font/sans_medium"
                                 android:text="re15045"
                                 android:textColor="@color/grey_light"
                                 android:textSize="14sp" />
@@ -82,9 +82,7 @@
                                 android:layout_height="0.8dp"
                                 android:layout_alignEnd="@+id/price"
                                 android:layout_alignParentStart="true"
-
                                 android:layout_gravity="center_vertical"
-
                                 android:layout_marginTop="10dp"
                                 android:layout_marginEnd="2dp"
                                 android:background="@color/grey_dark"
@@ -97,7 +95,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="10dp"
                             android:layout_weight="1"
-                            android:fontFamily="@font/tt_regular"
+                            android:fontFamily="@font/sans_medium"
                             android:text="Cococola "
                             android:textSize="14sp" />
 
@@ -117,8 +115,8 @@
                     android:gravity="start"
                     android:text="10% OFF"
                     android:textColor="@color/green_dark"
-                    android:textSize="15sp"
-                    app:fontFamily="@font/tt_medium" />
+                    android:textSize="12sp"
+                    app:fontFamily="@font/tt_regular" />
             </LinearLayout>
 
 
@@ -157,8 +155,8 @@
                 android:gravity="center"
                 android:text="1"
                 android:textColor="@color/green_dark"
-                android:textSize="18sp"
-                app:fontFamily="@font/tt_bold" />
+                android:textSize="14sp"
+                app:fontFamily="@font/tt_medium" />
 
 
             <ImageView

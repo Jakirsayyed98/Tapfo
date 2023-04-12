@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:maxLines="1"
             android:text="Jakir"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:fontFamily="@font/sans_medium" />
 
         <TextView
@@ -27,8 +27,8 @@
             android:layout_height="match_parent"
             android:maxLines="1"
             android:text="185 202 -2 Block Marol , Station, Chakala Metro"
-            android:textSize="14sp"
-            app:fontFamily="@font/sans_medium" />
+            android:textSize="12sp"
+            app:fontFamily="@font/tt_regular" />
     </LinearLayout>
 
     <RadioButton

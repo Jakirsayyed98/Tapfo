@@ -7,7 +7,7 @@
     android:padding="@dimen/dp20"
     tools:context=".ui.PaytmPaymentGateway.TransactionProcessingPageActivity">
 
-<!--here-->
+    <!--here-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main_layout"
         android:layout_width="match_parent"
@@ -20,9 +20,9 @@
             android:layout_height="@dimen/dp25"
             android:layout_gravity="center_vertical"
             android:src="@drawable/cancel_btn_icon"
-            app:tint="@color/black"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Please wait, while we process\nyour Payment...."
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
                         android:layout_height="wrap_content"
                         android:text="Processing Payment"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/sans_medium" />
 
                     <TextView
@@ -101,8 +101,8 @@
                         android:layout_height="wrap_content"
                         android:text="@string/from_phonepe_0_59"
                         android:textColor="@color/black"
-                        android:textSize="13sp"
-                        app:fontFamily="@font/sans_medium" />
+                        android:textSize="12sp"
+                        app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>
 
@@ -147,7 +147,7 @@
                         android:layout_height="wrap_content"
                         android:text="Processing Recharge"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/sans_medium" />
 
                     <TextView
@@ -155,8 +155,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
-                        android:textSize="13sp"
-                        app:fontFamily="@font/sans_medium" />
+                        android:textSize="12sp"
+                        app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>
 
@@ -192,7 +192,7 @@
                         android:layout_height="wrap_content"
                         android:text="Recharge Status"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/sans_medium" />
 
                     <TextView
@@ -202,7 +202,7 @@
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         android:textStyle="bold"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                     <TextView
                         android:id="@+id/rechargeTime"
@@ -210,7 +210,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/grey_dark"
                         android:textSize="12sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>
 
@@ -229,14 +229,14 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/layout"
                     android:layout_marginTop="@dimen/dp15"
-                    android:visibility="gone"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Time left"
                         android:gravity="center"
+                        android:text="Time left"
                         android:textColor="@color/black"
                         android:textSize="14sp"
                         app:fontFamily="@font/sans_medium" />
@@ -246,22 +246,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp5"
-                        android:text=""
                         android:gravity="center"
+                        android:text=""
                         android:textColor="@color/green_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
+                        android:textSize="16sp"
                         app:fontFamily="@font/sans_medium" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp5"
-                        android:text="Fetching status from the opreator.\nplease don't close or press back"
                         android:gravity="center"
+                        android:text="Fetching status from the opreator.\nplease don't close or press back"
                         android:textColor="#6C6868"
-                        android:textSize="13sp"
-                        app:fontFamily="@font/sans_medium" />
+                        android:textSize="12sp"
+                        app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>
                 <!--                <TextView-->
@@ -295,9 +294,8 @@
                 android:layout_height="wrap_content"
                 android:text="Processing Payment"
                 android:textColor="#189C1E"
-                android:textSize="22sp"
-                app:fontFamily="@font/sans_medium"
-                android:textStyle="bold"/>
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -335,9 +333,8 @@
                 android:background="?android:attr/detailsElementBackground"
                 android:text="00:00"
                 android:textColor="#189C1E"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:fontFamily="@font/sans_medium"/>
+                android:textSize="18sp"
+                app:fontFamily="@font/sans_medium" />
 
 
         </LinearLayout>
@@ -345,11 +342,11 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp15"
             android:text="Payment under process, Please wait for transcation status. Please do not close the app screen."
             android:textColor="#494747"
             android:textSize="13sp"
             app:fontFamily="@font/sans_medium"
-            android:layout_marginBottom="@dimen/dp15"
             app:layout_constraintBottom_toTopOf="@+id/imageView10" />
 
         <ImageView
@@ -373,8 +370,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:paddingTop="@dimen/dp10"
             android:orientation="vertical"
+            android:paddingTop="@dimen/dp10"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -392,9 +389,8 @@
                     android:gravity="end"
                     android:text="Tapfo"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:fontFamily="@font/sans_medium"
-                    android:textStyle="bold"/>
+                    android:textSize="14sp"
+                    app:fontFamily="@font/sans_medium" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -403,7 +399,7 @@
                     android:gravity="start"
                     android:text=" Pay"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/sans_medium" />
             </LinearLayout>
 

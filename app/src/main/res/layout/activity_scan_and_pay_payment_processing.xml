@@ -24,20 +24,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
-            app:fontFamily="@font/sans_medium"
             android:text="Processing payment"
-            android:textColor="@color/black"
             android:textAlignment="center"
-            android:textSize="16sp"/>
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:fontFamily="@font/tt_regular" />
     </LinearLayout>
 
     <ImageView
         android:id="@+id/statusGIF"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/progress"
-        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

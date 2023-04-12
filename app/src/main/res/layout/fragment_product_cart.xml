@@ -41,7 +41,7 @@
             android:paddingStart="@dimen/dp10"
             android:text="Shopping Cart"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/tt_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/backbtn"
@@ -58,7 +58,7 @@
             android:paddingStart="@dimen/dp10"
             android:text="Delete Cart"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/tt_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -96,7 +96,7 @@
                     android:paddingEnd="10dp"
                     android:text="Shopping at"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:fontFamily="@font/tt_regular" />
 
                 <TextView
@@ -111,7 +111,7 @@
                     android:paddingEnd="10dp"
                     android:text="Born Supermart"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/sans_medium" />
 
                 <TextView
@@ -133,7 +133,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="5dp"
                 android:background="@color/grey_background"
                 android:orientation="vertical"
                 android:padding="10dp">
@@ -154,7 +154,7 @@
                         android:layout_weight="1"
                         android:text="CART ID: TFBRD67890701"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_regular" />
 
                     <TextView
@@ -166,7 +166,7 @@
                         android:text="23 May 20231"
                         android:textAlignment="textEnd"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_regular" />
 
 
@@ -176,7 +176,7 @@
                     android:id="@+id/savinglayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/button_boarder_2"
                     android:backgroundTint="@color/light_orange1"
                     android:orientation="horizontal"
@@ -195,7 +195,7 @@
                         android:layout_weight="1"
                         android:text="Congrats, your total saving "
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_medium" />
 
                     <TextView
@@ -206,7 +206,7 @@
                         android:layout_marginStart="5dp"
                         android:text="5000rs"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/sans_bold" />
 
                 </LinearLayout>
@@ -237,7 +237,7 @@
                             android:layout_weight="1"
                             android:text="Cart"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             app:fontFamily="@font/tt_medium" />
 
 
@@ -255,7 +255,7 @@
                                 android:text="Total cart : "
                                 android:textAlignment="textEnd"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 app:fontFamily="@font/tt_medium" />
 
                             <TextView
@@ -265,7 +265,7 @@
                                 android:text="100"
                                 android:textAlignment="textEnd"
                                 android:textColor="@color/black"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 app:fontFamily="@font/sans_bold" />
                         </LinearLayout>
                     </LinearLayout>
@@ -295,7 +295,7 @@
                             android:text="Your cart is empty!"
                             android:textAlignment="center"
                             android:textColor="@color/black"
-                            android:textSize="18sp"
+                            android:textSize="14sp"
                             app:fontFamily="@font/tt_medium" />
 
                         <TextView
@@ -346,11 +346,11 @@
             android:backgroundTint="#D8D8FF"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:padding="15dp">
+            android:padding="13dp">
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:src="@drawable/barcode_sc_icon" />
 
             <TextView
@@ -360,7 +360,7 @@
                 android:layout_marginStart="10dp"
                 android:text="Scan product"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/tt_regular" />
         </LinearLayout>
 
@@ -376,12 +376,12 @@
             android:background="@drawable/login_btn1"
             android:gravity="center_horizontal"
             android:orientation="horizontal"
-            android:padding="18dp"
+            android:padding="15dp"
 
             android:text="Proceed to Pay"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             app:fontFamily="@font/tt_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -9,6 +9,7 @@
     tools:context=".ui.tcash.TcashrewardsFragment">
 
 
+
     <RelativeLayout
         android:id="@+id/progress"
         android:layout_width="match_parent"

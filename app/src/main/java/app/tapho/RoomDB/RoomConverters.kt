@@ -3,6 +3,7 @@ package app.tapho.RoomDB
 import androidx.room.TypeConverter
 import app.tapho.ui.games.models.getGames.Data
 import app.tapho.ui.model.*
+import app.tapho.ui.scanner.model.AllProducts.BusinessItem
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
@@ -238,6 +239,21 @@ class RoomConverters {
     fun fromArrayServiceList(listdata:ArrayList<Service>):String{
         return Gson().toJson(listdata)
     }
+
+  @TypeConverter
+    fun formcBusinessItemString(listOfString: String?):BusinessItem{
+        return Gson().fromJson(listOfString, object : TypeToken<BusinessItem?>() {}.type)
+    }
+
+
+    @TypeConverter
+    fun fromArrayBusinessItemList(listdata:BusinessItem):String{
+        return Gson().toJson(listdata)
+    }
+
+
+
+
 
 
 

@@ -64,12 +64,12 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         super.onCreate(savedInstanceState)
         binding = ActivityBarcodeScannerForProductBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        window.statusBarColor= Color.BLACK
+        window.statusBarColor = Color.BLACK
         binding.name.text = getSharedPreference().getBusinessData()!!.business_name
         binding.eannumber.addTextChangedListener {
-            if (it!!.length==13){
+            if (it!!.length == 13) {
                 binding.search.visibility = View.VISIBLE
-            }else{
+            } else {
                 binding.search.visibility = View.GONE
             }
         }
@@ -83,6 +83,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
         toneGen1 = ToneGenerator(AudioManager.STREAM_MUSIC, 100)
         initialiseDetectorsAndSources();
     }
+
     private fun initialiseDetectorsAndSources() {
         barcodeDetector = BarcodeDetector.Builder(this)
             .setBarcodeFormats(Barcode.EAN_13)
@@ -144,6 +145,7 @@ class BarcodeScannerForProductActivity : BaseActivity<ActivityBarcodeScannerForP
             }
         })
     }
+
     override fun onPause() {
         super.onPause()
         cameraSource.release()

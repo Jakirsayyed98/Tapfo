@@ -16,14 +16,14 @@
         android:layout_marginTop="@dimen/dp10"
         android:gravity="center_horizontal"
         android:text="5000"
-        android:textSize="20sp"
-        app:fontFamily="@font/tt_demibold" />
+        android:textSize="16sp"
+        app:fontFamily="@font/sans_medium" />
 
     <LinearLayout
         android:id="@+id/plandata"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="50dp"
+        android:layout_marginRight="10dp"
         android:layout_toRightOf="@+id/rate"
         android:orientation="vertical"
         android:padding="@dimen/dp5">
@@ -33,6 +33,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Validity:NA"
+            android:textSize="14sp"
             app:fontFamily="@font/sans_medium" />
 
         <TextView
@@ -40,9 +41,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp5"
-            android:maxLines="3"
+            android:maxLines="4"
             android:text="Enjoy ISD calling at discounted rates for 28 days. For country wise tariff visit www.airtel.in"
-            android:textSize="15sp"
+            android:textSize="13sp"
             app:fontFamily="@font/tt_regular" />
 
         <TextView
@@ -51,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp5"
             android:text="ISD Pack"
+            android:textSize="11sp"
             android:textColor="@color/grey_dark"
             app:fontFamily="@font/tt_regular" />
 

@@ -18,9 +18,9 @@ import app.tapho.utils.SET_OLD_DATA
 import app.tapho.utils.TITLE
 import com.google.gson.Gson
 
-class ContainerForProductActivity : BaseActivity<ActivityContainerForProductBinding>(){
+class ContainerForProductActivity : BaseActivity<ActivityContainerForProductBinding>() {
 
-    companion object{
+    companion object {
         fun openContainer(
             context: Context?,
             type: String?,
@@ -54,27 +54,27 @@ class ContainerForProductActivity : BaseActivity<ActivityContainerForProductBind
 
         val type = intent?.getStringExtra(CONTAINER_TYPE_KEY)
 
-        when(type){
-            "ProductCartFragment"->{
+        when (type) {
+            "ProductCartFragment" -> {
                 addFragment(ProductCartFragment.newInstance())
             }
 
-            "StoreNameDialogFragment"->{
+            "StoreNameDialogFragment" -> {
                 addFragment(StoreNameDialogFragment.newInstance())
             }
-            "SelectPaymentmodeFragment"->{
+            "SelectPaymentmodeFragment" -> {
                 addFragment(SelectPaymentmodeFragment.newInstance())
             }
-            "TapMartCheckOutFragment"->{
+            "TapMartCheckOutFragment" -> {
                 addFragment(TapMartCheckOutFragment.newInstance())
             }
-            "TapMartStatusFragment"->{
+            "TapMartStatusFragment" -> {
                 addFragment(TapMartStatusFragment.newInstance())
             }
-            "TapMartOrderConformationFragment"->{
+            "TapMartOrderConformationFragment" -> {
                 addFragment(TapMartOrderConformationFragment.newInstance())
             }
-            else->{
+            else -> {
                 addFragment(BuyGiftCardFragment.newInstance())
             }
         }

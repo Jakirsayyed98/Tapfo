@@ -13,8 +13,8 @@
         android:paddingTop="@dimen/dp15"
         android:paddingBottom="@dimen/dp15"
         android:text="Mumbai"
+        android:textSize="14sp"
         app:fontFamily="@font/sans_medium"
-        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

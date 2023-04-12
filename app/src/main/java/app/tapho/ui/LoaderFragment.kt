@@ -1,5 +1,7 @@
 package app.tapho.ui
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,7 +24,9 @@ class LoaderFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+   //     dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         return inflater.inflate(R.layout.fragment_loader, container, false)
+
     }
 
     companion object {
@@ -30,6 +34,7 @@ class LoaderFragment : DialogFragment() {
         fun showLoader(fragmentManager: FragmentManager) {
 
             try {
+
                 newInstance().show(fragmentManager, TAG)
             } catch (e: Exception) {
                 e.printStackTrace()
@@ -41,6 +46,7 @@ class LoaderFragment : DialogFragment() {
                 val frag = fragmentManager.findFragmentByTag(TAG)
                 if (frag is LoaderFragment && frag.isVisible)
                     frag.dismiss()
+
             } catch (e: Exception) {
                 e.printStackTrace()
             }

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/amount"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dp30"
+    android:layout_margin="@dimen/dp8"
     android:background="@drawable/selectoraddmoneytab"
     android:gravity="center"
-    android:textSize="@dimen/sp14"
-    android:text="5014"
     android:minWidth="@dimen/dp80"
     android:padding="@dimen/dp5"
-    android:layout_margin="@dimen/dp8"
+    android:text="5014"
     android:textColor="@drawable/selectoraddmoneytext"
-    app:fontFamily="@font/sans_medium">
+    android:textSize="@dimen/sp14"
+    app:fontFamily="@font/tt_regular">
 
 </TextView>

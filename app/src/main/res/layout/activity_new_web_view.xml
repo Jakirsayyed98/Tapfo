@@ -16,7 +16,7 @@
         <RelativeLayout
             android:id="@+id/toolbar1"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="40dp"
             android:background="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
                 android:text="Tapfo"
                 android:textColor="@color/white"
                 app:fontFamily="@font/sans_medium"
-                android:textSize="13sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/cashback1234"

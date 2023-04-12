@@ -25,8 +25,8 @@
             android:layout_height="wrap_content"
             android:text="Welcome to SuperApp!"
             android:textColor="@color/black"
-            android:textSize="25sp"
-            app:fontFamily="@font/sans_bold" />
+            android:textSize="18sp"
+            app:fontFamily="@font/sans_medium" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:layout_marginTop="13dp"
             android:text="An incrediable Super App life experience\nis waiting for you"
             android:textColor="#333739"
-            android:textSize="14sp"
+            android:textSize="12sp"
             app:fontFamily="@font/tt_regular" />
 
 
@@ -59,9 +59,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="10"
-                app:fontFamily="@font/tt_demibold"
+                app:fontFamily="@font/tt_medium"
                 android:imeOptions="actionDone"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:cursorColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -100,7 +100,7 @@
             android:gravity="center"
             app:fontFamily="@font/tt_regular"
             android:text="@string/by_proceeding_you_are"
-            android:textSize="@dimen/sp14"
+            android:textSize="@dimen/sp12"
             />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -118,7 +118,7 @@
             android:text="Proceed"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp20"
+            android:textSize="@dimen/sp14"
             app:fontFamily="@font/tt_regular" />
     </LinearLayout>
 

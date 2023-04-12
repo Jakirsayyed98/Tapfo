@@ -7,7 +7,7 @@
     android:background="@color/bg_grey"
     android:orientation="vertical"
     tools:context=".ui.home.HomeActivity">
-<!--android:layout_marginBottom="@dimen/dp80"-->
+    <!--android:layout_marginBottom="@dimen/dp80"-->
     <FrameLayout
         android:id="@+id/container"
         android:name="app.tapho.ui.home.HomeFragment"
@@ -17,15 +17,14 @@
         tools:layout="@layout/fragment_home" />
 
 
-
     <LinearLayout
         android:id="@+id/layoutBottom"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/sp_white_corner_10"
-        android:visibility="gone"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        android:visibility="gone">
 
         <!--        Home tab-->
 
@@ -50,9 +49,9 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/home"
+                android:textColor="@drawable/selector_text_color"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium"
-                android:textColor="@drawable/selector_text_color" />
+                app:fontFamily="@font/sans_medium" />
         </LinearLayout>
 
         <!--        Fav tab-->
@@ -77,9 +76,9 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/favourites"
-                app:fontFamily="@font/sans_medium"
                 android:textColor="@drawable/selector_text_color"
-                android:textSize="@dimen/sp12" />
+                android:textSize="@dimen/sp12"
+                app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
 
@@ -105,9 +104,9 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Shop"
+                android:textColor="@drawable/selector_text_color"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium"
-                android:textColor="@drawable/selector_text_color" />
+                app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
 
@@ -132,9 +131,9 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/offers"
+                android:textColor="@drawable/selector_text_color"
                 android:textSize="@dimen/sp12"
-                app:fontFamily="@font/sans_medium"
-                android:textColor="@drawable/selector_text_color" />
+                app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
 
@@ -159,12 +158,11 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="@string/Merchants"
+                android:textColor="@drawable/selector_text_color"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium"
-                android:textColor="@drawable/selector_text_color" />
+                app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
-
 
 
         <!--        News tab-->
@@ -189,9 +187,9 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="News"
-                app:fontFamily="@font/sans_medium"
                 android:textColor="@drawable/selector_text_color"
-                android:textSize="@dimen/sp12" />
+                android:textSize="@dimen/sp12"
+                app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
 
@@ -202,9 +200,9 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:visibility="gone"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <ImageView
                 android:layout_width="@dimen/dp25"
@@ -218,9 +216,9 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Earnings"
-                app:fontFamily="@font/sans_medium"
                 android:textColor="@drawable/selector_text_color"
-                android:textSize="@dimen/sp12" />
+                android:textSize="@dimen/sp12"
+                app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
 
@@ -245,9 +243,9 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Games"
-                app:fontFamily="@font/sans_medium"
                 android:textColor="@drawable/selector_text_color"
-                android:textSize="@dimen/sp12" />
+                android:textSize="@dimen/sp12"
+                app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
     </LinearLayout>

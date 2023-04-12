@@ -39,14 +39,14 @@ import java.util.ArrayList
 
 
 class scanner : BaseActivity<ActivityScannerBinding>() {
-private lateinit var codeScanner: CodeScanner
-    val sliderHandler=Handler()
+    private lateinit var codeScanner: CodeScanner
+    val sliderHandler = Handler()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScannerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         statusBarColor(R.color.black)
-        window.statusBarColor=Color.BLACK
+        window.statusBarColor = Color.BLACK
         permissionTaking()
 
         val bannerdata: MutableList<sliderItem> = ArrayList()
@@ -60,10 +60,11 @@ private lateinit var codeScanner: CodeScanner
     }
 
     companion object {
-        var main_upi_id:String?=null
-        var UPI_paying_name:String?=null
+        var main_upi_id: String? = null
+        var UPI_paying_name: String? = null
 
     }
+
     private fun permissionTaking() {
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -77,18 +78,16 @@ private lateinit var codeScanner: CodeScanner
     }
 
 
-
-
     private fun Setbannerdata(bannerdata: MutableList<sliderItem>) {
-        binding.banner1.adapter= IntroNewAdapter(bannerdata,binding.banner1)
+        binding.banner1.adapter = IntroNewAdapter(bannerdata, binding.banner1)
 
-        binding.banner1.clipToPadding=false
-        binding.banner1.clipChildren=false
+        binding.banner1.clipToPadding = false
+        binding.banner1.clipChildren = false
 
-        binding.banner1.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+        binding.banner1.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if (position<2){
+                if (position < 2) {
                     sliderHandler.removeCallbacks(sliderRunnable)
                 }
             }
@@ -97,13 +96,12 @@ private lateinit var codeScanner: CodeScanner
     }
 
     private fun setPager() {
-        TabLayoutMediator(binding.tabLayout, binding.banner1,false) { _,_ -> }.attach()
+        TabLayoutMediator(binding.tabLayout, binding.banner1, false) { _, _ -> }.attach()
     }
 
-    private val sliderRunnable= Runnable {
-        binding.banner1.currentItem=binding.banner1.currentItem+1
+    private val sliderRunnable = Runnable {
+        binding.banner1.currentItem = binding.banner1.currentItem + 1
     }
-
 
 
     private fun startScanning() {
@@ -116,11 +114,11 @@ private lateinit var codeScanner: CodeScanner
         codeScanner.isFlashEnabled = false
         codeScanner.decodeCallback = DecodeCallback {
             runOnUiThread {
-                val textData=it.text
+                val textData = it.text
                 if (textData.contains("http")) {
-                    if (textData.contains("https://tapfo.onelink.me/k6rU/MID:")){
-                        getStoreDetail(textData.replace("https://tapfo.onelink.me/k6rU/MID:",""))
-                    }else{
+                    if (textData.contains("https://tapfo.onelink.me/k6rU/MID:")) {
+                        getStoreDetail(textData.replace("https://tapfo.onelink.me/k6rU/MID:", ""))
+                    } else {
                         this.setOnCustomeCrome(textData)
                     }
                 } else {
@@ -141,16 +139,25 @@ private lateinit var codeScanner: CodeScanner
     }
 
     private fun getStoreDetail(textData: String?) {
-        Log.d("@@@@@@","J"+textData+"A")
+        Log.d("@@@@@@", "J" + textData + "A")
         viewModel.searchBusiness(getUserId(), textData!!, this,
             object : ApiListener<searchBusinessRes, Any?> {
                 override fun onSuccess(t: searchBusinessRes?, mess: String?) {
                     t!!.let {
                         if (it.data.isNullOrEmpty().not()) {
-                            getSharedPreference().saveString(BUSINESS_DATA,Gson().toJson(it.data.get(0)))
+                            getSharedPreference().saveString(
+                                BUSINESS_DATA,
+                                Gson().toJson(it.data.get(0))
+                            )
                             getSharedPreference().saveString(CART_ID, getCartIdRandom())
                             viewModel.DeleteBusinessProductList()
-                            ContainerForProductActivity.openContainer(this@scanner,"StoreNameDialogFragment",it.data.get(0),false,"")
+                            ContainerForProductActivity.openContainer(
+                                this@scanner,
+                                "StoreNameDialogFragment",
+                                it.data.get(0),
+                                false,
+                                ""
+                            )
                             finish()
                         } else {
                             showCopyDialog(textData)
@@ -161,19 +168,20 @@ private lateinit var codeScanner: CodeScanner
     }
 
     private fun showCopyDialog(textData: String?) {
-        if (textData!!.contains("userid")){
+        if (textData!!.contains("userid")) {
             val data = URLDecoder.decode(textData)
-            val obj : JSONObject = JSONObject(data)
+            val obj: JSONObject = JSONObject(data)
             val jsonOBJ: JSONArray = obj.getJSONArray("userdata")
             val json = jsonOBJ.get(0)
-        }else{
+        } else {
             val dialog: Dialog = Dialog(this)
             val view = layoutInflater.inflate(R.layout.upi_dialog, null)
             val scandata: TextView = view.findViewById(R.id.scandata)
-            scandata.text=textData.toString()
+            scandata.text = textData.toString()
             val copy: Button = view.findViewById(R.id.copy)
             copy.setOnClickListener {
-                val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clipboardManager =
+                    getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clipData = ClipData.newPlainText("text", textData)
                 clipboardManager.setPrimaryClip(clipData)
                 dialog.dismiss()
@@ -181,7 +189,7 @@ private lateinit var codeScanner: CodeScanner
             val search: Button = view.findViewById(R.id.searchtext)
             search.setOnClickListener {
 
-                val generateLink="https://www.google.co.in/search?q="+textData
+                val generateLink = "https://www.google.co.in/search?q=" + textData
                 val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(generateLink))
                 startActivity(browserIntent)
             }

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/checkbox"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:id="@+id/checkbox">
+    android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/l1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
-        android:layout_margin="10dp">
+        android:layout_alignParentEnd="true"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/checked"
@@ -22,8 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:buttonTint="@color/green_dark"
-            android:clickable="false"
-            android:checked="false" />
+            android:checked="false"
+            android:clickable="false" />
 
 
         <LinearLayout
@@ -37,8 +37,9 @@
                 android:layout_height="wrap_content"
                 android:paddingStart="10dp"
                 android:text="Pay at Counter "
-                android:textSize="18sp"
-                app:fontFamily="@font/tt_demibold" />
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:fontFamily="@font/tt_medium" />
 
             <TextView
                 android:id="@+id/discription"
@@ -47,7 +48,7 @@
                 android:layout_marginTop="5dp"
                 android:paddingStart="10dp"
                 android:text="Pay at Counter "
-                android:textSize="14sp"
+                android:textSize="12sp"
                 app:fontFamily="@font/tt_regular" />
         </LinearLayout>
 

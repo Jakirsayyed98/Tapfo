@@ -12,8 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Headlines"
         app:fontFamily="@font/sans_medium"
-        android:textStyle="bold"
-        android:textSize="18sp"/>
+        android:textSize="16sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/AllDishes"

@@ -44,7 +44,7 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        _binding= FragmentTapMartCheckOutBinding.inflate(inflater,container,false)
+        _binding = FragmentTapMartCheckOutBinding.inflate(inflater, container, false)
         statusBarColor(R.color.GreenWalletBackgroundDark)
         statusBarTextBlack()
         _binding!!.MainLayout.visibility = View.GONE
@@ -52,14 +52,13 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         setTextData()
         _binding!!.backbtn.setOnClickListener {
             coundown.cancel()
-           activity?.onBackPressedDispatcher?.onBackPressed()
+            activity?.onBackPressedDispatcher?.onBackPressed()
         }
 
 
-
         val data = activity?.intent?.getStringExtra(DATA)
-        if (!data.isNullOrEmpty()){
-            Gson().fromJson(data,ScanPlaceOrderRes::class.java).let {
+        if (!data.isNullOrEmpty()) {
+            Gson().fromJson(data, ScanPlaceOrderRes::class.java).let {
                 it.data.let {
                     setLayoutData(it)
                 }
@@ -71,32 +70,38 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
 
 
     private fun setLayoutData(it: Data) {
-        viewModel.getsearchBusinessOrders(getUserId(),it.code,this,object :ApiListener<SearchBusinessOrdersRes,Any?>{
-            override fun onSuccess(t: SearchBusinessOrdersRes?, mess: String?) {
-                _binding!!.MainLayout.visibility = View.VISIBLE
-                _binding!!.Progress.visibility = View.GONE
-                setData(t!!.data.get(0))
-            }
-        })
+        viewModel.getsearchBusinessOrders(
+            getUserId(),
+            it.code,
+            this,
+            object : ApiListener<SearchBusinessOrdersRes, Any?> {
+                override fun onSuccess(t: SearchBusinessOrdersRes?, mess: String?) {
+                    _binding!!.MainLayout.visibility = View.VISIBLE
+                    _binding!!.Progress.visibility = View.GONE
+                    setData(t!!.data.get(0))
+                }
+            })
     }
 
 
-
     private fun setData(data: app.tapho.ui.scanner.model.SearchCurrentOrder.Data) {
-      data.let {
-          Glide.with(requireContext()).load(setBusinessQR(it.qr_code)).into(_binding!!.qrcode)
-          _binding!!.paybleAmount.text = withSuffixAmount(it.total_amount.toString())!!.dropLast(3)
-          _binding!!.paybleAmount1.text = withSuffixAmount(it.total_amount.toString())!!.dropLast(3)
+        data.let {
+            Glide.with(requireContext()).load(setBusinessQR(it.qr_code)).into(_binding!!.qrcode)
+            _binding!!.paybleAmount.text =
+                withSuffixAmount(it.total_amount.toString())!!.dropLast(3)
+            _binding!!.paybleAmount1.text =
+                withSuffixAmount(it.total_amount.toString())!!.dropLast(3)
 
-          _binding!!.qrcodedata.text ="CHECKOUT CODE : "+ it.code
-          val count = it.items.size
+            _binding!!.qrcodedata.text = "CHECKOUT CODE : " + it.code
+            val count = it.items.size
 
-          _binding!!.cartcount.text =  if (count<=1) "Cart summary : "+count+" item" else "Cart summary : "+count+" items"
+            _binding!!.cartcount.text =
+                if (count <= 1) "Cart summary : " + count + " item" else "Cart summary : " + count + " items"
 
-          setLayout(it.items)
-          callVmData(it)
-          setTimer()
-      }
+            setLayout(it.items)
+            callVmData(it)
+            setTimer()
+        }
     }
 
     private fun setTimer() {
@@ -105,8 +110,9 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
             override fun onTick(millisUntilFinished: Long) {
                 val minute = (millisUntilFinished / 1000) / 60
                 val seconds = (millisUntilFinished / 1000) % 60
-                _binding!!.timercount.text = minute.toString()+" : "+seconds.toString()
+                _binding!!.timercount.text = minute.toString() + " : " + seconds.toString()
             }
+
             override fun onFinish() {
 
             }
@@ -115,30 +121,40 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
     }
 
     private fun callVmData(data: app.tapho.ui.scanner.model.SearchCurrentOrder.Data) {
-        viewModel.getsearchBusinessOrders(getUserId(),data.code,this,object :ApiListener<SearchBusinessOrdersRes,Any?>{
-            override fun onSuccess(t: SearchBusinessOrdersRes?, mess: String?) {
-                t!!.data.get(0).let {
-                    when(it.status){
-                        "0"->{
-                            InPendingMethod(it)
-                        }
-                        else->{
-                            GlobalScope.launch {
-                                getDatabase(requireContext()).appDao().DeleteAllProduct()
+        viewModel.getsearchBusinessOrders(
+            getUserId(),
+            data.code,
+            this,
+            object : ApiListener<SearchBusinessOrdersRes, Any?> {
+                override fun onSuccess(t: SearchBusinessOrdersRes?, mess: String?) {
+                    t!!.data.get(0).let {
+                        when (it.status) {
+                            "0" -> {
+                                InPendingMethod(it)
                             }
-                            coundown.cancel()
-                            ContainerForProductActivity.openContainer(requireContext(),"TapMartStatusFragment",it,false,"")
-                            activity?.finish()
+                            else -> {
+                                GlobalScope.launch {
+                                    getDatabase(requireContext()).appDao().DeleteAllProduct()
+                                }
+                                coundown.cancel()
+                                ContainerForProductActivity.openContainer(
+                                    requireContext(),
+                                    "TapMartStatusFragment",
+                                    it,
+                                    false,
+                                    ""
+                                )
+                                activity?.finish()
+                            }
                         }
                     }
                 }
-            }
-        })
+            })
     }
 
     private fun InPendingMethod(it: app.tapho.ui.scanner.model.SearchCurrentOrder.Data) {
         val handler = Handler(Looper.getMainLooper())
-        val runnable = object : Runnable{
+        val runnable = object : Runnable {
             override fun run() {
                 synchronized(this@TapMartCheckOutFragment) {
                     kotlin.runCatching {
@@ -161,20 +177,21 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         getSharedPreference().getBusinessData().let {
             _binding!!.apply {
                 storename.text = it!!.business_name
-                storeaddress.text = it.address
+                storeaddress.text = it.area
             }
         }
     }
 
     private fun setLayout(it: List<Item>?) {
-        val tapfoCartAdapter  = TapfoCartAdapter3<Item>(object : RecyclerClickListener {
+        val tapfoCartAdapter = TapfoCartAdapter3<Item>(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
             }
         })
 
         _binding!!.rrvData.apply {
-            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = tapfoCartAdapter
         }
         tapfoCartAdapter.addAllItem(it!!)

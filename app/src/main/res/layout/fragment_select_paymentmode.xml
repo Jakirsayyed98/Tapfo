@@ -40,7 +40,7 @@
             android:paddingStart="@dimen/dp10"
             android:text="Pay bill"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/tt_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/backbtn"
@@ -75,7 +75,7 @@
                     android:paddingEnd="10dp"
                     android:text="Billing at"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:fontFamily="@font/tt_regular" />
 
 
@@ -93,7 +93,7 @@
                 android:paddingEnd="10dp"
                 android:text="Born Supermart"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/sans_medium" />
 
             <TextView
@@ -133,7 +133,7 @@
                         android:paddingEnd="10dp"
                         android:text="Payble amount"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_medium" />
 
                     <TextView
@@ -163,7 +163,7 @@
                     android:paddingEnd="10dp"
                     android:text="1"
                     android:textColor="@color/black"
-                    android:textSize="22sp"
+                    android:textSize="15sp"
                     app:fontFamily="@font/sans_bold" />
             </LinearLayout>
 
@@ -191,7 +191,7 @@
                         android:layout_weight="1"
                         android:text="CART ID: TFBRD67890701"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_regular" />
 
                     <TextView
@@ -203,7 +203,7 @@
                         android:text="23 May 20231"
                         android:textAlignment="textEnd"
                         android:textColor="@color/black"
-                        android:textSize="15sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_regular" />
 
 
@@ -240,7 +240,7 @@
                         android:text="View shopping cart"
                         android:textAlignment="center"
                         android:textColor="@color/green_dark"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_regular" />
 
 
@@ -263,7 +263,7 @@
                         android:layout_weight="1"
                         android:text="Pay for cart items"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/sans_medium" />
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -301,154 +301,11 @@
                             android:layout_gravity="center_vertical"
                             android:text="Proceed to Counter"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             app:fontFamily="@font/tt_regular" />
                     </LinearLayout>
                 </LinearLayout>
-<!--
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="25dp"
-                    android:background="@drawable/button_boarder_2"
-                    android:backgroundTint="@color/white"
-                    android:orientation="vertical"
-                    android:padding="10dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="1"
-                        android:text="Next Steps"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:fontFamily="@font/tt_medium" />
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="30dp"
-                        android:orientation="vertical"
-                        android:padding="10dp">
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_dot"
-                                app:tint="@color/green_dark" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Show genrated Qr Code "
-                                    android:textSize="18sp"
-                                    app:fontFamily="@font/tt_medium" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="for instant cart checkout of your items"
-                                    android:textSize="14sp"
-                                    app:fontFamily="@font/tt_regular" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_dot"
-                                app:tint="@color/green_dark" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Show checkout QR code "
-                                    android:textSize="18sp"
-                                    app:fontFamily="@font/tt_medium" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="to confirm the cart items &amp; pay the bill amount"
-                                    android:textSize="14sp"
-                                    app:fontFamily="@font/tt_regular" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:orientation="horizontal">
-
-
-                            <ImageView
-                                android:layout_width="15dp"
-                                android:layout_height="15dp"
-                                android:layout_gravity="center_vertical"
-                                android:src="@drawable/ic_dot"
-                                app:tint="@color/green_dark" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Order Status"
-                                    android:textSize="18sp"
-                                    app:fontFamily="@font/tt_medium" />
-
-                                <TextView
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/store_confirm_the_bill_payment_and_get_on_e_receipt"
-                                    android:textSize="14sp"
-                                    app:fontFamily="@font/tt_regular" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
--->
             </LinearLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

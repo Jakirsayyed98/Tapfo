@@ -13,29 +13,30 @@ import app.tapho.ui.scanner.model.customePaymentMode
 class TapfoPaymentModeAdapter<S>(private val clickListener: RecyclerClickListener) :
     BaseRecyclerAdapter<S, TapfoPaymentModeAdapter<S>.Holder>() {
 
-    inner class Holder(private val binding: TapfomartPaymentMethodsBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(private val binding: TapfomartPaymentMethodsBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("NotifyDataSetChanged")
         fun setData(s: S) {
-            if (s is customePaymentMode){
-               binding.nameTv.text = s.name
+            if (s is customePaymentMode) {
+                binding.nameTv.text = s.name
                 var isChecked = s.checked
-               binding.discription.text = s.discription
-               binding.checked.isChecked =isChecked
-               val data = s as customePaymentMode
+                binding.discription.text = s.discription
+                binding.checked.isChecked = isChecked
+                val data = s as customePaymentMode
 
-                if (s.status.equals("1")){
+                if (s.status.equals("1")) {
                     binding.view.visibility = View.VISIBLE
-                }else{
+                } else {
                     binding.view.visibility = View.GONE
                 }
 
-               binding.checkbox.setOnClickListener {
-                   if (s.status.equals("2")){
-                       unCheckeddAll(data)
-                       isChecked = true
-                       clickListener.onRecyclerItemClick(0, data, "")
-                       notifyDataSetChanged()
-                   }
+                binding.checkbox.setOnClickListener {
+                    if (s.status.equals("2")) {
+                        unCheckeddAll(data)
+                        isChecked = true
+                        clickListener.onRecyclerItemClick(0, data, "")
+                        notifyDataSetChanged()
+                    }
 
                 }
             }
@@ -45,7 +46,7 @@ class TapfoPaymentModeAdapter<S>(private val clickListener: RecyclerClickListene
 
     private fun unCheckeddAll(data: customePaymentMode) {
         list.forEach {
-            if ( it is customePaymentMode){
+            if (it is customePaymentMode) {
                 it.checked = false
             }
         }

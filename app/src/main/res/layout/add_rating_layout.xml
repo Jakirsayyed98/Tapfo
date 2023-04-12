@@ -22,7 +22,7 @@
             android:layout_marginRight="@dimen/dp10"
             android:text="Write a review"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/sans_medium" />
 
         <LinearLayout
@@ -40,8 +40,8 @@
                 android:layout_marginRight="@dimen/dp10"
                 android:text="@string/Cashback"
                 android:textColor="@color/pinbizgrey"
-                android:textSize="18sp"
-                app:fontFamily="@font/sans_medium" />
+                android:textSize="14sp"
+                app:fontFamily="@font/tt_regular" />
 
 
         </LinearLayout>
@@ -82,13 +82,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="top|left"
-                    android:lines="10"
                     android:imeOptions="actionDone"
                     android:inputType="textMultiLine"
+                    android:lines="10"
                     android:maxLines="15"
                     android:minLines="5"
-                    app:fontFamily="@font/sans_medium"
-                    app:cursorColor="@color/black" />
+                    app:cursorColor="@color/black"
+                    app:fontFamily="@font/tt_regular" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,13 +97,13 @@
                 android:id="@+id/send_review"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/mini_cash_btn"
                 android:layout_marginTop="@dimen/dp15"
+                android:background="@drawable/mini_cash_btn"
                 android:backgroundTint="@color/black"
-                android:textColor="@color/white"
+                android:text="Submit Review"
                 android:textAllCaps="false"
-                app:fontFamily="@font/sans_medium"
-                android:text="Submit Review" />
+                android:textColor="@color/white"
+                app:fontFamily="@font/tt_regular" />
 
         </LinearLayout>
 

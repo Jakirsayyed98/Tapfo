@@ -45,7 +45,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentProductCartBinding.inflate(inflater,container,false)
+        _binding = FragmentProductCartBinding.inflate(inflater, container, false)
         statusBarColor(R.color.GreenWalletBackgroundDark)
         statusBarTextBlack()
 
@@ -60,7 +60,13 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         backpressedbtn()
 
         binding.PaymentModes.setOnClickListener {
-            ContainerForProductActivity.openContainer(requireContext(),"SelectPaymentmodeFragment","",false,"")
+            ContainerForProductActivity.openContainer(
+                requireContext(),
+                "SelectPaymentmodeFragment",
+                "",
+                false,
+                ""
+            )
             activity?.finish()
         }
 
@@ -72,18 +78,19 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         }
 
 
-                SaveToCart()
+        SaveToCart()
 
         return _binding?.root
     }
 
     private fun backpressedbtn() {
-        val  OnBackPressedCallback = object : OnBackPressedCallback(true){
+        val OnBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 OpenExitBottomSheet()
             }
         }
-        requireActivity().getOnBackPressedDispatcher().addCallback(requireActivity(), OnBackPressedCallback)
+        requireActivity().getOnBackPressedDispatcher()
+            .addCallback(requireActivity(), OnBackPressedCallback)
     }
 
     private fun OpenExitBottomSheet() {
@@ -110,7 +117,8 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         dialog.setContentView(view)
         dialog.show()
     }
-  private fun OpenClearCartBottomSheet() {
+
+    private fun OpenClearCartBottomSheet() {
         val dialog = BottomSheetDialog(requireContext())
         val view = layoutInflater.inflate(R.layout.store_clearcart_bottomsheet, null)
 
@@ -140,16 +148,19 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         getSharedPreference().getBusinessData().let {
             _binding!!.apply {
                 storename.text = it!!.business_name
-                storeaddress.text = it.address
-                cartid.text = "CART ID: "+ getSharedPreference().getString(CART_ID).toString()
-                time.text = SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH).format(Calendar.getInstance().time)
+                storeaddress.text = it.area
+                cartid.text = "CART ID: " + getSharedPreference().getString(CART_ID).toString()
+                time.text = SimpleDateFormat(
+                    "dd-MMM-yyyy",
+                    Locale.ENGLISH
+                ).format(Calendar.getInstance().time)
             }
         }
     }
 
 
     private fun SaveToCart() {
-        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner){
+        getDatabase(requireContext()).appDao().getAllProductSet().observe(viewLifecycleOwner) {
             _binding!!.cartEmpty.visibility = if (it.isNullOrEmpty()) View.VISIBLE else View.GONE
             _binding!!.clear.visibility = if (it.isNullOrEmpty()) View.GONE else View.VISIBLE
             _binding!!.PaymentModes.isSelected = if (it.isNullOrEmpty()) false else true
@@ -166,35 +177,37 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         var disprice = 0.0
 
 
-        _binding!!.cartCount.text =  if (it.size==1) it.size.toString()+" Item" else it.size.toString()+" Items"
+        _binding!!.cartCount.text =
+            if (it.size == 1) it.size.toString() + " Item" else it.size.toString() + " Items"
 
         it.forEach {
-            Amount+=it.totalPrice
+            Amount += it.totalPrice
         }
 
         it.forEach {
-            MRP+= (it.qty.toDouble() * it.mrp.toDouble())
+            MRP += (it.qty.toDouble() * it.mrp.toDouble())
         }
         it.forEach {
-            disprice+=(it.qty.toDouble() * it.price.toDouble())
+            disprice += (it.qty.toDouble() * it.price.toDouble())
         }
 
         val Amt = MRP - disprice
 
         _binding!!.savingAmount.text = withSuffixAmount(Amt.toString())!!.dropLast(3)
-        _binding!!.savinglayout.visibility = if (Amt>1) View.VISIBLE else View.GONE
+        _binding!!.savinglayout.visibility = if (Amt > 1) View.VISIBLE else View.GONE
 
-        _binding!!.totalCartValue.text =withSuffixAmount(Amount.toString())!!.dropLast(3)
+        _binding!!.totalCartValue.text = withSuffixAmount(Amount.toString())!!.dropLast(3)
 
 
-        val tapfoCartAdapter  = TapfoCartAdapter<Cart>(object : RecyclerClickListener{
+        val tapfoCartAdapter = TapfoCartAdapter<Cart>(object : RecyclerClickListener {
             override fun onRecyclerItemClick(pos: Int, data: Any?, type: String) {
 
             }
         })
 
         _binding!!.rrvData.apply {
-            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = tapfoCartAdapter
         }
 
@@ -207,7 +220,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == mRequestCode) {
-                if (data != null){
+                if (data != null) {
                     val eanCode = data.getStringExtra("ENCodeData")
                     chechProductAvailableOrNot(eanCode)
                 }
@@ -220,22 +233,30 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         if (textData != null) {
             GlobalScope.launch {
                 getDatabase(requireContext()).appDao().ProductByEANisExist(textData).let {
-                    if(it){
+                    if (it) {
                         GlobalScope.launch {
                             getDatabase(requireContext()).appDao().searchProduct(textData).let {
                                 requireActivity().runOnUiThread(Runnable {
-                                    if (it.qty.toInt()>=1){
+                                    if (it.qty.toInt() >= 1) {
                                         OpenCartBottomSheet(it)
-                                    }else{
-                                        Toast.makeText(requireContext(),"Product is not available",Toast.LENGTH_SHORT).show()
+                                    } else {
+                                        Toast.makeText(
+                                            requireContext(),
+                                            "Product is not available",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
                                     }
 
                                 })
                             }
                         }
-                    }else{
+                    } else {
                         requireActivity().runOnUiThread(Runnable {
-                            Toast.makeText(requireContext(),"Product Not Fond "+textData,Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireContext(),
+                                "Product Not Fond " + textData,
+                                Toast.LENGTH_SHORT
+                            ).show()
                         })
 
                     }
@@ -248,7 +269,7 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
     @SuppressLint("SetTextI18n")
     private fun OpenCartBottomSheet(it: Data) {
         val dialog = BottomSheetDialog(requireContext())
-        val view = layoutInflater.inflate(R.layout.tapfomart_cart_layout,null)
+        val view = layoutInflater.inflate(R.layout.tapfomart_cart_layout, null)
         dialog.setContentView(view)
         dialog.setCancelable(true)
         dialog.show()
@@ -264,71 +285,92 @@ class ProductCartFragment : BaseFragment<FragmentProductCartBinding>() {
         val addToCheckOut = view.findViewById<AppCompatButton>(R.id.addToCheckOut)
 
 
-       savepercent.text = roundOffAmount((((it.mrp.toDouble()-it.price!!.toDouble())/it.mrp.toDouble())*100).toString()).dropLast(3)+"% OFF"
+        savepercent.text =
+            roundOffAmount((((it.mrp.toDouble() - it.price!!.toDouble()) / it.mrp.toDouble()) * 100).toString()).dropLast(
+                3
+            ) + "% OFF"
 
-        Glide.with(this).load(it.image).placeholder(R.drawable.loding_app_icon).into(image)
+        Glide.with(this).load(it.business_item.image).placeholder(R.drawable.loding_app_icon).into(image)
         name.text = it.name
-        eanNumber.text ="EAN : "+ it.ean
+        eanNumber.text = "EAN : " + it.ean
         price.text = withSuffixAmount(it.mrp)!!.dropLast(3)
         disprice.text = withSuffixAmount(it.price)!!.dropLast(3)
         var qtyd = 1
         GlobalScope.launch {
             val Product = getDatabase(requireContext()).appDao().ProductByBarcodeISExist(it.ean)
-            if (Product){
+            if (Product) {
                 GlobalScope.launch {
                     getDatabase(requireContext()).appDao().getProductByBarcode(it.ean).let {
                         QtyData.text = it.qty.toString()
                         qtyd = it.qty
                     }
                 }
-            }else{
-                qtyd =1
+            } else {
+                qtyd = 1
             }
         }
 
 
         QtyData.text = qtyd.toString()
-        add.setOnClickListener{click->
-            if (qtyd<it.qty.toInt()){
+        add.setOnClickListener { click ->
+            if (qtyd < it.qty.toInt()) {
                 qtyd += 1
                 QtyData.text = qtyd.toString()
             }
 
         }
 
-        less.setOnClickListener{
-            if (qtyd>1){
+        less.setOnClickListener {
+            if (qtyd > 1) {
                 qtyd -= 1
                 QtyData.text = qtyd.toString()
             }
 
         }
 
-        addToCheckOut.setOnClickListener{click->
-            addToCart(qtyd,it)
+        addToCheckOut.setOnClickListener { click ->
+            addToCart(qtyd, it)
             dialog.dismiss()
         }
 
     }
 
-    private fun addToCart(qtyd: Int, data : Data) {
+    private fun addToCart(qtyd: Int, data: Data) {
         data.let {
             GlobalScope.launch {
                 val Product = getDatabase(requireContext()).appDao().ProductByBarcodeISExist(it.ean)
-                if (Product){
+                if (Product) {
                     GlobalScope.launch {
                         getDatabase(requireContext()).appDao().getProductByBarcode(it.ean).let {
                             GlobalScope.launch {
-                                getDatabase(requireContext()).appDao().UpdateProductToCart(qtyd,it.ean,(qtyd * it.price.toDouble()))
+                                getDatabase(requireContext()).appDao()
+                                    .UpdateProductToCart(qtyd, it.ean, (qtyd * it.price.toDouble()))
                             }
                         }
                     }
-                }else{
+                } else {
                     GlobalScope.launch {
                         getDatabase(requireContext()).appDao().AddPRoductToCart(
-                            Cart(it.id,it.business_id,it.business_user_category_id,it.business_user_sub_category_id,it.created_at,it.description,
-                                it.ean,it.food_type!!,it.image,it.mrp,it.name,it.price!!,it.qty,it.status,it.user_id,qtyd,
-                                (qtyd * it.price.toDouble()),(qtyd * it.mrp.toDouble()))
+                            Cart(
+                                it.id,
+                                it.business_id,
+                                it.business_user_category_id,
+                                it.business_user_sub_category_id,
+                                it.created_at,
+                                it.description,
+                                it.ean,
+                                it.food_type!!,
+                                it.business_item.image,
+                                it.mrp,
+                                it.name,
+                                it.price!!,
+                                it.qty,
+                                it.status,
+                                it.user_id,
+                                qtyd,
+                                (qtyd * it.price.toDouble()),
+                                (qtyd * it.mrp.toDouble())
+                            )
                         )
                     }
                 }

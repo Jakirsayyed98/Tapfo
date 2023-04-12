@@ -40,7 +40,7 @@
             android:ellipsize="end"
             android:maxLines="1"
             android:text="Monster pizza"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/sans_medium" />
 
         <TextView
@@ -53,7 +53,7 @@
             android:text="Pizza, Burger, Fried Chicken"
             android:textColor="@color/grey_dark"
             android:textSize="14sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
 
         <LinearLayout
@@ -86,8 +86,8 @@
                     android:maxLines="1"
                     android:text="50 mins"
                     android:textColor="@color/grey_dark"
-                    android:textSize="14sp"
-                    app:fontFamily="@font/sans_medium" />
+                    android:textSize="12sp"
+                    app:fontFamily="@font/tt_regular" />
 
 
             </LinearLayout>
@@ -116,8 +116,8 @@
                     android:maxLines="1"
                     android:text="4.8 (29)"
                     android:textColor="@color/grey_dark"
-                    android:textSize="14sp"
-                    app:fontFamily="@font/sans_medium" />
+                    android:textSize="12sp"
+                    app:fontFamily="@font/tt_regular" />
 
             </LinearLayout>
 
@@ -147,8 +147,8 @@
                 android:maxLines="1"
                 android:text="Free Delivery "
                 android:textColor="@color/grey_dark"
-                android:textSize="14sp"
-                app:fontFamily="@font/sans_medium" />
+                android:textSize="12sp"
+                app:fontFamily="@font/tt_regular" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,7 +159,7 @@
                 android:text="(order above ₹149)"
                 android:textColor="@color/grey_dark"
                 android:textSize="11sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
         </LinearLayout>
 
@@ -188,7 +188,7 @@
                 android:text="15% off orders above"
                 android:textColor="@color/orange1"
                 android:textSize="14sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
 
         </LinearLayout>

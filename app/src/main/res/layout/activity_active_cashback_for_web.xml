@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/dp25"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/tt_demibold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/favouriteIv"
@@ -159,8 +159,8 @@
                                         android:layout_gravity="center_vertical"
                                         android:gravity="center"
                                         android:textColor="@color/black"
-                                        android:textSize="18sp"
-                                        app:fontFamily="@font/tt_demibold" />
+                                        android:textSize="15sp"
+                                        app:fontFamily="@font/sans_medium" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -169,8 +169,8 @@
                                         android:gravity="center"
                                         android:text=" Cashback"
                                         android:textColor="@color/black"
-                                        android:textSize="15sp"
-                                        app:fontFamily="@font/tt_demibold" />
+                                        android:textSize="14sp"
+                                        app:fontFamily="@font/sans_medium" />
 
                                 </LinearLayout>
                             </LinearLayout>
@@ -187,7 +187,6 @@
                             android:id="@+id/imageIv2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:layout_gravity="center_vertical"
                             android:layout_alignParentEnd="true"
                             app:cardBackgroundColor="@color/grey_v_light"
@@ -202,8 +201,8 @@
 
                             <ImageView
                                 android:id="@+id/productIv"
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
                                 android:layout_margin="@dimen/dp5"
                                 />
                         </androidx.cardview.widget.CardView>
@@ -216,7 +215,7 @@
                             android:text=""
                             android:textAlignment="center"
                             android:textColor="@color/grey_dark"
-                            android:textSize="13sp"
+                            android:textSize="12sp"
                             app:fontFamily="@font/tt_regular" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -232,7 +231,7 @@
                     android:text="Order on EatClub from popular brands like MOJO Pizza, Box8, Itminaan Biryani &amp; more. Save 30% everytime. ZERO Delivery/ Packaging Fees."
                     android:textColor="@color/grey_dark"
                     app:fontFamily="@font/tt_regular"
-                    android:textSize="16sp" />
+                    android:textSize="14sp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -310,7 +309,7 @@
                             android:textAlignment="center"
                             app:fontFamily="@font/tt_regular"
                             android:textColor="@color/grey_dark"
-                            android:textSize="14sp" />
+                            android:textSize="12sp" />
 
 
                         <TextView
@@ -320,7 +319,6 @@
                             android:textAlignment="center"
                             app:fontFamily="@font/tt_regular"
                             android:textColor="@color/black"
-                            android:textStyle="bold"
                             android:textSize="14sp" />
 
                     </LinearLayout>
@@ -343,7 +341,7 @@
                             android:textAlignment="center"
                             app:fontFamily="@font/tt_regular"
                             android:textColor="@color/grey_dark"
-                            android:textSize="14sp" />
+                            android:textSize="12sp" />
 
 
                         <TextView
@@ -352,7 +350,6 @@
                             android:layout_height="wrap_content"
                             app:fontFamily="@font/tt_regular"
                             android:textAlignment="center"
-                            android:textStyle="bold"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -391,9 +388,8 @@
                                 android:layout_height="wrap_content"
                                 android:text="MakeMyTrip"
                                 android:textColor="@color/white"
-                                android:textSize="16sp"
-                                android:textStyle="bold"
-                                app:fontFamily="@font/tt_medium" />
+                                android:textSize="14sp"
+                                app:fontFamily="@font/sans_medium" />
 
 
                             <TextView
@@ -417,9 +413,9 @@
                                     android:layout_height="wrap_content"
                                     android:text="Saved with us"
                                     android:textColor="@color/white"
-                                    android:textSize="13sp"
+                                    android:textSize="12sp"
                                     android:textAlignment="center"
-                                    app:fontFamily="@font/tt_medium" />
+                                    app:fontFamily="@font/sans_medium" />
 
 
                                 <TextView
@@ -428,9 +424,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/dp5"
                                     android:textColor="@color/green_dark"
-                                    android:textSize="18sp"
+                                    android:textSize="16sp"
                                     android:textAlignment="center"
-                                    android:textStyle="bold"
                                     app:fontFamily="@font/tt_medium" />
 
                             </LinearLayout>
@@ -488,7 +483,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="Outstanding "
                                     android:textColor="@color/white"
-                                    android:textSize="13sp"
+                                    android:textSize="12sp"
                                     android:textAlignment="center"
                                     app:fontFamily="@font/tt_medium" />
 
@@ -499,8 +494,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/dp5"
                                     android:textColor="@color/white"
-                                    android:textSize="18sp"
-                                    android:textStyle="bold"
+                                    android:textSize="16sp"
                                     android:textAlignment="center"
                                     app:fontFamily="@font/tt_medium" />
 
@@ -522,7 +516,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/grey_dark"
                     app:fontFamily="@font/tt_regular"
-                    android:textSize="13sp" />
+                    android:textSize="12sp" />
 
                 <LinearLayout
                     android:id="@+id/continueLi"
@@ -537,7 +531,7 @@
                     android:backgroundTint="#1f9d55"
                     android:elevation="@dimen/dp5"
                     android:orientation="vertical"
-                    android:padding="@dimen/dp10"
+                    android:padding="@dimen/dp5"
                     app:fontFamily="@font/sans_medium">
 
                     <TextView
@@ -547,7 +541,7 @@
                         android:gravity="center"
                         android:text="Open Swiggy "
                         android:textColor="@color/white"
-                        android:textSize="@dimen/sp16"
+                        android:textSize="@dimen/sp14"
                         android:layout_marginTop="@dimen/dp5"
                         app:fontFamily="@font/tt_medium"/>
 
@@ -559,7 +553,7 @@
                         android:text="to activate upto 5% cashback*"
                         android:textColor="@color/white"
                         android:layout_marginTop="@dimen/dp5"
-                        android:textSize="12sp"
+                        android:textSize="11sp"
                         android:layout_marginBottom="@dimen/dp5"
                         app:fontFamily="@font/tt_regular" />
 
@@ -572,10 +566,9 @@
                     android:layout_height="wrap_content"
                     android:text="About Cashback Offer"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:layout_marginTop="@dimen/dp20"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/tt_bold" />
+                    app:fontFamily="@font/sans_medium" />
 
                 <TextView
                     android:id="@+id/aboutCashback"
@@ -583,9 +576,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
                     android:paddingStart="@dimen/dp40"
-                    android:text="• Applicable on Domestic flights "
+                    android:text="• Applicable on D omestic flights "
                     android:textColor="@color/grey_dark"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     app:fontFamily="@font/tt_regular" />
 <!--                Things to note-->
                 <LinearLayout

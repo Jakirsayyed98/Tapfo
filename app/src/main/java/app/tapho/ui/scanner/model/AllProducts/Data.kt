@@ -21,5 +21,5 @@ data class Data(
     val qty: String,
     val status: String,
     val user_id: String,
-
+    val business_item : BusinessItem,
 )

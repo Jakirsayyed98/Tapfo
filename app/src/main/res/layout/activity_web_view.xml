@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:text="Tapfo"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/tt_regular" />
 
                 <TextView
@@ -68,7 +68,7 @@
                     android:paddingEnd="@dimen/dp5"
                     android:text="Mini "
                     android:textColor="@color/green_dark"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textStyle="italic"
                     app:fontFamily="@font/tt_medium" />
             </LinearLayout>
@@ -164,8 +164,7 @@
                             android:text="@string/secure_policy"
                             android:textColor="@color/orange"
                             android:textSize="@dimen/sp14"
-                            android:textStyle="bold"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
                         <TextView
                             android:id="@+id/secureLine1"
@@ -177,7 +176,7 @@
                             android:text="@string/this_browsing_is_"
                             android:textColor="@color/black"
                             android:textSize="@dimen/sp10"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
 
                         <TextView
@@ -190,7 +189,7 @@
                             android:text="@string/this_browsing"
                             android:textColor="@color/black"
                             android:textSize="@dimen/sp10"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
                     </LinearLayout>
 
@@ -204,8 +203,7 @@
                     android:gravity="center"
                     android:text="Ok I Got it"
                     android:textColor="#0977FD"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
 
                 <View
                     android:layout_width="@dimen/dp50"
@@ -291,7 +289,7 @@
                                         android:text="Link"
                                         android:textColor="@color/white"
                                         android:textSize="10sp"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
 
                                     <TextView
                                         android:layout_width="match_parent"
@@ -300,9 +298,9 @@
                                         android:gravity="center"
                                         android:text="Activited"
                                         android:textColor="@color/white"
-                                        android:textSize="13sp"
+                                        android:textSize="12sp"
                                         android:textStyle="bold"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
 
                                 </LinearLayout>
 
@@ -327,7 +325,7 @@
                                         android:text="Cashback Credits"
                                         android:textColor="@color/white"
                                         android:textSize="10sp"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
 
                                     <TextView
                                         android:id="@+id/credit_hours"
@@ -337,9 +335,9 @@
                                         android:gravity="center"
                                         android:text=""
                                         android:textColor="@color/white"
-                                        android:textSize="13sp"
+                                        android:textSize="12sp"
                                         android:textStyle="bold"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
 
                                 </LinearLayout>
 
@@ -364,7 +362,7 @@
                                         android:text="Earn Upto"
                                         android:textColor="@color/white"
                                         android:textSize="@dimen/sp10"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
 
                                     <TextView
                                         android:id="@+id/cashbackinTerms"
@@ -374,9 +372,9 @@
                                         android:gravity="center"
                                         android:text="9.5% cashback"
                                         android:textColor="@color/white"
-                                        android:textSize="13sp"
+                                        android:textSize="12sp"
                                         android:textStyle="bold"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
 
 
                                 </LinearLayout>
@@ -398,7 +396,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"
                             android:text="@string/terms_condition"
-                            app:fontFamily="@font/tt_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -412,7 +410,7 @@
                                 android:layout_marginTop="@dimen/dp8"
                                 android:text="@string/terms_condition_popup"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
 
                             <TextView
@@ -422,7 +420,7 @@
                                 android:layout_marginTop="@dimen/dp10"
                                 android:text="@string/cashback_credit_as_pending_"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
 
                             <TextView
@@ -431,7 +429,7 @@
                                 android:layout_marginTop="@dimen/dp10"
                                 android:text="@string/Generally_our_merchant"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
 
                             <TextView
@@ -440,7 +438,7 @@
                                 android:layout_marginTop="@dimen/dp10"
                                 android:text="@string/cashback_our_merchant"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
 
                             <TextView
@@ -449,7 +447,7 @@
                                 android:layout_marginTop="@dimen/dp10"
                                 android:text="@string/nocashback_Applicable"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
 
                             <TextView
@@ -459,7 +457,7 @@
                                 android:layout_marginTop="@dimen/dp10"
                                 android:text="@string/decline_cashback"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
 
                             <TextView
@@ -468,7 +466,7 @@
                                 android:layout_marginTop="@dimen/dp10"
                                 android:text="@string/cashback_credit_amt"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
 
 
@@ -478,7 +476,7 @@
                                 android:layout_marginTop="@dimen/dp10"
                                 android:text="@string/cashback_rates_are_subject"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
 
 
@@ -488,7 +486,7 @@
                                 android:layout_marginTop="@dimen/dp10"
                                 android:text="@string/cashback_is_approved_only_on"
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="12sp"
                                 app:fontFamily="@font/tt_regular" />
                         </LinearLayout>
                     </LinearLayout>
@@ -501,7 +499,7 @@
                         android:gravity="center"
                         android:text="Ok I Got it"
                         android:textColor="#0977FD"
-                        android:textSize="@dimen/sp18"
+                        android:textSize="@dimen/sp14"
                         app:fontFamily="@font/tt_medium" />
 
                     <View

@@ -35,9 +35,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:text="@string/connecting_business_to_local"
+        android:textColor="@color/white"
         android:textSize="10sp"
         app:fontFamily="@font/sans_medium"
-        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 

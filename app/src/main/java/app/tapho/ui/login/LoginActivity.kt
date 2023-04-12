@@ -146,10 +146,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(), LoaderListener, ApiL
                         super.onError(mess)
 
                         if (mess.equals("This device id use another mobile no")){
+
                             binding.progress.visibility = View.GONE
                             binding.errorTV.visibility = View.VISIBLE
                             binding.errorTV.text = "This device is already registered with\ndifferent mobile number"
                             this@LoginActivity.dismissLoader()
+
                         }else if(mess.equals("User Blocked")){
                             binding.progress.visibility = View.GONE
                             binding.errorTV.visibility = View.VISIBLE

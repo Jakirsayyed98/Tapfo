@@ -3,7 +3,6 @@ package app.tapho.ui.scanner.ScanCart
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -38,16 +37,19 @@ class TapMartStatusFragment : BaseFragment<FragmentTapMartStatusBinding>() {
                 startForNew(it)
                 when (it.status) {
                     "0" -> { //Pending
-                        Glide.with(requireContext()).asGif().load(R.drawable.tapcart_success).into(_binding!!.status)
-                        _binding!!.orderstatus.text= "Order in pending"
+                        Glide.with(requireContext()).asGif().load(R.drawable.tapcart_success)
+                            .into(_binding!!.status)
+                        _binding!!.orderstatus.text = "Order in pending"
                     }
                     "1" -> {  //Paid
-                        Glide.with(requireContext()).asGif().load(R.drawable.tapcart_success).into(_binding!!.status)
-                        _binding!!.orderstatus.text= "Order Confirmed"
+                        Glide.with(requireContext()).asGif().load(R.drawable.tapcart_success)
+                            .into(_binding!!.status)
+                        _binding!!.orderstatus.text = "Order Confirmed"
                     }
                     else -> {  //Cancelled
-                        Glide.with(requireContext()).asGif().load(R.drawable.rejectedok).into(_binding!!.status)
-                        _binding!!.orderstatus.text= "Order Cancelled by Store"
+                        Glide.with(requireContext()).asGif().load(R.drawable.rejectedok)
+                            .into(_binding!!.status)
+                        _binding!!.orderstatus.text = "Order Cancelled by Store"
                     }
                 }
             }
@@ -66,7 +68,13 @@ class TapMartStatusFragment : BaseFragment<FragmentTapMartStatusBinding>() {
                         handler.postDelayed(object : Runnable {
                             override fun run() {
                                 kotlin.runCatching {
-                                    ContainerForProductActivity.openContainer(requireContext(), "TapMartOrderConformationFragment", data, false, "")
+                                    ContainerForProductActivity.openContainer(
+                                        requireContext(),
+                                        "TapMartOrderConformationFragment",
+                                        data,
+                                        false,
+                                        ""
+                                    )
                                     activity?.finish()
                                 }
                             }

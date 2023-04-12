@@ -59,8 +59,8 @@
                     android:layout_height="match_parent"
                     android:layout_toStartOf="@+id/backIv"
                     android:gravity="center"
-                    app:fontFamily="@font/sans_medium"
-                    android:text="My Feed" />
+                    android:text="My Feed"
+                    app:fontFamily="@font/sans_medium" />
 
 
                 <TextView
@@ -123,9 +123,9 @@
                     android:hint="Search News, Articles &amp; more"
                     android:maxLines="1"
                     android:paddingLeft="20dp"
-                    app:fontFamily="@font/sans_medium"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/sp12" />
+                    android:textSize="@dimen/sp12"
+                    app:fontFamily="@font/sans_medium" />
             </LinearLayout>
 
 
@@ -198,16 +198,16 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp20"
                                         android:textColor="@color/grey_dark"
-                                        app:fontFamily="@font/sans_medium"
-                                        android:textSize="10sp" />
+                                        android:textSize="10sp"
+                                        app:fontFamily="@font/sans_medium" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="@dimen/dp20"
                                         android:textColor="@color/grey_dark"
-                                        app:fontFamily="@font/sans_medium"
-                                        android:textSize="10sp" />
+                                        android:textSize="10sp"
+                                        app:fontFamily="@font/sans_medium" />
 
                                     <ImageView
                                         android:id="@+id/share"
@@ -216,8 +216,8 @@
                                         android:layout_gravity="center"
                                         android:layout_marginLeft="@dimen/dp20"
                                         android:textColor="@color/grey_dark"
-                                        app:fontFamily="@font/sans_medium"
-                                        android:textSize="10sp" />
+                                        android:textSize="10sp"
+                                        app:fontFamily="@font/sans_medium" />
 
                                 </LinearLayout>
                             </LinearLayout>
@@ -231,23 +231,23 @@
 
                     </LinearLayout>
 
-                        <LinearLayout
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/newsHeadLines"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:layout_marginTop="@dimen/dp15" />
 
-                            <androidx.recyclerview.widget.RecyclerView
-                                android:id="@+id/newsHeadLines"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="@dimen/dp15" />
-
-                            <ProgressBar
-                                android:id="@+id/idPBLoading"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:indeterminateTint="@color/black"/>
-                        </LinearLayout>
+                        <ProgressBar
+                            android:id="@+id/idPBLoading"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:indeterminateTint="@color/black" />
+                    </LinearLayout>
 
                 </LinearLayout>
             </androidx.core.widget.NestedScrollView>

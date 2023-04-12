@@ -52,7 +52,6 @@
                 android:src="@drawable/ic_refresh_24" />
 
 
-
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView

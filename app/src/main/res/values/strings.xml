@@ -201,7 +201,7 @@
     <string name="please_show_generated_checkout_qr_code_to_staff_members_please_wait_while_the_staff_processes_your_checkout_for_items_payment_verification"><![CDATA[Please show generated checkout QR code to staff members. Please wait while the staff processes your checkout for Items & Payment verification.]]></string>
     <string name="store_confirm_the_bill_payment_and_get_on_e_receipt">store confirm the bill payment and get on e-receipt</string>
     <string name="to_verify_cart_items_payment"><![CDATA[to verify cart items & Payment]]></string>
-    <string name="please_wait_while_the_staff_processes_you_checkout_for_items_payment_verification"><![CDATA[Please stay on this screen till the staff confirm your order cart items & bill payment]]></string>
+    <string name="please_wait_while_the_staff_processes_you_checkout_for_items_payment_verification"><![CDATA[Please stay on this screen till the staff confirm\norder cart items & bill payment]]></string>
     <!--    <string name="title_activity_maps">MapsActivity</string>-->
 
 </resources>

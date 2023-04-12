@@ -21,11 +21,11 @@
             android:id="@+id/constraintLayout8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/black"
             android:paddingStart="@dimen/dp10"
+            android:paddingTop="@dimen/dp20"
             android:paddingEnd="@dimen/dp10"
             android:paddingBottom="@dimen/dp15"
-            android:paddingTop="@dimen/dp20"
-            android:background="@color/black"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -49,8 +49,8 @@
                 android:layout_marginEnd="@dimen/dp10"
                 android:text="Recharge &amp; Pay Bills"
                 android:textColor="@color/white"
-                android:textSize="17sp"
-                app:fontFamily="@font/tt_demibold"
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/backbtn"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -59,11 +59,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_vertical"
                 android:text="History"
                 android:textColor="@color/white"
-                android:gravity="center_vertical"
                 android:textSize="14sp"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -95,9 +95,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="210dp"
                         android:layout_marginTop="5dp"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
-                        android:visibility="gone"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -105,11 +105,11 @@
                         android:id="@+id/tabLayout"
                         android:layout_width="30dp"
                         android:layout_height="5dp"
-                        android:visibility="gone"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/dp10"
                         android:layout_marginBottom="@dimen/dp10"
                         android:background="@color/transparent"
+                        android:visibility="gone"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -137,9 +137,9 @@
                         android:padding="@dimen/dp10"
                         android:text="Recharge"
                         android:textColor="@color/black"
-                        android:textSize="17sp"
+                        android:textSize="14sp"
                         android:visibility="gone"
-                        app:fontFamily="@font/sans_medium"
+                        app:fontFamily="@font/tt_regular"
                         app:layout_constraintTop_toBottomOf="@+id/bannerlay" />
 
 
@@ -154,11 +154,6 @@
                 </LinearLayout>
 
 
-
-
-
-
-
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
@@ -170,8 +165,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerInParent="true"
         android:layout_marginBottom="10dp"
-        android:src="@drawable/upi_bill_pay"
-         />
+        android:src="@drawable/upi_bill_pay" />
 </RelativeLayout>
 
 

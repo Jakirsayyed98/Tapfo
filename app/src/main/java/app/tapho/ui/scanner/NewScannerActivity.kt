@@ -40,13 +40,13 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
 
 
     val REQUEST_CAMERA_PERMISSION = 201
-    val sliderHandler= Handler(Looper.getMainLooper())
+    val sliderHandler = Handler(Looper.getMainLooper())
 
-    companion object{
+    companion object {
         fun openContainer(
             context: Context
-        ){
-            context.startActivity(Intent(context,NewScannerActivity::class.java))
+        ) {
+            context.startActivity(Intent(context, NewScannerActivity::class.java))
         }
     }
 
@@ -67,9 +67,15 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         binding.cancel.setOnClickListener {
             onBackPressedDispatcher.onBackPressed()
         }
-         binding.mycart.setOnClickListener {
-             ContainerForProductActivity.openContainer(this@NewScannerActivity,"ProductCartFragment","",false,"")
-         }
+        binding.mycart.setOnClickListener {
+            ContainerForProductActivity.openContainer(
+                this@NewScannerActivity,
+                "ProductCartFragment",
+                "",
+                false,
+                ""
+            )
+        }
 
 
 
@@ -80,24 +86,32 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
     }
 
     @OptIn(DelicateCoroutinesApi::class)
-    fun initialiseDetectorsAndSources(){
+    fun initialiseDetectorsAndSources() {
         val barcodeDetector = BarcodeDetector.Builder(this)
             .setBarcodeFormats(Barcode.ALL_FORMATS)
             .build()
 
-        val cameras= CameraSource.Builder(this,barcodeDetector)
-            .setRequestedPreviewSize(1920,2080)
+        val cameras = CameraSource.Builder(this, barcodeDetector)
+            .setRequestedPreviewSize(1920, 2080)
             .setAutoFocusEnabled(true)
             .build()
 
-        binding.scannerView.holder.addCallback(object  : SurfaceHolder.Callback{
+        binding.scannerView.holder.addCallback(object : SurfaceHolder.Callback {
             override fun surfaceCreated(holder: SurfaceHolder) {
 
                 try {
-                    if (ActivityCompat.checkSelfPermission(this@NewScannerActivity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(
+                            this@NewScannerActivity,
+                            Manifest.permission.CAMERA
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
                         cameras.start(binding.scannerView.getHolder())
                     } else {
-                        ActivityCompat.requestPermissions(this@NewScannerActivity, arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
+                        ActivityCompat.requestPermissions(
+                            this@NewScannerActivity,
+                            arrayOf(Manifest.permission.CAMERA),
+                            REQUEST_CAMERA_PERMISSION
+                        )
                     }
                 } catch (e: IOException) {
                     e.printStackTrace()
@@ -106,12 +120,25 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
 
             }
 
-            override fun surfaceChanged(holder: SurfaceHolder, format: Int, width: Int, height: Int) {
+            override fun surfaceChanged(
+                holder: SurfaceHolder,
+                format: Int,
+                width: Int,
+                height: Int
+            ) {
                 try {
-                    if (ActivityCompat.checkSelfPermission(this@NewScannerActivity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+                    if (ActivityCompat.checkSelfPermission(
+                            this@NewScannerActivity,
+                            Manifest.permission.CAMERA
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
                         cameras.start(binding.scannerView.getHolder())
                     } else {
-                        ActivityCompat.requestPermissions(this@NewScannerActivity, arrayOf(Manifest.permission.CAMERA), REQUEST_CAMERA_PERMISSION)
+                        ActivityCompat.requestPermissions(
+                            this@NewScannerActivity,
+                            arrayOf(Manifest.permission.CAMERA),
+                            REQUEST_CAMERA_PERMISSION
+                        )
                     }
                 } catch (e: IOException) {
                     e.printStackTrace()
@@ -126,7 +153,11 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         })
         barcodeDetector.setProcessor(object : Detector.Processor<Barcode?> {
             override fun release() {
-                Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
+                Toast.makeText(
+                    getApplicationContext(),
+                    "To prevent memory leaks barcode scanner has been stopped",
+                    Toast.LENGTH_SHORT
+                ).show();
             }
 
             override fun receiveDetections(detections: Detector.Detections<Barcode?>) {
@@ -134,7 +165,7 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
                 if (barcodes.size() != 0) {
                     runOnUiThread {
                         cameras.stop()
-                        val textData=barcodes.valueAt(0)!!.displayValue.toString()
+                        val textData = barcodes.valueAt(0)!!.displayValue.toString()
 
                         if (textData.contains("http")) {
                             this@NewScannerActivity.setOnCustomeCrome(textData)
@@ -144,7 +175,13 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
                                     override fun onSuccess(t: searchBusinessRes?, mess: String?) {
                                         t!!.let {
                                             if (it.data.isNullOrEmpty().not()) {
-                                                ContainerForProductActivity.openContainer(this@NewScannerActivity,"StoreNameDialogFragment",it.data.get(0),false,"")
+                                                ContainerForProductActivity.openContainer(
+                                                    this@NewScannerActivity,
+                                                    "StoreNameDialogFragment",
+                                                    it.data.get(0),
+                                                    false,
+                                                    ""
+                                                )
                                                 finish()
                                             } else {
                                                 showCopyDialog(textData)
@@ -173,10 +210,10 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
     }
 
     private fun showCopyDialog(textData: String) {
-        val dialog= BottomSheetDialog(this)
+        val dialog = BottomSheetDialog(this)
         val view = layoutInflater.inflate(R.layout.upi_dialog, null)
         val scandata: TextView = view.findViewById(R.id.scandata)
-        scandata.text=textData.toString()
+        scandata.text = textData.toString()
         val copy: Button = view.findViewById(R.id.copy)
         copy.setOnClickListener {
             val clipboardManager = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
@@ -188,7 +225,7 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
         }
         val search: Button = view.findViewById(R.id.searchtext)
         search.setOnClickListener {
-            val generateLink="https://www.google.co.in/search?q="+textData
+            val generateLink = "https://www.google.co.in/search?q=" + textData
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(generateLink))
             startActivity(browserIntent)
             initialiseDetectorsAndSources()
@@ -201,17 +238,17 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
     }
 
     private fun Setbannerdata(bannerdata: MutableList<sliderItem>) {
-        binding.banner1.adapter= IntroNewAdapter(bannerdata,binding.banner1)
+        binding.banner1.adapter = IntroNewAdapter(bannerdata, binding.banner1)
 
-        binding.banner1.clipToPadding=false
-        binding.banner1.clipChildren=false
+        binding.banner1.clipToPadding = false
+        binding.banner1.clipChildren = false
 
-        binding.banner1.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+        binding.banner1.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                if (position<2){
+                if (position < 2) {
                     sliderHandler.removeCallbacks(sliderRunnable)
-                }else{
+                } else {
 
                 }
             }
@@ -220,15 +257,12 @@ class NewScannerActivity : BaseActivity<ActivityNewScannerBinding>() {
     }
 
     private fun setPager() {
-        TabLayoutMediator(binding.tabLayout, binding.banner1,false) { _,_ -> }.attach()
+        TabLayoutMediator(binding.tabLayout, binding.banner1, false) { _, _ -> }.attach()
     }
 
-    private val sliderRunnable= Runnable {
-        binding.banner1.currentItem=binding.banner1.currentItem+1
+    private val sliderRunnable = Runnable {
+        binding.banner1.currentItem = binding.banner1.currentItem + 1
     }
-
-
-
 
 
 }

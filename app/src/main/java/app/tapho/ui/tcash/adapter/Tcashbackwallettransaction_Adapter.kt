@@ -117,6 +117,8 @@ class Tcashbackwallettransaction_Adapter(private val clickListener: RecyclerClic
                 }
 
             }
+
+      /*
             when (data.type){
                 "0"->{
                     if (data.recharge_detail.isEmpty().not()){
@@ -176,7 +178,7 @@ class Tcashbackwallettransaction_Adapter(private val clickListener: RecyclerClic
 
                 }
             }
-
+*/
 
             walletBindig.root.setOnClickListener {
                 clickListener.onRecyclerItemClick(0, data, "detail")

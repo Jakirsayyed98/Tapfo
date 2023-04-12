@@ -32,7 +32,7 @@
                 android:gravity="center"
                 android:text="Order Confirmed"
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 app:fontFamily="@font/tt_regular" />
 
             <TextView
@@ -45,7 +45,7 @@
                 android:gravity="center"
                 android:text="Billing at"
                 android:textColor="@color/white"
-                android:textSize="17sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/tt_medium" />
 
 
@@ -59,7 +59,7 @@
                 android:gravity="center"
                 android:text="TMFC001"
                 android:textColor="@color/white"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/tt_medium" />
 
             <TextView
@@ -98,7 +98,7 @@
                 android:text="Show this reciept when you leave the store"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                app:fontFamily="@font/tt_medium" />
+                app:fontFamily="@font/sans_medium" />
 
 
         </LinearLayout>
@@ -119,10 +119,10 @@
                 android:padding="15dp">
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/shopgo_image" />
+                    android:src="@drawable/loding_app_icon" />
 
 
                 <TextView
@@ -133,8 +133,8 @@
                     android:layout_marginStart="10dp"
                     android:layout_weight="1"
                     android:text="@string/your_bill_amount_1529_00_a"
-                    android:textSize="18sp"
-                    app:fontFamily="@font/tt_medium" />
+                    android:textSize="14sp"
+                    app:fontFamily="@font/sans_medium" />
 
 
             </LinearLayout>
@@ -158,8 +158,8 @@
                     android:layout_weight="1"
                     android:text="9 Items"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
-                    app:fontFamily="@font/tt_demibold" />
+                    android:textSize="14sp"
+                    app:fontFamily="@font/tt_medium" />
 
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -185,7 +185,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/shopgo_image" />
+                    android:src="@drawable/loding_app_icon"  />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -200,7 +200,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Any issues with bill or order ?"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_medium" />
 
                     <TextView
@@ -208,7 +208,7 @@
                         android:layout_height="wrap_content"
                         android:text="Contact to bill counter or store manager"
                         android:textColor="@color/grey_dark"
-                        android:textSize="13sp"
+                        android:textSize="12sp"
                         app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
 
@@ -216,7 +216,7 @@
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/shopgo_image" />
+                    android:src="@drawable/loding_app_icon" />
             </LinearLayout>
 
 
@@ -233,7 +233,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:src="@drawable/shopgo_image" />
+                    android:src="@drawable/loding_app_icon"  />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -248,7 +248,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Rate us on Play Store"
-                        android:textSize="16sp"
+                        android:textSize="14sp"
                         app:fontFamily="@font/tt_medium" />
 
                     <TextView
@@ -256,7 +256,7 @@
                         android:layout_height="wrap_content"
                         android:text="Please give us rating on play store to helps in next update."
                         android:textColor="@color/grey_dark"
-                        android:textSize="13sp"
+                        android:textSize="12sp"
                         app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
 
@@ -285,7 +285,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="Open Invoice"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/tt_medium" />
             </LinearLayout>
 
@@ -314,7 +314,7 @@
                     android:layout_gravity="center_vertical"
                     android:text="Done"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/tt_medium" />
             </LinearLayout>
         </LinearLayout>

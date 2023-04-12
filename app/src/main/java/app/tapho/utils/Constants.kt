@@ -1,7 +1,5 @@
 package app.tapho.utils
 
-import app.tapho.ui.model.MiniApp
-import app.tapho.ui.model.WebTCashRes
 
 const val LOGIN_DATA = "login_data"
 const val BUSINESS_DATA = "business_data"

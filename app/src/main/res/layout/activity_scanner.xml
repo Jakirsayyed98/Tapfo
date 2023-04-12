@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#4F0A0A0A"
+    android:orientation="vertical"
     tools:context=".ui.scanner.scanner">
 
     <com.budiyev.android.codescanner.CodeScannerView
@@ -28,8 +28,8 @@
         android:gravity="center"
         android:text="#oneQRscanner"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        app:fontFamily="@font/sans_medium" />
+        android:textSize="14sp"
+        app:fontFamily="@font/tt_regular" />
 
     <TextView
         android:id="@+id/headline"
@@ -38,9 +38,9 @@
         android:layout_marginTop="@dimen/dp60"
         android:gravity="center"
         android:text="All in super Qr scanner"
-        android:textSize="25sp"
         android:textColor="@color/white"
-        app:fontFamily="@font/sans_medium" />
+        android:textSize="16sp"
+        app:fontFamily="@font/tt_medium" />
 
     <!--                    banner 1-->
 
@@ -48,9 +48,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="@dimen/dp15"
         android:layout_marginStart="@dimen/dp15"
         android:layout_marginEnd="@dimen/dp15"
+        android:layout_marginBottom="@dimen/dp15"
         android:orientation="vertical">
 
         <androidx.viewpager2.widget.ViewPager2

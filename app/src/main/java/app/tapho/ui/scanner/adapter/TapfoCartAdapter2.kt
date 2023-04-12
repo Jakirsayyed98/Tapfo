@@ -14,10 +14,12 @@ import com.bumptech.glide.Glide
 class TapfoCartAdapter2<S>(private val clickListener: RecyclerClickListener) :
     BaseRecyclerAdapter<S, TapfoCartAdapter2<S>.Holder>() {
 
-    inner class Holder(private val binding: TapfocartLayout2Binding) : RecyclerView.ViewHolder(binding.root) {
+    inner class Holder(private val binding: TapfocartLayout2Binding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun setData(s: S) {
-            if (s is Cart){
-                Glide.with(itemView.context).load(s.image).placeholder(R.drawable.loding_app_icon).centerCrop().into(binding.image)
+            if (s is Cart) {
+                Glide.with(itemView.context).load(s.image).placeholder(R.drawable.loding_app_icon)
+                    .centerCrop().into(binding.image)
             }
         }
 
