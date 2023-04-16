@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/iv_partner"
-        android:layout_width="@dimen/dp60"
-        android:layout_height="@dimen/dp60"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp10"
         app:cardCornerRadius="@dimen/dp100"
@@ -32,7 +32,7 @@
         android:textColor="@color/white"
         android:textSize="12dp"
         android:visibility="gone"
-        app:fontFamily="@font/sans_medium" />
+        app:fontFamily="@font/tt_regular" />
 
     <TextView
         android:id="@+id/nameTv"

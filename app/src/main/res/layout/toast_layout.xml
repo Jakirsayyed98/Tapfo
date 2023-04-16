@@ -10,7 +10,7 @@
     android:paddingEnd="@dimen/dp20"
     android:paddingTop="@dimen/dp10"
     android:paddingBottom="@dimen/dp10"
-    app:fontFamily="@font/sans_medium"
+    app:fontFamily="@font/tt_regular"
     android:background="@drawable/sp_black_corner_20"
     android:layout_height="wrap_content">
 

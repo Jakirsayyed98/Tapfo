@@ -9,6 +9,7 @@ import app.tapho.databinding.*
 import app.tapho.interfaces.RecyclerClickListener
 import app.tapho.ui.BaseRecyclerAdapter
 import app.tapho.ui.scanner.model.SearchCurrentOrder.Item
+import app.tapho.utils.imagebaseURL
 import app.tapho.utils.roundOffAmount
 import app.tapho.utils.withSuffixAmount
 import com.bumptech.glide.Glide
@@ -21,7 +22,7 @@ class TapfoCartAdapter3<S>(private val clickListener: RecyclerClickListener) :
         fun setData(s: S) {
             if (s is Item) {
                 s.business_user_item_detail.let {
-                    Glide.with(itemView.context).load(it.image)
+                    Glide.with(itemView.context).load(imagebaseURL+it.image)
                         .placeholder(R.drawable.loding_app_icon).into(binding.image)
                     binding.nameTv.text = it.name
                     binding.price.text =

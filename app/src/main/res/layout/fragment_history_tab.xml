@@ -27,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/back"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -61,7 +61,7 @@
                 android:layout_marginTop="@dimen/dp20"
                 android:text="Track your wallet’s Payments, Cashback,\ntransaction or more in one tap!"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/sans_medium" />
 
             <androidx.recyclerview.widget.RecyclerView

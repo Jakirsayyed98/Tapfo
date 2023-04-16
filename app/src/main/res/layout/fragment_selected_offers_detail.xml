@@ -37,8 +37,8 @@
 
             <ImageView
                 android:id="@+id/backbtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -87,7 +87,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp10"
                         android:textAllCaps="true"
-                        android:textSize="45sp"
+                        android:textSize="25sp"
                         android:maxLines="2"
                         android:autoSizeTextType="uniform"
                         app:fontFamily="@font/sans_medium" />
@@ -101,7 +101,7 @@
                         android:autoSizeTextType="uniform"
                         android:maxLines="2"
                         android:textSize="@dimen/sp16"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                     <TextView
                         android:id="@+id/cashback"
@@ -110,7 +110,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="@dimen/dp20"
                         android:textColor="@color/green_dark"
-                        app:fontFamily="@font/sans_medium"
+                        app:fontFamily="@font/tt_regular"
                         android:textSize="14sp" />
 
                     <LinearLayout
@@ -131,7 +131,7 @@
                             android:layout_margin="@dimen/dp5"
                             android:layout_weight="1"
                             android:padding="@dimen/dp5"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -169,7 +169,7 @@
                                 android:text="valid till"
                                 android:textColor="@color/grey_dark"
                                 android:textSize="@dimen/sp14"
-                                app:fontFamily="@font/sans_medium" />
+                                app:fontFamily="@font/tt_regular" />
 
 
                             <TextView
@@ -179,7 +179,7 @@
                                 android:paddingTop="@dimen/dp5"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
-                                app:fontFamily="@font/sans_bold" />
+                                app:fontFamily="@font/sans_medium" />
                         </LinearLayout>
 
 
@@ -193,7 +193,7 @@
                             android:textSize="12sp"
                             android:textAlignment="textEnd"
                             android:text="sfga"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
                     </LinearLayout>
 
                     <View
@@ -211,7 +211,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/grey_dark"
                         android:textSize="@dimen/sp12"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -224,7 +224,7 @@
                         android:text="CLAIM OFFER"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                     <TextView
                         android:id="@+id/termsandcondition"
@@ -238,7 +238,7 @@
                         android:textAlignment="center"
                         android:textColor="@color/black"
                         android:textSize="@dimen/sp10"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
 
                 </LinearLayout>

@@ -41,7 +41,7 @@
                     android:layout_gravity="center_vertical"
                     android:layout_marginRight="@dimen/dp15"
                     android:src="@drawable/cancel_btn_icon"
-                    app:tint="@color/black"/>
+                    app:tint="@color/black" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -55,7 +55,7 @@
                         android:gravity="center_horizontal"
                         android:text="Add money in Tapfo wallet"
                         android:textColor="@color/black"
-                        android:textSize="17sp"
+                        android:textSize="16sp"
                         app:fontFamily="@font/sans_medium" />
 
                 </LinearLayout>
@@ -96,7 +96,7 @@
                             android:text="Avilable Balance"
                             android:textColor="#3C3C3C"
                             android:textSize="14sp"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
                         <TextView
                             android:id="@+id/cashavailable"
@@ -104,8 +104,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:textColor="@color/green_dark"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
                     </LinearLayout>
 
@@ -148,8 +147,7 @@
                             android:inputType="number"
                             android:maxLength="5"
                             android:padding="@dimen/dp10"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
+                            android:textSize="16sp"
                             app:cursorColor="@color/black"
                             app:fontFamily="@font/sans_medium" />
 
@@ -173,8 +171,8 @@
                             android:text="Min amount : ₹100"
                             android:textColor="@color/red"
                             android:textSize="10sp"
-                            app:fontFamily="@font/sans_medium"
-                            android:visibility="gone" />
+                            android:visibility="gone"
+                            app:fontFamily="@font/sans_medium" />
 
                         <TextView
                             android:id="@+id/MaxthanAmount"
@@ -184,8 +182,8 @@
                             android:gravity="end"
                             android:text="Max limit is ₹10,000"
                             android:textColor="@color/green_dark"
-                            app:fontFamily="@font/sans_medium"
-                            android:textSize="10sp" />
+                            android:textSize="10sp"
+                            app:fontFamily="@font/sans_medium" />
 
                     </LinearLayout>
 
@@ -236,7 +234,7 @@
                                 android:textAllCaps="false"
                                 android:textColor="@color/white"
                                 android:textSize="@dimen/sp14"
-                                app:fontFamily="@font/sans_medium" />
+                                app:fontFamily="@font/tt_regular" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -253,7 +251,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Note:"
                                 android:textSize="14sp"
-                                app:fontFamily="@font/sans_medium" />
+                                app:fontFamily="@font/tt_regular" />
 
 
                             <LinearLayout
@@ -279,7 +277,7 @@
                                     android:text="@string/fopay_card_balance_can_t_be_transferred_to_another_account"
                                     android:textColor="@color/grey_dark"
                                     android:textSize="11sp"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/tt_regular" />
 
                             </LinearLayout>
 
@@ -332,7 +330,7 @@
                                     android:text="@string/all_your_cashback_referral"
                                     android:textColor="@color/grey_dark"
                                     android:textSize="11sp"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/tt_regular" />
 
                             </LinearLayout>
 
@@ -368,7 +366,7 @@
                 android:textColor="@color/white"
                 android:textSize="12sp"
                 app:drawableTint="@color/white"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -5,10 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.OfferWebViewSplashScreenFragment">
 
-   <ImageView
-       android:id="@+id/newImage"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:scaleType="centerCrop"/>
+    <ImageView
+        android:id="@+id/newImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
 
 </FrameLayout>

@@ -30,7 +30,7 @@
         android:maxLines="2"
         android:textColor="@color/white"
         android:textSize="10sp"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         tools:text="More" />
 
     <TextView

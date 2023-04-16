@@ -66,8 +66,7 @@
                             android:gravity="center_horizontal"
                             android:textColor="@color/white"
                             android:textSize="14sp"
-                            app:fontFamily="@font/sans_medium"
-                            android:textStyle="bold"/>
+                            app:fontFamily="@font/sans_medium" />
 
                         <TextView
                             android:id="@+id/idCreatedAt"
@@ -77,7 +76,7 @@
                             android:gravity="center_horizontal"
                             android:textColor="@color/white"
                             android:textSize="10sp"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -89,7 +88,7 @@
                     android:gravity="center_horizontal"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
 
 
                 <androidx.cardview.widget.CardView
@@ -137,8 +136,7 @@
                                     android:text="Payment for"
                                     android:textColor="@color/black"
                                     android:textSize="@dimen/sp14"
-                                    app:fontFamily="@font/sans_medium"
-                                    android:textStyle="bold"/>
+                                    app:fontFamily="@font/sans_medium" />
 
                                 <TextView
                                     android:layout_width="match_parent"
@@ -146,7 +144,7 @@
                                     android:text="Tapfo Wallet Recharged"
                                     android:textColor="@color/grey_dark"
                                     android:textSize="@dimen/sp12"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/tt_regular" />
                             </LinearLayout>
 
                             <TextView
@@ -200,7 +198,6 @@
                                     android:text="Wallet Details"
                                     android:textSize="12sp"
                                     app:fontFamily="@font/sans_medium"
-                                    android:textStyle="bold"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintStart_toEndOf="@+id/icon1"
                                     app:layout_constraintTop_toTopOf="parent" />
@@ -234,7 +231,7 @@
                                     android:text="Transaction ID"
                                     android:textColor="@color/grey_dark"
                                     android:textSize="12sp"
-                                    app:fontFamily="@font/sans_medium"
+                                    app:fontFamily="@font/tt_regular"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -244,7 +241,7 @@
                                     android:layout_height="wrap_content"
                                     android:textColor="@color/black"
                                     android:textSize="12sp"
-                                    app:fontFamily="@font/sans_medium"
+                                    app:fontFamily="@font/tt_regular"
                                     app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
                                 <View
@@ -264,7 +261,7 @@
                                     android:text="Payment mode"
                                     android:textColor="@color/grey_dark"
                                     android:textSize="12sp"
-                                    app:fontFamily="@font/sans_medium"
+                                    app:fontFamily="@font/tt_regular"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toBottomOf="@+id/view2" />
 
@@ -274,7 +271,7 @@
                                     android:layout_height="wrap_content"
                                     android:textColor="@color/black"
                                     android:textSize="12sp"
-                                    app:fontFamily="@font/sans_medium"
+                                    app:fontFamily="@font/tt_regular"
                                     app:layout_constraintTop_toBottomOf="@+id/paymentOptiontext" />
 
 
@@ -301,7 +298,7 @@
                                         android:text="Cashback"
                                         android:textColor="@color/grey_dark"
                                         android:textSize="12sp"
-                                        app:fontFamily="@font/sans_medium"
+                                        app:fontFamily="@font/tt_regular"
                                         app:layout_constraintStart_toStartOf="parent"
                                         app:layout_constraintTop_toBottomOf="@+id/view3" />
 
@@ -311,7 +308,7 @@
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/black"
                                         android:textSize="12sp"
-                                        app:fontFamily="@font/sans_medium"
+                                        app:fontFamily="@font/tt_regular"
                                         app:layout_constraintTop_toBottomOf="@+id/Cashbacktext" />
 
 
@@ -365,8 +362,7 @@
                             android:text="Payment Failed"
                             android:textColor="@color/white"
                             android:textSize="14sp"
-                            app:fontFamily="@font/sans_medium"
-                            android:textStyle="bold"/>
+                            app:fontFamily="@font/sans_medium" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -387,7 +383,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Your Payment failed due to some error or technical issue. Please try after some time.  If you have been charged, a refund shall be processed within 5-7 working days. Click to retry or try another payment method."
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -420,7 +416,7 @@
                 android:text="Done"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -449,7 +445,7 @@
                 android:text="Retry"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
@@ -464,7 +460,7 @@
                 android:text="Done"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

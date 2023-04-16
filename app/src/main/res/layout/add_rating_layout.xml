@@ -88,7 +88,8 @@
                     android:maxLines="15"
                     android:minLines="5"
                     app:cursorColor="@color/black"
-                    app:fontFamily="@font/tt_regular" />
+                    app:fontFamily="@font/sans_medium"
+                    android:textSize="16sp"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 

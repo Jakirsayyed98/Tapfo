@@ -33,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:text="My Name "
                 android:textColor="@color/grey_dark"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 android:visibility="gone"
                 android:textSize="13sp"
                 android:layout_marginTop="7dp" />

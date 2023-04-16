@@ -45,8 +45,8 @@
 
             <ImageView
                 android:id="@+id/backbtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -63,8 +63,8 @@
                 android:paddingStart="@dimen/dp10"
                 android:text="Online Cashback"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                app:fontFamily="@font/tt_medium"
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/backbtn"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -80,8 +80,8 @@
                 android:text="Till date"
                 android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                app:fontFamily="@font/tt_medium"
+                android:textSize="14sp"
+                app:fontFamily="@font/tt_regular"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -138,8 +138,8 @@
 
                                 <ImageView
                                     android:id="@+id/coinIcon"
-                                    android:layout_width="@dimen/dp60"
-                                    android:layout_height="@dimen/dp60"
+                                    android:layout_width="@dimen/dp50"
+                                    android:layout_height="@dimen/dp50"
                                     android:layout_marginTop="@dimen/dp40"
                                     android:src="@drawable/new_tcoin_icon" />
 
@@ -151,9 +151,8 @@
                                     android:layout_marginTop="@dimen/dp10"
                                     android:text="1026"
                                     android:textColor="@color/white"
-                                    android:textSize="30sp"
-                                    android:textStyle="bold"
-                                    app:fontFamily="@font/tt_bold" />
+                                    android:textSize="20sp"
+                                    app:fontFamily="@font/sans_medium" />
 
 
                                 <TextView
@@ -165,7 +164,7 @@
                                     android:text="All validated Cashback &amp; rewards are now instantly credited to your wallet"
                                     android:textColor="@color/grey_dark"
                                     android:textSize="12sp"
-                                    app:fontFamily="@font/tt_medium" />
+                                    app:fontFamily="@font/tt_regular" />
 
 
                                 <TextView
@@ -176,7 +175,7 @@
                                     android:text="@string/know_more"
                                     android:textColor="@color/white"
                                     android:textSize="14sp"
-                                    app:fontFamily="@font/tt_medium" />
+                                    app:fontFamily="@font/tt_regular" />
 
                             </LinearLayout>
 
@@ -194,7 +193,7 @@
                                 android:layout_below="@+id/discription1"
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginTop="@dimen/dp30"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
                                 android:visibility="gone"
                                 app:fontFamily="@font/tt_medium" />
                         </LinearLayout>
@@ -225,8 +224,8 @@
                                 android:gravity="center_vertical"
                                 android:text="Pending rewards:"
                                 android:textColor="@color/white"
-                                android:textSize="16sp"
-                                app:fontFamily="@font/tt_medium" />
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
 
                             <TextView
                                 android:id="@+id/rewardamount"
@@ -352,8 +351,8 @@
                                 android:layout_marginEnd="@dimen/dp15"
                                 android:text="Okay, Got it"
                                 android:textColor="@color/white"
-                                app:fontFamily="@font/tt_medium"
-                                android:textSize="16sp" />
+                                app:fontFamily="@font/tt_regular"
+                                android:textSize="14sp" />
                         </LinearLayout>
 
 

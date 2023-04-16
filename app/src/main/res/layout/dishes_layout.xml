@@ -44,7 +44,7 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="Monster pizza"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 app:fontFamily="@font/sans_medium" />
         </LinearLayout>
 
@@ -58,7 +58,7 @@
             android:text="Paneer, Schezwan, Capsicums, Tomato, Chees, Onion"
             android:textColor="@color/grey_dark"
             android:textSize="13sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
 
         <LinearLayout
@@ -76,8 +76,7 @@
                 android:layout_gravity="center_vertical"
                 android:maxLines="1"
                 android:text="₹190"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium" />
 
             <LinearLayout
@@ -102,7 +101,7 @@
                     android:text="Add"
                     android:textAlignment="center"
                     android:textSize="14sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
 
 
 

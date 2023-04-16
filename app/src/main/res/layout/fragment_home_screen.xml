@@ -237,8 +237,8 @@
                                         android:hint="Search local business around you"
                                         android:imeOptions="actionDone"
                                         android:maxLines="1"
-                                        android:textSize="@dimen/sp16"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/sans_medium"
+                                        android:textSize="16sp" />
 
 
                                 </LinearLayout>

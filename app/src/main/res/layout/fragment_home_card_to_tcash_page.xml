@@ -44,8 +44,8 @@
 
                         <ImageView
                             android:id="@+id/back"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:layout_marginStart="@dimen/dp5"
                             android:src="@drawable/new_back_btn"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -79,7 +79,7 @@
                                 android:text="@string/your_wallet_is_encrypted_and_secure"
                                 android:textColor="@color/white"
                                 android:textSize="14sp"
-                                app:fontFamily="@font/tt_light" />
+                                app:fontFamily="@font/tt_regular" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -125,7 +125,7 @@
                                     android:layout_above="@id/availbalance"
                                     android:text="Available Balance"
                                     android:textColor="@color/white"
-                                    android:textSize="15sp"
+                                    android:textSize="14sp"
                                     app:fontFamily="@font/tt_regular" />
 
                                 <TextView
@@ -137,8 +137,7 @@
                                     android:hint="₹0.00"
                                     android:text="₹0.00"
                                     android:textColor="@color/white"
-                                    android:textSize="30sp"
-                                    android:textStyle="bold"
+                                    android:textSize="20sp"
                                     app:fontFamily="@font/tt_bold" />
 
                                 <TextView
@@ -149,9 +148,9 @@
                                     android:padding="7dp"
                                     android:text="+ Add balance"
                                     android:textColor="@color/grey_dark"
-                                    android:textSize="13sp"
+                                    android:textSize="12sp"
                                     android:visibility="gone"
-                                    app:fontFamily="@font/tt_light" />
+                                    app:fontFamily="@font/tt_regular" />
 
 
                             </LinearLayout>
@@ -198,7 +197,7 @@
                                             android:layout_weight="1"
                                             android:text="Available balance"
                                             android:textColor="@color/black"
-                                            android:textSize="16sp"
+                                            android:textSize="14sp"
                                             app:fontFamily="@font/tt_regular" />
 
                                         <LinearLayout
@@ -216,7 +215,7 @@
                                                 android:textSize="16sp"
                                                 android:textAlignment="textEnd"
                                                 android:textColor="@color/black"
-                                                app:fontFamily="@font/tt_demibold" />
+                                                app:fontFamily="@font/sans_medium" />
 
                                             <TextView
                                                 android:layout_width="match_parent"
@@ -226,7 +225,7 @@
                                                 android:textAlignment="textEnd"
                                                 android:textColor="@color/black"
                                                 android:textSize="@dimen/sp12"
-                                                app:fontFamily="@font/tt_light" />
+                                                app:fontFamily="@font/tt_regular" />
                                         </LinearLayout>
 
 
@@ -258,7 +257,7 @@
                                             android:layout_marginStart="@dimen/dp10"
                                             android:layout_weight="1"
                                             android:text="Cashback won"
-                                            android:textSize="16sp"
+                                            android:textSize="14sp"
                                             android:textColor="@color/black"
                                             app:fontFamily="@font/tt_regular" />
 
@@ -278,7 +277,7 @@
                                                 android:textAlignment="textEnd"
                                                 android:textColor="@color/black"
                                                 android:textSize="16sp"
-                                                app:fontFamily="@font/tt_demibold" />
+                                                app:fontFamily="@font/sans_medium" />
 
                                             <TextView
                                                 android:layout_width="match_parent"
@@ -288,7 +287,7 @@
                                                 android:textAlignment="textEnd"
                                                 android:textColor="@color/black"
                                                 android:textSize="@dimen/sp12"
-                                                app:fontFamily="@font/tt_light" />
+                                                app:fontFamily="@font/tt_regular" />
                                         </LinearLayout>
 
 
@@ -321,7 +320,7 @@
                                             android:layout_weight="1"
                                             android:text="Outstanding Cashback"
                                             android:textColor="@color/black"
-                                            android:textSize="16sp"
+                                            android:textSize="14sp"
                                             app:fontFamily="@font/tt_regular" />
 
 
@@ -340,7 +339,7 @@
                                                 android:textAlignment="textEnd"
                                                 android:textSize="16sp"
                                                 android:textColor="@color/black"
-                                                app:fontFamily="@font/tt_demibold" />
+                                                app:fontFamily="@font/sans_medium" />
 
                                             <TextView
                                                 android:layout_width="match_parent"
@@ -350,7 +349,7 @@
                                                 android:textAlignment="textEnd"
                                                 android:textColor="@color/black"
                                                 android:textSize="@dimen/sp12"
-                                                app:fontFamily="@font/tt_light" />
+                                                app:fontFamily="@font/tt_regular" />
                                         </LinearLayout>
 
 
@@ -366,7 +365,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:text="@string/click_here_to_see_history_amp_transaction"
-                                android:textSize="16sp"
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular"
                                 android:textColor="@color/white"
                                 android:textAlignment="center"
                                 android:layout_marginTop="@dimen/dp10"
@@ -388,7 +388,7 @@
                                 android:text="Do more with Wallet balance"
                                 android:textColor="@color/black"
                                 android:textSize="16sp"
-                                app:fontFamily="@font/tt_demibold" />
+                                app:fontFamily="@font/sans_medium" />
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/allfeature"
@@ -429,7 +429,7 @@
                 android:layout_marginTop="10dp"
                 android:text="Please wait..."
                 android:textAlignment="center"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium" />
         </RelativeLayout>
 
@@ -459,7 +459,7 @@
                     android:gravity="center"
                     android:text="Connection error"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     app:fontFamily="@font/sans_medium" />
 
                 <TextView
@@ -470,7 +470,7 @@
                     android:text="Please refresh or restart you internet connection."
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -480,7 +480,7 @@
                     android:text="Pull down to Refresh this page."
                     android:textColor="@color/black"
                     android:textSize="14sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
 
 
             </LinearLayout>

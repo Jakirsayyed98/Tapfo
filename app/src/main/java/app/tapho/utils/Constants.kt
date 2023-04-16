@@ -12,6 +12,9 @@ const val CONTAINER_TYPE_KEY="container_type"
 const val DATA="data"
 const val DATA1="data1"
 
+
+const val imagebaseURL="https://tapfo.in/delta/public/storage/all_images/"
+
 const val OPERATOR="operator"
 const val SET_OLD_DATA="set_old_data"
 const val TITLE="title"

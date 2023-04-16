@@ -97,7 +97,7 @@
                                         android:text="@string/a"
                                         android:textAllCaps="true"
                                         android:textColor="@color/white"
-                                        android:textSize="20sp"
+                                        android:textSize="18sp"
                                         android:textStyle="bold" />
 
                                     <ImageView
@@ -136,7 +136,7 @@
                                 android:ellipsize="end"
                                 android:text="Jakir"
                                 android:textColor="@color/white"
-                                android:textSize="18sp"
+                                android:textSize="16sp"
                                 app:fontFamily="@font/tt_regular" />
 
 
@@ -212,7 +212,7 @@
                                         android:layout_above="@id/availbalance"
                                         android:text="Available Balance"
                                         android:textColor="@color/white"
-                                        android:textSize="15sp"
+                                        android:textSize="14sp"
                                         app:fontFamily="@font/tt_regular" />
 
                                     <TextView
@@ -224,9 +224,8 @@
                                         android:hint="₹0.00"
                                         android:text="₹0.00"
                                         android:textColor="@color/white"
-                                        android:textSize="30sp"
-                                        android:textStyle="bold"
-                                        app:fontFamily="@font/tt_bold" />
+                                        android:textSize="22sp"
+                                        app:fontFamily="@font/sans_medium" />
 
                                     <TextView
                                         android:id="@+id/AddBalance"
@@ -238,7 +237,7 @@
                                         android:textColor="@color/grey_dark"
                                         android:textSize="13sp"
                                         android:visibility="gone"
-                                        app:fontFamily="@font/tt_light" />
+                                        app:fontFamily="@font/tt_regular" />
 
 
                                 </LinearLayout>
@@ -280,9 +279,8 @@
                                             android:layout_marginTop="@dimen/dp2"
                                             android:text="₹0.00"
                                             android:textColor="@color/white"
-                                            android:textSize="18sp"
-                                            android:textStyle="bold"
-                                            app:fontFamily="@font/tt_bold" />
+                                            android:textSize="16sp"
+                                            app:fontFamily="@font/sans_medium" />
 
 
                                         <!--                                                            cashback_t_icon-->
@@ -326,9 +324,8 @@
                                             android:gravity="center_horizontal"
                                             android:text=""
                                             android:textColor="@color/white"
-                                            android:textSize="18sp"
-                                            android:textStyle="bold"
-                                            app:fontFamily="@font/tt_bold" />
+                                            android:textSize="16sp"
+                                            app:fontFamily="@font/sans_medium" />
 
 
                                     </LinearLayout>
@@ -451,8 +448,8 @@
                                         android:layout_height="wrap_content"
                                         android:text="Tapfo"
                                         android:textColor="@color/black"
-                                        android:textSize="20sp"
-                                        app:fontFamily="@font/tt_demibold" />
+                                        android:textSize="18sp"
+                                        app:fontFamily="@font/sans_medium" />
 
                                     <TextView
                                         android:layout_width="wrap_content"
@@ -463,9 +460,9 @@
                                         android:paddingEnd="@dimen/dp5"
                                         android:text="One "
                                         android:textColor="@color/green_dark"
-                                        android:textSize="20sp"
+                                        android:textSize="18sp"
                                         android:textStyle="italic|bold"
-                                        app:fontFamily="@font/tt_medium" />
+                                        app:fontFamily="@font/sans_medium" />
                                 </LinearLayout>
 
                                 <TextView
@@ -476,7 +473,7 @@
                                     android:paddingEnd="@dimen/dp10"
                                     android:text="Making every day simple "
                                     android:textColor="@color/grey_dark"
-                                    android:textSize="14sp"
+                                    android:textSize="13sp"
                                     app:fontFamily="@font/tt_regular" />
 
                                 <androidx.recyclerview.widget.RecyclerView
@@ -510,9 +507,8 @@
                                         android:paddingStart="@dimen/dp20"
                                         android:paddingEnd="@dimen/dp10"
                                         android:text="Recently"
-                                        android:textSize="20sp"
-                                        android:textStyle="bold"
-                                        app:fontFamily="@font/tt_medium" />
+                                        android:textSize="18sp"
+                                        app:fontFamily="@font/sans_medium" />
 
                                     <TextView
                                         android:layout_width="match_parent"
@@ -522,7 +518,7 @@
                                         android:paddingEnd="@dimen/dp10"
                                         android:text="Your recently visited store's"
                                         android:textColor="@color/grey_dark"
-                                        android:textSize="14sp"
+                                        android:textSize="13sp"
                                         app:fontFamily="@font/tt_regular" />
                                 </LinearLayout>
 
@@ -578,8 +574,8 @@
                                     android:layout_height="wrap_content"
                                     android:text="Tapfo"
                                     android:textColor="@color/black"
-                                    android:textSize="20sp"
-                                    app:fontFamily="@font/tt_demibold" />
+                                    android:textSize="18sp"
+                                    app:fontFamily="@font/sans_medium" />
 
                                 <TextView
                                     android:layout_width="wrap_content"
@@ -590,9 +586,9 @@
                                     android:paddingEnd="@dimen/dp5"
                                     android:text="Minis "
                                     android:textColor="@color/green_dark"
-                                    android:textSize="20sp"
+                                    android:textSize="18sp"
                                     android:textStyle="italic|bold"
-                                    app:fontFamily="@font/tt_medium" />
+                                    app:fontFamily="@font/sans_medium" />
                             </LinearLayout>
 
                             <TextView
@@ -603,7 +599,7 @@
                                 android:paddingEnd="@dimen/dp10"
                                 android:text="Popular Minis with Cashback too! "
                                 android:textColor="@color/grey_dark"
-                                android:textSize="14sp"
+                                android:textSize="13sp"
                                 app:fontFamily="@font/tt_regular" />
 
                             <androidx.recyclerview.widget.RecyclerView
@@ -674,9 +670,8 @@
                                     android:gravity="center_vertical"
                                     android:paddingStart="@dimen/dp10"
                                     android:text="Promoted"
-                                    android:textSize="20sp"
-                                    android:textStyle="bold"
-                                    app:fontFamily="@font/tt_medium" />
+                                    android:textSize="18sp"
+                                    app:fontFamily="@font/sans_medium" />
 
 
                                 <androidx.recyclerview.widget.RecyclerView
@@ -714,9 +709,8 @@
                                         android:gravity="center_vertical"
                                         android:paddingStart="@dimen/dp10"
                                         android:text="Favourites"
-                                        android:textSize="20sp"
-                                        android:textStyle="bold"
-                                        app:fontFamily="@font/tt_medium" />
+                                        android:textSize="18sp"
+                                        app:fontFamily="@font/sans_medium" />
 
 
                                     <TextView
@@ -728,8 +722,8 @@
                                         android:padding="@dimen/dp5"
                                         android:text="+ add more"
                                         android:textColor="@color/greenshade"
-                                        android:textSize="18sp"
-                                        app:fontFamily="@font/tt_demibold" />
+                                        android:textSize="14sp"
+                                        app:fontFamily="@font/tt_regular" />
                                 </LinearLayout>
 
 
@@ -794,7 +788,7 @@
                                     android:padding="@dimen/dp15"
                                     android:text="Super app \nfor Super People!"
                                     android:textColor="@color/grey_light"
-                                    android:textSize="35sp"
+                                    android:textSize="25sp"
                                     app:fontFamily="@font/kollektif_bold" />
 
 
@@ -807,7 +801,7 @@
                                     android:paddingBottom="@dimen/dp15"
                                     android:text="The more you Tap, The more you save"
                                     android:textColor="@color/grey_dark"
-                                    android:textSize="14sp"
+                                    android:textSize="13sp"
                                     app:fontFamily="@font/tt_regular" />
 
                                 <TextView
@@ -819,8 +813,8 @@
                                     android:text="@string/crafted_with_in_mumbai_india"
                                     android:textAlignment="center"
                                     android:textColor="@color/grey_light"
-                                    android:textSize="15sp"
-                                    app:fontFamily="@font/sans_bold" />
+                                    android:textSize="14sp"
+                                    app:fontFamily="@font/sans_medium" />
 
                                 <TextView
                                     android:id="@+id/endtoendencription"
@@ -831,7 +825,7 @@
                                     android:textAlignment="center"
                                     android:textColor="@color/green_dark"
                                     android:textSize="12sp"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/tt_regular" />
 
                                 <TextView
                                     android:id="@+id/android_v"
@@ -842,7 +836,7 @@
                                     android:textAlignment="center"
                                     android:textColor="@color/grey_light"
                                     android:textSize="12sp"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/tt_regular" />
 
                             </LinearLayout>
                         </LinearLayout>

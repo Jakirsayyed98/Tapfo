@@ -11,12 +11,12 @@
         android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="vertical"
         android:visibility="gone"
-        android:orientation="vertical">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
@@ -195,7 +195,7 @@
                             android:layout_marginTop="@dimen/dp5"
                             android:paddingStart="@dimen/dp5"
                             android:text="Played by you"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -227,7 +227,7 @@
                             android:layout_marginTop="@dimen/dp5"
                             android:paddingStart="@dimen/dp5"
                             android:text="My favourite games"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
                         <TextView
@@ -236,8 +236,8 @@
                             android:layout_marginStart="@dimen/dp10"
                             android:paddingStart="@dimen/dp5"
                             android:text="Play now"
-                            android:textSize="14sp"
-                            app:fontFamily="@font/sans_regular" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
 
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -267,7 +267,7 @@
                             android:layout_marginTop="@dimen/dp5"
                             android:paddingStart="@dimen/dp5"
                             android:text="Games by categories"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -305,8 +305,8 @@
                                 android:layout_marginTop="@dimen/dp5"
                                 android:paddingStart="@dimen/dp5"
                                 android:text="Featured games"
-                                android:textSize="20sp"
-                                app:fontFamily="@font/sans_medium" />
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium"/>
 
 
                             <ImageView
@@ -347,7 +347,7 @@
                                 android:layout_marginTop="@dimen/dp5"
                                 android:paddingStart="@dimen/dp5"
                                 android:text="Most played games"
-                                android:textSize="20sp"
+                                android:textSize="16sp"
                                 app:fontFamily="@font/sans_medium" />
 
                         </LinearLayout>
@@ -375,8 +375,8 @@
                             android:layout_marginTop="@dimen/dp5"
                             android:paddingStart="@dimen/dp5"
                             android:text="New game launch"
-                            android:textSize="20sp"
-                            app:fontFamily="@font/sans_medium" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium"/>
 
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -407,7 +407,7 @@
                             android:layout_marginTop="@dimen/dp5"
                             android:paddingStart="@dimen/dp5"
                             android:text="Action games"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -435,8 +435,8 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Adventure games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
-                            app:fontFamily="@font/sans_medium" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium"/>
 
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -463,8 +463,8 @@
                             android:layout_marginTop="@dimen/dp5"
                             android:paddingStart="@dimen/dp5"
                             android:text="Trending games"
-                            android:textSize="20sp"
-                            app:fontFamily="@font/sans_medium" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium"/>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -502,7 +502,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Puzzle games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -530,7 +530,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Logic games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -558,7 +558,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Sports games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -586,8 +586,8 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Racing games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
-                            app:fontFamily="@font/sans_medium" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium"/>
 
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -614,8 +614,8 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Battle games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
-                            app:fontFamily="@font/sans_medium" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium"/>
 
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -642,7 +642,7 @@
                             android:layout_marginTop="@dimen/dp5"
                             android:paddingStart="@dimen/dp5"
                             android:text="Popular games"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
                         <TextView
@@ -681,8 +681,8 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Cricket games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
-                            app:fontFamily="@font/sans_medium" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium"/>
 
 
                         <androidx.recyclerview.widget.RecyclerView
@@ -709,7 +709,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Cards games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -737,7 +737,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Zombies games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -765,7 +765,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Strategy games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -793,7 +793,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Arcade games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -821,7 +821,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Sports &amp; Racing games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -849,7 +849,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Puzzle &amp; Logic games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -878,7 +878,7 @@
                             android:paddingStart="@dimen/dp5"
                             android:text="Featured games"
                             android:textColor="@color/black"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -913,10 +913,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:indeterminateTint="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <RelativeLayout
@@ -945,7 +945,7 @@
                 android:gravity="center"
                 android:text="Something went wrong!"
                 android:textColor="@color/black"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium" />
 
             <TextView
@@ -956,22 +956,22 @@
                 android:text="Please refresh or restart you internet connection."
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/refresh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_marginTop="@dimen/dp25"
+                android:background="@drawable/button_boarder_2"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="Refresh this page."
+                android:textAllCaps="false"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:textAllCaps="false"
-                android:padding="10dp"
-                android:layout_gravity="center"
-                android:background="@drawable/button_boarder_2"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
 
         </LinearLayout>

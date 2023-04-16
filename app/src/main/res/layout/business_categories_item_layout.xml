@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/iv_partner"
-        android:layout_width="@dimen/dp50"
-        android:layout_height="@dimen/dp50"
+        android:layout_width="@dimen/dp45"
+        android:layout_height="@dimen/dp45"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp10"
         app:cardCornerRadius="@dimen/dp100"
@@ -48,7 +48,7 @@
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="11sp"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         tools:text="More" />
 
     <TextView
@@ -63,7 +63,7 @@
         android:maxLines="2"
         android:textColor="@color/black"
         android:textSize="@dimen/sp12"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         tools:text="Less" />
 
 

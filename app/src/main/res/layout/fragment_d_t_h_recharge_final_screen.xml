@@ -27,8 +27,8 @@
 
             <ImageView
                 android:id="@+id/backbtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -45,8 +45,8 @@
                 android:layout_marginEnd="@dimen/dp10"
                 android:text="DTH Recharge"
                 android:textColor="@color/white"
-                android:textSize="17sp"
-                app:fontFamily="@font/tt_demibold"
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/backbtn"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -78,7 +78,7 @@
             android:padding="@dimen/dp10"
             android:text="DTH Recharge"
             android:textSize="10sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
         <TextView
             android:id="@+id/Name"
@@ -87,8 +87,8 @@
             android:gravity="center"
             android:padding="@dimen/dp10"
             android:text="Jio Prepaid - Maharasthra"
-            android:textSize="20sp"
-            app:fontFamily="@font/sans_bold" />
+            android:textSize="16sp"
+            app:fontFamily="@font/sans_medium" />
 
         <TextView
             android:id="@+id/CutomerID"
@@ -106,8 +106,8 @@
             android:gravity="center"
             android:padding="@dimen/dp10"
             android:text="300"
-            android:textSize="30sp"
-            app:fontFamily="@font/sans_bold" />
+            android:textSize="20sp"
+            app:fontFamily="@font/sans_medium" />
 
 
         <TextView
@@ -124,7 +124,7 @@
             android:backgroundTint="@color/grey_v_light"
             android:text="dgfe yurfgyer ysdgfyery dfwergy serg sgwyr ergwr sgw4gge rwerwg8yrwergydgfw rwger8fgs rggsdbf wer"
             android:textSize="14sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
 
 
@@ -144,8 +144,7 @@
         android:text="@string/proceed_000"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp18"
-        android:textStyle="bold"
-        app:fontFamily="@font/sans_medium" />
+        android:textSize="@dimen/sp14"
+        app:fontFamily="@font/tt_regular" />
 
 </RelativeLayout>

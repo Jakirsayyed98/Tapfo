@@ -25,7 +25,7 @@
             android:layout_gravity="center"
             android:text="Oh! Something went wrong"
             android:textColor="@color/black"
-            android:textSize="@dimen/sp16" />
+            android:textSize="@dimen/sp14" />
 
         <TextView
             style="@style/TextViewNormal"
@@ -35,7 +35,7 @@
             android:gravity="center"
             android:text="Brace yourself till we get the error fixed. you may also refresh the page or check internet "
             android:textColor="@color/black"
-            android:textSize="@dimen/sp16" />
+            android:textSize="@dimen/sp14" />
 
     </LinearLayout>
 

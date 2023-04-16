@@ -48,8 +48,8 @@
                             android:paddingEnd="@dimen/dp20">
                             <ImageView
                                 android:id="@+id/backIv"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/new_back_btn" />
 
@@ -76,8 +76,8 @@
                                 android:background="@color/grey_dark"/>
                             <ImageView
                                 android:id="@+id/mic"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
                                 android:layout_gravity="center_vertical"
                                 android:src="@drawable/mic_icon" />
 
@@ -101,7 +101,7 @@
                             android:layout_marginTop="@dimen/dp10"
                             android:paddingRight="@dimen/dp10"
                             app:fontFamily="@font/sans_medium"
-                            android:textSize="18sp"/>
+                            android:textSize="16sp"/>
 
                         <androidx.recyclerview.widget.RecyclerView
                             android:id="@+id/recycler"
@@ -129,8 +129,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/trending_merchants"
                         android:textColor="@color/black"
-                        app:fontFamily="@font/sans_medium"
-                        android:textStyle="bold" />
+                        app:fontFamily="@font/sans_medium" />
 
                     <ImageView
                         android:id="@+id/trendingIv"
@@ -177,7 +176,7 @@
             android:layout_height="wrap_content"
             android:text="No Merchant Found"
             android:gravity="center"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/sans_medium"/>
     </LinearLayout>
 

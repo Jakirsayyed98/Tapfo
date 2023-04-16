@@ -25,7 +25,7 @@
         android:layout_marginTop="@dimen/dp5"
         android:textSize="@dimen/sp10"
         android:text="started"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         android:textSelectHandle="@color/green_dark"
         android:textColor="@color/black" />
 

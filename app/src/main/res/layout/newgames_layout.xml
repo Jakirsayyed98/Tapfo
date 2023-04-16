@@ -60,8 +60,8 @@
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginStart="@dimen/dp10"
@@ -102,7 +102,7 @@
                     android:gravity="start"
                     android:text="125M Plays"
                     android:textColor="@color/white"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:textSize="11sp" />
 
             </LinearLayout>

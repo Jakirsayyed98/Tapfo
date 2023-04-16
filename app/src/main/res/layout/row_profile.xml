@@ -51,7 +51,7 @@
                 android:textColor="#99333739"
                 android:textSize="11sp"
                 android:visibility="gone"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 tools:ignore="HardcodedText,RtlSymmetry" />
         </LinearLayout>
 

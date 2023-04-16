@@ -18,8 +18,8 @@
             android:layout_marginRight="@dimen/dp15"
             android:src="@drawable/cancel_btn_icon"
             android:text="Debit From"
-            android:textSize="16sp"
-            app:fontFamily="@font/sans_medium"
+            android:textSize="14sp"
+            app:fontFamily="@font/tt_regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:tint="@color/black" />
@@ -83,7 +83,7 @@
                             android:layout_height="wrap_content"
                             android:text="Tapfo Pay "
                             android:textColor="@color/black"
-                            android:textSize="16sp"
+                            android:textSize="15sp"
                             app:fontFamily="@font/sans_medium" />
 
 
@@ -94,8 +94,8 @@
                             android:layout_marginTop="@dimen/dp5"
                             android:text="Paytm"
                             android:textColor="@color/green_dark"
-                            android:textSize="14sp"
-                            app:fontFamily="@font/sans_medium" />
+                            android:textSize="13sp"
+                            app:fontFamily="@font/tt_regular" />
 
                     </LinearLayout>
 
@@ -134,7 +134,7 @@
                             android:layout_marginBottom="@dimen/dp10"
                             android:layout_weight="1"
                             android:text="Pay remaining Amount"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             app:fontFamily="@font/sans_medium" />
 
                         <TextView
@@ -148,7 +148,7 @@
                             android:gravity="end"
                             android:text=""
                             android:textSize="14sp"
-                            app:fontFamily="@font/sans_bold" />
+                            app:fontFamily="@font/sans_medium" />
                     </LinearLayout>
 
 

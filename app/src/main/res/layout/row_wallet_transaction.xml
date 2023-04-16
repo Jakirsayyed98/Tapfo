@@ -175,8 +175,8 @@
 
                         <ImageView
                             android:id="@+id/icon"
-                            android:layout_width="@dimen/dp50"
-                            android:layout_height="@dimen/dp50"
+                            android:layout_width="@dimen/dp55"
+                            android:layout_height="@dimen/dp55"
                             android:layout_margin="@dimen/dp10"
                             tools:background="@drawable/ic_add_circle" />
                     </androidx.cardview.widget.CardView>
@@ -198,7 +198,7 @@
                             android:layout_weight="1"
                             android:text="Mini Partner"
                             android:textColor="@color/grey_dark"
-                            android:textSize="13sp"
+                            android:textSize="12sp"
                             app:fontFamily="@font/tt_regular" />
 
 
@@ -209,10 +209,10 @@
                             android:layout_weight="1"
                             android:textColor="@color/black"
                             android:layout_gravity="center_vertical"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:ellipsize="end"
                             android:maxLines="1"
-                            app:fontFamily="@font/tt_medium" />
+                            app:fontFamily="@font/sans_medium" />
 
 
                         <TextView
@@ -225,7 +225,7 @@
                             android:layout_gravity="center_vertical"
                             android:textColor="@color/grey_dark"
                             android:textSize="12sp"
-                            app:fontFamily="@font/tt_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
                     </LinearLayout>
 
@@ -244,9 +244,8 @@
                             android:gravity="end"
                             android:textAlignment="textEnd"
                             android:textColor="@color/black"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            app:fontFamily="@font/tt_medium" />
+                            android:textSize="14sp"
+                            app:fontFamily="@font/tt_regular" />
 
                         <LinearLayout
                             android:layout_width="match_parent"

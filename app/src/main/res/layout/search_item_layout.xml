@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/iv_partner"
-        android:layout_width="@dimen/dp50"
-        android:layout_height="@dimen/dp50"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp10"
         app:cardCornerRadius="@dimen/dp100"
@@ -35,7 +35,7 @@
         android:paddingLeft="@dimen/dp5"
         android:paddingRight="@dimen/dp5"
         android:text="Cashback"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         android:textColor="@color/white"
         android:textSize="7dp" />
 
@@ -47,7 +47,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:ellipsize="end"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="11sp"
@@ -61,7 +61,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:ellipsize="end"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         android:maxLines="1"
         android:textColor="@color/black"
         android:textSize="@dimen/sp12"

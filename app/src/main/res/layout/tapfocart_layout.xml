@@ -15,19 +15,19 @@
 
         <ImageView
             android:id="@+id/image"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_gravity="center_vertical"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:background="@drawable/button_boarder_2"
-            android:padding="5dp"
+            android:padding="1dp"
             android:textColor="@color/black" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="5dp"
             android:layout_weight="1"
             android:orientation="vertical">
 
@@ -61,11 +61,20 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:layout_weight="1"
+                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
-
-                        <RelativeLayout
+                        <TextView
+                            android:id="@+id/disprice"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:fontFamily="@font/sans_medium"
+                            android:text="Cococola "
+                            android:textSize="13sp" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1">
 
                             <TextView
                                 android:id="@+id/price"
@@ -75,29 +84,22 @@
                                 android:fontFamily="@font/sans_medium"
                                 android:text="re15045"
                                 android:textColor="@color/grey_light"
-                                android:textSize="14sp" />
+                                android:textSize="11sp" />
 
                             <View
                                 android:layout_width="10dp"
                                 android:layout_height="0.8dp"
                                 android:layout_alignEnd="@+id/price"
                                 android:layout_alignParentStart="true"
+                                android:layout_alignParentTop="true"
                                 android:layout_gravity="center_vertical"
-                                android:layout_marginTop="10dp"
+                                android:layout_marginTop="7dp"
                                 android:layout_marginEnd="2dp"
                                 android:background="@color/grey_dark"
                                 android:gravity="center_vertical" />
                         </RelativeLayout>
 
-                        <TextView
-                            android:id="@+id/disprice"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="10dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/sans_medium"
-                            android:text="Cococola "
-                            android:textSize="14sp" />
+
 
                     </LinearLayout>
 
@@ -111,11 +113,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_weight="1"
                     android:gravity="start"
                     android:text="10% OFF"
                     android:textColor="@color/green_dark"
-                    android:textSize="12sp"
+                    android:textSize="13sp"
                     app:fontFamily="@font/tt_regular" />
             </LinearLayout>
 
@@ -129,19 +132,19 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="5dp"
             android:background="@drawable/button_boarder_2"
             android:backgroundTint="@color/green_light_bg"
             android:gravity="center"
             android:orientation="horizontal"
-            android:padding="5dp">
+            android:padding="3dp">
 
             <ImageView
                 android:id="@+id/less"
-                android:layout_width="25dp"
+                android:layout_width="15dp"
                 android:layout_height="25dp"
                 android:src="@drawable/minus_icon"
-                app:tint="@color/black" />
+                app:tint="@color/GreenWalletBackgroundDark" />
 
 
             <TextView
@@ -161,9 +164,10 @@
 
             <ImageView
                 android:id="@+id/add"
-                android:layout_width="25dp"
+                android:layout_width="15dp"
                 android:layout_height="25dp"
-                android:src="@drawable/baseline_add_24" />
+                android:src="@drawable/baseline_add_24"
+                app:tint="@color/GreenWalletBackgroundDark" />
 
         </LinearLayout>
 

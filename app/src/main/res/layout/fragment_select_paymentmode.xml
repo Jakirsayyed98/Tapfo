@@ -12,21 +12,22 @@
         android:id="@+id/constraintLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/GreenWalletBackgroundDark"
         android:paddingStart="@dimen/dp10"
-        android:paddingTop="@dimen/dp20"
+        android:paddingTop="10dp"
+        android:background="@color/white"
+        android:backgroundTint="@color/GreenWalletBackgroundDark"
         android:paddingEnd="@dimen/dp10"
         android:elevation="20dp"
-        android:paddingBottom="@dimen/dp20"
+        android:paddingBottom="@dimen/dp10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/backbtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="@dimen/dp5"
-            android:src="@drawable/new_back_btn"
+            android:layout_width="22dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="@dimen/dp15"
+            android:src="@drawable/arrow_back_btn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -37,14 +38,20 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/dp10"
+            android:paddingStart="8dp"
+            android:paddingTop="2dp"
             android:text="Pay bill"
+            android:letterSpacing="0.04"
             android:textColor="@color/white"
-            android:textSize="16sp"
-            app:fontFamily="@font/tt_medium"
+            android:layout_marginStart="@dimen/dp20"
+            android:textSize="15sp"
+            app:fontFamily="@font/tt_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/backbtn"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

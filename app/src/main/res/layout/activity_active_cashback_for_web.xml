@@ -566,7 +566,7 @@
                     android:layout_height="wrap_content"
                     android:text="About Cashback Offer"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
+                    android:textSize="16sp"
                     android:layout_marginTop="@dimen/dp20"
                     app:fontFamily="@font/sans_medium" />
 
@@ -575,10 +575,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp10"
-                    android:paddingStart="@dimen/dp40"
+                    android:paddingStart="@dimen/dp10"
                     android:text="• Applicable on D omestic flights "
                     android:textColor="@color/grey_dark"
-                    android:textSize="12sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/tt_regular" />
 <!--                Things to note-->
                 <LinearLayout
@@ -593,7 +593,7 @@
                         android:text="Things to note"
                         android:textColor="@color/black"
                         android:textSize="16sp"
-                        app:fontFamily="@font/tt_bold" />
+                        app:fontFamily="@font/sans_medium" />
 
                     <LinearLayout
                         android:layout_width="match_parent"

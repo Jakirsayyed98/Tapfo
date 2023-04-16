@@ -41,8 +41,8 @@
                         android:layout_height="wrap_content"
                         android:text="Enter Passcode"
                         android:textColor="@color/black"
-                        android:textSize="25sp"
-                        app:fontFamily="@font/sans_bold" />
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
 
                     <TextView
                         android:id="@+id/numberTv"
@@ -73,6 +73,7 @@
                         app:itemRadius="@dimen/dp10"
                         app:itemSpacing="@dimen/dp20"
                         app:itemWidth="@dimen/dp50"
+
                         app:lineColor="@color/black" />
 
                     <LinearLayout
@@ -92,7 +93,7 @@
                             android:text="@string/passcode_was_incorrect_otp_login"
                             android:textColor="#333739"
                             android:textSize="12sp"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
                     </LinearLayout>
 
                     <androidx.appcompat.widget.AppCompatButton
@@ -110,8 +111,8 @@
                         android:paddingBottom="@dimen/dp10"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/sp20"
-                        app:fontFamily="@font/tt_medium" />
+                        android:textSize="@dimen/sp14"
+                        app:fontFamily="@font/tt_regular" />
 
                     <TextView
                         android:id="@+id/loginwithOTP1"
@@ -122,7 +123,7 @@
                         android:letterSpacing="0.01"
                         android:lineSpacingExtra="@dimen/dp2"
                         android:textColor="#333739"
-                        android:textSize="14sp"
+                        android:textSize="13sp"
                         app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>

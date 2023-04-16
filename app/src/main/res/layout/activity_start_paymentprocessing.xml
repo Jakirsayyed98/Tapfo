@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Please wait, while we process\nyour Payment...."
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/sans_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +94,7 @@
                         android:text="Processing Payment"
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_medium" />
 
                     <TextView
                         android:id="@+id/timer"
@@ -150,7 +150,7 @@
                         android:text="Processing Recharge"
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_medium" />
 
                     <TextView
                         android:id="@+id/mobileNumber"
@@ -193,7 +193,7 @@
                         android:text="Payment Sucessful"
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_medium" />
 
                     <TextView
                         android:id="@+id/AddMoneyAmount"
@@ -249,7 +249,7 @@
                 android:text="Processing Payment"
                 android:textColor="#189C1E"
                 android:textSize="14sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_medium" />
 
             <LinearLayout
                 android:layout_width="wrap_content"

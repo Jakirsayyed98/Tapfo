@@ -25,13 +25,13 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:text="Tapfo Reward"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/sans_medium" />
 
 
         <ImageView
-            android:layout_width="@dimen/dp45"
-            android:layout_height="@dimen/dp45"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
             android:src="@drawable/running_t_icon" />
     </LinearLayout>
 
@@ -63,8 +63,8 @@
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="@dimen/dp40"
-                android:layout_height="@dimen/dp40"
+                android:layout_width="@dimen/dp35"
+                android:layout_height="@dimen/dp35"
                 android:layout_margin="@dimen/dp10"
                 tools:background="@drawable/ic_add_circle" />
         </androidx.cardview.widget.CardView>
@@ -85,7 +85,7 @@
                 android:maxLines="2"
                 android:text="₹30 Cashback Pending from Swiggy"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/sans_medium" />
 
             <TextView
@@ -97,7 +97,7 @@
                 android:maxLines="2"
                 android:text="Cashback Store : Swiggy"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
             <TextView
                 android:id="@+id/orderID"
@@ -107,8 +107,8 @@
                 android:ellipsize="end"
                 android:maxLines="1"
                 android:text="ID: 6789087GYHHHY...."
-                android:textSize="10sp"
-                app:fontFamily="@font/sans_medium" />
+                android:textSize="12sp"
+                app:fontFamily="@font/tt_regular" />
 
         </LinearLayout>
 
@@ -128,7 +128,7 @@
                 android:text="₹200.90"
                 android:textAlignment="textEnd"
                 android:textColor="@color/black"
-                android:textSize="17sp"
+                android:textSize="15sp"
                 app:fontFamily="@font/sans_medium" />
 
             <TextView
@@ -141,7 +141,7 @@
                 android:text="2.3%"
                 android:textAlignment="textEnd"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -151,7 +151,7 @@
                 android:text="Cashback"
                 android:textAlignment="textEnd"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
             <TextView
                 android:id="@+id/date"
@@ -163,7 +163,7 @@
                 android:text="23rd May 2022"
                 android:textAlignment="textEnd"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
         </LinearLayout>
 
@@ -200,7 +200,7 @@
         android:text="Track the live status of Reward till validation period "
         android:textColor="@color/grey_dark"
         android:textSize="12sp"
-        app:fontFamily="@font/sans_medium" />
+        app:fontFamily="@font/tt_regular" />
 
     <RelativeLayout
         android:id="@+id/Visibility_layout"
@@ -247,7 +247,7 @@
                     android:layout_marginLeft="@dimen/dp5"
                     android:text="@string/your_transcation_has_been"
                     android:textSize="12sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
             </LinearLayout>
 
             <LinearLayout
@@ -270,7 +270,7 @@
                     android:layout_marginLeft="@dimen/dp5"
                     android:text="@string/cashback_has_been_released"
                     android:textSize="12sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
             </LinearLayout>
 
             <LinearLayout
@@ -299,7 +299,7 @@
                         android:layout_marginLeft="@dimen/dp5"
                         android:text="@string/swiggy_outstanding_cashback_for_validation"
                         android:textSize="12sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
 
                     <TextView
@@ -311,7 +311,7 @@
                         android:text="Validation period over till 31 Dec, 2022"
                         android:textColor="@color/grey_dark"
                         android:textSize="12sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -338,7 +338,7 @@
                     android:textSize="12sp"
                     android:maxLines="2"
                     android:autoSizeTextType="uniform"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
             </LinearLayout>
 
             <LinearLayout
@@ -361,7 +361,7 @@
                     android:layout_marginLeft="@dimen/dp5"
                     android:text="Rewards has been credited to Tapfo Pay Wallet."
                     android:textSize="12sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
             </LinearLayout>
 
 
@@ -377,8 +377,8 @@
         android:layout_marginLeft="@dimen/dp5"
         android:layout_marginTop="@dimen/dp15"
         android:text="@string/read_terms_conditions"
-        android:textSize="14sp"
-        app:fontFamily="@font/sans_medium" />
+        android:textSize="12sp"
+        app:fontFamily="@font/tt_regular" />
 
 
     <LinearLayout
@@ -401,7 +401,7 @@
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="14sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
     </LinearLayout>
 

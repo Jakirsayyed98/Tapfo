@@ -26,8 +26,8 @@
         android:paddingEnd="@dimen/dp20">
         <ImageView
             android:id="@+id/backIv"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/new_back_btn" />
 
@@ -40,14 +40,14 @@
             android:gravity="center_vertical"
             android:layout_marginStart="10dp"
             android:background="@color/transparent"
-            app:fontFamily="@font/sans_medium"
             android:imeOptions="actionDone"
             android:focusableInTouchMode="true"
             android:clickable="true"
             android:focusable="true"
             android:hint="Search Ludo,Race and many more"
             android:maxLines="1"
-            android:textSize="@dimen/sp12" />
+            app:fontFamily="@font/sans_medium"
+            android:textSize="16sp" />
 
         <View
             android:layout_width="1dp"
@@ -58,8 +58,8 @@
             android:background="@color/grey_dark"/>
         <ImageView
             android:id="@+id/mic"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/mic_icon" />
 

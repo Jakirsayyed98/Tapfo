@@ -44,7 +44,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         statusBarColor(R.color.white)
         getSharedPreference().saveBoolean(REACHED_HOME, true)
         setTab()
-        tabClicked(binding.homeTab)
+     //   tabClicked(binding.homeTab)
         updateFirebaseToken()
         addFragment(HomeTabFragment.newInstance())
 //        addFragment(HomeFragment.newInstance())

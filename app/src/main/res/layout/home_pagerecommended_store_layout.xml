@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="@dimen/dp50"
-            android:layout_height="@dimen/dp50"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_centerHorizontal="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="@dimen/dp10"
@@ -54,7 +54,7 @@
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="@dimen/sp12"
-            app:fontFamily="@font/sans_medium"
+            app:fontFamily="@font/tt_regular"
             tools:text="Earn Upto 12% Cashback" />
 
         <TextView

@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/backbtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -55,8 +55,8 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="@dimen/dp80"
-                        android:layout_height="@dimen/dp80"
+                        android:layout_width="@dimen/dp60"
+                        android:layout_height="@dimen/dp60"
                         android:src="@drawable/layered_security" />
 
 
@@ -66,9 +66,8 @@
                         android:layout_marginTop="@dimen/dp10"
                         android:text="Layered security"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/tt_bold"
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium"
                         />
 
                     <TextView
@@ -88,7 +87,6 @@
                     android:layout_marginTop="@dimen/dp15"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout8" />
 
                 <LinearLayout
@@ -109,9 +107,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/dp10"
                         android:text="Your Data is Protected"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/tt_bold" />
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
 
                     <TextView
                         android:layout_width="match_parent"

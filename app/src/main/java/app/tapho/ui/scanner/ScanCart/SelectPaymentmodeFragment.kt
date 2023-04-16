@@ -145,12 +145,7 @@ class SelectPaymentmodeFragment : BaseFragment<FragmentSelectPaymentmodeBinding>
         getSharedPreference().getBusinessData().let {
             _binding!!.apply {
                 storename.text = it!!.business_name
-                storeaddress.text = it.area
-                cartid.text = "CART ID: " + getSharedPreference().getString(CART_ID).toString()
-                time.text = SimpleDateFormat(
-                    "dd-MMM-yyyy",
-                    Locale.ENGLISH
-                ).format(Calendar.getInstance().time)
+                storeaddress.text = it.address
             }
         }
     }

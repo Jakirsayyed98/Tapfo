@@ -45,7 +45,7 @@
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     android:visibility="gone"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:gravity="center"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />

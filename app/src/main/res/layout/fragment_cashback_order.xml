@@ -41,8 +41,8 @@
 
                     <ImageView
                         android:id="@+id/back_btn"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_marginLeft="@dimen/dp15"
                         android:layout_gravity="center_vertical"
                         android:src="@drawable/new_back_btn"
@@ -54,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
                         android:layout_marginLeft="@dimen/dp20"
-                        android:textSize="30sp"
+                        android:textSize="20sp"
                         app:fontFamily="@font/sans_medium"/>
 
                 </LinearLayout>
@@ -88,10 +88,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:gravity="center"
-                            app:fontFamily="@font/sans_medium"
-                            android:textStyle="bold"/>
+                            app:fontFamily="@font/sans_medium" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -113,9 +112,8 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"
                             android:gravity="center"
-                            android:textSize="16sp"
-                            app:fontFamily="@font/sans_medium"
-                            android:textStyle="bold"/>
+                            android:textSize="14sp"
+                            app:fontFamily="@font/sans_medium" />
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -136,10 +134,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:textColor="@color/white"
-                            android:textSize="16sp"
+                            android:textSize="14sp"
                             android:gravity="center"
-                            app:fontFamily="@font/sans_medium"
-                            android:textStyle="bold"/>
+                            app:fontFamily="@font/sans_medium" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -164,7 +161,7 @@
                     android:textSize="12sp"
                     android:layout_marginStart="@dimen/dp5"
                     android:ellipsize="end"
-                    app:fontFamily="@font/sans_medium"/>
+                    app:fontFamily="@font/tt_regular"/>
                 </LinearLayout>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -209,9 +206,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="You’ve no transcations..."
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium"
-                android:textStyle="bold"
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_marginTop="@dimen/dp10"/>
@@ -228,7 +224,7 @@
                 android:gravity="center"
                 android:textColor="#565656"
                 android:lineSpacingExtra="1dp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
 
         </LinearLayout>

@@ -12,16 +12,16 @@
         android:id="@+id/constraintLayout8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="@dimen/dp10"
         android:layout_marginTop="10dp"
+        android:padding="@dimen/dp10"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <ImageView
             android:id="@+id/backIv"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginStart="@dimen/dp5"
             android:src="@drawable/new_back_btn"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -35,10 +35,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp10"
             android:paddingStart="@dimen/dp10"
-            android:textColor="@color/black"
-            android:textSize="18sp"
             android:text="Edit Profile"
-            app:fontFamily="@font/tt_medium"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:fontFamily="@font/sans_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/backIv"
             app:layout_constraintTop_toTopOf="parent" />
@@ -71,11 +71,11 @@
                 android:id="@+id/nameEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textSize="20sp"
-                app:fontFamily="@font/tt_medium"
                 android:imeOptions="actionDone"
-                app:cursorColor="@color/black" />
+                android:inputType="text"
+                android:textSize="16sp"
+                app:cursorColor="@color/black"
+                app:fontFamily="@font/sans_medium" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -97,19 +97,20 @@
                 android:id="@+id/emailEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:textSize="20sp"
-                app:fontFamily="@font/tt_medium"
                 android:imeOptions="actionDone"
-                app:cursorColor="@color/black" />
+                android:inputType="text"
+                app:fontFamily="@font/sans_medium"
+                android:textSize="16sp"
+                app:cursorColor="@color/black"
+                 />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:layout_marginTop="@dimen/dp30">
+            android:layout_marginTop="@dimen/dp30"
+            android:visibility="gone">
 
             <LinearLayout
                 android:id="@+id/date"
@@ -126,10 +127,10 @@
                     android:id="@+id/birthdayEt"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:hint="01-01-2001"
                     android:layout_margin="@dimen/dp5"
-                    android:textSize="20sp" />
+                    android:hint="01-01-2001"
+                    android:textSize="14sp"
+                    />
             </LinearLayout>
 
             <TextView
@@ -151,16 +152,16 @@
             style="@style/TextViewNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
             android:layout_marginTop="@dimen/dp20"
-            android:text="@string/gender" />
+            android:text="@string/gender"
+            android:visibility="gone" />
 
         <RadioGroup
             android:id="@+id/rgGender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="gone">
 
             <RadioButton
                 android:id="@+id/maleRb"
@@ -184,20 +185,19 @@
     </LinearLayout>
 
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnUpdateProfile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp50"
         android:layout_marginStart="30dp"
+        android:layout_marginTop="@dimen/dp50"
         android:layout_marginEnd="30dp"
         android:layout_marginBottom="@dimen/dp5"
         android:background="@drawable/login_btn1"
         android:text="Continue"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp18"
-        app:fontFamily="@font/tt_medium" />
+        android:textSize="@dimen/sp14"
+        app:fontFamily="@font/tt_regular" />
 
 </LinearLayout>

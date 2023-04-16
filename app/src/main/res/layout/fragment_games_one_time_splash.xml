@@ -26,8 +26,7 @@
         android:text="Get Started!"
         android:textAllCaps="false"
         android:textColor="@color/lightpurple4"
-        app:fontFamily="@font/sans_medium"
-        app:cornerRadius="@dimen/dp10"
-        android:textStyle="bold"/>
+        app:fontFamily="@font/tt_regular"
+        app:cornerRadius="@dimen/dp10" />
 
 </RelativeLayout>

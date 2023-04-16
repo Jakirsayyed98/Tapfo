@@ -43,7 +43,7 @@
                 android:paddingStart="@dimen/dp10"
                 android:text="Book Ride"
                 android:textColor="@color/white"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/backbtn"

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/dp15"
         android:layout_marginLeft="@dimen/dp15"
-        android:layout_marginRight="@dimen/dp15"
         android:layout_marginTop="@dimen/dp5"
-        android:layout_marginBottom="@dimen/dp5">
+        android:layout_marginRight="@dimen/dp15"
+        android:layout_marginBottom="@dimen/dp5"
+        app:cardCornerRadius="@dimen/dp15">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                         android:id="@+id/profile_icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="@dimen/dp1"/>
+                        android:layout_margin="@dimen/dp1" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -49,10 +49,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/banner"
-                    android:layout_toEndOf="@+id/profile_card"
                     android:layout_marginLeft="@dimen/dp10"
                     android:layout_marginTop="@dimen/dp10"
                     android:layout_marginRight="@dimen/dp10"
+                    android:layout_toEndOf="@+id/profile_card"
                     android:orientation="vertical">
 
                     <TextView
@@ -62,47 +62,47 @@
                         android:ellipsize="end"
                         android:maxLines="1"
                         android:text="Jakir Sayyed"
+                        android:textColor="@color/black"
                         android:textSize="16sp"
-                        app:fontFamily="@font/sans_bold"
-                        android:textColor="@color/black" />
+                        app:fontFamily="@font/sans_bold" />
 
                     <TextView
                         android:id="@+id/create_at"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:visibility="gone"
-                        android:maxLines="2"
-                        android:text="@string/your_business_submitted_on_jul_1_2022_at_3_355_pm_is_being_processed"
-                        android:textSize="11sp"
                         android:drawableStart="@drawable/create_watch"
                         android:drawablePadding="@dimen/dp10"
-                        app:fontFamily="@font/sans_medium"
-                        android:textColor="@color/grey_dark" />
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="@string/your_business_submitted_on_jul_1_2022_at_3_355_pm_is_being_processed"
+                        android:textColor="@color/grey_dark"
+                        android:textSize="11sp"
+                        android:visibility="gone"
+                        app:fontFamily="@font/sans_medium" />
 
                     <TextView
                         android:id="@+id/profile_status"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:layout_marginBottom="@dimen/dp10"
+                        android:drawablePadding="@dimen/dp10"
                         android:ellipsize="end"
                         android:maxLines="2"
                         android:text="PENDING"
-                        android:layout_marginTop="@dimen/dp5"
+                        android:textColor="@color/orange"
                         android:textSize="11sp"
-                        android:drawablePadding="@dimen/dp10"
-                        app:fontFamily="@font/sans_medium"
-                        android:layout_marginBottom="@dimen/dp10"
-                        android:textColor="@color/orange" />
+                        app:fontFamily="@font/sans_medium" />
                 </LinearLayout>
             </RelativeLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp1"
-                android:background="@color/grey_v_light"
                 android:layout_marginLeft="@dimen/dp10"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="@dimen/dp10"
-                android:layout_marginRight="10dp"/>
+                android:background="@color/grey_v_light" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -111,6 +111,7 @@
                 android:layout_marginRight="@dimen/dp10"
                 android:layout_marginBottom="@dimen/dp10"
                 android:orientation="horizontal">
+
                 <com.google.android.material.chip.ChipGroup
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -120,11 +121,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Bizz Card"
-                        android:textSize="14sp"
                         android:textColor="@color/white"
-                        app:fontFamily="@font/sans_medium"
-                        app:chipBackgroundColor="@color/black"/>
-
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/black"
+                        app:fontFamily="@font/sans_medium" />
 
 
                     <com.google.android.material.chip.Chip
@@ -132,20 +132,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Edit / Setting"
-                        android:textSize="14sp"
                         android:textColor="@color/white"
-                        app:fontFamily="@font/sans_medium"
-                        app:chipBackgroundColor="@color/black"/>
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/black"
+                        app:fontFamily="@font/sans_medium" />
 
                     <com.google.android.material.chip.Chip
                         android:id="@+id/rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Rating and Reviews"
-                        android:textSize="14sp"
                         android:textColor="@color/white"
-                        app:fontFamily="@font/sans_medium"
-                        app:chipBackgroundColor="@color/black"/>
+                        android:textSize="14sp"
+                        app:chipBackgroundColor="@color/black"
+                        app:fontFamily="@font/sans_medium" />
                 </com.google.android.material.chip.ChipGroup>
             </LinearLayout>
 

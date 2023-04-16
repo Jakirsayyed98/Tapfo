@@ -25,9 +25,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Bottle Shoot"
-            android:textSize="23dp"
-            android:textStyle="bold"
-            app:fontFamily="@font/sans_bold" />
+            android:textSize="18dp"
+            app:fontFamily="@font/sans_medium" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,7 +41,7 @@
                 android:layout_weight="1"
                 android:text="@string/game_discription"
                 android:textColor="#9A9393"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 android:textSize="12sp" />
 
             <androidx.cardview.widget.CardView
@@ -78,9 +77,8 @@
                 android:layout_weight="1"
                 android:text="23.8M Plays"
                 android:textColor="@color/black"
-                app:fontFamily="@font/sans_medium"
-                android:textSize="12dp"
-                android:textStyle="bold" />
+                app:fontFamily="@font/tt_regular"
+                android:textSize="12dp" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/rating_card"
@@ -151,8 +149,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp10"
             android:text="Must try"
-            app:fontFamily="@font/sans_medium"
-            android:textStyle="bold" />
+            app:fontFamily="@font/tt_regular"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/must_try"
@@ -167,7 +165,7 @@
             android:layout_weight="1"
             android:text="Are you sure want to exit this game ?"
             android:textColor="@color/black"
-            app:fontFamily="@font/sans_medium"
+            app:fontFamily="@font/tt_regular"
             android:textSize="12dp" />
 
         <LinearLayout
@@ -184,7 +182,7 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/button_border"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 android:paddingLeft="@dimen/dp5"
                 android:paddingRight="5dp"
                 android:text="RESUME"
@@ -199,7 +197,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/button_border"
                 android:textColor="@color/green_dark"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 android:text="EXIT"
                 android:textSize="12sp" />
         </LinearLayout>

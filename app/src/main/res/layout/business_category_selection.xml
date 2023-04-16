@@ -5,8 +5,8 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:paddingStart="@dimen/dp10"
-    android:paddingEnd="@dimen/dp10"
     android:paddingTop="@dimen/dp5"
+    android:paddingEnd="@dimen/dp10"
     android:paddingBottom="@dimen/dp5">
 
     <TextView

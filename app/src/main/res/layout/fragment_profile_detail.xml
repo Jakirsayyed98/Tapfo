@@ -30,8 +30,8 @@
 
             <ImageView
                 android:id="@+id/backIv"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -47,8 +47,7 @@
                 android:layout_marginEnd="@dimen/dp10"
                 android:paddingStart="@dimen/dp10"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/backIv"
@@ -100,8 +99,8 @@
                                 android:layout_weight="1"
                                 android:text="Jakir"
                                 android:textColor="@color/white"
-                                android:textSize="20sp"
-                                app:fontFamily="@font/tt_medium" />
+                                android:textSize="16sp"
+                                app:fontFamily="@font/sans_medium" />
 
                             <TextView
                                 android:id="@+id/editProfile"
@@ -188,7 +187,6 @@
                                         android:layout_height="wrap_content"
                                         android:text="Total Rewards"
                                         android:textSize="16sp"
-
                                         android:textColor="@color/white"
                                         app:fontFamily="@font/tt_medium" />
 
@@ -218,7 +216,7 @@
                                         android:gravity="center_vertical"
                                         android:text="10202"
                                         android:textColor="@color/white"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
 
 
                                 </LinearLayout>
@@ -274,8 +272,7 @@
                         android:text="@string/tapfo"
                         android:textColor="@color/grey_dark"
                         android:textSize="16sp"
-                        android:textStyle="bold"
-                        app:fontFamily="@font/sans_bold" />
+                        app:fontFamily="@font/sans_medium" />
 
                     <TextView
                         android:id="@+id/vname"
@@ -286,7 +283,7 @@
                         android:text="v.12.4.5"
                         android:textColor="@color/grey_dark"
                         android:textSize="14sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
 
             </LinearLayout>

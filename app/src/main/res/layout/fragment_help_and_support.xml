@@ -24,8 +24,8 @@
 
             <ImageView
                 android:id="@+id/backbutton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/dp20"
             android:text="Help &amp; Support"
-            android:textSize="30sp"
+            android:textSize="20sp"
             app:fontFamily="@font/sans_medium" />
 
 
@@ -58,7 +58,7 @@
             android:paddingLeft="@dimen/dp20"
             android:text="Customer support  24x7 "
             android:textSize="14sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
 
         <TextView
@@ -70,7 +70,7 @@
             android:text="FAQ’s"
             android:textColor="@color/grey_dark"
             android:textSize="14sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

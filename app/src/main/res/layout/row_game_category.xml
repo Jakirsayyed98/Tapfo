@@ -57,7 +57,7 @@
                     android:textColor="@color/white"
                     android:textSize="14sp"
                     android:gravity="center"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -79,7 +79,7 @@
                     android:textSize="@dimen/sp14"
                     android:layout_weight="1"
                     android:maxLines="1"
-                    app:fontFamily="@font/sans_medium"/>
+                    app:fontFamily="@font/tt_regular"/>
 
             </LinearLayout>
 
@@ -95,7 +95,7 @@
                 android:layout_marginTop="@dimen/dp5"
                 android:textSize="@dimen/sp12"
                 android:layout_marginBottom="@dimen/dp10"
-                app:fontFamily="@font/sans_regular"/>
+                app:fontFamily="@font/tt_regular"/>
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

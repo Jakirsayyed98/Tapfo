@@ -63,7 +63,7 @@
                     android:text="Buy Clogs in every Style"
                     android:textColor="@color/black"
                     android:textSize="9sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
             </LinearLayout>
 
             <androidx.cardview.widget.CardView

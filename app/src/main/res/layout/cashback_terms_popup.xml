@@ -26,13 +26,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="@string/pending_credits"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:layout_weight="1"
             app:fontFamily="@font/sans_medium" />
 
         <ImageView
-            android:layout_width="@dimen/dp45"
-            android:layout_height="@dimen/dp45"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
             android:src="@drawable/running_t_icon"/>
 
     </LinearLayout>
@@ -44,7 +44,7 @@
         android:layout_marginTop="15dp"
         android:text="@string/All_pending_cashback_transactions"
         android:textColor="@color/grey_dark"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         android:textSize="13sp" />
 
     <TextView
@@ -55,7 +55,7 @@
         android:layout_marginTop="@dimen/dp15"
         android:text="@string/read_terms_conditions"
         android:textSize="14sp"
-        app:fontFamily="@font/sans_medium" />
+        app:fontFamily="@font/tt_regular" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -70,6 +70,6 @@
         android:text="Okay, Got it"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:fontFamily="@font/sans_medium" />
+        app:fontFamily="@font/tt_regular" />
 
 </LinearLayout>

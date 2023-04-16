@@ -14,7 +14,7 @@
         android:paddingBottom="@dimen/dp15"
         android:text="Mumbai"
         android:textSize="14sp"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

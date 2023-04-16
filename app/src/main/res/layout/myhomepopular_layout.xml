@@ -25,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/icon"
-                android:layout_width="65dp"
-                android:layout_height="@dimen/dp65"
+                android:layout_width="55dp"
+                android:layout_height="@dimen/dp55"
                 android:layout_marginTop="@dimen/dp10"
                 app:cardCornerRadius="@dimen/dp100"
                 android:layout_gravity="center_horizontal"
@@ -42,7 +42,7 @@
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:textSize="@dimen/sp12"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 android:layout_gravity="center_horizontal"
                 tools:text="Earn Upto 12% Cashback" />
 
@@ -58,7 +58,7 @@
                 android:textColor="@color/grey_dark"
                 android:autoSizeTextType="uniform"
                 android:textSize="@dimen/sp12"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 tools:text="Domi\nno\nes" />
 
             <TextView
@@ -77,7 +77,7 @@
                 android:visibility="gone"
                 android:paddingRight="@dimen/dp5"
                 android:text="Cashback"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 android:textColor="@color/white"
                 android:textSize="8dp" />
 

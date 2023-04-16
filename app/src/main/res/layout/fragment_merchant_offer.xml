@@ -32,7 +32,6 @@
             android:layout_marginStart="@dimen/dp15"
             android:text="Save more from 900+ Merchant's Deals, Offer &amp; Coupons"
             android:textColor="@color/black"
-            android:textStyle="bold"
             app:fontFamily="@font/sans_medium" />
 
         <ImageView
@@ -68,8 +67,8 @@
             android:inputType="text"
             android:maxLines="1"
 
-            android:textSize="@dimen/sp14"
-            app:fontFamily="@font/sans_regular"
+            app:fontFamily="@font/sans_medium"
+            android:textSize="16sp"
             android:drawableTint="@color/grey_dark"
             app:drawableStartCompat="@drawable/ic_search" />
 

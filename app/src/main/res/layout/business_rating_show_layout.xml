@@ -51,8 +51,7 @@
                             android:maxLength="1"
                             android:textAllCaps="true"
                             android:textColor="@color/white"
-                            android:textSize="20sp"
-                            android:textStyle="bold"
+                            android:textSize="14sp"
                             app:fontFamily="@font/sans_medium" />
 
                     </FrameLayout>
@@ -77,7 +76,7 @@
                     android:layout_marginRight="@dimen/dp10"
                     android:maxLines="1"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/sans_medium" />
 
 
@@ -111,7 +110,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="13sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
 
                     <TextView
@@ -123,7 +122,7 @@
                         android:layout_marginBottom="@dimen/dp5"
                         android:maxLines="1"
                         android:textSize="11sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
 
                 </LinearLayout>

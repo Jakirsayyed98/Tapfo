@@ -69,7 +69,7 @@
                         android:inputType="text"
                         android:textSize="16sp"
                         app:cursorColor="@color/black"
-                        app:fontFamily="@font/tt_medium" />
+                        app:fontFamily="@font/sans_medium"/>
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +95,7 @@
                         android:inputType="textEmailAddress"
                         android:textSize="16sp"
                         app:cursorColor="@color/black"
-                        app:fontFamily="@font/tt_medium" />
+                        app:fontFamily="@font/sans_medium" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -124,8 +124,8 @@
                     android:text="Do you have friend's invite code?\n click here"
                     android:textAlignment="center"
                     android:textColor="#277586"
-                    android:textSize="16sp"
-                    app:fontFamily="@font/tt_medium" />
+                    android:textSize="14sp"
+                    app:fontFamily="@font/tt_regular" />
 
                 <TextView
                     android:id="@+id/errorcodeTV"
@@ -138,7 +138,7 @@
                     android:textColor="#277586"
                     android:textSize="12sp"
                     android:visibility="gone"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_medium" />
             </LinearLayout>
 
             <androidx.appcompat.widget.AppCompatButton
@@ -155,8 +155,8 @@
                 android:text="Get Started"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="@dimen/sp20"
-                app:fontFamily="@font/sans_medium" />
+                android:textSize="@dimen/sp14"
+                app:fontFamily="@font/tt_regular" />
 
         </RelativeLayout>
 

@@ -49,14 +49,14 @@
                         android:layout_height="wrap_content"
                         android:text="Payment Options"
                         android:textSize="16sp"
-                        app:fontFamily="@font/sans_bold" />
+                        app:fontFamily="@font/sans_medium" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="select an option to pay"
                         android:textSize="12sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -120,7 +120,7 @@
                             android:id="@+id/numberandCircle"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/sans_medium"
+                            android:fontFamily="@font/tt_regular"
                             android:textColor="@color/black"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -132,7 +132,7 @@
                         android:layout_gravity="center_vertical"
                         android:textColor="@color/black"
                         android:textSize="16sp"
-                        app:fontFamily="@font/sans_bold" />
+                        app:fontFamily="@font/sans_medium" />
                 </LinearLayout>
 
                 <View
@@ -174,7 +174,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Tapfo"
                                 android:textSize="14sp"
-                                app:fontFamily="@font/sans_bold" />
+                                app:fontFamily="@font/sans_medium" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -191,7 +191,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
                             android:textSize="12sp"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 <!--                        minimum balance ₹100 required for redeem-->
 <!--                        Low balance : Add minimum ₹99 balance\nto use wallet for recharge-->
                         <TextView
@@ -200,7 +200,7 @@
                             android:layout_height="wrap_content"
                             android:textSize="11sp"
                             android:textColor="#EA4C49"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
 
                     </LinearLayout>

@@ -13,8 +13,8 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/qr_icon" />
 
         <LinearLayout
@@ -28,17 +28,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/tt_demibold"
+                app:fontFamily="@font/sans_medium"
                 android:text="Generate QR code"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:fontFamily="@font/tt_medium"
+                app:fontFamily="@font/tt_regular"
                 android:text="@string/to_verify_cart_items_payment"
                 android:textColor="@color/green_dark"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -53,7 +53,7 @@
         android:text="Please contact the staff member or store counter before generating the Checkout QR Code. "
         android:textColor="#363636"
         android:textAlignment="center"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
 
     <LinearLayout
@@ -74,8 +74,7 @@
             android:backgroundTint="@color/GreenWalletBackgroundDark"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:padding="15dp"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:elevation="-10dp"
             app:fontFamily="@font/tt_regular" />
         <TextView
@@ -87,7 +86,7 @@
             android:text="Back to Cart"
             android:textAllCaps="false"
             android:padding="10dp"
-            android:textSize="18sp"
+            android:textSize="14sp"
             android:gravity="center"
             android:textColor="@color/black"
             app:fontFamily="@font/tt_regular"/>

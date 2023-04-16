@@ -97,7 +97,7 @@
                                                 android:ellipsize="end"
                                                 android:maxLines="2"
                                                 android:text="Burger88"
-                                                android:textSize="18sp"
+                                                android:textSize="16sp"
                                                 android:textColor="@color/black"
                                                 app:fontFamily="@font/sans_medium" />
 
@@ -111,7 +111,7 @@
                                                 android:text="Indian, South Indian, Pizza, Fast Food"
                                                 android:textColor="@color/grey_dark"
                                                 android:textSize="11sp"
-                                                app:fontFamily="@font/sans_medium" />
+                                                app:fontFamily="@font/tt_regular" />
 
                                             <TextView
                                                 android:layout_width="match_parent"
@@ -123,7 +123,7 @@
                                                 android:text="Marol, Andheri East"
                                                 android:textColor="@color/grey_dark"
                                                 android:textSize="11sp"
-                                                app:fontFamily="@font/sans_medium" />
+                                                app:fontFamily="@font/tt_regular" />
 
 
                                             <LinearLayout
@@ -157,7 +157,7 @@
                                                         android:text="50 mins"
                                                         android:textColor="@color/grey_dark"
                                                         android:textSize="12sp"
-                                                        app:fontFamily="@font/sans_medium" />
+                                                        app:fontFamily="@font/tt_regular" />
 
 
                                                 </LinearLayout>
@@ -187,7 +187,7 @@
                                                         android:text="4.8 (29)"
                                                         android:textColor="@color/grey_dark"
                                                         android:textSize="11sp"
-                                                        app:fontFamily="@font/sans_medium" />
+                                                        app:fontFamily="@font/tt_regular" />
 
                                                 </LinearLayout>
 
@@ -224,7 +224,7 @@
                                                     android:text="15% off on takeaway order"
                                                     android:textColor="@color/black"
                                                     android:textSize="12sp"
-                                                    app:fontFamily="@font/sans_medium" />
+                                                    app:fontFamily="@font/tt_regular" />
 
 
                                             </LinearLayout>
@@ -279,7 +279,7 @@
                                             android:text="3.0 kms   |   ₹149 min. order for free delivery by restaurant or small fee applies"
                                             android:textColor="@color/black"
                                             android:textSize="11sp"
-                                            app:fontFamily="@font/sans_medium" />
+                                            app:fontFamily="@font/tt_regular" />
 
                                     </LinearLayout>
 
@@ -300,7 +300,7 @@
                                             android:text="See Food Menu, Address or more about this restaurant"
                                             android:textColor="@color/black"
                                             android:textSize="11sp"
-                                            app:fontFamily="@font/sans_medium" />
+                                            app:fontFamily="@font/tt_regular" />
 
                                         <ImageView
                                             android:layout_width="18dp"
@@ -362,7 +362,7 @@
                                 android:paddingEnd="5dp"
                                 android:text="Veg Only"
                                 android:textColor="@drawable/selector_category_tab_textforgames"
-                                app:fontFamily="@font/sans_medium" />
+                                app:fontFamily="@font/tt_regular" />
 
                         </LinearLayout>
 
@@ -485,7 +485,7 @@
                             android:textColor="@color/grey_light"
                             android:textSize="16sp"
                             android:text="name"
-                            android:textStyle="bold"/>
+                            />
 
 
 
@@ -619,7 +619,6 @@
                         android:text="0"
                         android:textColor="@color/white"
                         android:textSize="16sp"
-                        android:textStyle="bold"
                         app:fontFamily="@font/sans_medium" />
 
                 </LinearLayout>
@@ -635,7 +634,6 @@
                     android:text="View Cart"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:fontFamily="@font/sans_medium" />
 
                 <TextView
@@ -648,7 +646,6 @@
                     android:text="₹159"
                     android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold"
                     app:fontFamily="@font/sans_medium" />
 
             </LinearLayout>

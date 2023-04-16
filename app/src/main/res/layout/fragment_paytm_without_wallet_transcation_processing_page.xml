@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Please wait, while we process\nyour Payment...."
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +102,7 @@
                         android:text="@string/from_phonepe_0_59"
                         android:textColor="@color/black"
                         android:textSize="13sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>
 
@@ -157,7 +157,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="13sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>
                 <!--            Processing Recharge payment End-->
@@ -202,7 +202,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/black"
                         android:textSize="14sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                 </LinearLayout>
 
@@ -223,7 +223,7 @@
                     android:layout_below="@id/layout"
                     android:layout_marginTop="@dimen/dp30"
                     android:textColor="@color/grey_dark"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:textSize="11sp"/>
 
 
@@ -249,7 +249,7 @@
                 android:layout_height="wrap_content"
                 android:text="Processing Payment"
                 android:textColor="#189C1E"
-                android:textSize="22sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium" />
 
             <LinearLayout
@@ -288,7 +288,7 @@
                 android:background="?android:attr/detailsElementBackground"
                 android:text="00:00"
                 android:textColor="#189C1E"
-                android:textSize="30sp"
+                android:textSize="20sp"
                 app:fontFamily="@font/sans_medium" />
 
 
@@ -333,7 +333,7 @@
                     android:text="Tapfo"
                     android:textColor="@color/black"
                     android:textSize="16sp"
-                    app:fontFamily="@font/sans_bold" />
+                    app:fontFamily="@font/sans_medium" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -353,7 +353,7 @@
                 android:text="Intiating payment..."
                 android:textColor="#0A0A0A"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
         </LinearLayout>
 

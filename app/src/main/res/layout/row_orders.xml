@@ -25,22 +25,22 @@
                 android:layout_margin="@dimen/dp5"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
-                android:visibility="gone"
-                android:background="#DCD9D9" />
+                android:background="#DCD9D9"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/dateTv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/date_background"
-                android:layout_centerHorizontal="true"
+                android:gravity="center"
                 android:paddingLeft="@dimen/dp5"
                 android:paddingRight="@dimen/dp5"
-                android:gravity="center"
+                android:text="9 Sep 2020"
                 android:textSize="12sp"
-                app:fontFamily="@font/sans_medium"
-                android:text="9 Sep 2020" />
+                app:fontFamily="@font/sans_medium" />
 
             <View
                 android:layout_width="match_parent"
@@ -48,8 +48,8 @@
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/dp5"
                 android:layout_weight="1"
-                android:visibility="gone"
-                android:background="#DCD9D9" />
+                android:background="#DCD9D9"
+                android:visibility="gone" />
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
@@ -94,8 +94,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/amountTv"
-                    android:text="5% Cashback Reward"
                     android:layout_marginTop="@dimen/dp5"
+                    android:text="5% Cashback Reward"
                     android:textSize="9sp"
                     app:fontFamily="@font/sans_medium"
 
@@ -137,9 +137,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp5"
-                            app:fontFamily="@font/sans_medium"
                             android:text="Verified"
-                            android:textSize="@dimen/sp12" />
+                            android:textSize="@dimen/sp12"
+                            app:fontFamily="@font/sans_medium" />
 
                         <TextView
                             android:id="@+id/statusTv1"
@@ -147,9 +147,9 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="@dimen/dp5"
                             android:fontFamily="@font/inter_bold"
-                            app:fontFamily="@font/sans_medium"
                             android:text="Verified"
-                            android:textSize="@dimen/sp12" />
+                            android:textSize="@dimen/sp12"
+                            app:fontFamily="@font/sans_medium" />
                     </LinearLayout>
 
                 </LinearLayout>

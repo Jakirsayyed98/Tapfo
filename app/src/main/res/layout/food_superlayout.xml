@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/free_delivery"
-            android:scaleType="centerCrop"/>
+            android:scaleType="centerCrop"
+            android:src="@drawable/free_delivery" />
 
     </androidx.cardview.widget.CardView>
 </RelativeLayout>

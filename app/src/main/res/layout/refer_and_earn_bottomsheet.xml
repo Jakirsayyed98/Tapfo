@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Here’s how to invite and earn"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:fontFamily="@font/sans_medium" />
 
     <LinearLayout
@@ -32,7 +32,7 @@
             android:layout_marginStart="10dp"
             android:text="Share the code below or ask them to enter it
 after they sing up on Tapfo."
-            app:fontFamily="@font/sans_medium"
+            app:fontFamily="@font/tt_regular"
             android:textColor="@color/grey_dark" />
     </LinearLayout>
 
@@ -51,7 +51,7 @@ after they sing up on Tapfo."
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            app:fontFamily="@font/sans_medium"
+            app:fontFamily="@font/tt_regular"
             android:text="For your friend to receive singup bonus, ensure that they use your referral code during signup."
             android:textColor="@color/grey_dark" />
     </LinearLayout>
@@ -69,7 +69,7 @@ after they sing up on Tapfo."
         android:text="Got it"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        android:textSize="16sp"
-        app:fontFamily="@font/sans_medium" />
+        android:textSize="14sp"
+        app:fontFamily="@font/tt_regular" />
 
 </LinearLayout>

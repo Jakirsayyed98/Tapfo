@@ -51,7 +51,7 @@
                         android:text="Up to 20% Cashback"
                         android:textColor="@color/black"
                         android:textSize="12sp"
-                        app:fontFamily="@font/sans_bold" />
+                        app:fontFamily="@font/tt_regular" />
 
                     <TextView
                         android:id="@+id/name"
@@ -60,7 +60,7 @@
                         android:text="Amazon Extra Cashback"
                         android:textColor="@color/black"
                         android:textSize="12sp"
-                        app:fontFamily="@font/sans_regular" />
+                        app:fontFamily="@font/tt_regular" />
 
 
                 </LinearLayout>

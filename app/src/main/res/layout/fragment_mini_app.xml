@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:context=".ui.merchants.MiniAppFragment">
 
-
     <LinearLayout
         android:id="@+id/bestPick1"
         android:layout_width="match_parent"
@@ -195,8 +194,8 @@
 
                     <ImageView
                         android:id="@+id/backbtn"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
                         android:layout_marginStart="@dimen/dp5"
                         android:src="@drawable/new_back_btn"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -213,7 +212,7 @@
                         android:paddingStart="@dimen/dp10"
                         android:text="@string/online_cashback"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         app:fontFamily="@font/sans_medium"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/backbtn"

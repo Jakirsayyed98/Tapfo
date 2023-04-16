@@ -8,6 +8,9 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import app.tapho.R
 import app.tapho.RoomDB.getDatabase
@@ -24,6 +27,7 @@ import app.tapho.utils.DATA
 import app.tapho.utils.setBusinessQR
 import app.tapho.utils.withSuffixAmount
 import com.bumptech.glide.Glide
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.gson.Gson
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -51,11 +55,11 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         _binding!!.Progress.visibility = View.VISIBLE
         setTextData()
         _binding!!.backbtn.setOnClickListener {
-            coundown.cancel()
-            activity?.onBackPressedDispatcher?.onBackPressed()
+            OpenExitBottomSheet()
+
         }
 
-
+        backpressedbtn()
         val data = activity?.intent?.getStringExtra(DATA)
         if (!data.isNullOrEmpty()) {
             Gson().fromJson(data, ScanPlaceOrderRes::class.java).let {
@@ -68,6 +72,50 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         return _binding?.root
     }
 
+
+    private fun OpenExitBottomSheet() {
+        val dialog = BottomSheetDialog(requireContext())
+        val view = layoutInflater.inflate(R.layout.store_checkoutexit, null)
+
+        dialog.setCancelable(true)
+        val exit: AppCompatButton = view.findViewById(R.id.exit)
+        val exitdis: TextView = view.findViewById(R.id.exitdis)
+
+        //    exitdis.text = getString(R.string.are_you_sure_want_to_go_back_w,getSharedPreference().getBusinessData()!!.business_name)
+
+        val continuebtn: AppCompatButton = view.findViewById(R.id.continuebtn)
+
+        exit.setOnClickListener {
+            coundown.cancel()
+            activity?.onBackPressedDispatcher?.onBackPressed()
+            dialog.dismiss()
+        }
+
+
+        continuebtn.setOnClickListener {
+            dialog.dismiss()
+        }
+        dialog.setContentView(view)
+        dialog.show()
+    }
+
+    private fun backpressedbtn() {
+        val OnBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                coundown.cancel()
+                ContainerForProductActivity.openContainer(
+                    requireContext(),
+                    "ProductCartFragment",
+                    "",
+                    false,
+                    ""
+                )
+                activity?.finish()
+            }
+        }
+        requireActivity().getOnBackPressedDispatcher()
+            .addCallback(requireActivity(), OnBackPressedCallback)
+    }
 
     private fun setLayoutData(it: Data) {
         viewModel.getsearchBusinessOrders(
@@ -88,9 +136,9 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         data.let {
             Glide.with(requireContext()).load(setBusinessQR(it.qr_code)).into(_binding!!.qrcode)
             _binding!!.paybleAmount.text =
-                withSuffixAmount(it.total_amount.toString())!!.dropLast(3)
+                withSuffixAmount(it.total_amount.toString())!!//.dropLast(3)
             _binding!!.paybleAmount1.text =
-                withSuffixAmount(it.total_amount.toString())!!.dropLast(3)
+                withSuffixAmount(it.total_amount.toString())!!//.dropLast(3)
 
             _binding!!.qrcodedata.text = "CHECKOUT CODE : " + it.code
             val count = it.items.size
@@ -114,7 +162,7 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
             }
 
             override fun onFinish() {
-
+                coundown.cancel()
             }
 
         }.start()
@@ -177,7 +225,7 @@ class TapMartCheckOutFragment : BaseFragment<FragmentTapMartCheckOutBinding>() {
         getSharedPreference().getBusinessData().let {
             _binding!!.apply {
                 storename.text = it!!.business_name
-                storeaddress.text = it.area
+                storeaddress.text = it.address
             }
         }
     }

@@ -24,8 +24,7 @@
             android:layout_height="wrap_content"
             android:text="Separated for your security"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:fontFamily="@font/tt_bold" />
+            app:fontFamily="@font/sans_medium" />
 
         <TextView
             android:id="@+id/t2"

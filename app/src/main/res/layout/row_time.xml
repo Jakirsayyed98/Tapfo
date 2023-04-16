@@ -10,7 +10,7 @@
     android:layout_marginEnd="@dimen/dp5"
     android:layout_marginTop="@dimen/dp5"
     android:layout_marginBottom="@dimen/dp5"
-    app:fontFamily="@font/sans_medium"
+    app:fontFamily="@font/tt_regular"
     android:textColor="@drawable/selector_text_color2"
     android:layout_height="@dimen/dp35">
 

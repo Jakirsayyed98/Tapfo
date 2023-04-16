@@ -42,8 +42,8 @@
 
                     <ImageView
                         android:id="@+id/merchant_icon"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_margin="@dimen/dp5" />
                 </androidx.cardview.widget.CardView>
@@ -57,7 +57,7 @@
                     android:layout_marginEnd="@dimen/dp10"
                     android:layout_weight="1"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     app:fontFamily="@font/sans_medium" />
 
                 <androidx.cardview.widget.CardView
@@ -87,7 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 app:fontFamily="@font/tt_regular" />
 
             <TextView
@@ -96,8 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp10"
                 android:textColor="#1ABC9C"
-                android:textSize="23dp"
-                android:textStyle="bold"
+                android:textSize="15sp"
                 app:fontFamily="@font/tt_medium" />
         </LinearLayout>
 
@@ -131,7 +130,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/leave_btn"
@@ -147,7 +146,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

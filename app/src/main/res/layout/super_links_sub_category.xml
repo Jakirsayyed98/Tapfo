@@ -30,7 +30,7 @@
             android:layout_marginLeft="@dimen/dp10"
             android:layout_marginRight="@dimen/dp5"
             android:textSize="12sp"
-            app:fontFamily="@font/sans_medium"
+            app:fontFamily="@font/tt_regular"
             android:text="string / Merchants"/>
     </LinearLayout>
 

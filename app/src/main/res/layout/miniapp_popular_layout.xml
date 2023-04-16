@@ -23,7 +23,7 @@
 
             <ImageView
                 android:id="@+id/logo"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentTop="true"
@@ -50,7 +50,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="12sp"
-                    app:fontFamily="@font/sans_medium" />
+                    app:fontFamily="@font/tt_regular" />
             </LinearLayout>
 
 

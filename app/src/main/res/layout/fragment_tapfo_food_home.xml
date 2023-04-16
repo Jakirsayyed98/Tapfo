@@ -21,14 +21,13 @@
 
         <ImageView
             android:id="@+id/backbutton"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="@dimen/dp15"
             android:layout_marginTop="@dimen/dp10"
             android:layout_marginEnd="@dimen/dp5"
             android:layout_marginBottom="@dimen/dp10"
-            android:padding="@dimen/dp10"
             android:src="@drawable/new_back_btn"
             app:tint="@color/black" />
 
@@ -52,7 +51,7 @@
                 android:text="Delivering to"
                 android:textColor="@color/grey_dark"
                 android:textSize="14sp"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
             <TextView
                 android:id="@+id/mainlocation"
@@ -66,7 +65,6 @@
                 android:text="Marol Maroshi Road"
                 android:textColor="@color/orange1"
                 android:textSize="14sp"
-                android:textStyle="bold"
                 app:fontFamily="@font/sans_medium" />
         </LinearLayout>
 
@@ -129,7 +127,7 @@
                 android:layout_marginStart="@dimen/dp10"
                 android:text="Filters"
                 android:textColor="@color/grey_dark"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
         </LinearLayout>
 
         <View
@@ -157,7 +155,7 @@
                 android:layout_marginStart="@dimen/dp10"
                 android:text="Cuisines"
                 android:textColor="@color/grey_dark"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
         </LinearLayout>
 
         <View
@@ -186,7 +184,7 @@
                 android:layout_marginStart="@dimen/dp10"
                 android:text="Search"
                 android:textColor="@color/grey_dark"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
         </LinearLayout>
     </LinearLayout>
 
@@ -225,8 +223,7 @@
                 android:paddingEnd="@dimen/dp15"
                 android:text="@string/hi_name_what_s_your_pick"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium" />
 
 
@@ -245,8 +242,7 @@
                 android:paddingEnd="@dimen/dp15"
                 android:text="Nearby free Delivery"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -263,8 +259,7 @@
                 android:paddingEnd="@dimen/dp15"
                 android:text="All restaurants"
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium" />
 
             <androidx.recyclerview.widget.RecyclerView

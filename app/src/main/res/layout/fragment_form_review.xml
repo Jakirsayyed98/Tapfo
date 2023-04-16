@@ -608,7 +608,8 @@
                                     android:editable="false"
                                     android:importantForAutofill="auto"
                                     app:cursorColor="@color/black"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="16sp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -633,7 +634,8 @@
                                     android:layout_height="wrap_content"
                                     android:editable="false"
                                     app:cursorColor="@color/black"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="16sp"/>
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -658,7 +660,8 @@
                                     android:layout_height="wrap_content"
                                     android:editable="false"
                                     app:cursorColor="@color/black"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="16sp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -683,7 +686,8 @@
                                     android:layout_height="wrap_content"
                                     android:editable="false"
                                     app:cursorColor="@color/black"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="16sp"/>
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -708,7 +712,8 @@
                                     android:layout_height="wrap_content"
                                     android:editable="false"
                                     app:cursorColor="@color/black"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/sans_medium"
+                                    android:textSize="16sp" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 

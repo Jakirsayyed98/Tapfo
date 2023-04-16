@@ -26,8 +26,8 @@
 
             <ImageView
                 android:id="@+id/backbutton"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -120,8 +120,8 @@
                 android:gravity="center_vertical"
                 android:hint="Search stores"
                 android:maxLines="1"
-                android:textSize="@dimen/sp12"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/sans_medium"
+                android:textSize="16sp" />
 
 
         </LinearLayout>
@@ -157,7 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/grey_dark"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 android:paddingLeft="@dimen/dp15"/>
 
             <androidx.recyclerview.widget.RecyclerView

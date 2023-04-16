@@ -32,8 +32,8 @@
 
             <ImageView
                 android:id="@+id/backbtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -50,8 +50,8 @@
                 android:paddingStart="@dimen/dp10"
                 android:text="Mobile Prepaid"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                app:fontFamily="@font/tt_medium"
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/backbtn"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -170,8 +170,8 @@
                             android:gravity="center_vertical"
                             android:layout_marginTop="@dimen/dp10"
                             android:text="Mobile Prepaid Recharge"
-                            android:textSize="20sp"
-                            app:fontFamily="@font/tt_regular" />
+                            android:textSize="16sp"
+                            app:fontFamily="@font/sans_medium" />
 
 
                         <LinearLayout
@@ -192,7 +192,7 @@
                                 android:text="+91"
                                 android:textColor="@color/black"
                                 android:textSize="20sp"
-                                app:fontFamily="@font/tt_demibold" />
+                                app:fontFamily="@font/sans_medium" />
 
                             <EditText
                                 android:id="@+id/number"
@@ -205,15 +205,16 @@
                                 android:imeOptions="actionDone"
                                 android:inputType="number"
                                 android:maxLength="10"
+                                app:fontFamily="@font/sans_medium"
                                 android:textSize="20sp"
                                 app:cursorColor="@color/black"
-                                app:fontFamily="@font/tt_demibold" />
+                                />
 
 
                             <ImageView
                                 android:id="@+id/contact"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="35dp"
+                                android:layout_height="35dp"
                                 android:layout_gravity="center_vertical"
                                 android:padding="@dimen/dp3"
                                 android:src="@drawable/contact_icon"
@@ -276,7 +277,7 @@
                                         android:textAllCaps="false"
                                         android:textColor="@color/black"
                                         android:textSize="14sp"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
                                 </LinearLayout>
 
                                 <LinearLayout
@@ -308,7 +309,7 @@
                                         android:textAllCaps="false"
                                         android:textColor="@color/black"
                                         android:textSize="14sp"
-                                        app:fontFamily="@font/sans_medium" />
+                                        app:fontFamily="@font/tt_regular" />
 
                                 </LinearLayout>
 
@@ -334,8 +335,8 @@
                             android:text="Continue"
                             android:textAllCaps="false"
                             android:textColor="@color/grey_dark"
-                            android:textSize="@dimen/sp20"
-                            app:fontFamily="@font/sans_medium" />
+                            android:textSize="@dimen/sp14"
+                            app:fontFamily="@font/tt_regular" />
 
 
                         <TextView
@@ -344,7 +345,7 @@
                             android:layout_marginLeft="@dimen/dp10"
                             android:layout_marginTop="@dimen/dp50"
                             android:text="My Number"
-                            android:textSize="20sp"
+                            android:textSize="16sp"
                             android:visibility="gone"
                             app:fontFamily="@font/sans_medium" />
 
@@ -362,8 +363,8 @@
                                 android:layout_marginLeft="@dimen/dp10"
                                 android:layout_marginTop="@dimen/dp20"
                                 android:text="0000000000"
-                                android:textSize="15sp"
-                                app:fontFamily="@font/sans_medium" />
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
 
                             <TextView
                                 android:id="@+id/mobilenumber"
@@ -372,8 +373,8 @@
                                 android:layout_marginLeft="@dimen/dp10"
                                 android:layout_marginBottom="@dimen/dp30"
                                 android:text="0000000000"
-                                android:textSize="15sp"
-                                app:fontFamily="@font/sans_medium" />
+                                android:textSize="14sp"
+                                app:fontFamily="@font/tt_regular" />
 
                         </LinearLayout>
 
@@ -400,10 +401,9 @@
                                 android:layout_weight="1"
                                 android:gravity="center_vertical"
                                 android:text="Recent Recharge"
-                                android:textSize="20sp"
+                                android:textSize="16sp"
                                 android:paddingStart="@dimen/dp10"
-                                android:textStyle="bold"
-                                app:fontFamily="@font/tt_medium" />
+                                app:fontFamily="@font/sans_medium" />
 
                             <androidx.recyclerview.widget.RecyclerView
                                 android:id="@+id/recentRecharge"

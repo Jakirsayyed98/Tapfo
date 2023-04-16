@@ -36,8 +36,8 @@
 
                 <ImageView
                     android:id="@+id/backbtn"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_marginStart="@dimen/dp5"
                     android:src="@drawable/new_back_btn"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -54,8 +54,8 @@
                     android:paddingStart="@dimen/dp10"
                     android:text="Select Operator"
                     android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:fontFamily="@font/tt_medium"
+                    android:textSize="16sp"
+                    app:fontFamily="@font/sans_medium"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/backbtn"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -76,14 +76,14 @@
                 <LinearLayout
                     android:id="@+id/linearLayout11"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_alignTop="@+id/re_profile"
                     android:layout_alignBottom="@+id/re_profile"
                     android:layout_centerVertical="true"
                     android:backgroundTint="@color/white"
                     android:elevation="@dimen/dp2"
                     android:gravity="center_vertical"
-                    android:paddingStart="@dimen/dp15">
+                    android:paddingStart="@dimen/dp1">
 
                     <LinearLayout
                         android:id="@+id/search"
@@ -106,8 +106,8 @@
                             android:imeOptions="actionDone"
                             android:inputType="text"
                             android:maxLines="1"
-                            android:textSize="@dimen/sp16"
-                            app:fontFamily="@font/tt_regular" />
+                            app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 

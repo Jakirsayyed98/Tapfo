@@ -13,8 +13,8 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/bell_icon" />
 
         <LinearLayout
@@ -28,9 +28,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/tt_medium"
+                android:fontFamily="@font/sans_medium"
                 android:text="Attention"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:fontFamily="@font/tt_regular"
                 android:text="Are you sure to exit this store cart?"
                 android:textColor="@color/green_dark"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -46,13 +46,14 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/exitdis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/tt_regular"
-        android:text="Are you sure want to go back without completing your purchase with Bon Bon Mart? "
+        android:text="@string/are_you_sure_want_to_go_back_w"
         android:textColor="@color/grey_dark"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
 
     <LinearLayout
@@ -63,27 +64,47 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/exit"
+            android:text="Back to Home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2.5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/login_btn1"
             android:backgroundTint="@color/red"
-            android:text="Back to Home"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="15dp"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:fontFamily="@font/tt_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/continuebtn"
+            android:text="Continue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2.5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/login_btn1"
-            android:backgroundTint="@color/green_dark"
-            android:text="Continue"
+            android:backgroundTint="#1F9D55"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="15dp"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:fontFamily="@font/tt_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
 </LinearLayout>

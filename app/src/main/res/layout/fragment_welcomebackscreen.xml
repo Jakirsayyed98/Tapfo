@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.home.welcomebackscreenFragment">
 
     <RelativeLayout
@@ -24,24 +24,23 @@
             <ImageView
                 android:layout_width="@dimen/dp150"
                 android:layout_height="@dimen/dp150"
-                android:src="@drawable/welcome_back_avatar"/>
+                android:src="@drawable/welcome_back_avatar" />
 
             <TextView
                 android:id="@+id/welcomename"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Hi Anuj,"
                 android:layout_marginTop="@dimen/dp5"
+                android:text="Hi Anuj,"
                 android:textSize="22sp"
-                app:fontFamily="@font/sans_light" />
+                app:fontFamily="@font/tt_regular" />
 
             <TextView
                 android:id="@+id/welcometext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Welcome back"
-                android:textSize="24sp"
-                android:textStyle="bold"
+                android:textSize="18sp"
                 app:fontFamily="@font/sans_medium" />
 
         </LinearLayout>
@@ -61,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:text="Your Daily Super App"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 app:fontFamily="@font/sans_medium" />
 
             <TextView
@@ -72,7 +71,7 @@
                 android:gravity="center_horizontal"
                 android:text="Your Daily Super App"
                 android:textSize="14sp"
-                app:fontFamily="@font/sans_regular" />
+                app:fontFamily="@font/tt_regular" />
 
 
         </LinearLayout>

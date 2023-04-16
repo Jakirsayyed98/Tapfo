@@ -50,9 +50,9 @@
                     android:gravity="center_vertical"
                     android:background="@color/transparent"
                     android:hint="Search stories, news and more"
-                    app:fontFamily="@font/sans_medium"
                     android:maxLines="1"
-                    android:textSize="@dimen/sp12" />
+                    app:fontFamily="@font/sans_medium"
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:layout_width="@dimen/dp25"

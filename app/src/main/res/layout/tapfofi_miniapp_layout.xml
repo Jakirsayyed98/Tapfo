@@ -57,7 +57,7 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:text="Flipkart Axis Bank Credit Card"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     app:fontFamily="@font/tt_regular" />
 
 
@@ -68,9 +68,9 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:text="Flipkart Axis Bank Credit Card"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:layout_marginTop="5dp"
-                    app:fontFamily="@font/tt_demibold" />
+                    app:fontFamily="@font/sans_medium" />
 
 
                 <TextView
@@ -80,7 +80,7 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:text="Flipkart Axis Bank Credit Card"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:layout_marginTop="5dp"
                     app:fontFamily="@font/tt_regular" />
 
@@ -111,7 +111,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Joining fees*"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     app:fontFamily="@font/tt_regular" />
 
                 <TextView
@@ -121,7 +121,7 @@
                     android:layout_marginTop="5dp"
                     android:textSize="16sp"
                     android:text="500"
-                    app:fontFamily="@font/tt_demibold" />
+                    app:fontFamily="@font/sans_medium" />
             </LinearLayout>
 
             <LinearLayout
@@ -135,7 +135,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Annual Fees*"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     app:fontFamily="@font/tt_regular" />
 
                 <TextView
@@ -145,7 +145,7 @@
                     android:text="500"
                     android:layout_marginTop="5dp"
                     android:textSize="16sp"
-                    app:fontFamily="@font/tt_demibold" />
+                    app:fontFamily="@font/sans_medium" />
             </LinearLayout>
 
             <LinearLayout
@@ -159,14 +159,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/apply_earn_upto"
-                    android:textSize="13sp"
+                    android:textSize="14sp"
                     app:fontFamily="@font/tt_regular" />
 
                 <LinearLayout
-
                     android:layout_width="match_parent"
                     android:layout_marginTop="5dp"
-
                     android:layout_height="wrap_content">
 
                     <ImageView
@@ -183,7 +181,7 @@
                         android:layout_marginStart="5dp"
                         android:text="500"
                         android:textSize="16sp"
-                        app:fontFamily="@font/tt_demibold" />
+                        app:fontFamily="@font/sans_medium" />
 
                 </LinearLayout>
 
@@ -206,7 +204,7 @@
             android:layout_height="wrap_content"
             android:text="Apply Now"
             android:padding="10dp"
-            app:fontFamily="@font/tt_medium"
+            app:fontFamily="@font/tt_regular"
             android:textColor="@color/green_dark"
             android:layout_gravity="end"
             android:layout_marginEnd="10dp"

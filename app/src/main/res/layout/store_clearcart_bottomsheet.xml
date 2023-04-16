@@ -13,8 +13,8 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="55dp"
-            android:layout_height="55dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/bell_icon" />
 
         <LinearLayout
@@ -28,9 +28,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/tt_medium"
+                android:fontFamily="@font/sans_medium"
                 android:text="Attention"
-                android:textSize="20sp" />
+                android:textSize="16sp" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:fontFamily="@font/tt_regular"
                 android:text="Delete Cart"
                 android:textColor="@color/green_dark"
-                android:textSize="16sp" />
+                android:textSize="14sp" />
 
 
         </LinearLayout>
@@ -52,7 +52,7 @@
         android:fontFamily="@font/tt_regular"
         android:text="Are you sure want to delete the cart completing your purchase from Bon Bon Mart? "
         android:textColor="@color/grey_dark"
-        android:textSize="15sp" />
+        android:textSize="14sp" />
 
 
     <LinearLayout
@@ -63,29 +63,47 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/exit"
+            android:text="Clear cart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2.5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/login_btn1"
             android:backgroundTint="@color/red"
-            android:text="Clear cart"
-            app:fontFamily="@font/tt_medium"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="15dp"
             android:textAllCaps="false"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:fontFamily="@font/tt_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/continuebtn"
+            android:text="Continue shopping"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="2.5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:background="@drawable/login_btn1"
-            android:backgroundTint="@color/green_dark"
-            android:text="Continue shopping"
+            android:backgroundTint="#1F9D55"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:padding="15dp"
             android:textAllCaps="false"
-            app:fontFamily="@font/tt_medium"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:fontFamily="@font/tt_regular"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
 </LinearLayout>

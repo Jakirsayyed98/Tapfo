@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/card"
         android:layout_width="320dp"
-        android:layout_height="160dp"
+        android:layout_height="140dp"
         android:layout_marginStart="@dimen/dp15"
         android:layout_marginTop="@dimen/dp10"
         android:layout_marginEnd="3dp"
@@ -58,9 +58,8 @@
                                 android:layout_marginTop="15dp"
                                 android:text="Tapfo "
                                 android:textColor="@color/green_dark"
-                                android:textSize="27sp"
-                                android:textStyle="bold"
-                                app:fontFamily="@font/sans_bold" />
+                                android:textSize="17sp"
+                                app:fontFamily="@font/sans_medium" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -69,7 +68,7 @@
                                 android:paddingTop="@dimen/dp3"
                                 android:text="Pay"
                                 android:textColor="@color/green_dark"
-                                android:textSize="22sp"
+                                android:textSize="17sp"
                                 app:fontFamily="@font/sans_medium" />
                         </LinearLayout>
 
@@ -84,7 +83,7 @@
                             android:text="@string/win_assured_100_cashback"
                             android:textColor="@color/green_dark"
                             android:textSize="14sp"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
 
                     </RelativeLayout>
@@ -109,7 +108,7 @@
                                 android:text="Add "
                                 android:textColor="@color/green_dark"
                                 android:textSize="13sp"
-                                app:fontFamily="@font/sans_medium" />
+                                app:fontFamily="@font/tt_regular" />
 
 
                             <TextView
@@ -118,8 +117,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="120"
                                 android:textColor="@color/green_dark"
-                                android:textSize="24sp"
-                                android:textStyle="bold"
+                                android:textSize="18sp"
                                 app:fontFamily="@font/sans_medium" />
 
                             <TextView
@@ -128,7 +126,7 @@
                                 android:text="T&amp;C Apply"
                                 android:textColor="@color/green_dark"
                                 android:textSize="10sp"
-                                app:fontFamily="@font/sans_medium" />
+                                app:fontFamily="@font/tt_regular" />
 
 
                         </LinearLayout>
@@ -147,7 +145,7 @@
                             android:textAllCaps="false"
                             android:textColor="@color/white"
                             android:textSize="10.5dp"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
                     </LinearLayout>
                 </LinearLayout>

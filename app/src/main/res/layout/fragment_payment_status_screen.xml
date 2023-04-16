@@ -106,7 +106,7 @@
                             android:layout_marginTop="@dimen/dp10"
                             android:gravity="center_horizontal"
                             android:textColor="@color/white"
-                            android:textSize="13sp"
+                            android:textSize="12sp"
                             app:fontFamily="@font/tt_regular" />
 
                         <androidx.cardview.widget.CardView
@@ -161,7 +161,7 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:textColor="@color/grey_dark"
-                                            android:textSize="13sp"
+                                            android:textSize="12sp"
                                             app:fontFamily="@font/tt_regular" />
                                     </LinearLayout>
 
@@ -172,7 +172,7 @@
                                         android:layout_weight="1"
                                         android:textColor="@color/black"
                                         android:textSize="@dimen/sp14"
-                                        app:fontFamily="@font/tt_regular"
+                                        app:fontFamily="@font/sans_medium"
                                         app:layout_constraintBottom_toBottomOf="parent"
                                         app:layout_constraintEnd_toEndOf="parent"
                                         app:layout_constraintTop_toTopOf="parent" />

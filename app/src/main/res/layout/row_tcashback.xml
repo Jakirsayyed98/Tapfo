@@ -79,7 +79,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:textColor="#8F8E8E"
-                                app:fontFamily="@font/sans_medium"
+                                app:fontFamily="@font/tt_regular"
                                 android:textSize="10sp" />
                         </LinearLayout>
 
@@ -97,8 +97,7 @@
                                 android:textColor="#ACA8A8"
                                 android:ellipsize="end"
                                 android:textSize="11sp"
-                                app:fontFamily="@font/sans_medium"
-                                android:textStyle="bold" />
+                                app:fontFamily="@font/tt_regular" />
                         </LinearLayout>
 
                         <TextView
@@ -128,7 +127,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginTop="5dp"
                         android:gravity="end"
-                        app:fontFamily="@font/sans_medium"
+                        app:fontFamily="@font/tt_regular"
                         android:text="@string/_2_9_cashback"
                         android:textSize="12sp" />
 
@@ -150,7 +149,7 @@
                         android:layout_height="wrap_content"
                         android:gravity="end"
                         android:text="pending from Ajio"
-                        app:fontFamily="@font/sans_medium"
+                        app:fontFamily="@font/tt_regular"
                         android:textSize="10sp" />
                 </LinearLayout>
             </RelativeLayout>

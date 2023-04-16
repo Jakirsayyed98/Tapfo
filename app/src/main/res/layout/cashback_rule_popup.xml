@@ -25,8 +25,8 @@
 
             <ImageView
                 android:id="@+id/iconS"
-                android:layout_width="@dimen/dp40"
-                android:layout_height="@dimen/dp40"
+                android:layout_width="@dimen/dp35"
+                android:layout_height="@dimen/dp35"
                 android:layout_gravity="center_vertical"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
@@ -71,8 +71,8 @@
                 android:layout_height="wrap_content"
                 android:text="Congrats, "
                 android:textColor="@color/black"
-                android:textSize="18sp"
-                app:fontFamily="@font/tt_demibold" />
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium" />
 
             <TextView
                 android:id="@+id/discription"
@@ -93,7 +93,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="40dp"
+                android:layout_width="35dp"
                 android:layout_height="25dp"
                 android:src="@drawable/running_t_icon"
                 android:layout_gravity="end"
@@ -106,8 +106,8 @@
                 android:layout_marginTop="5dp"
                 android:text=""
                 android:textColor="@color/green_dark"
-                android:textSize="20sp"
-                app:fontFamily="@font/sans_bold" />
+                android:textSize="16sp"
+                app:fontFamily="@font/sans_medium" />
         </LinearLayout>
 
     </LinearLayout>
@@ -125,6 +125,6 @@
         android:text="Track Your Reward"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:fontFamily="@font/tt_medium" />
+        app:fontFamily="@font/tt_regular" />
 
 </LinearLayout>

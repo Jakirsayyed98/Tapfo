@@ -8,8 +8,8 @@
     android:orientation="horizontal">
 
     <RelativeLayout
-        android:layout_width="125dp"
-        android:layout_height="175dp"
+        android:layout_width="110dp"
+        android:layout_height="155dp"
         android:layout_marginStart="@dimen/dp15"
         android:layout_marginTop="@dimen/dp5"
         android:layout_marginEnd="@dimen/dp5"
@@ -24,7 +24,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="100dp"
                 app:cardCornerRadius="@dimen/dp10"
                 app:cardElevation="-5dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +50,7 @@
                 android:textColor="@color/white"
                 android:textSize="14sp"
                 android:visibility="gone"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -76,10 +76,10 @@
                 android:maxLines="1"
                 android:text="Gummping game"
                 android:textColor="@color/black"
-                android:textSize="@dimen/sp16"
+                android:textSize="@dimen/sp14"
                 android:layout_marginTop="@dimen/dp5"
                 android:letterSpacing="0.01"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
 
             <TextView
@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:text="125M Plays"
-                app:fontFamily="@font/sans_medium"
+                app:fontFamily="@font/tt_regular"
                 android:textColor="@color/black"
                 android:textSize="12sp"
                  />

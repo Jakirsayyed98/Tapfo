@@ -49,15 +49,15 @@
                         android:layout_height="wrap_content"
                         android:text="OTP"
                         android:textColor="@color/black"
-                        android:textSize="25sp"
-                        app:fontFamily="@font/sans_bold" />
+                        android:textSize="16sp"
+                        app:fontFamily="@font/sans_medium" />
 
                     <TextView
                         android:id="@+id/numberTv1"
-                        android:text="we have sent you 4 digit \nOTP to 909090909 "
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="13dp"
+                        android:text="we have sent you 4 digit \nOTP to 909090909 "
                         android:textColor="#333739"
                         android:textSize="14sp"
                         app:fontFamily="@font/tt_regular" />
@@ -71,10 +71,10 @@
                         android:layout_marginTop="@dimen/dp30"
                         android:elevation="@dimen/dp5"
                         android:enabled="true"
-                        app:fontFamily="@font/sans_medium"
                         android:inputType="number"
                         android:textColor="@color/black"
                         app:cursorColor="@color/black"
+                        app:fontFamily="@font/sans_medium"
                         app:itemCount="4"
                         app:itemHeight="@dimen/dp50"
                         app:itemRadius="@dimen/dp10"
@@ -95,11 +95,11 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@color/transparent"
-                            app:fontFamily="@font/tt_regular"
                             android:text="Resend OTP"
                             android:textAllCaps="false"
                             android:textColor="#277586"
-                            android:visibility="gone" />
+                            android:visibility="gone"
+                            app:fontFamily="@font/tt_regular" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -119,8 +119,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="@dimen/dp10"
                                 android:text="0:30"
-                                android:textStyle="bold"
-                                app:fontFamily="@font/tt_demibold" />
+                                app:fontFamily="@font/sans_medium" />
 
                         </LinearLayout>
                     </LinearLayout>
@@ -134,13 +133,13 @@
                         android:layout_marginBottom="@dimen/dp5"
                         android:background="@drawable/login_btn1"
                         android:paddingStart="@dimen/dp20"
-                        android:paddingRight="@dimen/dp20"
                         android:paddingTop="@dimen/dp10"
+                        android:paddingRight="@dimen/dp20"
                         android:paddingBottom="@dimen/dp10"
                         android:text="Verify"
                         android:textAllCaps="false"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/sp20"
+                        android:textSize="@dimen/sp14"
                         app:fontFamily="@font/tt_regular" />
 
 
@@ -156,8 +155,8 @@
         android:id="@+id/progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:indeterminateTint="@color/black"
-        android:visibility="gone"
-        android:layout_centerInParent="true"/>
+        android:visibility="gone" />
 
 </RelativeLayout>

@@ -21,8 +21,8 @@
 
         <ImageView
             android:id="@+id/backbtn"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginStart="@dimen/dp5"
             android:src="@drawable/new_back_btn"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -39,7 +39,7 @@
             android:paddingStart="@dimen/dp10"
             android:text="My Favourite"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
             app:fontFamily="@font/sans_medium"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/backbtn"
@@ -97,7 +97,7 @@
                     android:padding="@dimen/dp10"
                     android:layout_marginTop="2.5dp"
                     android:layout_marginBottom="4dp"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:textColor="@drawable/selector_category_tab_textforgames"/>
 
                 <TextView
@@ -114,7 +114,7 @@
                     android:padding="@dimen/dp10"
                     android:layout_marginTop="2.5dp"
                     android:layout_marginBottom="4dp"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:textColor="@drawable/selector_category_tab_textforgames"/>
 
 
@@ -141,7 +141,7 @@
                     android:gravity="center"
                     android:paddingTop="@dimen/dp5"
                     android:paddingBottom="@dimen/dp5"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:text="+add more stores to my favourites"
                     android:textColor="@color/purple_500"
                     android:textSize="@dimen/sp12" />
@@ -195,10 +195,10 @@
                         android:gravity="center"
                         android:text="Shop With 1200+ merchant partners!"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/sp18" />
+                        android:textSize="@dimen/sp16" />
 
                     <TextView
-                        app:fontFamily="@font/sans_medium"
+                        app:fontFamily="@font/tt_regular"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/cashbackPartner"

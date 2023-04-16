@@ -16,7 +16,7 @@
     android:drawableStart="@drawable/double_icon"
     android:gravity="center_vertical"
     android:drawablePadding="@dimen/dp15"
-    app:fontFamily="@font/sans_medium"
+    app:fontFamily="@font/tt_regular"
     android:layout_height="wrap_content">
 
 </TextView>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/dp60"
-    android:layout_height="@dimen/dp60"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/dp60"
+    android:layout_height="@dimen/dp60"
     android:layout_margin="@dimen/dp5"
-    android:orientation="vertical"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"

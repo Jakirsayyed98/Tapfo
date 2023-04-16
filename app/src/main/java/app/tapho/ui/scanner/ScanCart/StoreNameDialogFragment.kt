@@ -44,11 +44,21 @@ class StoreNameDialogFragment : BaseFragment<FragmentStoreNameDialogBinding>() {
 
         statusBarColor(R.color.white)
         statusBarTextWhite()
+
+        _binding!!.backbtn.setOnClickListener{
+            activity?.onBackPressedDispatcher?.onBackPressed()
+        }
+//        _binding!!.back.setOnClickListener{
+//            activity?.onBackPressedDispatcher?.onBackPressed()
+//        }
+
+
         val data = activity?.intent?.getStringExtra(DATA)
         if (data.isNullOrEmpty().not()) {
             Gson().fromJson(data, Data::class.java).let {
-                _binding!!.storename.text = it.business_name
-                _binding!!.storearea.text = it.area
+                _binding!!.Storename.text = it.business_name
+              //  _binding!!.storename2.text ="Start Shopping at "+ it.business_name
+                _binding!!.Storeaddress.text = it.address
                 setLayoutData(it)
             }
         }

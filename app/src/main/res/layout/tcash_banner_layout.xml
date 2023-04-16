@@ -35,7 +35,7 @@
                 android:text="Do more with Wallet balance"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:fontFamily="@font/tt_demibold" />
+                app:fontFamily="@font/sans_medium" />
 
             <TextView
                 android:id="@+id/discription"
@@ -44,7 +44,7 @@
                 android:text="Available balance "
                 android:textColor="@color/grey_dark"
                 android:textSize="12sp"
-                app:fontFamily="@font/tt_medium" />
+                app:fontFamily="@font/tt_regular" />
 
         </LinearLayout>
 

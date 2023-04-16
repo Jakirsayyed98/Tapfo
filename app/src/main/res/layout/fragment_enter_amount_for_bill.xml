@@ -35,8 +35,8 @@
 
                 <ImageView
                     android:id="@+id/backbtn"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_marginStart="@dimen/dp5"
                     android:src="@drawable/new_back_btn"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -53,8 +53,8 @@
                     android:layout_marginEnd="@dimen/dp10"
                     android:text="Electricity bill"
                     android:textColor="@color/white"
-                    android:textSize="17sp"
-                    app:fontFamily="@font/tt_demibold"
+                    android:textSize="16sp"
+                    app:fontFamily="@font/sans_medium"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/backbtn"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -139,7 +139,7 @@
                                     android:ellipsize="end"
                                     android:text="DTH"
                                     android:textSize="13sp"
-                                    app:fontFamily="@font/sans_medium" />
+                                    app:fontFamily="@font/tt_regular" />
 
                             </LinearLayout>
                         </LinearLayout>
@@ -151,8 +151,8 @@
                             android:gravity="end">
 
                             <ImageView
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
                                 android:layout_gravity="end"
                                 android:layout_marginLeft="@dimen/dp10"
                                 android:src="@drawable/billdesk" />
@@ -185,10 +185,9 @@
                             android:hint="Enter Amount"
                             android:inputType="number"
                             android:maxLength="10"
-                            android:textSize="16sp"
-                            android:textStyle="bold"
-                            app:cursorColor="@color/black"
                             app:fontFamily="@font/sans_medium"
+                            android:textSize="16sp"
+                            app:cursorColor="@color/black"
                             android:imeOptions="actionDone"/>
 
                     </com.google.android.material.textfield.TextInputLayout>
@@ -232,9 +231,8 @@
                     android:text="Confirm"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/sp18"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/sans_medium" />
+                    android:textSize="@dimen/sp14"
+                    app:fontFamily="@font/tt_regular" />
 
 
             </LinearLayout>

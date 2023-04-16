@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="7dp"
         tools:src="@drawable/intro_1" />
@@ -25,10 +25,10 @@
         android:layout_marginTop="5dp"
         android:ellipsize="end"
         android:maxLines="2"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         android:gravity="center"
         android:textColor="@color/black"
-        android:textSize="12sp"
+        android:textSize="14sp"
         tools:text="More" />
 
 

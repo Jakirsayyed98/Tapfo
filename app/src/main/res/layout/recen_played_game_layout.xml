@@ -76,9 +76,8 @@
                     android:text="Gummping game"
                     android:ellipsize="end"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/sp16"
-                    android:textStyle="bold"
-                    app:fontFamily="@font/sans_regular" />
+                    android:textSize="@dimen/sp14"
+                    app:fontFamily="@font/sans_medium" />
 
 
                 <TextView
@@ -88,7 +87,7 @@
                     android:gravity="start"
                     android:text="125M Plays"
                     android:textColor="@color/white"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:textSize="12sp" />
 
             </LinearLayout>

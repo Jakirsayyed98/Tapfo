@@ -26,6 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Aloo choco chips"
+            android:textSize="15sp"
             app:fontFamily="@font/sans_medium"/>
 
         <TextView
@@ -33,6 +34,7 @@
             android:layout_height="wrap_content"
             android:text="\u20B9 180"
             android:layout_marginTop="@dimen/dp5"
+            android:textSize="15sp"
             app:fontFamily="@font/sans_medium"/>
 
     </LinearLayout>
@@ -63,7 +65,7 @@
             android:textSize="14sp"
             android:paddingStart="@dimen/dp5"
             android:paddingEnd="@dimen/dp5"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
         <ImageView
             android:id="@+id/add"

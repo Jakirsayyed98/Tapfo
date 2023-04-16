@@ -12,8 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true">
 
         <androidx.core.widget.NestedScrollView
@@ -58,8 +58,8 @@
 
                         <ImageView
                             android:id="@+id/backbtn"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
                             android:layout_marginStart="@dimen/dp5"
                             android:src="@drawable/new_back_btn"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -81,7 +81,7 @@
                         android:layout_marginBottom="2dp"
                         android:text="Invite your friends\nand earn upto ₹10,000 Cashback"
                         android:textColor="@color/black"
-                        android:textSize="20sp"
+                        android:textSize="17sp"
                         app:fontFamily="@font/sans_medium" />
 
                     <TextView
@@ -95,7 +95,7 @@
                         android:text="The more you share, The more you earn"
                         android:textColor="@color/black"
                         android:textSize="12sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
 
                     <TextView
                         android:id="@+id/knowmore"
@@ -109,7 +109,6 @@
                         android:text="Know More"
                         android:textColor="@color/orange1"
                         android:textSize="14sp"
-                        android:textStyle="bold"
                         app:fontFamily="@font/sans_medium" />
 
 
@@ -161,8 +160,7 @@
                                 android:gravity="center"
                                 android:text="₹0"
                                 android:textColor="@color/green_dark"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
+                                android:textSize="16sp"
                                 app:fontFamily="@font/sans_medium" />
 
                             <TextView
@@ -172,7 +170,7 @@
                                 android:gravity="center"
                                 android:text="Total Rewards"
                                 android:textColor="@color/black"
-                                app:fontFamily="@font/sans_medium" />
+                                app:fontFamily="@font/tt_regular" />
                         </LinearLayout>
 
                         <View
@@ -195,8 +193,7 @@
                                 android:gravity="center"
                                 android:text="01"
                                 android:textColor="@color/black"
-                                android:textSize="20sp"
-                                android:textStyle="bold"
+                                android:textSize="16sp"
                                 app:fontFamily="@font/sans_medium" />
 
                             <TextView
@@ -206,7 +203,7 @@
                                 android:gravity="center"
                                 android:text="Total Invited "
                                 android:textColor="@color/black"
-                                app:fontFamily="@font/sans_medium" />
+                                app:fontFamily="@font/tt_regular" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -231,7 +228,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="My Referral Dashboard"
-                            app:fontFamily="@font/sans_medium" />
+                            app:fontFamily="@font/tt_regular" />
 
                         <ImageView
                             android:layout_width="@dimen/dp25"
@@ -265,7 +262,7 @@
                         android:text="Your refferal earnings will be credited to Tapfo Pay wallet."
                         android:textColor="@color/grey_dark"
                         android:textSize="12sp"
-                        app:fontFamily="@font/sans_medium" />
+                        app:fontFamily="@font/tt_regular" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -305,7 +302,7 @@
                         android:gravity="center"
                         android:text="Your referral code"
                         android:textColor="@color/grey_dark"
-                        android:textSize="16sp"
+                        android:textSize="15sp"
                         app:fontFamily="@font/sans_medium" />
 
                     <TextView
@@ -317,17 +314,17 @@
                         android:gravity="center"
                         android:text="tapfo081"
                         android:textAlignment="textEnd"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         app:fontFamily="@font/sans_medium"
                         tools:ignore="RtlCompat" />
 
                     <ImageView
                         android:id="@+id/codeCopied"
-                        android:layout_width="@dimen/dp60"
-                        android:layout_height="@dimen/dp40"
-                        android:padding="@dimen/dp5"
+                        android:layout_width="@dimen/dp50"
+                        android:layout_height="@dimen/dp30"
                         android:layout_gravity="center"
                         android:gravity="center"
+                        android:padding="@dimen/dp5"
                         android:src="@drawable/ic_copy_24"
                         app:tint="@color/grey_dark" />
 
@@ -350,8 +347,8 @@
                 android:text="Invite Now"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp"
-                app:fontFamily="@font/sans_medium" />
+                android:textSize="14sp"
+                app:fontFamily="@font/tt_regular" />
         </LinearLayout>
 
     </RelativeLayout>

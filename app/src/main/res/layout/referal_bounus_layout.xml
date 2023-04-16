@@ -11,8 +11,8 @@
 
     <ImageView
         android:id="@+id/aapliedicon"
-        android:layout_width="@dimen/dp60"
-        android:layout_height="@dimen/dp60"
+        android:layout_width="@dimen/dp55"
+        android:layout_height="@dimen/dp55"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/dp20" />
 
@@ -24,8 +24,8 @@
         android:layout_marginTop="@dimen/dp20"
         android:text="Wow! Referral Code Applied"
         android:textColor="@color/green_dark"
-        android:textSize="25sp"
-        app:fontFamily="@font/sans_bold" />
+        android:textSize="18sp"
+        app:fontFamily="@font/sans_medium" />
 
     <TextView
         android:layout_width="match_parent"
@@ -34,8 +34,8 @@
         android:text="Congrates!"
         android:textAlignment="center"
         android:textColor="#333739"
-        android:textSize="20sp"
-        app:fontFamily="@font/sans_medium" />
+        android:textSize="14sp"
+        app:fontFamily="@font/tt_regular" />
 
 
 </LinearLayout>

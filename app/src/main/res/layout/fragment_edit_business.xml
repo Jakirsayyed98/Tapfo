@@ -762,6 +762,7 @@
                                 android:layout_height="wrap_content"
                                 android:importantForAutofill="auto"
                                 app:fontFamily="@font/sans_medium"
+                                android:textSize="16sp"
                                 android:imeOptions="actionDone"
                                 app:cursorColor="@color/black" />
 
@@ -787,6 +788,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:fontFamily="@font/sans_medium"
+                                android:textSize="16sp"
                                 android:imeOptions="actionDone"
                                 app:cursorColor="@color/black" />
 
@@ -812,6 +814,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:fontFamily="@font/sans_medium"
+                                android:textSize="16sp"
                                 android:imeOptions="actionDone"
                                 app:cursorColor="@color/black" />
 
@@ -837,6 +840,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:fontFamily="@font/sans_medium"
+                                android:textSize="16sp"
                                 android:imeOptions="actionDone"
                                 app:cursorColor="@color/black" />
 
@@ -862,6 +866,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 app:fontFamily="@font/sans_medium"
+                                android:textSize="16sp"
                                 android:imeOptions="actionDone"
                                 app:cursorColor="@color/black" />
 

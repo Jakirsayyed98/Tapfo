@@ -20,7 +20,7 @@
         android:layout_marginTop="10dp"
         android:text="Select Address"
         android:textSize="14sp"
-        app:fontFamily="@font/sans_medium" />
+        app:fontFamily="@font/tt_regular" />
 
     <TextView
         android:id="@+id/myfulladdress"
@@ -30,7 +30,7 @@
         android:text="Select Address"
         android:textSize="13sp"
         android:textColor="@color/grey_dark"
-        app:fontFamily="@font/sans_medium" />
+        app:fontFamily="@font/tt_regular" />
 
 
 
@@ -42,6 +42,6 @@
         android:text="A detailed address will help our Delivery Partner reach your doorstep easily"
         android:textColor="@color/green_dark"
         android:textSize="12sp"
-        app:fontFamily="@font/sans_medium" />
+        app:fontFamily="@font/tt_regular" />
 
 </LinearLayout>

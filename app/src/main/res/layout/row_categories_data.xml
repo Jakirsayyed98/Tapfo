@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginTop="@dimen/dp5"
     android:padding="@dimen/dp5">
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/image"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_below="@+id/rupee"
         android:layout_marginTop="-20dp"
         android:layout_marginEnd="@dimen/dp15"
@@ -35,28 +35,27 @@
 
     <TextView
         android:id="@+id/nameTv"
-        android:layout_toStartOf="@+id/btnAdd"
-        app:fontFamily="@font/sans_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/btnAdd"
         android:layout_toEndOf="@+id/image"
+        app:fontFamily="@font/sans_medium"
         tools:text="TEST" />
 
     <TextView
         android:id="@+id/saleTv"
-        android:textSize="@dimen/sp12"
-        app:fontFamily="@font/sans_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nameTv"
         android:layout_toStartOf="@+id/btnAdd"
         android:layout_toEndOf="@+id/image"
         android:textColor="@color/grey_dark"
+        android:textSize="@dimen/sp12"
+        app:fontFamily="@font/tt_regular"
         tools:text="TEST" />
 
     <TextView
         android:id="@+id/cashbackAmountTv"
-        app:fontFamily="@font/sans_medium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/saleTv"
@@ -64,6 +63,7 @@
         android:layout_toEndOf="@+id/image"
         android:textColor="@color/orange1"
         android:textSize="@dimen/sp12"
+        app:fontFamily="@font/tt_regular"
         tools:text="TEST" />
 
 
@@ -78,10 +78,10 @@
         android:gravity="center"
         android:minWidth="@dimen/dp50"
         android:paddingStart="@dimen/dp10"
-        app:fontFamily="@font/sans_medium"
         android:paddingEnd="@dimen/dp10"
         android:text="Add"
         android:textColor="@color/white"
-        android:textSize="@dimen/sp10" />
+        android:textSize="@dimen/sp10"
+        app:fontFamily="@font/tt_regular" />
 
 </RelativeLayout>

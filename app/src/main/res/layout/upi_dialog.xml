@@ -42,7 +42,7 @@
                 android:text="Copy"
                 android:textAllCaps="false"
                 app:drawableTint="@color/black"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/searchtext"
@@ -59,7 +59,7 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:drawableTint="@color/white"
-                app:fontFamily="@font/sans_medium" />
+                app:fontFamily="@font/tt_regular" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

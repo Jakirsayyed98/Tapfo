@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="number"
                 android:maxLength="10"
-                app:fontFamily="@font/tt_medium"
+                app:fontFamily="@font/sans_medium"
                 android:imeOptions="actionDone"
                 android:textSize="16sp"
                 app:cursorColor="@color/black" />

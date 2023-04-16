@@ -26,13 +26,13 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="Pending Reward Policy"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:layout_weight="1"
-            app:fontFamily="@font/sans_bold" />
+            app:fontFamily="@font/sans_medium" />
 
         <ImageView
-            android:layout_width="@dimen/dp45"
-            android:layout_height="@dimen/dp45"
+            android:layout_width="@dimen/dp40"
+            android:layout_height="@dimen/dp40"
             android:src="@drawable/running_t_icon"/>
 
     </LinearLayout>
@@ -44,7 +44,7 @@
         app:fontFamily="@font/sans_medium"
         android:text="Mini Save"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/discriptionTV2"
@@ -54,7 +54,7 @@
         android:text="Your pending rewards will be validated on your next recharge payment."
         android:textColor="@color/black"
         app:fontFamily="@font/tt_regular"
-        android:textSize="14sp" />
+        android:textSize="13sp" />
 
  <TextView
         android:layout_width="match_parent"
@@ -63,7 +63,7 @@
         app:fontFamily="@font/sans_medium"
         android:text="Recharge"
         android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/discriptionTV1"
@@ -73,7 +73,7 @@
         android:text="Your pending rewards will be validated on your next recharge payment."
         android:textColor="@color/black"
         app:fontFamily="@font/tt_regular"
-        android:textSize="14sp" />
+        android:textSize="13sp" />
 
 
     <androidx.appcompat.widget.AppCompatButton
@@ -88,6 +88,6 @@
         android:text="Okay, Got it"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:fontFamily="@font/sans_medium" />
+        app:fontFamily="@font/tt_regular" />
 
 </LinearLayout>

@@ -9,7 +9,7 @@ data class BusinessUserItemDetail(
     val ean: String,
     val food_type: String,
     val id: String,
-    val image: Any,
+    val image: String,
     val mrp: String,
     val name: String,
     val price: String,

@@ -39,6 +39,6 @@
             android:text="Min Order Value ₹400"
             android:textColor="@color/grey_dark"
             android:textSize="11sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
     </LinearLayout>
 </LinearLayout>

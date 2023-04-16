@@ -11,7 +11,7 @@
     android:minWidth="@dimen/dp80"
     android:paddingStart="@dimen/dp5"
     android:paddingEnd="@dimen/dp5"
-    app:fontFamily="@font/sans_medium"
+    app:fontFamily="@font/tt_regular"
     android:textColor="@drawable/selector_category_tab_text"
     android:textSize="@dimen/sp12">
 

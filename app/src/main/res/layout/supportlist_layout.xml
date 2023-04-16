@@ -31,7 +31,7 @@
             android:layout_height="wrap_content"
             android:text="Create Ticket "
             android:textSize="16sp"
-            app:fontFamily="@font/sans_bold" />
+            app:fontFamily="@font/sans_medium" />
 
         <TextView
             android:id="@+id/discription"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="Raise tickets related to refund, cashback missing,\norder transcation or any general issues. "
             android:textSize="10sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
     </LinearLayout>
 
 

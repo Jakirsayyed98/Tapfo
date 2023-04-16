@@ -13,8 +13,8 @@
 
     <ImageView
         android:id="@+id/iv_partner"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:layout_weight="1"
         tools:src="@drawable/intro_1" />
 
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         android:layout_marginTop="@dimen/dp5"
         android:textSize="8sp"
         tools:text="Dominoes"

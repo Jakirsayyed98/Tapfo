@@ -120,8 +120,8 @@
             android:hint="Enter EAN Number to add product"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
-            android:textSize="14sp"
-            app:fontFamily="@font/tt_regular"
+            app:fontFamily="@font/sans_medium"
+            android:textSize="16sp"
             android:textColorHint="@color/white" />
 
         <ImageView

@@ -41,7 +41,7 @@
             android:text=" stay tuned, Special Vouchers will be unlocked here."
             android:textColor="#565656"
             android:textSize="12sp"
-            app:fontFamily="@font/sans_medium" />
+            app:fontFamily="@font/tt_regular" />
 
 
         <LinearLayout
@@ -90,8 +90,8 @@
 
             <ImageView
                 android:id="@+id/backbtn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_marginStart="@dimen/dp5"
                 android:src="@drawable/new_back_btn"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -109,7 +109,7 @@
                 android:text=""
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                app:fontFamily="@font/tt_medium"
+                app:fontFamily="@font/sans_medium"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/backbtn"
                 app:layout_constraintTop_toTopOf="parent" />

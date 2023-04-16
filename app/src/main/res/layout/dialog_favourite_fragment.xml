@@ -17,15 +17,15 @@
         android:layout_marginEnd="@dimen/dp10" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:visibility="gone"
         android:id="@+id/shimmer_view_container"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <LinearLayout
-            android:layout_margin="@dimen/dp5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5"
             android:orientation="vertical">
 
             <include layout="@layout/row_categories_data_simmerview" />

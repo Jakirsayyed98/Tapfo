@@ -28,9 +28,8 @@
         android:paddingStart="@dimen/dp20"
         android:paddingEnd="@dimen/dp10"
         android:text="@string/tapfominis"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:fontFamily="@font/tt_demibold" />
+        android:textSize="16sp"
+        app:fontFamily="@font/sans_medium" />
 
     <TextView
         android:layout_width="match_parent"

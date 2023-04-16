@@ -28,7 +28,7 @@
             android:ellipsize="end"
             android:layout_weight="1"
             android:layout_gravity="center_vertical"
-            app:fontFamily="@font/sans_medium"
+            app:fontFamily="@font/tt_regular"
             android:layout_marginLeft="@dimen/dp10"
             android:gravity="center_vertical"/>
 

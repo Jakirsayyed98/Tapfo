@@ -37,7 +37,7 @@
                 android:text="Enjoy Superapp-like experience"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                app:fontFamily="@font/sans_bold" />
+                app:fontFamily="@font/sans_medium" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="wrap_content"
@@ -86,7 +86,7 @@
                     android:gravity="center"
                     android:text="It’s super Fast"
                     android:textColor="@color/grey_dark"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:layout_gravity="center"
                     android:textSize="14sp" />
             </LinearLayout>
@@ -110,7 +110,7 @@
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:text="Easy To Access"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:textColor="@color/grey_dark"
                     android:textSize="14sp"  />
             </LinearLayout>
@@ -131,7 +131,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/dp10"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:text="Save Space"
@@ -159,7 +159,7 @@
                     android:gravity="center"
                     android:layout_gravity="center"
                     android:text="Enjoy Extra Cashback too!"
-                    app:fontFamily="@font/sans_medium"
+                    app:fontFamily="@font/tt_regular"
                     android:textColor="@color/grey_dark"
                     android:textSize="14sp"  />
             </LinearLayout>

@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/backIv"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
             android:layout_marginStart="@dimen/dp5"
             android:src="@drawable/new_back_btn"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -36,8 +36,8 @@
             android:paddingStart="@dimen/dp10"
             android:text=""
             android:textColor="@color/black"
-            android:textSize="18sp"
-            app:fontFamily="@font/sans_medium"
+            android:textSize="14sp"
+            app:fontFamily="@font/tt_regular"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/backIv"
             app:layout_constraintTop_toTopOf="parent" />

@@ -888,7 +888,7 @@ fun OfflineCacheInterceptor(): Interceptor {
 
 fun getCartIdRandom():String{
     val charset =('A'..'Z') + ('0'..'9')
-    val randomString = List(12) { charset.random() }.joinToString("")
+    val randomString = List(8) { charset.random() }.joinToString("")
     return randomString
 }
 

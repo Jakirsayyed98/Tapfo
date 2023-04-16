@@ -45,7 +45,7 @@
         android:layout_toStartOf="@+id/earnNow"
         android:textColor="@color/grey_dark"
         android:textSize="@dimen/sp10"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         tools:text="Earn Upto 12% Cashback" />
 
 
@@ -66,7 +66,7 @@
         android:paddingEnd="@dimen/dp10"
         android:text="Earn Now"
         android:textColor="@color/white"
-        app:fontFamily="@font/sans_medium"
+        app:fontFamily="@font/tt_regular"
         android:textSize="@dimen/sp12" />
 
 </RelativeLayout>

@@ -10,7 +10,7 @@
     android:textSize="12sp"
     android:text="@string/Cashback"
     android:layout_marginTop="@dimen/dp5"
-    app:fontFamily="@font/tt_medium"
+    app:fontFamily="@font/tt_regular"
     android:padding="7dp"
     android:textColor="@drawable/selector_tab_tcashbackcategory_text">
 

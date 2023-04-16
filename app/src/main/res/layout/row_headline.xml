@@ -58,7 +58,7 @@
                     android:ellipsize="end"
                     android:text="@string/explore_more_categories"
                     android:textSize="11sp"
-                    app:fontFamily="@font/sans_regular" />
+                    app:fontFamily="@font/tt_regular" />
 
             </LinearLayout>
 
